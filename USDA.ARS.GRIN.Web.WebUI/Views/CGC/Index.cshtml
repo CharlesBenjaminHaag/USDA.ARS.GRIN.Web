@@ -1,0 +1,485 @@
+﻿@model List<USDA.ARS.GRIN.Web.Models.CropGermplasmCommittee>
+@{
+    ViewBag.Title = "CGC";
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fh-3.1.4/r-2.2.2/rr-1.2.4/sl-1.2.6/datatables.min.css" />
+<link rel="stylesheet" href="https://gyrocode.github.io/jquery-datatables-checkboxes/1.2.10/css/dataTables.checkboxes.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fh-3.1.4/r-2.2.2/rr-1.2.4/sl-1.2.6/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+<!-- DOCUMENTS -->
+<style>
+    .resource {
+        margin: 0;
+        margin-bottom: 20px;
+        -webkit-flex-basis: calc(50% - 20px);
+        -ms-flex-preferred-size: calc(50% - 20px);
+        flex-basis: calc(50% - 20px);
+        position: relative;
+        width: 100%;
+        height: 64px;
+        background: #F3F3F3;
+        margin: 10px 0;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .resources__cat__list {
+        max-width: 680px;
+        margin: 0 auto;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+</style>
+
+@*<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js"></script>*@
+<script type="text/javascript" src="//cdn.datatables.net/plug-ins/1.10.11/sorting/date-eu.js"></script>
+
+<div class="usa-overlay"></div>
+
+@Html.Partial("~/Views/Shared/_Banner.cshtml")
+
+<!-- BREADCRUMBS -->
+<div class="usda-breadcrumb-with-sidebar">
+    <div id="block-usda-breadcrumbs" class="usda-block usda-breadcrumb">
+        <nav class="usa-grid" aria-label="Breadcrumb">
+            <ol class="usda-breadcrumb-list">
+                <li class="usda-breadcrumb-item">
+                    <a href="@Url.Action("Index","Home")" class="no-ext-icon">GRIN Home</a>
+                </li>
+                <li class="usda-breadcrumb-item">
+                    Crop Germplasm Committees
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main id="main-content" class="usa-section usa-content usa-layout-docs with-breadcrumb with-sidebar with-hero">
+    <div id="block-usda-page-title" class="usda-block usda-page-title-block usda-page-title-block-with-hero">
+        <h1 class="usda-page-title usda-page-title-with-hero"><span class="usda-page-title--main">GRIN </span><span class="usda-page-title--sub">NGRAC</span></h1>
+    </div>
+    <div class="usa-layout-docs-main_content">
+        <aside class="usa-layout-docs-sidenav">
+            @Html.Partial("~/Views/Shared/_LeftNavSearch.cshtml")
+            @Html.Partial("~/Views/Shared/_LeftNavCGC.cshtml")
+        </aside>
+        <div id="block-usda-content" class="usda-block block-usda-content">
+            <div>
+                <h3 id="section-overview">Overview</h3>
+                <div class="section-lead-paragraph">
+                    The <strong>Crop Germplasm Committees (CGC)</strong> are comprised of a cross section of NPGS users who provide technical support to NPGS
+                    genebanks and collections. They serve as subject matter experts to guide curatorial staff on best practices, including the
+                    priorities and techniques for characterizing the collections. They also help review proposals that fund plant explorations
+                    and evaluation grants for scientific rigor.
+                </div>
+                <div class="section-paragraph">
+                    There are currently <a href="#section-cgc-directory">@Model.Count()</a> CGCs representing almost all major and minor crops of economic importance in the U.S. Each committee
+                    includes a chair and members from government agencies, universities, and commercial interests who volunteer their time and
+                    expertise to support the NPGS.
+                </div>
+
+                <!-- "SEARCHING...PLEASE WAIT OVERLAY -->
+                <div id="wait" style="display:none;  background-color: black;  position: fixed;  top: 0; right: 0; bottom: 0; left: 0;  opacity: 0.2; /* also -moz-opacity, etc. */  z-index: 10;">
+                    <img src="~/Images/giphy.gif" style="position: absolute; top: 50%; left: 50%; width: 300px; height: 300px; margin-top: -250px; /* Half the height */  margin-left: -250px; /* Half the width */" />
+                </div>
+
+                <h4 style="margin:0px;">Documents</h4>
+                <table class="usa-table-borderless" style="margin:0px;">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Summary</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="https://www.ars-grin.gov/npgs/cgc_reports/2019_CGC_Roles_and_Responsibilities_26_July_2019.doc">Roles and Responsibilities</a>
+                            </td>
+                            <td>Additional information about CGC organization and function.</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://www.ars-grin.gov/npgs/cgc_reports/Crop_Vulnerability_Statement_Outline.doc">Crop Vulnerability Statement Outline</a></td>
+                            <td>A guide to the format and content of Crop Vulnerability Statements.</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 id="section-meeting-dates-and-locations">Meeting Dates and Locations</h3>
+                <div class="section-paragraph">
+                    <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%230071bc&amp;ctz=America%2FNew_York&amp;src=dXNkYS5hcnMubmdybC5kYm11QGdtYWlsLmNvbQ&amp;color=%23039BE5" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                </div>
+
+                <h3 id="section-cgc-directory">CGC Directory</h3>
+                <div class="dataTables_wrapper no-footer">
+
+                    <ul class="usa-accordion-bordered" style="width:100%;">
+                        @foreach (var result in Model)
+                        {
+                            <li>
+                                <button class="usa-accordion-button" style="background-color:darkgray;" id="button-@result.ID" aria-expanded="false" aria-controls="control-@result.ID">@result.Name</button>
+                                <div class="usa-accordion-content" id="control-@result.ID" aria-hidden="true">
+                                    <div class="usa-width-one-whole">
+                                        <a href="@result.RosterURL">Committee Roster</a>
+                                        @if (result.CropDescriptors.Count() > 0)
+                                        {
+                                            <h5 style="margin-top:15px;">Crop Descriptors</h5>
+                                            foreach (var cropDescriptor in result.CropDescriptors)
+                                            {
+                                                <span class="badge badge-dark" style="font-size:.9em; color:white; padding:8px;">
+                                                    <a href="https://npgsweb.ars-grin.gov/gringlobal/cropdetail.aspx?type=descriptor&id=@cropDescriptor.CropID" style="color:white;">@cropDescriptor.CropName</a>
+                                                </span>
+                                            }
+                                        }
+                                    </div>
+                                    <div class="usa-width-one-whole">
+                                        <h5 style="margin-top:15px;">Documents</h5>
+                                        <div class="row">
+                                            @foreach (var item in result.Documents)
+                                            {
+                                                <div class="usa-width-one-third">
+                                                    <table border="0" style="border:none; margin:10px;">
+                                                        <tr>
+                                                            <td style="background-color:#0071bc; color:white; font-size:.8em; border:none; width:15%; font-weight:bold; font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif; text-transform:uppercase;">
+                                                                doc
+                                                            </td>
+                                                            <td style="background-color:#dfdfdf;color:#0071bc; font-size:.7em; border:none; width: 385px;">
+                                                                <a href="@item.URL" target="_blank" style="color:#0071bc;">@item.Title</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+
+                </div>
+
+                <h3 id="section-annual-cgc-chair-briefings">Annual CGC Chair Briefings</h3>
+
+                <ul class="usa-accordion-bordered">
+                    <li>
+                        <button class="usa-accordion-button" style="background-color:darkgray;" id="button-mtg-2019" aria-expanded="false" aria-controls="control-mtg-2019">2019</button>
+                        <div class="usa-accordion-content" id="control-mtg-2019" aria-hidden="true">
+                            <dl>
+                                <dd>
+                                    <a href="https://www.cloud.ars-grin.gov/npgs/cgc_reports/cgc_webinar_briefings_2019mar25.pdf">2019 Meeting Briefing</a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="usa-accordion-button" style="background-color:darkgray;" id="button-mtg-2018" aria-expanded="false" aria-controls="control-mtg-2018">2018</button>
+                        <div class="usa-accordion-content" id="control-mtg-2018" aria-hidden="true">
+                            <dl>
+                                <dd><a href="https://www.cloud.ars-grin.gov/npgs/cgc_reports/cgc_webinar_briefings_2018jan25.pdf">2018 Meeting Briefing</a></dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="usa-accordion-button"
+                                style="background-color:darkgray;"
+                                id="button-mtg-2016"
+                                aria-expanded="false"
+                                aria-controls="control-mtg-2016">
+                            2016
+                        </button>
+                        <div class="usa-accordion-content"
+                             id="control-mtg-2016"
+                             aria-hidden="true">
+                            <dl>
+                                <dd>
+                                    <a href="https://www.cloud.ars-grin.gov/npgs/cgc_reports/cgc2016chairs.pdf">2016 Meeting Briefing</a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="usa-accordion-button"
+                                style="background-color:darkgray;"
+                                id="button-mtg-2015"
+                                aria-expanded="false"
+                                aria-controls="control-mtg-2015">
+                            2015
+                        </button>
+                        <div class="usa-accordion-content"
+                             id="control-mtg-2015"
+                             aria-hidden="true">
+                            <dl>
+                                <dd>
+                                    <a href="https://www.cloud.ars-grin.gov/npgs/cgc_reports/cgc2015chairs.pdf">2015 Meeting Briefing</a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="usa-accordion-button"
+                                style="background-color:darkgray;"
+                                id="button-mtg-2014"
+                                aria-expanded="false"
+                                aria-controls="control-mtg-2014">
+                            2014
+                        </button>
+                        <div class="usa-accordion-content"
+                             id="control-mtg-2014"
+                             aria-hidden="true">
+                            <dl>
+                                <dd>
+                                    <a href="https://www.cloud.ars-grin.gov/npgs/cgc_reports/cgc2014chairs.pdf">2014 Meeting Briefing</a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="usa-accordion-button"
+                                style="background-color:darkgray;"
+                                id="button-mtg-2013"
+                                aria-expanded="false"
+                                aria-controls="control-mtg-2013">
+                            2013
+                        </button>
+                        <div class="usa-accordion-content"
+                             id="control-mtg-2013"
+                             aria-hidden="true">
+                            <dl>
+                                <dd>
+                                    <a href="npgs/cgc_reports/cgc2013chairsNGRL.pptx">
+                                        2013 CGC Chair NGRL Presentation
+                                        - Gary Kinard
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="npgs/cgc_reports/cgc2013chairsONP.pptx">
+                                        2013 CGC Chair ONP Presentation
+                                        - Peter Bretting
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="npgs/cgc_reports/cgc2013chairsPEO.pptx">
+                                        2013 CGC Presentation Plant
+                                        Exploration/Exchange Office - Ned Garvey & Karen Williams
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="npgs/cgc_reports/cgc2013chairsNCGRP.pptx">
+                                        2013 NCGRP Presentation
+                                    </a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="usa-accordion-button"
+                                style="background-color:darkgray;"
+                                id="button-mtg-2012"
+                                aria-expanded="false"
+                                aria-controls="control-mtg-2012">
+                            2012
+                        </button>
+                        <div class="usa-accordion-content"
+                             id="control-mtg-2012"
+                             aria-hidden="true">
+                            <dl>
+                                <dd>
+                                    <a href="npgs/cgc_reports/ngrl_briefing.ppt">
+                                        2012 CGC Chair NGRL Presentation - Gary Kinard
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/onp_briefing.ppt">
+                                        2012 CGC Chair ONP  Presentation - Peter Bretting
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/peo_briefing.ppt">
+                                        2012 CGC Presentation Plant Exploration/Exchange Office - Ned Garvey & Karen Williams
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/cwr_briefing.doc">
+                                        2012 CGC Presentation Crop Wild Relative Project - John Wiersema
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/gringlobal_briefing.ppt">
+                                        2012 CGC GRIN Global Presentation - Gary Kinard & Marty Reisinger
+                                    </a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="usa-accordion-button"
+                                style="background-color:darkgray;"
+                                id="button-mtg-2011"
+                                aria-expanded="false"
+                                aria-controls="control-mtg-2011">
+                            2011
+                        </button>
+                        <div class="usa-accordion-content"
+                             id="control-mtg-2011"
+                             aria-hidden="true">
+                            <dl>
+                                <dd>
+                                    <a href="npgs/cgc_reports/garycgc2011.ppt">
+                                        2011 CGC Chair Meeting Agenda and NGRL Presentation - Gary Kinard
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/nedcgc2011.ppt">
+                                        Plant Exploration/Exchange Office - Ned Garvey
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/karencgc2011.ppt">
+                                        The NPGS Plant Exploration/Exchange Program - Karen Williams
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/taxcgc2011.doc">
+                                        GRIN Crop Wild Relative Project - John Wiersema
+                                    </a>
+                                </dd>
+                            </dl>
+
+
+                        </div>
+                    </li>
+                    <li>
+                        <button class="usa-accordion-button"
+                                style="background-color:darkgray;"
+                                id="button-mtg-2010"
+                                aria-expanded="false"
+                                aria-controls="control-mtg-2010">
+                            2010
+                        </button>
+                        <div class="usa-accordion-content"
+                             id="control-mtg-2010"
+                             aria-hidden="true">
+
+                            <dl>
+                                <dd>
+                                    <a href="npgs/cgc_reports/cgcfinalagenda2010.doc">
+                                        2010 CGC Chair Meeting Agenda
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/cgcrole.ppt">
+                                        CGC Roles & Responsibilities - Mark Bohning
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/s92010.ppt">
+                                        Curator and CGC Interactions - Gary Pederson
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/cor2010.ppt">
+                                        Clonal Curator and CGC Interactions - Kim Hummer
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/nsslellis.ppt">
+                                        NCGRP and CGC Interactions - Dave Ellis
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/gg2010.ppt">
+                                        GRIN Global Demo & Discussion - Gary Kinard, Mark Bohning, Marty Reisinger
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/nps2010.ppt">
+                                        NPGS 2010 Status and Prospects - Peter Bretting
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/peo2010.pdf">
+                                        The NPGS Plant Exploration/Exchange Program - Karen Williams
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/tax2010.ppt">
+                                        GRIN Crop Wild Relative Project - John Wiersema
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/nssl2010.ppt">
+                                        National Center for Genetic Resources Preservation Update - Dave Dierig
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/canada10.ppt">
+                                        Canadian Genetic Resources Program Emphasis on Plants - Ken Richards
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="npgs/cgc_reports/mexico10.ppt">
+                                        Plant Genetic Resources in Mexico: The Perennial Crops Connection - Candelario Mondragon
+                                    </a>
+                                </dd>
+                            </dl>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#tbl-cgc-meetings').DataTable(
+            {
+                "columnDefs": [
+                    { "type": "date", "targets": [1, 2] }
+                ],
+                "searching": false,
+                "paging": false,
+                "ordering": true,
+                "order": [[1, 'desc']]
+            });
+    });
+</script>

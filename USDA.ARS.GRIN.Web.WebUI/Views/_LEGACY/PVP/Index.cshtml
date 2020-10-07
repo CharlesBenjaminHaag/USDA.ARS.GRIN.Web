@@ -1,0 +1,72 @@
+﻿@model USDA.ARS.GRIN.Web.WebUI.ViewModels.PVPIndexViewModel
+@{
+    ViewBag.Title = "PVPSearch";
+}
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <main class="usa-grid usa-section usa-content usa-layout-docs">
+        <div>
+            <a href="https://npgsdev.ars-grin.gov/GRINWeb">GRIN Home</a> | PVP Certificate Status Database
+        </div>
+
+        <div style="clear:both;">
+            <hr />
+        </div>
+
+        <div class="usa-width-one-whole usa-layout-docs-main_content">
+            <h3>PVP Certificate Status Database</h3>
+            <p>
+                Use this resource to look up the PVP certificate status of crop varieties using search criteria, or the browse feature below. This tool is in support of the <a href="https://www.ams.usda.gov/services/plant-variety-protection">Plant Variety Protection</a> program of the <a href="https://www.ams.usda.gov/">Agricultural Marketing Service (AMS)</a>.
+            </p>
+           
+            <div class="row" style="background-color: #aeb0b5; padding:0px;">
+                <div class="col-lg-12" style="padding:10px; margin:1px;">
+                    <button class="btn btn-primary pull-right" style="margin:0px;" onclick="location.href='@Url.Action("Search","PVP")'">Advanced Search</button>
+                </div>
+            </div>
+
+            <!-- DEBUG VIEW 1 -->
+            <div class="row">
+                <div id="left-nav" class="col-lg-3" style="overflow-y:scroll;height:500px;">
+                    @foreach (var crop in Model.Crops)
+                    {
+                        <input type="button" value="@crop.PVPCropDescription" id="@crop.PVPCropID" class="btn btn-info btn-block" style="font-size:small; overflow-wrap: break-word; white-space: normal;" />
+                    }
+                </div>
+                <div class="col-lg-9">
+                    <div id="pvp_detail-container"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+<script type="text/javascript">
+
+    // ===============================================================================================
+    // On page load, obtain the ID of the first selector button; display data for that record.
+    // ===============================================================================================
+    var firstNavButtonValue = $("div.col-lg-3 input:first-child").val();
+    var url = '@Url.Action("Detail","PVP")';
+
+    $.post(url, { pvpCropDesc: firstNavButtonValue })
+        .done(function (response) {
+        $("#pvp_detail-container").html(response);
+    });
+
+    // ===============================================================================================
+    // Load detail view when crop indicator is clicked.
+    // ===============================================================================================
+    $("input").click(function () {
+
+        var url = '@Url.Action("Detail","PVP")';
+        var id = $(this).attr("id");
+        var name = $(this).val();
+
+        $.post(url, { pvpCropDesc: name })
+            .done(function (response) {
+            $("#pvp_detail-container").html(response);
+        });
+    });
+</script>

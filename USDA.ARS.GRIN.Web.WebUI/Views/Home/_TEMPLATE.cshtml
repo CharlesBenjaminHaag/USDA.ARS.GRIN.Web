@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "_TEMPLATE";
+}
+
+    <main class="usa-grid usa-section usa-content usa-layout-docs">
+        <div>
+            <a href="/">GRIN Home</a> | LINK 1 | THIS PAGE
+        </div>
+
+        <div style="clear:both;">
+            <hr />
+        </div>
+
+        @Html.Partial("~/Views/Shared/_LeftNav.cshtml")
+
+    <div class="usa-width-three-fourths usa-layout-docs-main_content">
+        <h3>Title</h3>
+        <p>Content</p>
+
+        <h3>ACCORDION TEMPLATE</h3>
+
+        <!-- BEGIN ACCORDION -->
+        <div class="panel-group" id="accordionCity">
+            <div class="panel panel-primary" id="nested165884">
+                <div class="panel-heading panel-primary">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionCity" href="#collapse165884" style="color:white;">
+                            TITLE
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse165884" class="panel-collapse collapse">
+                    <div class="panel-body" style="padding:0px;">
+                        <div class="accordion-sub-heading">
+                            <p>
+                                SUB-HEADING
+                            </p>
+                        </div>
+                        <p>MAIN CONTENT</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END ACCORDION -->
+
+
+    </div>
+
+        
+
+    </main>
+
+
+

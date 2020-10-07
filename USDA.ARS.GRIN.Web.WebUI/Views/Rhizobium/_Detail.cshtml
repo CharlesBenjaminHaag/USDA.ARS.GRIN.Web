@@ -1,0 +1,57 @@
+﻿@model USDA.ARS.GRIN.Web.WebUI.ViewModels.RhizobiumDetailViewModel
+@using (Html.BeginForm("ExportToExcel", "Rhizobium", FormMethod.Post))
+{
+    <div style="margin-right:0px; margin-top:35px; margin-bottom:0px; padding-right:0px; padding-bottom:5px;">
+        <a href="#" style="font-size: 2.50rem; font-weight:bold; text-decoration:none; cursor:none; padding-left:0px; margin-left:0px;">@Model.HostPlantName (@Model.RhizobiumDescriptors.Count)</a>
+    </div>
+
+    <div class="search-results-container-grid">
+        <table id="example" class="pvp-application-table" style="width:100%; margin-top:0px;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>USDA Accession</th>
+                    <th>Synonym 1</th>
+                    <th>Synonym 2</th>
+                    <th>Synonym 3</th>
+                    <th>Synonym 4</th>
+                    <th>Host Plant</th>
+                    <th>Common Name</th>
+                    <th>Source</th>
+                    <th>GEO Source</th>
+                    <th>Serogroup</th>
+                    <th>Hosts Nodules</th>
+                    <th>Comments</th>
+                    <th>Genus SPP</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.RhizobiumDescriptors != null)
+                {
+                    if (Model.RhizobiumDescriptors.Count() > 0)
+                    {
+                        foreach (var result in Model.RhizobiumDescriptors)
+                        {
+                    <tr>
+                        <td>@result.RhyID</td>
+                        <td>@result.USDAAccession</td>
+                        <td>@result.Synonym1</td>
+                        <td>@result.Synonym2</td>
+                        <td>@result.Synonym3</td>
+                        <td>@result.Synonym4</td>
+                        <td>@result.HostPlant</td>
+                        <td>@result.CommonName</td>
+                        <td>@result.Source</td>
+                        <td>@result.GeoSource</td>
+                        <td>@result.SeroGroup</td>
+                        <td>@result.HostsNodu</td>
+                        <td>@result.Comments</td>
+                        <td>@result.GenusSPP</td>
+                    </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+}

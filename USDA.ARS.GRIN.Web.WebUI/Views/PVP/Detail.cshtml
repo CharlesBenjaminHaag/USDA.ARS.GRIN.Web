@@ -1,0 +1,124 @@
+﻿@model USDA.ARS.GRIN.Web.WebUI.ViewModels.PVPDetailViewModel 
+
+<div style="padding:5px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif">
+    <div class="usa-width-one-whole">
+
+        <table id="tbl-cgc-meetings-@Model.CropID" class="pvp-application-table" style="width:100%" border="1px solid #323a45;">
+           
+
+                <thead>
+                    <tr>
+                        <th>PVP No.</th>
+                        <th>Applicant Name</th>
+                        <th>Variety (Cultivar)</th>
+                        <th>Expiration Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var result in Model.Applications)
+                    {
+                        string displayExpirationDate = String.Empty;
+
+                        if (result.ExpirationDate != null && result.ExpirationDate != DateTime.MinValue) 
+                        {
+                            displayExpirationDate = result.ExpirationDate.ToShortDateString();
+                        }
+                        
+                        <tr>
+                            <td>
+                                <a href="@Url.Action("Summary", "PVP", new { pvNumber = result.ApplicationNumber })">@result.ApplicationNumber</a>
+                            </td>
+                            <td>@result.ApplicantName</td>
+                            <td>@result.CultivarName</td>
+                            <td>@displayExpirationDate</td>
+                            <td>
+                                <span class="@Model.GetApplicationStatusCSSClass(result.ApplicationStatus) pull-right">
+
+                                    <a href="@result.CertificateURL" style="color:white;">@result.ApplicationStatus</a>
+
+                                </span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+    </div>
+</div>
+
+
+@*<ul class="usa-accordion-bordered">
+        @foreach (var result in Model.PVPCertificateRecords)
+        {
+            <li>
+                <button class="usa-accordion-button" style="background-color:darkgray;" id="button-@result.PVPOCatalogID" aria-expanded="false" aria-controls="control-@result.PVPOCatalogID">@result.TaxonomyDescription (@result.VarietyDescription)</button>
+                <div class="usa-accordion-content" id="control-@result.PVPOCatalogID" style="padding:15px; border:none; background-color:#323a45; color:white;" aria-hidden="true">
+                    <div style="text-align:right;">
+                        <span class="@Model.GetApplicationStatusCSSClass(result.ApplicationStatusDescription) pull-right">@result.ApplicationStatusDescription</span>
+                        <span style="font-size:75%;">
+                            @if (Model.GetCertificateURL(result.PVNUmber, result.ApplicationStatusDescription) != String.Empty)
+                            {
+                                <a href="@Model.GetCertificateURL(result.PVNUmber, result.ApplicationStatusDescription)"  style="color:white;" class="pull-right">[View]</a>
+                            }
+                        </span>
+                    </div>
+                    <div class="usa-width-one-whole">
+                        <div class="usa-width-one-sixth"><strong>PVP No.</strong></div>
+                        <div class="usa-width-one-fourth">@result.PVNUmber</div>
+                        <div class="usa-width-one-sixth"><strong>Variety</strong></div>
+                        <div class="usa-width-one-fourth">@result.VarietyDescription</div>
+                    </div>
+                    <div class="usa-width-one-whole">
+                        <div class="usa-width-one-sixth"><strong>Applicant</strong></div>
+                        <div class="usa-width-one-fourth">@result.ApplicantOwnerName F</div>
+                        <div class="usa-width-one-sixth" style="text-align:left;"><strong>Date</strong></div>
+                        <div class="usa-width-one-fourth" style="margin-left:5px; text-align:left;">@result.ApplicationDate.ToShortDateString()</div>
+                    </div>
+                    <div class="usa-width-one-whole">
+                        <div class="usa-width-one-sixth" style="text-align:left;"><strong>Taxon</strong></div>
+                        <div class="usa-width-one-half" style="text-align:left;">@result.TaxonomyDescription</div>
+                    </div>
+                </div>
+            </li>
+
+            <div class="panel panel-default accordion-heading-dark" style="background-color:#aeb0b5; " id="nested@(result2.PVPOCatalogID)">
+                <div class="panel-heading panel-default accordion-heading-dark" style="background-color:#aeb0b5; color:black;">
+                    <h4 class="panel-title" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionCity" href="#collapse@(result2.PVPOCatalogID)">
+                            @result2.TaxonomyDescription (@result2.VarietyDescription)
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse@(result2.PVPOCatalogID)" class="panel-collapse collapse">
+                    <div class="panel-body" style="padding:10px; background-color:#323a45; color:white; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <span class="@Model.GetApplicationStatusCSSClass(result2.ApplicationStatusDescription) pull-right">@result2.ApplicationStatusDescription</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"><strong>PVP No.</strong></div>
+                            <div class="col-md-4"><span class="badge">@result2.PVNUmber</span></div>
+                            <div class="col-md-2"><strong>Variety</strong></div>
+                            <div class="col-md-4">@result2.VarietyDescription</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"><strong>Taxon</strong></div>
+                            <div class="col-md-4">@result2.TaxonomyDescription</div>
+                            <div class="col-md-2"><strong>Applicant</strong></div>
+                            <div class="col-md-4">@result2.ApplicantOwnerName</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                @if (Model.GetCertificateURL(result2.PVNUmber, result2.ApplicationStatusDescription) != String.Empty)
+                                {
+                                    <a href="@Model.GetCertificateURL(result2.PVNUmber, result2.ApplicationStatusDescription)"  style="color:white;" class="pull-right">View Certificate</a>
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </ul>*@

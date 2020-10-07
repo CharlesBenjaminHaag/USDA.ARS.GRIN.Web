@@ -1,0 +1,183 @@
+﻿@model USDA.ARS.GRIN.Web.WebUI.ViewModels.PVPHomeViewModel
+@{
+    ViewBag.Title = "PVPSearch";
+}
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<style>
+    table {
+        border: none;
+    }
+
+        table th {
+            background-color: #0071bc;
+            color: white;
+        }
+
+        table td {
+            background-color: #dfdfdf;
+            color: black;
+        }
+</style>
+
+<div class="usa-overlay"></div>
+
+@Html.Partial("~/Views/Shared/_Banner.cshtml")
+
+<!-- BREADCRUMBS -->
+<div class="usda-breadcrumb-with-sidebar">
+    <div id="block-usda-breadcrumbs" class="usda-block usda-breadcrumb">
+        <nav class="usa-grid" aria-label="Breadcrumb">
+            <ol class="usda-breadcrumb-list">
+                <li class="usda-breadcrumb-item">
+                    <a href="@Url.Action("Index", "Home")" class="no-ext-icon">GRIN Home</a>
+                </li>
+                <li class="usda-breadcrumb-item">
+                    <a href="@Url.Action("Collections","Pages")" class="no-ext-icon">Collections</a>
+                </li>
+                <li class="usda-breadcrumb-item">
+                    PVP
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main id="main-content" class="usa-section usa-content usa-layout-docs with-breadcrumb with-sidebar with-hero">
+    <div id="block-usda-page-title" class="usda-block usda-page-title-block usda-page-title-block-with-hero">
+        <h1 class="usda-page-title usda-page-title-with-hero"><span class="usda-page-title--main">GRIN </span><span class="usda-page-title--sub">Databases</span><span class="usda-page-title--sub">Rhizobium</span></h1>
+    </div>
+    <div class="usa-layout-docs-main_content">
+        <aside class="usa-layout-docs-sidenav">
+            @Html.Partial("~/Views/Shared/_LeftNavSearch.cshtml")
+            @{Html.RenderAction("_LeftNavPVP", "PVP");}
+        </aside>
+
+        <div id="block-usda-content" class="usda-block block-usda-content">
+            <h3> Plant Variety Protection (PVP) Application Collection</h3>
+
+            <!-- "SEARCHING...PLEASE WAIT OVERLAY -->
+            <div id="wait" style="display:none;  background-color: black;  position: fixed;  top: 0; right: 0; bottom: 0; left: 0;  opacity: 0.2; /* also -moz-opacity, etc. */  z-index: 10;">
+                <img src="~/Images/giphy.gif" style="position: absolute; top: 50%; left: 50%; width: 300px; height: 300px; margin-top: -250px; /* Half the height */  margin-left: -250px; /* Half the width */" />
+            </div>
+
+            <div>
+                This collection is maintained in conjunction with the <a href="https://www.ams.usda.gov/services/plant-variety-protection">Agricultural Marketing Service Plant Variety Protection Office (PVPO)</a>, which provides intellectual property protection to breeders. This office publishes
+                monthly updates to the <a href="https://www.ams.usda.gov/services/plant-variety-protection/application-status">status</a> of PVP certificates.
+            </div>
+            <p>All data is current as of <strong>May 24, 2020</strong>.</p>
+            @*<div class="alert alert-primary" style="padding:15px; margin-top:30px;">
+                    <div class="form-group">
+                        <strong>This page is temporarily down for maintenance.</strong> Please refer to the following pages for up-to-date PVP application status information:
+                        <ul>
+                            <li><a href="https://www.ams.usda.gov/services/plant-variety-protection/application-status" style="color:#004085;">Agricultural Marketing Service PVPO Application Status</a></li>
+                            <li><a href="https://www.upov.int/pluto/en/" style="color:#004085;">International Union for the Protection of New Varieties of Plants (UPOV) Plant Variety Database</a></li>
+                        </ul>
+                    </div>
+                </div>*@
+
+            <div id="section-detail-browse" class="usa-width-one-whole">
+                <h4>PVP Applications</h4>
+
+                <button _ngcontent-c3="" class="usa-button-primary" title="scientific-name" onclick="location.href='@Url.Action("Index", "PVP", new { viewBy = "scientific-name" })'">View By Crop (Scientific) Name</button>
+                <button _ngcontent-c3="" class="usa-button-primary" title="application-status" onclick="location.href='@Url.Action("Index", "PVP", new { viewBy = "application-status" })'">View By Application Status</button>
+                <button _ngcontent-c3="" class="usa-button-primary" title="expiration-date" onclick="location.href='@Url.Action("Index", "PVP", new { viewBy = "expiration-date" })'">View By Expiration Date</button>
+                @{Html.RenderAction("_DetailList", "PVP", new { @viewBy = Model.ViewFormatName });}
+
+                @*<ul class="usa-accordion-bordered">
+
+                        @foreach (var crop in Model.CropList)
+                        {
+                            <li>
+                                <button class="usa-accordion-button" style="background-color:darkgray;" id="button-@crop.ID" title="@crop.ID" aria-expanded="false" aria-controls="control-@crop.ID">@crop.Name</button>
+                                <div class="usa-accordion-content" id="control-@crop.ID" style="padding:15px; border:none; background-color:white; color:white;" aria-hidden="true">
+                                    <div id="crop-detail-section-@crop.ID">
+
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>*@
+                <!-- END PARTIAL -->
+            </div>
+        </div>
+    </div>
+</main>
+
+<script type="text/javascript">
+
+    $(".usa-button-primary").click(function () {
+        var selectedView = $(this).attr("title");
+        $("#hfSelectedView").val(selectedView);
+    });
+
+    $(".usa-accordion-button").click(function () {
+        var id = $(this).attr("id");
+        var selectedView = $(this).attr("title");
+        var isExpanded = $(this).attr("aria-expanded");
+        var cropId = id.replace("button-", "");
+        var dataTableId = "#tbl-cgc-meetings-" + cropId;
+        var cropDetailSectionId = "#crop-detail-section-" + cropId;
+        var url = '@Url.Action("Detail","PVP")';
+
+
+
+        //if (isExpanded == "true") {
+
+
+
+            $.post(url, { referenceItemId: cropId, displayFormat: selectedView })
+                .done(function (response) {
+                    $(cropDetailSectionId).html(response);
+
+                     $(dataTableId).DataTable(
+                    {
+                        "searching": false,
+                        "paging": true,
+                        "ordering": true,
+                            "order": [[1, 'desc']]
+                    });
+
+                });
+
+
+        //}
+    });
+
+    $(document).ajaxStart(function () {
+        $("#wait").css("display", "block");
+    });
+
+    $(document).ajaxComplete(function () {
+        $("#wait").css("display", "none");
+    });
+
+
+    // ===============================================================================================
+    // On page load, obtain the ID of the first selector button; display data for that record.
+    // ===============================================================================================
+    @*var firstNavButtonValue = $("div.col-lg-3 input:first-child").val();
+    var url = '@Url.Action("Detail","PVP")';
+
+    $.post(url, { pvpCropId: firstNavButtonValue })
+        .done(function (response) {
+        $("#pvp_detail-container").html(response);
+    });*@
+
+    // ===============================================================================================
+    // Load detail view when crop indicator is clicked.
+    // ===============================================================================================
+    @*$("input").click(function () {
+
+        var url = '@Url.Action("Detail","PVP")';
+        var id = $(this).attr("id");
+        var name = $(this).val();
+
+        $.post(url, { pvpCropDesc: name })
+            .done(function (response) {
+            $("#pvp_detail-container").html(response);
+        });
+    });*@
+</script>

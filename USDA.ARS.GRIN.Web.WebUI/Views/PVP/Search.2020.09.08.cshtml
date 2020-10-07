@@ -1,0 +1,351 @@
+﻿@model USDA.ARS.GRIN.Web.WebUI.ViewModels.PVPSearchViewModel
+@{
+    ViewBag.Title = "PVP Advanced Search";
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
+}
+
+<style>
+    table {
+        border: none;
+    }
+
+        table th {
+            background-color: #0071bc;
+            color: white;
+        }
+
+        table td {
+            background-color: #dfdfdf;
+            color: black;
+        }
+</style>
+
+<div class="usa-overlay"></div>
+
+<style type="text/css">
+    input[type=checkbox].css-checkbox {
+        display: none;
+    }
+
+        input[type=checkbox].css-checkbox + label.css-label {
+            padding-left: 27px;
+            height: 22px;
+            display: inline-block;
+            line-height: 22px;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            /*font-size:22px;*/
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        input[type=checkbox].css-checkbox:checked + label.css-label {
+            background-position: 0 -22px;
+        }
+
+    label.css-label {
+        /*background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_ca0ba5f8e61aa87173232fcf5ce5eac5.png);*/
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+</style>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fh-3.1.4/r-2.2.2/rr-1.2.4/sl-1.2.6/datatables.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fh-3.1.4/r-2.2.2/rr-1.2.4/sl-1.2.6/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<link rel="stylesheet" href="https://gyrocode.github.io/jquery-datatables-checkboxes/1.2.10/css/dataTables.checkboxes.css" />
+
+@Html.Partial("~/Views/Shared/_Banner.cshtml")
+
+<!-- BREADCRUMBS -->
+<div class="usda-breadcrumb-with-sidebar">
+    <div id="block-usda-breadcrumbs" class="usda-block usda-breadcrumb">
+        <nav class="usa-grid" aria-label="Breadcrumb">
+            <ol class="usda-breadcrumb-list">
+                <li class="usda-breadcrumb-item">
+                    <a href="@Url.Action("Index", "Home")" class="no-ext-icon">GRIN Home</a>
+                </li>
+                <li class="usda-breadcrumb-item">
+                    <a href="@Url.Action("Collections","Pages")" class="no-ext-icon">Collections</a>
+                </li>
+                <li class="usda-breadcrumb-item">
+                    <a href="@Url.Action("Index","PVP")" class="no-ext-icon">PVP</a>
+                </li>
+                <li class="usda-breadcrumb-item">
+                    PVP Advanced Search
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main id="main-content" class="usa-section usa-content usa-layout-docs with-breadcrumb with-sidebar with-hero">
+    <div id="block-usda-page-title" class="usda-block usda-page-title-block usda-page-title-block-with-hero">
+        <h1 class="usda-page-title usda-page-title-with-hero"><span class="usda-page-title--main">GRIN </span><span class="usda-page-title--sub">Collections</span><span class="usda-page-title--sub">Rhizobium</span></h1>
+    </div>
+    <div class="usa-layout-docs-main_content">
+        <aside class="usa-layout-docs-sidenav">
+            @Html.Partial("~/Views/Shared/_LeftNavSearch.cshtml")
+            <div class="usa-search-advanced" name="food-search-page-container">
+
+                @Html.Raw(Model.ValidationMessage)
+
+                @using (Html.BeginForm("Search", "PVP", FormMethod.Post, new { id = "frmSearch", @class = "ng-untouched ng-pristine ng-valid" }))
+                {
+                    <input type="hidden" id="hfSelectedSearchOptions" name="SelectedSearchOptions" />
+                    <input type="hidden" id="hfSelectedApplicationStatuses" name="SelectedApplicationStatuses" />
+                    <input type="hidden" id="hfSelectedCertificateStatuses" name="SelectedCertificateStatuses" />
+                    @Html.HiddenFor(x => x.SelectedSearchOptions, new { id = "hfDEBUG" })
+
+                    <label _ngcontent-c3="" for="inputIngredientsText" style="color:#0071bc; font-size:1.7rem; text-transform:uppercase;">Advanced Search</label>
+                    <h5 style="margin-top:7px; margin-bottom:1px;">PV Number</h5>
+                    @Html.TextBoxFor(x => x.PVNumber, new { @id = "txtPVNumber", @class = "form-control input-sm" })
+
+                    <h5 style="margin-top:7px; margin-bottom:1px;">Variety</h5>
+                    @Html.TextBoxFor(x => x.Variety, new { @id = "txtVariety", @class = "form-control input-sm" })
+
+                    <h5 style="margin-top:7px; margin-bottom:1px;">Applicant</h5>
+                    @Html.TextBoxFor(x => x.ApplicantName, new { @id = "txtApplicant", @class = "form-control input-sm" })
+
+                    <h5 style="margin-top:7px; margin-bottom:1px;">Common Name</h5>
+                    @Html.TextBoxFor(x => x.CommonName, new { @id = "txtCommonName", @class = "form-control input-sm" })
+
+                    <h5 style="margin-top:7px; margin-bottom:1px;">Application Status</h5>
+                    <fieldset id="fieldset-search-app-status">
+                        <ul _ngcontent-c3="" id="search-scope-settings" class="usa-unstyled-list">
+
+                            @foreach (var applicationStatus in Model.ApplicationStatusOptions)
+                            {
+                                <li _ngcontent-c3="">
+                                    <input _ngcontent-c3="" id="@applicationStatus.Value" name="type-applicant" type="checkbox" value="@applicationStatus.Value" class="ng-untouched ng-pristine ng-valid">
+                                    <label _ngcontent-c3="" for="@applicationStatus.Value">@applicationStatus.Text</label>
+                                </li>
+                            }
+                        </ul>
+                    </fieldset>
+
+                    <h5 style="margin-top:7px; margin-bottom:1px;">Certificate Status</h5>
+                    <fieldset id="fieldset-search-cert-status">
+                        <ul _ngcontent-c3="" id="search-scope-settings" class="usa-unstyled-list">
+                            @foreach (var certificateStatus in Model.CertificateStatusOptions)
+                            {
+                                <li _ngcontent-c3="">
+                                    <input _ngcontent-c3="" id="@certificateStatus.Value" name="type-applicant" type="checkbox" value="@certificateStatus.Value" class="ng-untouched ng-pristine ng-valid">
+                                    <label _ngcontent-c3="" for="@certificateStatus.Value">@certificateStatus.Text</label>
+                                </li>
+                            }
+                        </ul>
+                    </fieldset>
+
+
+                    <button id="btnSearch" type="button" class="btn btn-primary" style="margin-top:0px;">Search</button>
+                    <button id="btnReset" type="button" class="btn btn-danger" style="margin-top:0px;" onclick="location.href='@Url.Action("Search", "PVP")'">Reset</button>
+                }
+            </div>
+        </aside>
+        <div id="block-usda-content" class="usda-block block-usda-content">
+            <div class="usa-width-one-whole">
+                <h3>PVP Application Search</h3>
+                
+                <!-- "SEARCHING...PLEASE WAIT OVERLAY -->
+                <div id="wait" style="display:none;  background-color: black;  position: fixed;  top: 0; right: 0; bottom: 0; left: 0;  opacity: 0.2; /* also -moz-opacity, etc. */  z-index: 10;">
+                    <img src="~/Images/giphy.gif" style="position: absolute; top: 50%; left: 50%; width: 300px; height: 300px; margin-top: -250px; /* Half the height */  margin-left: -250px; /* Half the width */" />
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12" style="text-align:right;">
+                        <button id="btnExport" type="button" class="btn btn-default pull-right" style="margin-top:0px;">Export</button>
+                    </div>
+                </div>
+                <table id="tbl-search-results" class="pvp-application-table" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Variety</th>
+                            <th>Applicant</th>
+                            <th>Scientific Name</th>
+                            <th>Common Name</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var result in Model.SearchResults)
+                        {
+                            string displayExpirationDate = String.Empty;
+
+                            if (result.ExpirationDate != null && result.ExpirationDate != DateTime.MinValue)
+                            {
+                                displayExpirationDate = result.ExpirationDate.ToShortDateString();
+                            }
+
+                            <tr>
+                                <td>
+                                    <a href="@Url.Action("Summary", "PVP", new { pvNumber = result.ApplicationNumber })">View</a>
+                                </td>
+                                <td>@result.CultivarName</td>
+                                <td>@result.ApplicantName</td>
+                                <td>@result.ScientificName</td>
+                                <td>@result.CommonName</td>
+                                <td>
+                                    <span class="@Model.GetApplicationStatusCSSClass(result.ApplicationStatus) pull-right">
+                                        @result.ApplicationStatus
+                                    </span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <div class="usa-width-one-fourth">
+                </div>
+                <div class="usa-width-one-fourth" style="margin-left:5px;">
+                </div>
+            </div>
+            <div class="usa-width-one-whole">
+                <div class="usa-width-one-half">
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script type="text/javascript">
+
+
+
+
+    /* When page loads, if there are selected search options stored in the hidden variable, parse the contents
+     * and set the checkbox values accordingly. */
+    var selectedSearchOptions = $("#hfDEBUG").val();
+
+    if (selectedSearchOptions.length > 0) {
+        var options = selectedSearchOptions.split(',');
+        $.each(options, function (index, value) {
+            value = value.replace(".", "\\.");
+            $("#" + value).prop('checked', true);
+        });
+    }
+
+
+    $('#txtSearchText').on('input', function (e) {
+        $("#txtPVNumber").val("");
+        $('#search-scope-settings input:checkbox').attr('disabled', false);
+    });
+
+    $('#txtPVNumber').on('input',function(e){
+        $("#txtSearchText").val("");
+        $('#search-scope-settings input:checkbox').prop('checked', false);
+        $('#search-scope-settings input:checkbox').attr('disabled', true);
+    });
+
+    $("#btnSearch").click(function () {
+        var valueArray = [];
+
+        $("#fieldset-search-app-status input:checked").each(function () {
+            var id = $(this).attr("id");
+            valueArray.push(id);
+            $("#hfSelectedSelectedApplicationStatuses").val(valueArray);
+        });
+
+        $("#fieldset-search-cert-status input:checked").each(function () {
+            var id = $(this).attr("id");
+            valueArray.push(id);
+            $("#hfSelectedCertificateStatuses").val(valueArray);
+        });
+
+        $("#frmSearch").submit();
+    });
+
+    $("#tbl-search-results").DataTable(
+    {
+        "searching": false,
+        "paging": true,
+        "ordering": true,
+            "order": [[1, 'desc']]
+    });
+
+    //$('#frmSearch').on('submit', function (evt) {
+    //    var valueArray = [];
+    //    evt.preventDefault();
+
+    //   $("#search-scope-settings input:checked").each(function () {
+    //        var id = $(this).attr("id");
+    //        valueArray.push(id);
+    //        $("#hfSelectedSearchOptions").val(valueArray);
+    //    });
+
+    //    $.post('Search', $(this).serialize(), function (response) {
+    //        //$('#search-results-container').html(response); // assuming response is HTML
+    //    });
+    //});
+
+    $("#btnReset" ).click(function() {
+        $("#txtPVPNumber").val("");
+        $("#ddlApplicationStatus").val(0);
+        $("#txtSearchString").val("");
+    });
+
+    //$(document).ajaxStart(function(){
+    //    $("#wait").css("display", "block");
+    //});
+
+    //$(document).ajaxComplete(function () {
+
+    //    var resultsFound = 0;
+
+    //    $("#wait").css("display", "none");
+
+    //    // If no results were found, ensure that Excel-export option is not visible.
+    //    resultsFound = $("#hfResultsFound").val();
+    //    if (resultsFound > 0) {
+    //        $("#left-nav-search-results-options").show();
+    //    }
+    //    else {
+    //        $("#left-nav-search-results-options").css("display", "none");
+    //    }
+    //});
+
+//    $(function(){
+//    $(".wmd-view-topscroll").scroll(function(){
+//        $(".wmd-view")
+//            .scrollLeft($(".wmd-view-topscroll").scrollLeft());
+//    });
+//    $(".wmd-view").scroll(function(){
+//        $(".wmd-view-topscroll")
+//            .scrollLeft($(".wmd-view").scrollLeft());
+//    });
+//});
+
+    //$( document ).ajaxComplete(function() {
+    //    //$( ".log" ).text( "Triggered ajaxComplete handler." );
+    //    //alert("DEBUG: AJAX DONE");
+
+    //    // TO DO: CHECK RESULT COUNT; SHOW RESULT-PROCESSING OPTIONS ONLY IF
+    //    // > 0
+    //    var resultsFound = $("#hfResultsFound").val();
+
+    //    alert("DEBUG RESULTS " + resultsFound);
+
+    //    $("#left-nav-search-results-options").hide();
+    //});
+
+
+    @*$(".dataset-selector").click(function () {
+
+    var value = $(this).attr("href");
+    event.preventDefault();
+
+    var url = '@Url.Action("Detail", "Rhizobium")';
+
+    $.post(url, { plantName: value })
+    .done(function (response) {
+    $("#section-detail").html(response);
+    });
+});*@
+
+</script>

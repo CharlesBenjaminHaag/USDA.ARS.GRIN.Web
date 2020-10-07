@@ -1,0 +1,1702 @@
+body {
+  line-height: 1.5;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+}
+h1 {
+  color: #0071bc;
+}
+h2 {
+  max-width: 50ch;
+}
+@media screen and (min-width: 699px){
+  article h2:first-of-type {
+    margin-top: 0.5em;
+  }
+}
+
+dt {
+  font-weight: 700;
+  margin-bottom: 0.25em;
+  max-width: 66ch;
+}
+dd {
+  margin-left: 0;
+  margin-bottom: 2em;
+  max-width: 66ch;
+  -webkit-margin-start: 1em;
+          margin-inline-start: 1em;
+}
+abbr[title], acronym[title] {
+  text-decoration: none;
+}
+kbd{
+  color: #034e03;
+}
+cite { 
+  font-style: italic;
+}
+body {counter-reset: numbered-dl; }
+
+dl.numbered dt, dd {
+  margin-left: 2em;
+}
+dl.numbered dt:before {
+  counter-increment: numbered-dl; 
+  content: counter(numbered-dl) ". ";
+  position: absolute;
+  margin-left: -2em;
+}
+label {
+  margin-top: 2rem;
+}
+
+.sign-up{
+}
+
+.sign-up, label{
+  margin-top: 0;
+}
+
+input {
+ border-radius: 0.3rem;
+}
+.button-row {
+  margin-top: 25px;
+}
+.usa-table-wrapper {
+  overflow-x:auto;
+}
+.visually-hidden {
+  position: absolute;
+  left: -999em;
+}
+.path-frontpage .usda-page-title {
+  line-height: 1.15;
+  /*margin-bottom: 1rem;*/
+  color: white;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+@media screen and (max-width: 375px) {
+  .path-frontpage .usda-page-title {
+    font-size:3.35rem;
+  }
+}
+.usa-overlay {
+  z-index: 400;
+}
+.usda-datetime-wrapper-head {
+  font-weight: 400;
+}
+.usda-page-title {
+  margin-top: 2.8rem;
+}
+.usda-page-title--main {
+  margin-right: 5px;
+}
+.usda-page-title--sub {
+  font-weight: 300;
+  white-space: nowrap;
+}
+.usa-focus, :focus, a:focus {
+    /*outline: 2px dotted #515151;*/
+    outline:none;
+    outline-offset: 0px;
+}
+@media screen and (min-width: 600px) {
+  .usa-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+.usa-section> :first-child:not(.usda-page-title),
+.usa-grid> :first-child:not(.usda-page-title) {
+  margin-top: 0;
+}
+.path-frontpage #block-usda-page-title{
+  display: none;
+}
+.usda-page-title-block-with-hero {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+@media screen and (min-width:1040px) {
+  .usda-page-title-block-with-hero {
+    position: relative;
+    right: initial;
+  }
+}
+
+@media screen and (min-width:1041px) {
+  .with-sidebar .usda-page-title-block-with-hero {
+    position: inherit;
+  }
+}
+
+.usda-page-title-with-hero {
+  padding: 1rem 1.5rem;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;
+  color: #ffffff;
+  position: absolute;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  bottom: 0;
+  left: 0;
+}
+
+.with-breadcrumb .usda-page-title-with-hero {
+  bottom: 3.2rem;
+}
+@media screen and (min-width:600px) {
+  .usda-page-title-with-hero {
+    padding: 1rem 3rem;
+  }
+}
+
+@media screen and (max-width: 699px) {
+  .usda-page-title-with-hero {
+    font-size: 3rem;
+  }
+}
+@media screen and (min-width:1040px) {
+  .usda-page-title-with-hero {
+    width: auto;
+    top: -14.3rem;
+    bottom: auto;
+    left: -3rem;
+  }
+  .usda-page-title-with-hero {
+    left: 27.5rem;
+  }
+  .with-breadcrumb .usda-page-title-with-hero {
+    top: -17.5rem;
+    bottom: auto;
+  }
+  .usa-width-one-whole .usda-page-title-with-hero {
+    left: 0;
+  }
+}
+.usa-hero-border {
+  border-bottom: 6px solid #fad980;
+}
+.usa-hero {
+  min-height: 200px;
+}
+.path-frontpage .usa-hero {
+  min-height: 350px;
+  position: relative;
+}
+.learn-more {
+  text-transform: uppercase;
+  color: #0071bc;
+  font-weight: 700;
+  text-decoration: none;
+}
+.learn-more::after {
+  content: " ›";
+  font-size: 1.3em;
+  line-height: 1px;
+}
+.usa-hero-footer {
+  background-color: black;
+  background-color: rgba(0,0,0,.7);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  padding-top:0.54em;
+  padding-bottom: 0.5em;
+}
+
+
+@media screen and (min-width:1041px) {
+  .usa-layout-docs-main_content {
+    margin-bottom: 0;
+  }
+
+  .with-sidebar .usa-layout-docs-main_content.usa-width-three-fourths {
+    display: table-cell;
+    vertical-align: top;
+    padding-left: 23.797px;
+    width: 76.76824%;
+    padding-bottom: 3rem;
+  }
+}
+.usa-section.usa-layout-docs {
+  padding-top: 0;
+  display: block;
+}
+.usa-sidenav-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+  padding-left: 0;
+  border: none;
+}
+@media screen and (max-width: 599px) {
+  .usa-sidenav-list {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    width: calc(100% - 3rem);
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 699px) {
+  .usa-sidenav-list {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    width: calc(100% - 6rem);
+  }
+}
+.usa-sidenav-list a:hover {
+    background-color: transparent;
+    color: #0071bc;
+    text-decoration: none;
+}
+.usa-sidenav-list a.usa-current {
+    padding-left: 1.3rem;
+}
+.usa-sidenav-list > li {
+  border-top: 1px solid #d6d7d9;
+}
+.usa-sidenav-list > li:first-child {
+  border-top: none;
+}
+@media screen and (min-width: 700px) {
+  .usa-layout-docs-main_content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .usa-layout-docs-sidenav {
+    -webkit-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+            order: 0;
+    width: 27.5rem;
+    background-color: #f1f1f1;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+  }
+  .block-usda-content {
+    width: calc(100% - 275px - 60px);
+  }
+  .usa-layout-docs-search {
+    -webkit-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+            order: 0;
+    width: 27.5rem;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+  }
+  .usa-layout-docs-main_content .usa-layout-docs-sidenav:first-child,.usa-layout-docs-main_content .usa-layout-docs-search:first-child {
+    margin-top: -3.2rem; /*Pulls up the sidebar parallel with breadcrumb.*/
+  }
+  .usa-sidenav-list .usa-accordion-button {
+    display: none;
+  }
+  .usa-sidenav-list.usa-accordion-bordered .usa-accordion-content {
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+  }
+  .usa-sidenav-list .usa-accordion-content[aria-hidden=true] {
+    display: block;
+  }
+  .usda-breadcrumb {
+    margin-left: 27.5rem;
+  }
+  .usa-sidenav-list .usa-accordion-content > a {
+    border-top: 1px solid #d6d7d9;
+  }
+  .usa-sidenav-list .usa-accordion-content > a:first-child {
+    border-top: none;
+  }
+}
+  .usa-layout-docs-sidenav .usa-search-advanced {
+    background: #f1f1f1;
+    padding: 1.3rem 3rem;
+  }
+@media screen and (min-width:1041px) {
+  .usa-layout-docs-sidenav {
+    background: #f1f1f1;
+    /*display: table-cell;*/
+    /*width: 26.21019%;*/
+    width: 27.5rem;
+    padding-top: 0;
+  }
+
+
+
+  .usa-layout-docs-sidenav>div:first-child>*:first-child,
+  .usa-layout-docs-sidenav>div:first-child>*:first-child>h2 {
+    margin-top: 0;
+  }
+
+  .with-breadcrumb>.usa-layout-docs-sidenav>div:first-child {
+    margin-top: -3.2rem;
+  }
+}
+
+@media screen and (min-width:1041px) {
+  .usa-section.usa-layout-docs {
+    padding-bottom: 0;
+  }
+
+  .usa-section.usa-layout-docs.with-sidebar {
+    position: relative;
+/*    display: table;
+    table-layout: fixed;
+    width: 100%;
+    padding-left: 0;*/
+  }
+}
+@media screen and (min-width: 1201px) {
+  .usa-layout-docs {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.usa-grid .usa-sidenav-list {
+  margin: 0;
+}
+.usa-hero-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.usa-grid-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1045px;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+@media screen and (min-width: 600px) {
+  .usa-grid-flex {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+}
+/*@media screen and (min-width:1041px) {
+  .usa-grid .usa-sidenav-list {
+    margin: 0 -1.7rem;
+  }
+}*/
+.usa-sidenav-list li>a.usa-current {
+  border-left-width: 4px;
+  padding-left: 1.4rem;
+}
+
+.usa-layout-docs-sidenav .usda-block {
+  margin-top: 1em;
+}
+
+@media screen and (min-width:1041px) {
+  .usa-layout-docs-sidenav .usda-block:first-child {
+    margin-top: 0;
+  }
+}
+.usda-breadcrumb {
+  background: #f7f7f7;
+  width: 100%;
+}
+@media screen and (min-width: 700px) {
+  .usda-breadcrumb {
+    width: calc(100% - 27.5rem);
+  }
+}
+.usda-breadcrumb-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+  padding-left: 0;
+  height: 3.2rem;
+  line-height: 2.8rem;
+  overflow: hidden;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+}
+
+.usda-breadcrumb-list>li {
+  margin-bottom: 0;
+}
+
+@media screen and (min-width:1041px) {
+  .usda-breadcrumb-with-sidebar .usda-breadcrumb-list {
+    /*margin-left: 25.58941%;*/
+    /*margin-left: 270px;*/
+  }
+}
+
+.usda-breadcrumb-item {
+  display: inline;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.usda-breadcrumb-item>a {
+  text-decoration: none;
+  color: #5b616b;
+}
+
+.usda-breadcrumb-item>a:hover {
+  color: #323a45;
+}
+
+.usda-breadcrumb-item::after {
+  content: "›";
+  display: inline-block;
+  padding: 0 .6rem;
+  color: #aeb0b5;
+}
+
+.usda-breadcrumb-item:last-child::after {
+  content: "";
+}
+.usda-featured {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.usda-featured .usa-grid .usa-width-one-fourth img {
+  margin-top: 4rem;
+}
+
+.usda-featured h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.usda-featured h3 a {
+  text-decoration: none;
+}
+
+.usda-featured h3 a:visited {
+  color: #0071bc;
+}
+
+.usda-featured h3 a:visited:hover {
+  color: #205493;
+}
+
+.usda-featured p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.usda-featured-header {
+  width: 100%;
+  color: #0071bc;
+  border-bottom: 4px solid #f1f1f1;
+}
+
+.path-frontpage h2.usda-featured-header {
+  border-bottom-width: 2px;
+  margin-bottom: 2rem;
+}
+.usda-logo-text {
+  padding-top: 4px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  line-height: 1rem;
+  display: block;
+}
+.usda-logo-text--agency {
+  color: #666666;
+  display: block;
+  text-transform: initial;
+  /*padding-left: 1px;*/
+}
+.usda-logo {
+  display: inline-block;
+  float: left;
+  margin-right: 1rem;
+  line-height: 1;
+  /*width: 45px;*/
+}
+
+@media screen and (min-width:951px) {
+  .usda-logo {
+    float: none;
+    /*width: 55px;*/
+    height: auto;
+  }
+}
+
+
+
+.usda-logo-img {
+  width: auto;
+  height: 28px;
+}
+
+@media screen and (min-width:481px) {
+  .usda-logo-img {
+    display: block;
+  }
+}
+
+@media screen and (min-width:951px) {
+  .usda-logo-img {
+    vertical-align: inherit;
+    display: inline;
+    height: 38px;
+    width: 52px;
+    margin-top: 0;
+
+  }
+}
+
+/*.usda-logo-img:hover {
+  cursor: pointer;
+}*/
+.usa-logo-text {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.usda-logo-text {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.usda-logo-text--agency {
+  font-weight: 400;
+  font-size: 0.8em;
+}
+@media screen and (max-width:399px) {
+  .usda-logo-text {
+    /*font-size: 1.2rem;*/
+    /*line-height: 1.6rem;*/
+    /*padding-bottom: 1px;*/
+  }
+  .usda-logo-text--agency {
+/*    font-size: 0.8em;*/
+  }
+}
+
+/*@media screen and (min-width:400px) {
+  .usda-logo-text {
+    display: inline-block;
+    font-size: 1.3em;
+    line-height: 1.4rem;
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+  .usda-logo-text--agency {
+    font-size: 0.85em;
+  }
+}*/
+.usa-navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+@media screen and (min-width:951px) {
+  .usda-logo-text {
+    display: inline;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    /*padding-bottom: 2px;*/
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+  .usda-logo-text--agency {
+    font-size: 1.4rem;
+  }
+}
+.usa-logo {
+  height: 4rem;
+  margin-left: 1.5rem;
+  float: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 1.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.usa-logo a:hover {
+  text-decoration: underline;
+}
+.usa-nav-primary > li {
+  border-top: 1px solid #205493;
+}
+.usa-nav-primary li>a {
+  color: #ffffff;
+}
+@media screen and (min-width:951px) {
+  .usa-header-extended .usa-logo {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+@media screen and (min-width:951px) {
+  .usa-logo {
+    line-height: 2rem;
+    margin-left: 0;
+  }
+  .usa-nav-primary>li {
+    display: inline-block;
+    margin-left: -4px;
+    border-top: none;
+  }
+  .usa-nav-primary li {
+    border-top: none;
+  }
+  .usa-header-extended .usa-nav-inner {
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 3rem;
+    padding-left: 2rem;
+    max-width: 1040px;
+    position: relative;
+    margin-top: 0;
+  }
+
+  .usa-header-extended .usa-nav-inner::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+  .usa-header {
+    border-bottom: none;
+  }
+}
+
+@media screen and (max-width: 950px){
+  .usa-nav-primary .usa-nav-link:hover {
+    background-color: #205493;
+    color: #ffffff;
+  }
+}
+@media screen and (min-width:951px) {
+  .usa-logo {
+    line-height: 2rem;
+    margin-left: 0;
+  }
+}
+
+.usa-banner {
+  background-color: #ffffff;
+  padding-bottom: 0;
+}
+
+@media screen and (min-width:481px) {
+  .usa-banner {
+    font-size: 1.3rem;
+  }
+}
+
+.usa-header>.usa-banner:first-child {
+  background-color: #f7f7f7;
+}
+
+@media screen and (max-width:481px) {
+  .usa-header>.usa-banner:first-child {
+    padding-bottom: 0.7rem;
+  }
+}
+.block-usda--footer__site-info__title {
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+.block-usda--footer__site-info__dev {
+  font-style: italic;
+  margin-top: 0.5em;
+}
+@media screen and (min-width:600px) {
+  .usda-footer-navigation {
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
+}
+@media screen and (min-width: 600px) {
+  .block-usda--footer__site-info__dev {
+    max-width: 240px;
+  }
+}
+@media screen and (min-width:1041px) {
+  .usda-footer-navigation {
+    -webkit-column-count: 3;
+    column-count: 3;
+  }
+}
+
+.usda-footer-navigation>.usda-footer-navigation-link {
+  font-size: 1.4rem;
+  padding-bottom: 1.8rem;
+  line-height: 1;
+  display: block;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+@-moz-document url-prefix() {
+  .usda-footer-navigation>.usda-footer-navigation-link {
+    margin-bottom: 0;
+    padding-bottom: 1.8rem;
+  }
+}
+.usda-footer-branding {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.usda-footer-branding {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.usa-footer-secondary_section .usa-grid-full {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.usa-footer-secondary_section a {
+  text-decoration: none;
+}
+.usa-footer-secondary_section a:Hover {
+  text-decoration: underline;
+}
+.usa-footer-secondary_section {
+  background-color: #f7f7f7;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+}
+.usda-footer-branding .usda-logo {
+  display: block;
+  text-align: center;
+  float: none;
+}
+.usda-footer-branding .usa-logo {
+  height: auto;
+  line-height: inherit;
+}
+.usda-footer-branding .usa-logo__wrapper {
+  display: inline-block;   
+}
+.footer-social {
+  display: inline-block;
+}
+
+.footer-social-set {
+  white-space: nowrap;
+  margin: 0 auto;
+}
+
+@media screen and (min-width:481px) {
+  .footer-social-set {
+    display: inline;
+  }
+}
+.usda-footer-branding .usda-logo-text {
+  white-space: nowrap;
+}
+
+@media screen and (min-width:481px) {
+  .usda-footer-branding .usda-logo-text {
+    display: inline-block;
+  }
+}
+
+
+@media screen and (max-width:599px) {
+  .usda-footer-branding .usda-logo-text {
+    display: block;
+  }
+}
+
+@media screen and (min-width:600px) {
+  .usda-footer-branding .usda-logo {
+    display: inline-block;
+  }
+  .usa-logo__wrapper {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:599px) {
+  .usda-footer-branding .usa-logo {
+    margin: 0 auto;
+  }
+  .footer-social {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin-left: 0;
+  }
+  .usda-footer-branding {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .usda-footer-branding .usa-logo__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 1em;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .usda-footer-branding .usa-logo {
+    float: none;
+  }
+}
+@media screen and (min-width: 600px) {
+  .usa-footer-slim #block-mainnavigation-2-menu > .usa-unstyled-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 1000px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .usa-footer-slim .usa-footer-nav .usa-footer-primary-content {
+    margin-right: 15px;
+    line-height: 1.35;
+  }
+  .usa-footer .usa-footer-primary-link:hover {
+      cursor: pointer;
+      text-decoration: underline;
+  }
+}
+.usa-nav-submenu .usda-nav-overview>a {
+  padding-bottom: .25rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.usa-nav-submenu .usda-nav-feature {
+  display: none;
+}
+
+
+.usa-nav-submenu .usda-nav-feature-wrapper {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  min-width: 21.5rem;
+  max-width: 40rem;
+  height: 100%;
+}
+.usa-nav-submenu .usda-nav-overview>a span {
+  padding-bottom: .6rem;
+  border-bottom: 1px solid #aeb0b5;
+  display: block;
+}
+
+.usda-nav-subheader {
+  color: #0071bc;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  margin: 1rem 0 0.5rem 1.8rem;
+}
+
+.usda-nav-submenu {
+  list-style-type: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  min-width: 21.5rem;
+  padding: 1.2rem 0;
+  width: auto;
+  display: table-cell;
+  vertical-align: top;
+}
+@media screen and (min-width:951px) {
+  .usa-nav-submenu .usda-nav-feature {
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+    display: table-cell;
+    vertical-align: top;
+    background: #f1f1f1;
+  }
+}
+@media screen and (min-width:951px) {
+  .usa-nav-submenu .usda-nav-overview>a {
+    padding-left: 1.9rem;
+    padding-right: 1.9rem;
+    color: #205493;
+  }
+
+  .usa-nav-submenu .usda-nav-overview>a:hover {
+    padding-left: 1.9rem;
+  }
+
+  .usa-nav-submenu .usda-nav-overview>a:hover span {
+    border-bottom: 0 none;
+    padding-bottom: .7rem;
+  }
+
+  .usa-nav-submenu .usda-nav-overview>a.is-active {
+    padding-left: 1.9rem;
+  }
+}
+.usda-section-image-content-wrapper {
+  margin-top: 1.76471em;
+  margin-bottom: 1.76471em;
+  display: table;
+  width: 100%;
+}
+
+@media screen and (min-width:600px) {
+  .usda-section-image-wrapper {
+    display: table-cell;
+    vertical-align: top;
+    padding-right: 2rem;
+  }
+
+  .usda-section-image-wrapper img {
+    max-width: 350px;
+  }
+}
+
+@media screen and (min-width:1041px) {
+  .usda-section-image-wrapper img {
+    max-width: 740px;
+  }
+}
+
+@media screen and (min-width:600px) {
+  .usda-section-content {
+    display: table-cell;
+    vertical-align: top;
+    width: 100%;
+  }
+}
+
+.usda-section-content>*:first-child {
+  margin-top: 0;
+}
+
+.usda-section-content>*:last-child {
+  margin-bottom: 0;
+}
+.usda-nav-feature-content {
+  margin-right: 3.2rem;
+  margin-left: 3.2rem;
+}
+
+.usda-nav-feature-content h2 {
+  margin-top: .2em;
+  color: #323a45;
+}
+hr.usda_hr_half {
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.usa-search--front label.usda-featured-header {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-top:0;
+  border-bottom-width: 2px;
+  margin-bottom: 2rem;
+}
+.usa-search label.usa-sr-only {
+  color: white;
+}
+.usa-search [type="search"],
+.usa-search .usa-search-input {
+  border-bottom-left-radius: 0.3rem;
+  border-top-left-radius: 0.3rem;
+  font-size: 1.6rem;
+}
+.usa-search [type="submit"],
+.usa-search .usa-search-submit {
+  background-color: #205493;
+}
+.usa-hero-search {
+  background-color: rgba(0,0,0,.8);
+  padding: 1.5rem 3rem 2.5rem;
+  color: white;
+  max-width: 600px;
+  margin-top: 2.5em;
+}
+@media screen and (max-width: 324px) {
+  .usa-hero-search {
+    position: absolute;
+    bottom: 0;
+  }
+}
+.usa-hero-search .usa-search label{
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+}
+.usa-hero {
+  background-image: url(../img/hero.png);
+}
+.usa-nav-secondary-links a,
+.usa-nav-secondary-links .usa-header-search-button {
+  color: #f1f1f1;
+  display: inline-block;
+  font-size: 1.3rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.usa-nav-secondary-links a:hover,
+.usa-nav-secondary-links .usa-header-search-button:hover {
+  color: #f7f7f7;
+}
+@media screen and (min-width:951px) {
+
+  .usa-nav-secondary-links a,
+  .usa-nav-secondary-links .usa-header-search-button {
+    color: #323a45;
+  }
+
+  .usa-nav-secondary-links a:hover,
+  .usa-nav-secondary-links .usa-header-search-button:hover {
+    color: #5b616b;
+  }
+  .usa-nav-secondary-links {
+    background-color: white;
+  }
+}
+.path-frontpage .usa-header .usa-search {
+  display: none;
+}
+.usa-layout-docs-sidenav {
+    padding-top: 0;
+}
+aside .usa-search-small, #food-search-page .usa-search-small {
+  padding: 1.5rem 1.5rem;
+  background: #0071bc;
+}
+
+aside .usa-search-small label, #food-search-page .usa-search-small label {
+  margin-top: 0;
+  color: white;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.block-usda-content {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+@media screen and (min-width:600px) {
+  .block-usda-content {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+  aside .usa-search-small, #food-search-page .usa-search-small  {
+    padding: 1.5rem 3rem 1.25rem;
+  }
+}
+@media screen and (min-width: 700px){
+  .usa-sidenav-list .usa-accordion-content {
+    margin-left: 1.5rem;
+    margin-right: 3rem;
+  }
+}
+.usa-sidenav-list .usa-accordion-content {
+    padding: 0;
+    background-color: transparent;
+}
+@media screen and (min-width:700px) {
+  aside .usa-search-small, #food-search-page .usa-search-small  {
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+.usa-search--front #header-search {
+  font-size: 2rem;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  height: 4.5rem;
+  line-height: 1;
+  border-color: white;
+}
+.usa-search--front button[type=submit] {
+  height: 4.5rem;
+  background-size: 1.75em;
+  width: 4.5rem;
+}
+
+@media screen and (min-width: 481px) {
+  .usa-search--front.usa-search-small [type="submit"] {
+    width: 4.4em;
+  }
+  .usa-search--front #header-search{
+    font-size: 2.6rem;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    height: 5.5rem;
+    max-width: 78rem;
+    width: calc(100% - 6.5rem);
+    border-color: white;
+  }
+}
+@media screen and (min-width: 481px) {
+    .usa-search.usa-search--front [type="submit"] {
+        /*background-image: url(../img/search.png); */
+        background-image: url(https://fdc.nal.usda.gov/img/search.svg);
+        background-position: 50%;
+        background-repeat: no-repeat;
+        width: 6.5rem;
+    }
+}
+@media screen and (min-width: 481px) {
+  .usa-search--front button[type=submit]  {
+    height: 5.5rem;
+    background-size: 2.25em;
+    width: 7.5rem;
+  }
+}
+.search-result-count {
+  margin-top: 3rem;
+}
+.usa-table-results {
+  margin-bottom: 0px;
+  width: 100%;
+  margin-top: 1rem;
+}
+#food-search-page aside label[for=search-page-search-input] {
+  background: #0071bc;
+  color: white;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  margin-top: 0px;
+  /*margin-bottom: 2rem;*/
+  margin-left: -30px;
+  margin-right: -30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  /*padding-top: 15px;*/
+  /*padding-bottom: 10px;*/
+}
+@media only screen and (min-width: 700px){
+  #food-search-page  .block-usda-content {
+    max-width: calc(100vw - 275px - 60px);
+  }
+}
+
+#food-search-page .usa-layout-docs-sidenav legend{
+  font-size: 1.7rem;
+}
+#food-search-page .usa-layout-docs-sidenav #search-page-search-input {
+border-right: #5b616b 1px solid;
+border-bottom-right-radius: .3rem;
+border-top-right-radius: .3rem;
+width: calc(100% -  4.5rem);
+}
+#food-search-page fieldset {
+  display: block;
+  clear: both;
+}
+/*#food-search-page .usa-layout-docs-sidenav .usa-search [type=submit] {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: auto;
+  background-image: none;
+  height: auto;
+  padding: 1rem 2rem;
+}*/
+#food-search-page .usa-layout-docs-sidenav input[type=search]:not(#search-page-search-input){
+  border-radius: 0.3rem;
+  border: 1px solid #000;
+  width: 100%;
+  float: none;
+}
+@media screen and (min-width: 700px) {
+  #food-search-page aside label[for=search-page-search-input] {
+    margin-bottom: -5px;
+  }
+  #food-search-page .usa-layout-docs-sidenav #search-page-search-input{
+    position: absolute;
+    margin-top: 2em;
+    width: calc(100% - 60px);
+  }
+  #food-search-page .usa-search-advanced {
+    padding-top: 5rem;
+  }
+/*  #food-search-page .usa-layout-docs-sidenav #search-page-search-input {
+    width: calc(100% -  4.5rem);
+  }*/
+}
+#search-page-search-input {
+  width: calc(100% - 45px);
+}
+#food-search-page h2 {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+#food-search-page legend {
+  font-weight: 400;
+}
+#food-search-page legend a#foodtype-help {
+  display: block;
+  font-size: 1.5rem;
+}
+.usa-nav-close {
+  margin-bottom: 0;
+  height: 44px;
+  width: 44px;
+}
+.usa-nav-primary {
+  margin-top: 0;
+}
+@media screen and (min-width:951px) {
+  .usa-nav-secondary {
+    position: absolute;
+    right: 3rem;
+    top: -3rem;
+  }
+
+  .usa-nav-secondary>nav {
+    float: left;
+    margin-top: 0;
+  }
+
+  .usa-nav-secondary>nav+nav li:first-child {
+    padding-left: 1.4rem;
+  }
+}
+@media screen and (min-width:951px) {
+  .usa-nav-secondary-links li {
+    display: inline;
+    padding-left: 1.8rem;
+  }
+}
+.usa-nav-secondary-links li:not(:last-child)::after {
+  display: none;
+}
+.usa-header-extended .usa-nav {
+  border-top: none;
+}
+.usa-nav {
+  background: #0071bc;
+}
+
+
+@media screen and (max-width:950px) {
+  .usa-nav {
+    width: 29rem;
+  }
+  .usa-nav nav {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+    margin-top: 0;
+    min-height: auto;
+  }
+  .usa-nav .usa-nav-secondary {
+    -webkit-box-ordinal-group: 4;
+    -ms-flex-order: 3;
+    order: 3;
+    margin-top: 0;
+    margin-left: 1.5rem;
+  }
+}
+
+@media screen and (min-width:951px) {
+  .usa-nav nav {
+    margin-top: 0;
+  }
+}
+
+
+@media screen and (min-width:951px) {
+  .usa-nav {
+    padding-top: 5rem;
+    padding-right: 0;
+    padding-bottom: 0;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+        transform: translateX(0);
+    border-left: none;
+    display: block;
+    float: right;
+    overflow-y: visible;
+    position: relative;
+    width: auto;
+  }
+}
+
+
+@media screen and (min-width:951px) {
+  .usa-header-extended .usa-nav-primary::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+@media screen and (max-width:950px) {
+  .usa-header-extended .usa-nav-inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+  }
+}
+.usa-header-extended .usa-nav-primary button {
+  text-transform: uppercase;
+}
+
+@media screen and (min-width:951px) {
+
+  .usa-header-extended .usa-nav-primary button[aria-expanded=false],
+  .usa-header-extended .usa-nav-primary button[aria-expanded=true] {
+    background-position: right 1.5rem top 50%;
+    position: relative;
+    line-height: 1.2;
+  }
+
+  .usa-header-extended .usa-nav-primary button[aria-expanded=false]::before,
+  .usa-header-extended .usa-nav-primary button[aria-expanded=true]::before {
+    content: " ";
+    display: block;
+    height: 3rem;
+    border-left: 1px solid #f1f1f1;
+    position: absolute;
+    left: 0;
+    top: 1.8rem;
+  }
+}
+
+@media screen and (min-width:951px) {
+  .usa-header-extended .usa-nav-primary li:not(:first-child) .usa-nav-link::before {
+    content: " ";
+    display: block;
+    height: 3rem;
+    border-left: 1px solid #f1f1f1;
+    position: absolute;
+    left: 0;
+    top: 1.8rem;
+  }
+}
+.usa-header-extended .usa-nav-link {
+  text-transform: uppercase;
+  position: relative;
+}
+@media screen and (min-width: 951px) {
+  .usa-nav-primary > li > a {
+    font-weight: 500;
+  }
+  .usa-header-extended .usa-nav-link {
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
+  }
+  .usa-nav-primary>li>a {
+    padding: 1.3rem 1.35rem 1.7rem;
+    color: #ffffff;
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  .usa-nav-link--contact {
+    float: right;
+  }
+  .usa-nav-link--contact a.usa-nav-link {
+    padding-right: 0;
+  }
+  .usa-nav-link--contact .usa-nav-link::before{
+    content: none!important;
+  }
+}
+@media screen and (min-width: 991px) {
+  .usa-nav-primary>li>a {
+    padding: 1.3rem 1.5rem 1.7rem;
+  }
+}
+.usa-nav-primary li>a:hover {
+  color: #ffffff;
+}
+@media screen and (min-width:951px) {
+
+  .usa-nav-link.is-active span,
+  .usa-nav-link.usa-current span,
+  .usa-nav-link:hover span, .usa-header-extended .usa-nav-link:hover span {
+    border-bottom: 0.4rem solid #ffffff;
+    padding-bottom: .2rem;
+  }
+}
+.usa-nav .is-active,
+.usa-nav .usa-current {
+  font-weight: 700;
+}
+
+
+.usa-link-twitter, .usa-link-addthis, .usa-link-email, .usa-link-headphone, .usa-link-magazine {
+  margin: 0 0.5rem;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto 3rem;
+  display: inline-block;
+  height: 4.4rem;
+  position: relative;
+  text-align: center;
+  width: 4.4rem;
+  left: 0;
+}
+
+@media screen and (min-width:481px) {
+  .usa-link-twitter, .usa-link-addthis, .usa-link-email, .usa-link-headphone, .usa-link-magazine {
+    margin: 0 0.5rem 0 0;
+  }
+}
+
+.usa-link-twitter span,
+.usa-link-addthis span, 
+.usa-link-email span, 
+.usa-link-headphone span, 
+.usa-link-magazine span {
+  position: absolute;
+  left: -999em;
+}
+
+.usa-link-addthis {
+    /*background-image: url(../img/social-icon-addthis.png);*/
+    background-image: url(https://fdc.nal.usda.gov/img/social-icon-addthis.svg);
+}
+.usa-link-email {
+    /*background-image: url(../img/social-icon-email.png);*/
+    background-image: url(https://fdc.nal.usda.gov/img/social-icon-email.svg);
+}
+.usa-link-headphone {
+    /*background-image: url(../img/social-icon-headphone.png);*/
+    background-image: url(https://fdc.nal.usda.gov/img/social-icon-headphone.svg);
+}
+.usa-link-magazine {
+    /*background-image: url(../img/social-icon-magazine.png);*/
+    background-image: url(https://fdc.nal.usda.gov/img/social-icon-magazine.svg);
+}
+
+.usa-link-twitter {
+    /*background-image: url(../img/social-icon-twitter.png);*/
+    background-image: url(https://fdc.nal.usda.gov/img/social-icon-twitter.svg);
+}
+
+.usa-link-youtube {
+    /*background-image: url(../img/social-icon-youtube.png);*/
+    background-image: url(https://fdc.nal.usda.gov/img/social-icon-youtube.svg);
+}
+.cta-icons a {
+  text-decoration: none;
+  line-height: 1.3;
+}
+@media screen and (min-width: 700px){
+  .cta-icons a {
+    font-size: 2.25rem;  
+  }
+}
+.icon-download a, .icon-key a, .icon-api a{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+.cta-icons {
+  background: #f1f1f1;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-top: -3rem;
+  font-weight: bold;
+}
+.cta-icons a:visited {
+  color: #0071bc;
+}
+.cta-icons a:hover {
+  color: #003050;
+}
+.cta-icons .usa-grid-flex {
+  /*justify-content: space-around;*/
+  /*max-width: 600px;*/
+}
+.icon-list {
+  padding-left: 45px;
+  list-style-type: none;
+}
+.icon-list > li {
+  margin-bottom: 1em;
+}
+.icon-list > li > a {
+  text-decoration: none;
+}
+.icon-list > li > a:visited {
+  color: #0071bc;
+}
+@media screen and (max-width: 701px) {
+  .cta-icons .usa-grid-flex {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+@media screen and (max-width: 480px) {
+  .cta-icons .usa-grid-flex > div{
+    width: 33.33%;
+  }
+}
+.icon-download a:before, .icon-api a:before, .icon-key a:before {
+  content: "";
+  position: static; 
+  margin-left: 0; 
+  background-repeat: no-repeat;
+  height: 38px;
+  width: 38px;
+  margin-top: 0px; 
+  display: block;
+  vertical-align: center;
+  margin-bottom: 3px;
+}
+@media screen and (min-width: 700px){
+  .icon-download a, .icon-key a, .icon-api a{
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    text-align: left;
+  }
+  .icon-download a:before, .icon-api a:before, .icon-key a:before {
+    display: inline-block; 
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+}
+.icon-download a:before {
+    background-image: url("https://fdc.nal.usda.gov/img/usda_icon_download.svg");
+}
+.icon-api a:before {
+    background-image: url("https://fdc.nal.usda.gov/img/usda_icon_api.svg");
+}
+.icon-key a:before {
+    background-image: url("https://fdc.nal.usda.gov/img/usda_icon_key.svg");
+}
+
+caption {
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+}
+.no-ext-icon.usa-external_link::after, .no-ext-icon.usa-external_link:hover::after {
+  content: none;
+}
+
+.partner-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+}
+.partner-grid li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  width: 240px;
+  /*line-height: 2.5rem;*/
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 3rem;
+}
+.partner-grid img {
+  max-width: 150px;
+  max-height: 75px;
+  height: auto;
+  display: block;
+  margin-bottom: 1rem;
+}
+.usa-header-extended .usa-navbar, .usa-header-extended .usa-nav-inner, .usa-banner-inner, .usa-grid-full, .usa-grid {
+  max-width: none;
+}
+.usa-footer-secondary_section .usa-grid-full, .usa-footer-primary-section .usa-grid-full, .usa-banner .usa-grid, .cta-icons .usa-grid-flex, .usa-hero-grid {
+  margin-left: 0;
+  max-width: 1200px;
+}
+
+.path-frontpage .usa-hero .usa-hero-grid, .path-frontpage main .usa-grid-flex, .path-frontpage main .usa-grid {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1040px;
+}
+#block-usda-main-menu a.usa-nav-link:focus, #block-mainnavigation-2-menu a.usa-footer-primary-link:focus {
+  outline: none;
+}
+#block-usda-main-menu a.usa-nav-link:focus span {
+  /*outline: 2px dotted white;*/
+  outline-offset: 0px;
+}
+#block-mainnavigation-2-menu a.usa-footer-primary-link:focus span {
+  /*outline: 2px dotted #515151;*/
+  outline-offset: 0px;
+}
+#header-search:focus, .usa-search [type="submit"]:focus {
+  outline-color: white;
+  outline-offset: 0px;
+}
+.usa-sidenav-list .usa-accordion-content a:focus{
+  outline: none;
+  background-color: #cccccc;
+  color: black;
+}
+
+/*Override formating for API key signup page */
+.api-umbrella-embed p {
+    margin-bottom: 1em!important;
+    margin-top: 1em!important;
+}
+.api-umbrella-embed {
+  max-width: 87ch;
+}
+
+

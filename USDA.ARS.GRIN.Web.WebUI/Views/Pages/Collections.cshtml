@@ -1,0 +1,434 @@
+﻿@model USDA.ARS.GRIN.Web.WebUI.ViewModels.CollectionsViewModel
+@{
+    ViewBag.Title = "Collections";
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
+}
+
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
+
+<div class="usa-overlay"></div>
+
+@Html.Partial("~/Views/Shared/_Banner.cshtml")
+
+<!-- BREADCRUMBS -->
+<div class="usda-breadcrumb-with-sidebar">
+    <div id="block-usda-breadcrumbs" class="usda-block usda-breadcrumb">
+        <nav class="usa-grid" aria-label="Breadcrumb">
+            <ol class="usda-breadcrumb-list">
+                <li class="usda-breadcrumb-item">
+                    <a href="@Url.Action("Index","Home")" class="no-ext-icon">GRIN Home</a>
+                </li>
+                <li class="usda-breadcrumb-item">
+                    Collections
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main id="main-content" class="usa-section usa-content usa-layout-docs with-breadcrumb with-sidebar with-hero">
+    <div id="block-usda-page-title" class="usda-block usda-page-title-block usda-page-title-block-with-hero">
+        <h1 class="usda-page-title usda-page-title-with-hero"><span class="usda-page-title--main">GRIN </span><span class="usda-page-title--sub">Collections</span></h1>
+    </div>
+    <div class="usa-layout-docs-main_content">
+        <aside class="usa-layout-docs-sidenav">
+            @Html.Partial("~/Views/Shared/_LeftNavSearch.cshtml")
+            @Html.Partial("~/Views/Shared/_LeftNavCollections.cshtml")
+        </aside>
+
+        <div id="block-usda-content" class="usda-block block-usda-content">
+            <div class="usa-table-wrapper">
+                <h2 id="bkmk-db">Genetic Resource Collections</h2>
+                GRIN both provides data, and compiles references to databases hosted by collaborating projects.
+                <h3 id="bkmk-1">Plant Germplasm</h3>
+                The National Plant Germplasm System (NGPS) is a collaborative effort to safeguard the genetic diversity of agriculturally important plants.
+                The mission of the NPGS is to support agricultural production by acquiring, conserving, evaluating, documenting, and distributing crop germplasm.
+
+                <!-- REPO MAP -->
+                <div class="usa-width-one-whole" style="padding-bottom:20px; border:3px solid #aeb0b5; margin-top:20px;">
+
+                    <div style="background-color:#aeb0b5; margin:0px; padding:10px;">
+                        <h4 style="margin:0px;">Genebank Map</h4>
+                        <div style="font-size:.8em; margin-top:5px;">
+                            The U.S. map below shows the locations of NPGS genebanks.
+                            The information management system for the NPGS is part of an international collaboration called
+                            the <a href="https://www.grin-global.org/home.html">GRIN-Global project.</a>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-primary" style="text-align:left; font-size:.7em; margin:10px;">
+                        <strong>
+                            Click on the genebank location in the map below to display a list of the crops that it manages. From this list, you can navigate
+                            to detail pages within the GRIN-Global website.
+                        </strong>
+                    </div>
+                    <div class="usa-width-one-whole" style="text-align:center;">
+                        <img src="~/Images/npgsmap2012.gif"
+                             alt="Image of U.S. with Repository cities listed and links to repositories"
+                             name="Repositories"
+                             @*width="540"*@
+                             @*height="365"*@
+                             border="0"
+                             usemap="#RepositoriesMap"
+                             id="Repositories" style="background-color:transparent;" />
+                        <map name="RepositoriesMap" id="RepositoriesMap">
+                            <area id="1" class="map_element" shape="rect" coords="277,239,392,262"
+                                  @*href="http://sun10.ars-grin.gov/npgs/collegestation.html"*@
+                                  href="#site-detail-2"
+                                  alt="Carya and Cotton Collection: College Station, TX"
+                                  @*title="Carya and Cotton" />*@
+                                  title="Carya and Cotton Collection: College Station, TX" />
+                            <area id="3" class="map_element" shape="poly" coords="132,93,134,118,196,117,193,103"
+                                  @*href="https://npgsweb.ars-grin.gov/gringlobal/site.aspx?id=3"*@
+                                  href="#site-detail-3"
+                                  alt="National Clonal Germplasm Repository, Corvallis, OR"
+                                  @*title="Berries, Kiwi, Hazlenut, Hops, Mints, Pear, Strawberry" />*@
+                                  title="National Clonal Germplasm Repository, Corvallis, OR" />
+                            <area id="4" class="map_element" shape="rect" coords="125,147,178,166"
+                                  @*href="http://sun10.ars-grin.gov/npgs/davis.html"*@
+                                  href="#site-detail-4"
+                                  alt="National Clonal Germplasm Repository, Tomato Genetic Stock Center, Davis, CA"
+                                  title="National Clonal Germplasm Repository, Tomato Genetic Stock Center, Davis, CA" />
+
+                            <!-- 5 AND 17 -->
+                            <area id="5" class="map_element" shape="rect" coords="423,108,480,131"
+                                  @*href="http://sun10.ars-grin.gov/npgs/geneva.html"*@
+                                  href="#site-detail-5"
+                                  alt="National Germplasm Repository, Geneva, NY"
+                                  title="National Germplasm Repository, Geneva, NY" />
+
+                            <area id="6" class="map_element" shape="rect" coords="92,223,126,254"
+                                  href="#site-detail-6"
+                                  alt="Pacific Basin Tropical Plant Genetic Resources Unit, Hilo, HI"
+                                  title="Pacific Basin Tropical Plant Genetic Resources Unit, Hilo, HI" />
+                            <area id="7" class="map_element" shape="poly" coords="400,322,400,322,511,318,505,297,453,293,400,300"
+                                  href="#site-detail-7"
+                                  alt="Tropical Agriculture Research Station, Mayaguez, PR"
+                                  title="Tropical Agriculture Research Station, Mayaguez, PR" />
+                            <area id="8" class="map_element" shape="rect" coords="428,270,488,289"
+                                  href="#site-detail-8"
+                                  alt="Subtropical Horticulture Research Station, Miami, FL"
+                                  title="Subtropical Horticulture Research Station, Miami, FL" />
+                            <area id="9" class="map_element" shape="rect" coords="152,194,226,212"
+                                  href="#site-detail-9"
+                                  alt="National Clonal Germplasm Repository for Citrus and Dates, Riverside, CA"
+                                  title="National Clonal Germplasm Repository for Citrus and Dates, Riverside, CA" />
+                            <area id="15" class="map_element" shape="rect" coords="435,160,535,177"
+                                  href="#site-detail-15"
+                                  alt="National Arboretum, Washington, DC"
+                                  title="National Arboretum, Washington, DC" />
+                            <area id="16" class="map_element" shape="poly" coords="300,124,306,143,331,149,346,141,345,127"
+                                  href="#site-detail-16"
+                                  alt="North Central Regional Plant Introduction Station, Ames, IA"
+                                  title="North Central Regional Plant Introduction Station, Ames, IA" />
+                            <area id="19" class="map_element" shape="rect" coords="198,119,282,142"
+                                  href="#site-detail-19"
+                                  alt="National Small Grains Collection, Hordeum Genetic Stock Center, Wheat Genetic Stock Center: Aberdeen, ID"
+                                  title="Barley, Oat, Rice, Wheat" />
+                            <area id="22" class="map_element" shape="rect" coords="388,205,449,225"
+                                  href="#site-detail-22"
+                                  alt="Plant Genetic Resources Conservation Unit: Griffin, GA"
+                                  title="Peanuts, Peppers, Sorghum, Sweetpotato, Warm season legumes and Grasses, Watermelon" />
+
+                            <!-- 24 AND 31 -->
+                            <area id="24" class="map_element" shape="poly" coords="311,161,311,176,371,176,369,162,361,156"
+                                  href="#site-detail-24"
+                                  alt="Soybean Collection, Maize Genetic Stock Center, Urbana, IL"
+                                  title="Soybean Collection, Maize Genetic Stock Center, Urbana, IL" />
+
+                            <area id="26" class="map_element" shape="poly" coords="149,73,149,88,174,88,176,96,185,96,190,90,216,88,210,75"
+                                  href="#site-detail-26"
+                                  alt="Western Regional Plant Introduction Station, Pea Genetic Stock Center, Pullman, WA"
+                                  title="Western Regional Plant Introduction Station, Pea Genetic Stock Center, Pullman, WA" />
+                            <area id="28" class="map_element" shape="rect" coords="437,142,511,158"
+                                  href="#site-detail-28"
+                                  alt="National Germplasm Resources Lab, Beltsville, MD"
+                                  title="Plant Exploration and Exchange" />
+                            <area id="29" class="map_element" shape="poly" coords="347,93,348,110,359,110,360,122,368,122,367,111,439,105,449,103,441,93"
+                                  href="#site-detail-29"
+                                  alt="Potato Germplasm Introduction, Sturgeon Bay, WI"
+                                  title="Potato" />
+                            <area id="37" class="map_element" shape="rect" coords="141,173,200,192"
+                                  href="#site-detail-37"
+                                  alt="National Arid Land Plant Genetic Resource Unit, Parlier, CA"
+                                  title="Cacti, Oilseeds and Biofuel crops" />
+                            <area id="38" class="map_element" shape="poly" coords="358,132,361,151,390,147,392,159,402,158,400,149,430,147,431,138,406,132"
+                                  href="#site-detail-38"
+                                  alt="Ornamental Plant Germplasm Center, Columbus, OH"
+                                  title="Ornamental Plant Germplasm Center, Columbus, OH" />
+                            <area id="40" class="map_element" shape="rect" coords="310,205,376,231"
+                                  href="site-detail-40"
+                                  alt="Dale Bumpers National Rice Research Center: Stuttgart, AR"
+                                  title="Rice genetic stocks" />
+                            <area id="42" class="map_element" shape="rect" coords="217,154,295,177"
+                                  href="site-detail-42"
+                                  alt="National Center for Genetic Resources Preservation: Ft. Collins, CO"
+                                  title="Backup collection and Preservation research" />
+                        </map>
+                    </div>
+                    <div class="usa-width-one-whole">
+
+                        <div class="site-detail" style="margin:15px;">
+                            @foreach (var collectionSite in Model.CollectionSites)
+                            {
+                                <div id="site-detail-@collectionSite.CollectionSiteID" class="hidden">
+                                    <div style="background-color:#aeb0b5; padding:10px; color:black; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
+                                        <strong><a href="https://npgsweb.ars-grin.gov/gringlobal/site.aspx?id=@collectionSite.CollectionSiteID" style="color:black;">@collectionSite.CollectionSiteName</a></strong>
+                                    </div>
+                                    <div style="padding:10px; background-color:#323a45; color:white; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
+                                        @foreach (var collectionSiteCrop in collectionSite.CollectionSiteCrops)
+                                        {
+                                            <div>
+                                                <a href="https://npgsweb.ars-grin.gov/gringlobal/crop.aspx?id=@collectionSiteCrop.CropDescriptorID" style="color:white;">@collectionSiteCrop.CropDescriptor</a>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+
+                                <!-- Use static sections for locations with no crops. -->
+                                <div id="site-detail-28" class="hidden">
+                                    <div style="background-color:#aeb0b5; padding:10px; color:black; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
+                                        <strong><a href="https://npgsweb.ars-grin.gov/gringlobal/site.aspx?id=28" style="color:black;">National Germplasm Resources Laboratory</a></strong>
+                                    </div>
+                                </div>
+
+                                <div id="site-detail-42" class="hidden">
+                                    <div style="background-color:#aeb0b5; padding:10px; color:black; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
+                                        <strong><a href="https://npgsweb.ars-grin.gov/gringlobal/site.aspx?id=42" style="color:black;">USDA, ARS, National Laboratory for Genetic Resources Preservation</a></strong>
+                                    </div>
+                                </div>
+
+                                <div id="site-detail-15" class="hidden">
+                                    <div style="background-color:#aeb0b5; padding:10px; color:black; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
+                                        <strong><a href="https://npgsweb.ars-grin.gov/gringlobal/site.aspx?id=15" style="color:black;">U. S. National Arboretum, Washington, DC</a></strong>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+
+                        <div id="section-reference" style="margin:15px;">
+                            <div style="background-color:#aeb0b5; padding:10px; color:black; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
+                                <h3 class="panel-title" style="margin:0px;">Affiliated Non-ARS Collections</h3>
+                            </div>
+                            <div class="panel-body" style="padding:10px; background-color:#323a45; color:white; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
+                                <ul>
+                                    <li><a href="https://npgsweb.ars-grin.gov/gringlobal/site.aspx?id=32" style="color:white;">U.S. Forest Service National Seed Lab; Dry Branch, GA</a><br>
+                                    <li><a href="https://npgsweb.ars-grin.gov/gringlobal/site.aspx?id=25" style="color:white;">U.S. Nicotiana Germplasm Collection; Raleigh, NC</a><br>
+                                    <li><a href="https://cals.arizona.edu/desertlegumeprogram/" style="color:white;">Desert Legume Program; Tuscon, AZ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- LINKS -->
+                <div class="usa-width-one-whole section-links">
+                    <h5>Links</h5>
+                    <div class="usa-width-one-half">
+                        <ul>
+                            <li>
+                                <a href="https://npgsweb.ars-grin.gov/gringlobal/search.aspx?">Search NPGS GRIN-Global</a>
+                            </li>
+                            <li>
+                                <a href="https://www.ars.usda.gov/northeast-area/beltsville-md-barc/beltsville-agricultural-research-center/national-germplasm-resources-laboratory/docs/plant-inventory-books/">Plant Inventory Books</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","CGC")">
+                                    Crop Germplasm Committees
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Repositories","Pages")">
+                                    Repository Home Pages
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="usa-width-one-half">
+                        <ul>
+                            <li><a href="https://npgsweb.ars-grin.gov/gringlobal/query/summary.aspx" title="Number of familes, genera, species and accessions in the NPGS">Diversity of Species in NPGS</a></li>
+                            <li><a href="https://npgsweb.ars-grin.gov/gringlobal/query/accessionsbysite.aspx" title="List the NPGS genebanks and a count of total holdings">Summary by Genebank</a></li>
+                            <li><a href="https://ia800305.us.archive.org/31/items/CAT31108469/CAT31108469.pdf">Seeds for Our Future</a></li>
+                            <li><span class="badge-item-new">NEW</span><a href="https://youtu.be/uHOclGNELuw">Video (6 Minutes) About the NPGS</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="usa-table-wrapper">
+                <h3 id="bkmk-2">Animal Germplasm</h3>
+                Animal genetic resources underpin the livestock sector’s production and profitability. As a result livestock industries contribute billions of dollars
+                to national economies. Our mission is to acquire, evaluate and preserve these strategic resources so that industry and the research community can have
+                access to a broad array of genetic variability for national security, the introduction of genetic variation, corrective mating, and various research initiatives.
+                <div class="usa-width-one-whole section-links">
+                    <h5>Links</h5>
+                    <div class="usa-width-one-half">
+                        <ul>
+                            <li><a href="https://nrrc.ars.usda.gov/A-GRIN/database_collaboration_page_dev">Animal Genetic Resources</a></li>
+                            <li><a href="https://nrrc.ars.usda.gov/A-GRIN/main_webpage_dev/ars?language=EN&record_source=US">Search the Animal Germplasm Database</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="usa-table-wrapper">
+                <h3 id="bkmk-3">Microbial Germplasm</h3>
+                The goal of this program is to ensure that the genetic diversity of agriculturallyimportant microorganisms is maintained to enhance and increase agricultural
+                efficiency and profitability.The program will collect, authenticate and characterizepotentially useful microbial germplasm; preserve microbial genetic diversity;
+                and facilitate distribution and utilization of microbial germplasm for research and industry.
+                <div class="usa-width-one-whole section-links">
+                    <h5>Links</h5>
+                    <div class="usa-width-one-half">
+                        <ul>
+                            <li><a href="https://nrrl.ncaur.usda.gov/">USDA ARS Culture Collection</a></li>
+                            <li><a href="https://www.ars.usda.gov/Main/docs.htm?docid=12125">USDA ARS Collection of Entomopathogenic Fungal Cultures (ARSEF)</a></li>
+                            <li><a href="@Url.Action("Index","Rhizobium")">Rhizobium Collection</a></li>
+                            <li><a href="https://nt.ars-grin.gov/fungaldatabases/specimens/specimens.cfm">U.S. National Fungus Collection</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @*<div class="usa-table-wrapper">
+                    <h3 id="bkmk-4">Invertebrate Germplasm</h3>
+                    Insects impact American agriculture both as destructive and beneficial organisms. Insect pests, parasites, predators, products, and pollinators are all economically important.
+                    It is critically important to distinguish between different species, races, stocks, strains, biotypes, and other genetic entities and to document their different interactions
+                    with agriculture and the environment.
+                    <ol>
+                        <LI>Preservation of reference specimens</LI>
+                        <LI>Maintenance of genetically important germplasm </LI>
+                        <LI>Documentation of specific insect stocks</LI>
+                        <LI>Management of databases </LI>
+                        <LI>Distribution of material to researchers and breeders </LI>
+                    </ol>
+                    <div class="usa-width-one-whole section-links">
+                        <h5>Links</h5>
+                        <div class="usa-width-one-half">
+                            <ul>
+                                <li>
+                                    <a href="https://www.cloud.ars-grin.gov/nigrp/robo.html">Releases of Beneficial Organisms</a>
+                                    (ROBO)
+                                </li>
+                                <li>
+                                    <a href="http://www.cloud.ars-grin.gov/nigrp/InsectSurvey2007.pdf">
+                                        USDA/ARS Insects in Culture - 2007
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://www.cloud.ars-grin.gov/nigrp/help/ibllinks.html">
+                                        ARS Insect Locations
+                                    </a>
+                                </li>
+                                <li>
+                                    Non-ARS Insect stock center for <a href="http://stockcenter.arl.arizona.edu/">
+                                        <cite>Drosophila</cite>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>*@
+
+            <div class="usa-table-wrapper">
+                <h3 id="bkmk-ds">GRIN Collections</h3>
+                GRIN provides access to data maintained within its database, supporting both searches and export. The Rhizobium collection of nitrogen fixing bacteria
+                is maintained by the ARS Soybean Genomics and Improvement Laboratory in Beltsville, MD. Plant Variety Protection Certificates are issued by the
+                Plant Variety Protection Office of the USDA Agricultural Marketing Service.
+                <div class="section-paragraph">
+                    <table class="usa-table-borderless">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Rhizobium Collection</strong></td>
+                                <td>
+                                    <div class="icon-download"><a href="@Url.Action("Search", "Rhizobium")">Search and Download Data</a></div>
+                                </td>
+                                <td>
+                                    <div class="icon-api"><a href="@Url.Action("Index","Rhizobium")">Browse</a></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>PVP Certificates</strong></td>
+                                <td>
+                                    <div class="icon-download"><a href="@Url.Action("Search","PVP")">Search and Download Data</a></div>
+                                </td>
+                                <td>
+                                    <div class="icon-api"><a href="@Url.Action("Index","PVP")">Browse</a></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>                @*<br />The
+                    <strong>Rhizobium Database</strong> compiles data on rhizobium strains, with cross-references to GRIN-Global accessions.
+                    <br />The
+                    <strong>PVP Certificate Status Database</strong> compiles data on crops covered under the Plant Variety Protection Act, and enables users
+                    to identify varieties that are available within the GRIN-Global database.*@
+            </div>
+        </div>
+    </div>
+</main>
+
+<script type="text/javascript">
+    //$("area").hover(function () {
+    //    $office = $(this).attr("href");
+    //    $(".site-detail > div").addClass("hidden");
+    //    $($office).removeClass("hidden");
+    //}, function () {
+    //    $(".site-detail > div").addClass("hidden");
+    //    //$("#debug-site-detail-cs").removeClass("hidden");
+    //});
+
+    $(".map_element").on("click", function (e) {
+        e.preventDefault();
+
+        var id = $(this).attr("id");
+        var detailSectionId = "#site-detail-" + id;
+
+        $(".site-detail > div").addClass("hidden");
+        $(detailSectionId).removeClass("hidden");
+
+        if (id == 1) {
+            $("#site-detail-2").removeClass("hidden");
+        }
+
+        if (id == 5) {
+            $("#site-detail-17").removeClass("hidden");
+        }
+
+        if (id == 24) {
+            $("#site-detail-31").removeClass("hidden");
+        }
+
+
+        //$office = "site-detail-" + $(this).attr("id");
+
+        //    alert("DEBUG CLICKED " + $office);
+
+        //    $(".site-detail > div").addClass("hidden");
+        //    $($office).removeClass("hidden");
+        //}, function () {
+        //    $(".site-detail > div").addClass("hidden");
+        //    //$("#debug-site-detail-cs").removeClass("hidden");
+    });
+        //$(".map_element").click(function () {
+        //    $office = "site-detail-" + $(this).attr("id");
+
+        //    alert("DEBUG CLICKED " + $office);
+
+        //    $(".site-detail > div").addClass("hidden");
+        //    $($office).removeClass("hidden");
+        //}, function () {
+        //    $(".site-detail > div").addClass("hidden");
+        //    //$("#debug-site-detail-cs").removeClass("hidden");
+        //});
+
+</script>

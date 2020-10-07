@@ -1,0 +1,86 @@
+﻿@model USDA.ARS.GRIN.Web.WebUI.ViewModels.Admin.AdminViewModel
+@{
+    ViewBag.Title = "Site Admin";
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fh-3.1.4/r-2.2.2/rr-1.2.4/sl-1.2.6/datatables.min.css" />
+<link rel="stylesheet" href="https://gyrocode.github.io/jquery-datatables-checkboxes/1.2.10/css/dataTables.checkboxes.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fh-3.1.4/r-2.2.2/rr-1.2.4/sl-1.2.6/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+@Html.Partial("~/Views/Shared/_Banner.cshtml")
+
+<!-- BREADCRUMBS -->
+<div class="usda-breadcrumb-with-sidebar">
+    <div id="block-usda-breadcrumbs" class="usda-block usda-breadcrumb">
+        <nav class="usa-grid" aria-label="Breadcrumb">
+            <ol class="usda-breadcrumb-list">
+                <li class="usda-breadcrumb-item">
+                    <a href="@Url.Action("Index","Home")" class="no-ext-icon">GRIN Home</a>
+                </li>
+                <li class="usda-breadcrumb-item">
+                    Site Administration
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main id="main-content" class="usa-section usa-content usa-layout-docs with-breadcrumb with-sidebar with-hero">
+    <div id="block-usda-page-title" class="usda-block usda-page-title-block usda-page-title-block-with-hero">
+        <h1 class="usda-page-title usda-page-title-with-hero"><span class="usda-page-title--main">GRIN </span><span class="usda-page-title--sub">PAGE TITLE</span></h1>
+    </div>
+    <div class="usa-layout-docs-main_content">
+        <aside class="usa-layout-docs-sidenav">
+            @Html.Partial("~/Views/Shared/_LeftNavSearch.cshtml")
+            @Html.Partial("~/Views/Shared/_LeftNavAdmin.cshtml")
+        </aside>
+        <div id="block-usda-content" class="usda-block block-usda-content">
+            <h3 style="padding-top:0px; margin-top:10px;">Site Administration</h3>
+            <div class="usa-width-one-whole">
+                <ul class="usa-accordion-bordered" style="width:100%;">
+                    <li>
+                        <button class="usa-accordion-button" style="background-color:darkgray;" id="button-cgc-documents" aria-expanded="false" aria-controls="control-cgc-documents">CGC Documents</button>
+                        <div class="usa-accordion-content" id="control-cgc-documents" aria-hidden="true">
+                            <div><a href="@Url.Action("CGCDocumentEdit","Admin")" class="btn-default">Upload</a></div>
+                            <table id="tbl-search-results" style:"width:100%;">
+                                <thead>
+                                    <tr>
+                                        <th style="background-color:#0071bc; color:white;">Title</th>
+                                        <th style="background-color:#0071bc; color:white;">Committee</th>
+                                        <th style="background-color:#0071bc; color:white;">Added</th>
+                                        <th style="background-color:#0071bc; color:white;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var result in Model.CGCDocuments)
+                                    {
+                                        <tr>
+                                            <td>@result.Title</td>
+                                            <td>@result.Committee.Name</td>
+                                            <td>@result.CreatedDate.ToShortDateString()</td>
+                                            <td>
+                                                <a href="@Url.Action("CGCDocumentEdit","Admin", new { id = result.ID })" class="btn-default">Edit</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="usa-accordion-button" style="background-color:darkgray;" id="button-cgc-calendar" aria-expanded="false" aria-controls="control-cgc-calendar">CGC Calendar</button>
+                        <div class="usa-accordion-content" id="control-cgc-calendar" aria-hidden="true">
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+

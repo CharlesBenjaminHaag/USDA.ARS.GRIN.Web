@@ -1,0 +1,494 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="shortcut icon" href="/gringlobal/images/sysblank.ico" />
+    <link id="ctl00_lnkTheme" rel="stylesheet" media="screen" href="/gringlobal/styles/default.aspx?theme=theme1" />
+    <link href="/gringlobal/styles/print.css" rel="stylesheet" type="text/css" media="print" />
+    <title>
+        GRIN-Global Web v 1.10.6.1
+    </title>
+    <script type="text/javascript" src='/gringlobal/scripts/jquery-1.3.2.min.js'></script>
+    <script type="text/javascript" src='/gringlobal/scripts/jquery.cookie.js'></script>
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            $('._blurme').blur();
+            $('.btn').each(function () {
+                var htmlStr = $(this).html();
+                if (htmlStr.indexOf("<i>") == -1) {
+                    $(this).append('<i>').append('<span>').wrapInner(document.createElement("SPAN")).prepend('<i>');
+                }
+            });
+        });
+    </script>
+
+    <title>Query and Report</title>
+
+
+    <!-- We participate in the US government's analytics program. See the data at analytics.usa.gov. -->
+    <script async type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=USDA&subagency=ARS&pua=UA-97667880-1"></script>
+
+    <style type="text/css">
+        .ctl00_mnuMain_0 {
+            background-color: white;
+            visibility: hidden;
+            display: none;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .ctl00_mnuMain_1 {
+            text-decoration: none;
+        }
+
+        .ctl00_mnuMain_2 {
+        }
+
+        .ctl00_mnuMain_3 {
+        }
+    </style>
+</head>
+<body>
+
+    <form name="aspnetForm" method="post" action="./query.aspx" id="aspnetForm">
+        <div>
+            <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+            <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+            <input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTExODUyNTQwOTAPZBYCZg9kFgRmD2QWBAIBDxYCHgRocmVmBSwvZ3Jpbmdsb2JhbC9zdHlsZXMvZGVmYXVsdC5hc3B4P3RoZW1lPXRoZW1lMWQCBA8VAgwvZ3Jpbmdsb2JhbC8ML2dyaW5nbG9iYWwvZAIBD2QWDGYPDxYEHglMb2dpblRleHQFBUxvZ2luHgpMb2dvdXRUZXh0BQxMb2dvdXQgZ3Vlc3RkZAICD2QWBAIBDw8WBB4EVGV4dAUJVmlldyBDYXJ0HgdUb29sVGlwBSRCdWlsZCBhbiBvcmRlciB0byByZXF1ZXN0IGFjY2Vzc2lvbnNkZAIDDw8WBB8DBRBObyBpdGVtcyBpbiBjYXJ0HwRlZGQCBQ88KwAFAQAPFgQeDFNraXBMaW5rVGV4dAUVU2tpcCBOYXZpZ2F0aW9uIExpbmtzHwRlZGQCBg8PFgQfA2UfBGVkZAIHDxAPFgIeC18hRGF0YUJvdW5kZ2QQFQkHxIxlc2vDvQNFTkcHRW5nbGlzaAhFc3Bhw7FvbAlGcmFuw6dhaXMKUG9ydHVndcOqcwZTeXN0ZW0O0KDRg9GB0YHQutC40LkO2KfZhNi52LHYqNmK2KkVCQE3ATkBMQEyATMBNgE4ATUBNBQrAwlnZ2dnZ2dnZ2cWAQICZAIMD2QWCgIBDw8WBB8DBQEtHwRlZGQCAw8PFgIeB1Zpc2libGVnZBYEAgEPDxYEHwMFDkNob29zZSBSZXBvcnQ6HwRlZGQCAw8QZBAVBhAtLSBTZWxlY3QgT25lIC0tJUxpc3QgYXZhaWxhYmxlIGFjY2Vzc2lvbnMgZnJvbSBhIHNpdGUbRGlzcGxheSBHZXJtaW5hdGlvbiBNZXRob2RzNEZpbmQgdGhlIENyb3AvRGVzY3JpcHRvciBsaXN0IGZvciBhIGdlbnVzIG9yIHNwZWNpZXMjTGlzdCBKb3VybmFsIG9mIFBsYW50IFJlZ2lzdHJhdGlvbnMgVGF4b25vbXkgLSBWaWV3IFRheG9ub215IFNwZWNpZXMVBgAfd2ViX3FyeV9hdmFpbF9hY2Nlc3Npb25fYXRfc2l0ZRZ3ZWJfcXJ5X2Rpc3BsYXlfbWV0aG9kHHdlYl9xcnlfZmluZF9jcm9wX2Zyb21fdGF4b24Qd2ViX3FyeV9saXN0X2pwchx3ZWJfcXJ5X2dldF90YXhvbm9teV9zcGVjaWVzFCsDBmdnZ2dnZxYBAgFkAgUPDxYCHwdnZBYCAgEPDxYEHwMF6gNMaXN0IGF2YWlsYWJsZSBhY2Nlc3Npb25zIGZyb20gYSBzaXRlLiA8YnIgLz48YnIgLz5UbyB1c2UgdGhlIHJlcG9ydCwgZW50ZXIgTlBHUyBzaXRlJ3Mgc2hvcnQgbmFtZSBpbnRvIHRoZSBWYWx1ZSBib3ggbmV4dCB0byB0aGUgcGFyYW1ldGVyIG5hbWUgOnNpdGVfYWNyb255bSwgdW5kZXIgc2VjdGlvbjogRW50ZXIgUGFyYW1ldGVyIFZhbHVlKHMpLiA8YnIgLz48YnIgLz5BZnRlciByZXBvcnQgcmVzdWx0IGlzIGRpc3BsYXllZCwgeW91IGNvdWxkIGNsaWNrICJFeHBvcnQgdG8gRXhjZWwiIGJ1dHRvbiB0byBleHBvcnQgZGF0YSB0byB0aGUgZXhjZWwgc2hlZXQgZm9yIGZ1cnRoZXIgd29ya2luZyBvbiB0aGUgZGF0YS4gPGJyIC8+PGJyIC8+VGhpcyBpcyBhIHNpbXBsZSBzYW1wbGUgcmVwb3J0IHNob3dpbmcgYXV0by1nZW5lcmF0aW5nIHBhcmFtZXRlciB2YWx1ZSBlbnRyeSBib3ggdG8gZW50ZXIgZGF0YSBpbiBvcmRlciB0byBydW4gdGhlIHJlcG9ydC4gHwRlZGQCBg8PFgIfB2dkFggCAQ88KwARAwAPFgQfBmceC18hSXRlbUNvdW50AgFkARAWABYAFgAMFCsAABYCZg9kFgQCAQ9kFgRmD2QWAgIBDw8WBB8DBQxzaXRlX2Fjcm9ueW0fBGVkZAIBD2QWAgIDDw8WAh8EZWRkAgIPDxYCHwdoZGQCAw8PFgIfBGVkZAIFDw8WBB8DBQEwHwRlZGQCBw8PFgQfAwUPR2VuZXJhdGUgUmVwb3J0HwRlZGQCCA9kFgYCAQ8PFgQfA2UfBGVkZAIDDw8WBB8DBRRFeHBvcnQgRGF0YSB0byBFeGNlbB8EZWRkAgUPPCsAEQIADxYEHwZnHwhmZAwUKwAAZBgDBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAgUXY3RsMDAkbG9naW5TdGF0dXMkY3RsMDEFF2N0bDAwJGxvZ2luU3RhdHVzJGN0bDAzBRRjdGwwMCRjcGhCb2R5JGd2RGF0YQ88KwAMAQhmZAUbY3RsMDAkY3BoQm9keSRndlBhcmFtVmFsdWVzDzwrAAwBCAIBZLBsvD+u8EUrzg/csZ5lsjsRApGpNPzBaAsB4JVsrCDo" />
+        </div>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            var theForm = document.forms['aspnetForm'];
+            if (!theForm) {
+                theForm = document.aspnetForm;
+            }
+            function __doPostBack(eventTarget, eventArgument) {
+                if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                    theForm.__EVENTTARGET.value = eventTarget;
+                    theForm.__EVENTARGUMENT.value = eventArgument;
+                    theForm.submit();
+                }
+            }
+            //]]>
+        </script>
+
+
+        <script src="/gringlobal/WebResource.axd?d=OodFxgu6dkcNmAjUJZhrF3dlz7hYSY464HsOm3zIDrwDPkmEbpNpzFeVBwkuW8nbol9yUrJiRvc6Ie7RV11UvI9B4c_yzZmd2Jj0vddNtSE1&amp;t=637103166965614113" type="text/javascript"></script>
+        <script src="/gringlobal/WebResource.axd?d=dR8a0hLT2aidyvSN64bxBDlsCdQIrBUXIS45OmDO3acA_SRC0iyxm_yaBo5zc2EuRZBBMBWwhcHgpC-W4psTelqknQhRS97lxHyA0JJaZe41&amp;t=637103166965614113" type="text/javascript"></script>
+        <script src="/gringlobal/WebResource.axd?d=Cwur-VeHpThNvZ0-XwlAfD0VjbbladsiL1Vr3QhpoN5fQBKyIRbHoJRs7oylfxFWfs1Z3gnUjowWTC7cezfaspR0F6HglVIjTymnWx3T4fk1&amp;t=637103166965614113" type="text/javascript"></script>
+        <div>
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="797B4E16" />
+            <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdABazscz45UYrMU2FCaHvZWvu8TbWPgHsYFnqjT3M1CxB/OL/uQ1CkXYCs1YWSiu6XRNiMuuAIBrnxQeWbmgQnoA9kin0zeLbd+SWFmZZ2rZAl49s7sN3+4RDM254FepdRo1yU0PFnRWL27w06d5d41GdbMD9YDmD8nwSH0+S3H58BR2ZLqdVA07DSIVHcDqIeX9MkPqI4EBYPfdSDZ4pLhLwN9kDye2rUyVe3a9rdH1HMkmyzpioSXAdPGiGUox6EKy3UOytLY9rNd4CUM9v9etgHVKicqFBNX/tyCI+NHPF9P1S7NeIc8AlH5zF6TCmE01E3x4w5I7ykGeugc7Lh4N+dsP0c8SA5Q++lmBq+9ry4pdkSfiT59YTQYbcNYUmRVoZ+6SWr4/nFd8YXupkA4CrGZjqGEAWdGEbrYkJltemE29zKszOsDca6h/5+MmmP9qo9qGUPyQvJncwPBORyfYgRKUuuFDqKdVpEboH6LfYT/fVn9sQ0hlg2O2XxJj6COs=" />
+        </div>
+        <div id='outer-wrapper'>
+            <div id='container'>
+
+                <div id='header-wrapper' class="menu">
+                    <div id='header-login'><b><a id="ctl00_loginStatus" href="javascript:__doPostBack(&#39;ctl00$loginStatus$ctl02&#39;,&#39;&#39;)">Login</a> </b></div>
+                    <div id="header-register">
+                        <div id="ctl00_pnlRegister">
+                            for returning member. Don't have an online profile? <b><a href='/gringlobal/useracct.aspx'>Register Now</a></b>
+                        </div>
+                    </div>
+                    <div id='header-cart'>
+                        <div class="cart">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a id="ctl00_ggCart_lnkViewCart" title="Build an order to request accessions" href="/gringlobal/cartview.aspx"><img title="Build an order to request accessions" src="/gringlobal/images/btn_viewcart.gif" alt="View Cart" style="border-width:0px;" /></a>
+                                    </td>
+                                    <td>
+                                        <span id="ctl00_ggCart_lblContents">No items in cart</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id='header-contact'>
+                        <a href="javascript: About NPGS" style="text-decoration: none" onclick="javascript:window.open('/gringlobal/popuphelp.aspx?id=7')"><b>About NPGS</b></a> |
+                        <a href="javascript: Contact Us" style="text-decoration: none" onclick="javascript:window.open('/gringlobal/contact.aspx','','scrollbars=yes,titlebar=no,width=570,height=380')"><b>Contact Us</b></a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a onclick="javascript:window.open('/gringlobal/popuphelp.aspx?id=9')" target="_blank"><img src="images/home.png" id="home-link" alt="" /></a>
+
+                    </div>
+                    <div id='header-sitetitle'>
+                        <a href="/gringlobal/popuphelp.aspx?id=8" style="text-decoration: none" target="_blank">U.S. National Plant Germplasm System</a>
+
+                        <!--
+                        ============================================================================================================================
+                        BEGIN BANNER
+                        ============================================================================================================================
+                        -->
+                        <br>
+                        <font size=-1 color=white style="background-color:red; padding:5px;">
+                            <strong>COVID-19 Update, March 23, 2020</strong>: Shipments may be delayed extensively. Before requesting germplasm, scientists should consider their capacity to receive it.
+                        </font>
+                        <!--
+                        ============================================================================================================================
+                        END BANNER
+                        ============================================================================================================================
+                        -->
+
+
+                    </div>
+                    <!-- end shutdown text, delete all bit closing div -->
+
+                    <div id='header-navwrapper'>
+
+                        <a href="#ctl00_mnuMain_SkipLink"><img alt="Skip Navigation Links" src="/gringlobal/WebResource.axd?d=lh11lJKM5fcwpOGG27S54Gh2HIrKoAg1bQRUZygczPtRND0VcjAGXdfj3GPTlncnJ78UAbvLbpHMt3fJqLoNO2aHEreroovbTFvfWFbyoPo1&amp;t=637103166965614113" width="0" height="0" style="border-width:0px;" /></a><table id="ctl00_mnuMain" class="nav ctl00_mnuMain_2" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_mnuMainn0">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr>
+                                            <td style="white-space:nowrap;"><a class="ctl00_mnuMain_1" href="/gringlobal/search.aspx?">Accessions</a></td>
+                                            <td style="width:0;"><img src="/gringlobal/WebResource.axd?d=trOeKohfVcmVHwK9-yI1Xzkq46glYchIZV0TTiEMM31szxfvsFz_OWicWc_H5GjcFGKRa_N7rU5p8n0ZJJCr2Wf4tpIUjSezrQ5QzMeSMmo1&amp;t=637103166965614113" alt="Expand Accessions" style="border-style:none;vertical-align:middle;" /></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_mnuMainn1">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr>
+                                            <td style="white-space:nowrap;"><a class="ctl00_mnuMain_1" href="/gringlobal/descriptors.aspx?">Descriptors</a></td>
+                                            <td style="width:0;"><img src="/gringlobal/WebResource.axd?d=trOeKohfVcmVHwK9-yI1Xzkq46glYchIZV0TTiEMM31szxfvsFz_OWicWc_H5GjcFGKRa_N7rU5p8n0ZJJCr2Wf4tpIUjSezrQ5QzMeSMmo1&amp;t=637103166965614113" alt="Expand Descriptors" style="border-style:none;vertical-align:middle;" /></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_mnuMainn2">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr>
+                                            <td style="white-space:nowrap;"><a class="ctl00_mnuMain_1" href="/gringlobal/taxon/taxonomyquery.aspx">Taxonomy</a></td>
+                                            <td style="width:0;"><img src="/gringlobal/WebResource.axd?d=trOeKohfVcmVHwK9-yI1Xzkq46glYchIZV0TTiEMM31szxfvsFz_OWicWc_H5GjcFGKRa_N7rU5p8n0ZJJCr2Wf4tpIUjSezrQ5QzMeSMmo1&amp;t=637103166965614113" alt="Expand Taxonomy" style="border-style:none;vertical-align:middle;" /></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Build an order to request accessions" id="ctl00_mnuMainn3">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr>
+                                            <td style="white-space:nowrap;"><a class="ctl00_mnuMain_1" href="/gringlobal/cartview.aspx">View Cart</a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="width:3px;"></td>
+                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Queries and Reports" id="ctl00_mnuMainn4">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr>
+                                            <td style="white-space:nowrap;"><a class="ctl00_mnuMain_1" href="/gringlobal/query/query.aspx?">Reports</a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="width:3px;"></td>
+                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Manage My Profile" id="ctl00_mnuMainn5">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr>
+                                            <td style="white-space:nowrap;"><a class="ctl00_mnuMain_1" href="/gringlobal/userinfor.aspx?action=menu">My Profile</a></td>
+                                            <td style="width:0;"><img src="/gringlobal/WebResource.axd?d=trOeKohfVcmVHwK9-yI1Xzkq46glYchIZV0TTiEMM31szxfvsFz_OWicWc_H5GjcFGKRa_N7rU5p8n0ZJJCr2Wf4tpIUjSezrQ5QzMeSMmo1&amp;t=637103166965614113" alt="Expand My Profile" style="border-style:none;vertical-align:middle;" /></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_mnuMainn6">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr>
+                                            <td style="white-space:nowrap;"><a class="ctl00_mnuMain_1" href="/gringlobal/popuphelp.aspx?id=7" target="_blank">About GRIN-Global</a></td>
+                                            <td style="width:0;"><img src="/gringlobal/WebResource.axd?d=trOeKohfVcmVHwK9-yI1Xzkq46glYchIZV0TTiEMM31szxfvsFz_OWicWc_H5GjcFGKRa_N7rU5p8n0ZJJCr2Wf4tpIUjSezrQ5QzMeSMmo1&amp;t=637103166965614113" alt="Expand About GRIN-Global" style="border-style:none;vertical-align:middle;" /></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_mnuMainn7">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr>
+                                            <td style="white-space:nowrap;"><a class="ctl00_mnuMain_1" href="/gringlobal/popuphelp.aspx?tag=Default.htm?" target="_blank">Help</a></td>
+                                            <td style="width:0;"><img src="/gringlobal/WebResource.axd?d=trOeKohfVcmVHwK9-yI1Xzkq46glYchIZV0TTiEMM31szxfvsFz_OWicWc_H5GjcFGKRa_N7rU5p8n0ZJJCr2Wf4tpIUjSezrQ5QzMeSMmo1&amp;t=637103166965614113" alt="Expand Help" style="border-style:none;vertical-align:middle;" /></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table><div id="ctl00_mnuMainn0Items" class="ctl00_mnuMain_0 menupopup ctl00_mnuMain_3">
+                            <table border="0" cellpadding="0" cellspacing="0">
+                                <tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Search GRIN-Global" id="ctl00_mnuMainn8">
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="white-space:nowrap;width:100%;"><a class="ctl00_mnuMain_1" href="/gringlobal/search.aspx">Search - General</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table><div class="ctl00_mnuMain_0" id="ctl00_mnuMainn0ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+                                <img src="/gringlobal/WebResource.axd?d=5ho3ME0ee_-o8KFJwS__g_vKAaqyITCtbLAM2XiC5Bj8DRXPBaBH40rE-wzxGvh-SSyLprtS19beV1fx1zYmoKZmNoHgO7BxB5RFBbWREyk1&amp;t=637103166965614113" alt="Scroll up" />
+                            </div><div class="ctl00_mnuMain_0" id="ctl00_mnuMainn0ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+                                <img src="/gringlobal/WebResource.axd?d=gmGdjlsDp4UsqhPQf_yAmb8Nb8oK54FDGxQi0qYakWq_O7soP1k2skhQgUTmN6EoUX1UeuBwaA9shhFlTlp0ydK3Z3rKiG-OTgSvJzsELjA1&amp;t=637103166965614113" alt="Scroll down" />
+                            </div>
+                        </div><div id="ctl00_mnuMainn1Items" class="ctl00_mnuMain_0 menupopup ctl00_mnuMain_3">
+                            <table border="0" cellpadding="0" cellspacing="0">
+                                <tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Search GRIN-Global via Descriptors" id="ctl00_mnuMainn9">
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="white-space:nowrap;width:100%;"><a class="ctl00_mnuMain_1" href="/gringlobal/descriptors.aspx">Search Characterization/Evaluation Data</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table><div class="ctl00_mnuMain_0" id="ctl00_mnuMainn1ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+                                <img src="/gringlobal/WebResource.axd?d=5ho3ME0ee_-o8KFJwS__g_vKAaqyITCtbLAM2XiC5Bj8DRXPBaBH40rE-wzxGvh-SSyLprtS19beV1fx1zYmoKZmNoHgO7BxB5RFBbWREyk1&amp;t=637103166965614113" alt="Scroll up" />
+                            </div><div class="ctl00_mnuMain_0" id="ctl00_mnuMainn1ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+                                <img src="/gringlobal/WebResource.axd?d=gmGdjlsDp4UsqhPQf_yAmb8Nb8oK54FDGxQi0qYakWq_O7soP1k2skhQgUTmN6EoUX1UeuBwaA9shhFlTlp0ydK3Z3rKiG-OTgSvJzsELjA1&amp;t=637103166965614113" alt="Scroll down" />
+                            </div>
+                        </div><div id="ctl00_mnuMainn2Items" class="ctl00_mnuMain_0 menupopup ctl00_mnuMain_3">
+                            <table border="0" cellpadding="0" cellspacing="0">
+                                <tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="GRIN Taxonomy for Plants Simple Query" id="ctl00_mnuMainn10">
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="white-space:nowrap;width:100%;"><a class="ctl00_mnuMain_1" href="/gringlobal/taxon/taxonomysimple.aspx">Simple Query Species Data</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Browse Taxonomy" id="ctl00_mnuMainn11">
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="white-space:nowrap;width:100%;"><a class="ctl00_mnuMain_1" href="/gringlobal/taxonomybrowse.aspx?">Browse Taxonomy</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="GRIN Taxonomy for Plants General Query" id="ctl00_mnuMainn12">
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="white-space:nowrap;width:100%;"><a class="ctl00_mnuMain_1" href="/gringlobal/taxon/taxonomysearch.aspx">Advanced Query of Species Data</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="GRIN Taxonomy for Plants Family/Genus Query" id="ctl00_mnuMainn13">
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="white-space:nowrap;width:100%;"><a class="ctl00_mnuMain_1" href="/gringlobal/taxon/famgensearch.aspx">Families and Genera Query</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="GRIN Taxonomy for Plants Economic Plants Query" id="ctl00_mnuMainn14">
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="white-space:nowrap;width:100%;"><a class="ctl00_mnuMain_1" href="/gringlobal/taxon/taxonomysearcheco.aspx">World Economic Plants in GRIN</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="GRIN Taxonomy for Plants Crop Wild Relative Query" id="ctl00_mnuMainn15">
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="white-space:nowrap;width:100%;"><a class="ctl00_mnuMain_1" href="/gringlobal/taxon/taxonomysearchcwr.aspx">Crop Wild Relative Data in GRIN</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_mnuMainn16">
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="white-space:nowrap;width:100%;"><a class="ctl00_mnuMain_1" href="/gringlobal/taxon/abouttaxonomy.aspx">About GRIN Taxonomy for Plants</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table><div class="ctl00_mnuMain_0" id="ctl00_mnuMainn2ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+                                <img src="/gringlobal/WebResource.axd?d=5ho3ME0ee_-o8KFJwS__g_vKAaqyITCtbLAM2XiC5Bj8DRXPBaBH40rE-wzxGvh-SSyLprtS19beV1fx1zYmoKZmNoHgO7BxB5RFBbWREyk1&amp;t=637103166965614113" alt="Scroll up" />
+                            </div><div class="ctl00_mnuMain_0" id="ctl00_mnuMainn2ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+                                <img src="/gringlobal/WebResource.axd?d=gmGdjlsDp4UsqhPQf_yAmb8Nb8oK54FDGxQi0qYakWq_O7soP1k2skhQgUTmN6EoUX1UeuBwaA9shhFlTlp0ydK3Z3rKiG-OTgSvJzsELjA1&amp;t=637103166965614113" alt="Scroll down" />
+                            </div>
+                        </div><div id="ctl00_mnuMainn5Items" class="ctl00_mnuMain_0 menupopup ctl00_mnuMain_3">
+                            <table border="0" cellpadding="0" cellspacing="0">
+                                <tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Order History" id="ctl00_mnuMainn17">
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="white-space:nowrap;width:100%;"><a class="ctl00_mnuMain_1" href="/gringlobal/orderhistory.aspx">My Order History</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Manage My Preference" id="ctl00_mnuMainn18">
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="white-space:nowrap;width:100%;"><a class="ctl00_mnuMain_1" href="/gringlobal/userpref.aspx">My Preference</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Manage My Address Book" id="ctl00_mnuMainn19">
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="white-space:nowrap;width:100%;"><a class="ctl00_mnuMain_1" href="/gringlobal/useraddress.aspx">My Address Book</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Display/Manage My Favoirtes" id="ctl00_mnuMainn20">
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="white-space:nowrap;width:100%;"><a class="ctl00_mnuMain_1" href="/gringlobal/userfavorite.aspx">My Favorites</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table><div class="ctl00_mnuMain_0" id="ctl00_mnuMainn5ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+                                <img src="/gringlobal/WebResource.axd?d=5ho3ME0ee_-o8KFJwS__g_vKAaqyITCtbLAM2XiC5Bj8DRXPBaBH40rE-wzxGvh-SSyLprtS19beV1fx1zYmoKZmNoHgO7BxB5RFBbWREyk1&amp;t=637103166965614113" alt="Scroll up" />
+                            </div><div class="ctl00_mnuMain_0" id="ctl00_mnuMainn5ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+                                <img src="/gringlobal/WebResource.axd?d=gmGdjlsDp4UsqhPQf_yAmb8Nb8oK54FDGxQi0qYakWq_O7soP1k2skhQgUTmN6EoUX1UeuBwaA9shhFlTlp0ydK3Z3rKiG-OTgSvJzsELjA1&amp;t=637103166965614113" alt="Scroll down" />
+                            </div>
+                        </div><div id="ctl00_mnuMainn6Items" class="ctl00_mnuMain_0 menupopup ctl00_mnuMain_3">
+                            <table border="0" cellpadding="0" cellspacing="0">
+                                <tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_mnuMainn21">
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="white-space:nowrap;width:100%;"><a class="ctl00_mnuMain_1" href="/gringlobal/popuphelp.aspx?id=6" target="_blank">Distribution Policy</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_mnuMainn22">
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="white-space:nowrap;width:100%;"><a class="ctl00_mnuMain_1" href="/gringlobal/popuphelp.aspx?id=5" target="_blank">Disclaimer</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table><div class="ctl00_mnuMain_0" id="ctl00_mnuMainn6ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+                                <img src="/gringlobal/WebResource.axd?d=5ho3ME0ee_-o8KFJwS__g_vKAaqyITCtbLAM2XiC5Bj8DRXPBaBH40rE-wzxGvh-SSyLprtS19beV1fx1zYmoKZmNoHgO7BxB5RFBbWREyk1&amp;t=637103166965614113" alt="Scroll up" />
+                            </div><div class="ctl00_mnuMain_0" id="ctl00_mnuMainn6ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+                                <img src="/gringlobal/WebResource.axd?d=gmGdjlsDp4UsqhPQf_yAmb8Nb8oK54FDGxQi0qYakWq_O7soP1k2skhQgUTmN6EoUX1UeuBwaA9shhFlTlp0ydK3Z3rKiG-OTgSvJzsELjA1&amp;t=637103166965614113" alt="Scroll down" />
+                            </div>
+                        </div><div id="ctl00_mnuMainn7Items" class="ctl00_mnuMain_0 menupopup ctl00_mnuMain_3">
+                            <table border="0" cellpadding="0" cellspacing="0">
+                                <tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_mnuMainn23">
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="white-space:nowrap;width:100%;"><a class="ctl00_mnuMain_1" href="/gringlobal/popuphelp.aspx?tag=Default.htm" target="_blank">GRIN-Global Help</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_mnuMainn24">
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="white-space:nowrap;width:100%;"><a class="ctl00_mnuMain_1" href="/gringlobal/popuphelp.aspx?tag=about" target="_blank">About GRIN-Global</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table><div class="ctl00_mnuMain_0" id="ctl00_mnuMainn7ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+                                <img src="/gringlobal/WebResource.axd?d=5ho3ME0ee_-o8KFJwS__g_vKAaqyITCtbLAM2XiC5Bj8DRXPBaBH40rE-wzxGvh-SSyLprtS19beV1fx1zYmoKZmNoHgO7BxB5RFBbWREyk1&amp;t=637103166965614113" alt="Scroll up" />
+                            </div><div class="ctl00_mnuMain_0" id="ctl00_mnuMainn7ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+                                <img src="/gringlobal/WebResource.axd?d=gmGdjlsDp4UsqhPQf_yAmb8Nb8oK54FDGxQi0qYakWq_O7soP1k2skhQgUTmN6EoUX1UeuBwaA9shhFlTlp0ydK3Z3rKiG-OTgSvJzsELjA1&amp;t=637103166965614113" alt="Scroll down" />
+                            </div>
+                        </div><a id="ctl00_mnuMain_SkipLink"></a>
+                        <span id="ctl00_smp" class="breadcrumb"><a href="#ctl00_smp_SkipLink"><img alt="Skip Navigation Links" src="/gringlobal/WebResource.axd?d=lh11lJKM5fcwpOGG27S54Gh2HIrKoAg1bQRUZygczPtRND0VcjAGXdfj3GPTlncnJ78UAbvLbpHMt3fJqLoNO2aHEreroovbTFvfWFbyoPo1&amp;t=637103166965614113" width="0" height="0" style="border-width:0px;" /></a><a id="ctl00_smp_SkipLink"></a></span>
+                        <br />
+                        <br />
+                    </div><!-- end header_navwrapper -->
+                    <div id='header-language' class="hide">
+                        <span id="ctl00_lblChoose">Choose language</span>&nbsp;<select name="ctl00$ddlLanguage" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ddlLanguage\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_ddlLanguage" class="_blurme">
+                            <option value="7">Česk&#253;</option>
+                            <option value="9">ENG</option>
+                            <option selected="selected" value="1">English</option>
+                            <option value="2">Espa&#241;ol</option>
+                            <option value="3">Fran&#231;ais</option>
+                            <option value="6">Portugu&#234;s</option>
+                            <option value="8">System</option>
+                            <option value="5">Русский</option>
+                            <option value="4">العربية</option>
+
+                        </select>
+                    </div>
+
+
+
+
+
+
+                </div><!-- end header-wrapper -->
+
+
+
+
+                <div id='content-wrapper'>
+                    <div id='content'>
+
+
+
+
+
+
+
+
+
+
+
+                      
+                      
+                 
+
+                    </div> <!-- end content -->
+                    <div id='footer'>
+                        <br />
+                        <table width="1024">
+                            <tr valign="top">
+                                <td width="200"></td>
+                                <td align="center"><a href="http://www.croptrust.org" title="Global Crop Diversity Trust"><img alt="Global Crop Diversity Trust" src="/gringlobal/images/GCDT.png" border="0" /></a></td>
+                                <td width="100" align="center"> <a href="http://www.bioversityinternational.org/" title="Bioversity International"><img alt="Bioversity International" src="/gringlobal/images/Bioversity.png" border="0" /></a></td>
+                                <td align="center" width="100"> <a href="http://www.usda.gov" title="United States Department of Agriculture"><img alt="United States Department of Agriculture" src="/gringlobal/images/USDA.png" border="0" /></a></td>
+                                <td width="200" align="center" valign="middle"><a href="javascript: Disclaimer" onclick="javascript:window.open('/gringlobal/disclaimer.aspx','','scrollbars=yes,titlebar=no,width=600,height=480')"> View disclaimer</a></td>
+                                <td width="200"></td>
+                            </tr>
+                        </table>
+                        <br /><br />
+                    </div>
+
+                </div> <!-- end content-wrapper -->
+            </div> <!-- end container -->
+        </div><!-- end outer-wrapper -->
+
+
+
+        <script type="text/javascript">
+            //<![CDATA[
+            var ctl00_mnuMain_Data = new Object();
+            ctl00_mnuMain_Data.disappearAfter = 500;
+            ctl00_mnuMain_Data.horizontalOffset = 0;
+            ctl00_mnuMain_Data.verticalOffset = 0;
+            ctl00_mnuMain_Data.iframeUrl = '/gringlobal/WebResource.axd?d=IyESmLNXneOz837Svx1m8gRhgVsehOhtBKZUUqfzl5bzGvohwYPb9NXSpfepkAhWPPokJt6y0nflDaWpCUrUuQUxqM00OtsgrLqqNbt5A9o1&t=637103166965614113';
+            WebForm_AutoFocus('ctl00_ddlLanguage');//]]>
+        </script>
+    </form>
+    <script type='text/javascript'>
+        setTimeout(hideFlashes, 30000);
+
+        function hideFlashes() {
+            var el = document.getElementById('ctl00_lblMessage');
+            if (el) { el.style.display = 'none'; }
+
+            var el = document.getElementById('ctl00_lblMessageRed');
+            if (el) { el.style.display = 'none'; }
+        }
+    </script>
+</body>
+</html>

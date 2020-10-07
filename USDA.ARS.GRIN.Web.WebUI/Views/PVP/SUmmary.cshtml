@@ -1,0 +1,144 @@
+﻿@model USDA.ARS.GRIN.Web.WebUI.ViewModels.PVPApplicationSummaryViewModel
+@{
+    ViewBag.Title = "SUmmary";
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fh-3.1.4/r-2.2.2/rr-1.2.4/sl-1.2.6/datatables.min.css" />
+<link rel="stylesheet" href="https://gyrocode.github.io/jquery-datatables-checkboxes/1.2.10/css/dataTables.checkboxes.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fh-3.1.4/r-2.2.2/rr-1.2.4/sl-1.2.6/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+<div class="usa-overlay"></div>
+<!-- HEADER IMAGE -->
+<div style="padding:20px; height:100px; text-align:center; background: url(Images/sunflowers-1523812757U6y.jpg) center center / cover;">
+    @*<div class="DEBUG-TITLE" style="font-size:larger; font-weight:bold; margin-top:7px; color:white;  background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0; padding: 1rem 1.5rem; width:40%; text-align:center;">GRIN: Crop Germplasm Committees</div>*@
+</div>
+
+<!-- BREADCRUMBS -->
+<div class="usda-breadcrumb-with-sidebar">
+    <div id="block-usda-breadcrumbs" class="usda-block usda-breadcrumb">
+        <nav class="usa-grid" aria-label="Breadcrumb">
+            <ol class="usda-breadcrumb-list">
+                <li class="usda-breadcrumb-item">
+                    <a href="@Url.Action("Index", "Home")" class="no-ext-icon">GRIN Home</a>
+                </li>
+                <li class="usda-breadcrumb-item">
+                    <a href="@Url.Action("Databases","Pages")" class="no-ext-icon">GRIN Datasets</a>
+                </li>
+                <li class="usda-breadcrumb-item">
+                    PVP
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main id="main-content" class="usa-section usa-content usa-layout-docs with-breadcrumb with-sidebar with-hero">
+    <div id="block-usda-page-title" class="usda-block usda-page-title-block usda-page-title-block-with-hero">
+        <h1 class="usda-page-title usda-page-title-with-hero"><span class="usda-page-title--main">GRIN </span><span class="usda-page-title--sub">Databases</span><span class="usda-page-title--sub">Rhizobium</span></h1>
+    </div>
+    <div class="usa-layout-docs-main_content">
+        <aside class="usa-layout-docs-sidenav">
+            @Html.Partial("~/Views/Shared/_LeftNavSearch.cshtml")
+            @{Html.RenderAction("_LeftNavPVP", "PVP");}
+        </aside>
+        <div id="block-usda-content" class="usda-block block-usda-content">
+            <h3>PVP Application Summary: @Model.ApplicationNumber</h3>
+
+            <table id="tbl-pvp-application" class="table table-striped" border="0" style="width:100%;">
+                <tr>
+                    <td style="background-color:#ebebeb; width:20%;"><strong>Application Status</strong></td>
+                    <td>@Model.ApplicationStatus</td>
+                </tr>
+                <tr>
+                    <td style="background-color:#ebebeb; width:20%;"><strong>Status Date</strong></td>
+                    <td>@Model.ApplicationStatusDate.ToShortDateString()</td>
+                </tr>
+                <tr>
+                    <td style="background-color:#ebebeb; width:20%;"><strong>Applicant</strong></td>
+                    <td>@Model.ApplicantName</td>
+                </tr>
+
+                <tr>
+                    <td style="background-color:#ebebeb; width:20%;"><strong>Cultivar (Variety) Name</strong></td>
+                    <td>@Model.CultivarName</td>
+                </tr>
+                <tr>
+                    <td style="background-color:#ebebeb; width:20%;"><strong>Experimental Name</strong></td>
+                    <td>@Model.ExperimentalName     </td>
+                </tr>
+                <tr>
+                    <td style="background-color:#ebebeb; width:20%;"><strong>Common Name </strong></td>
+                    <td>@Model.CommonName</td>
+                </tr>
+                <tr>
+                    <td style="background-color:#ebebeb; width:20%;"><strong>Scientific Name</strong></td>
+                    <td>@Model.ScientificName</td>
+                </tr>
+                <tr>
+                    <td style="background-color:#ebebeb; width:20%;"><strong>Certified Seed?</strong></td>
+                    <td>
+                        @if (Model.IsCertifiedSeed)
+                        {
+                            <strong>Yes</strong>
+                        }
+                        else
+                        {
+                            <strong>No</strong>
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color:#ebebeb; width:20%;"><strong>GRIN-Global Availability</strong></td>
+                    <td>@Html.Raw(Model.GRINGlobalAccessionURL)</td>
+                </tr>
+            </table>
+
+            <!--===============================================================================================================-->
+            <!-- BEGIN CERTIFICATE SECTION -->
+            <!--===============================================================================================================-->
+            @if (Model.CertificateIssuedDate != DateTime.MinValue)
+            {
+                <ul class="usa-accordion-bordered" style="width: 100%;">
+                    <li>
+                        <button class="usa-accordion-button" id="button-1" aria-expanded="false" aria-controls="control-1" style="background-color: darkgray;">Certificate</button>
+                        <div class="usa-accordion-content" id="control-1" aria-hidden="true">
+                            <div class="usa-width-one-whole">
+                                <table id="tbl-pvp-application" class="table table-striped" border="0" style="width:100%; margin:5px;">
+                                    <tr>
+                                        <td style="background-color:#ebebeb; width:10%;">Issued</td>
+                                        <td>@Model.CertificateIssuedDate.ToShortDateString()</td>
+                                        <td style="background-color:#ebebeb; width:10%;">Expiration Date</td>
+                                        <td>@Model.ExpirationDate.ToShortDateString()</td>
+                                        <td style="background-color:#ebebeb; width:10%;">Years Protected</td>
+                                        <td>@Model.YearsProtected</td>
+                                    </tr>
+                                </table>
+                                <h5>Certificate File</h5>
+                                <object data="@Model.CertificateURL" type="application/pdf" width="100%" height="800px">
+                                    It appears that you do not have a PDF plugin installed in this browser.Please <a href="@Model.CertificateURL">
+                                        click here to download the certificate.</a>
+                                </object>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!--===============================================================================================================-->
+                <!-- END CERTIFICATE SECTION -->
+                <!--===============================================================================================================-->
+            }
+        </div>
+    </div>
+</main>
+
+<script type="text/javascript">
+    $("#tbl-related-applications").DataTable(
+        {
+            "searching": false,
+            "paging": true,
+            "ordering": true,
+            "order": [[1, 'desc']]
+        });
+</script>

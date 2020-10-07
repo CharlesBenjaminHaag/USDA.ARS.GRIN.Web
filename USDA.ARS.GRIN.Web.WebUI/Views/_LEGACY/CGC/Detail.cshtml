@@ -1,0 +1,76 @@
+﻿@model USDA.ARS.GRIN.Web.Models.CropGermplasmCommittee
+@{
+    ViewBag.Title = "Detail";
+}
+
+    <main class="usa-grid usa-section usa-content usa-layout-docs">
+        <div>
+            <a href="/">GRIN Home</a> | @Html.ActionLink("Crop Germplasm Committees", "Index", "CGC") | @Model.Name 
+        </div>
+
+        <div style="clear:both;">
+            <hr />
+        </div>
+ 
+        <div class="usa-width-one-whole">
+            <h3>@Model.Name</h3>
+            <p>
+                <a href="@Model.RosterURL" target="_blank">Committee Roster</a>
+            </p>
+            <ul class="usa-accordion-bordered">
+
+                @if (Model.CropDescriptors.Count() > 0)
+                {
+                    <li>
+                        <button id="button-20360200"
+                                class="usa-accordion-button"
+                                aria-expanded="false"
+                                aria-controls="control-20360200">
+                            Related Crop Descriptors
+                        </button>
+                        <div id="control-20360200" class="usa-accordion-content">
+                            <ul>
+                                @foreach (var cropDescriptor in Model.CropDescriptors)
+                                {
+                                    <li><a href="https://npgsweb.ars-grin.gov/gringlobal/cropdetail.aspx?type=descriptor&id=@cropDescriptor.CropID">@cropDescriptor.CropName</a></li>
+                                }
+                            </ul>
+                        </div>
+                    </li>
+                }
+
+                @if (Model.Documents.Count() > 0)
+                {
+                <li>
+                    <button id="button-20361000"
+                            class="usa-accordion-button"
+                            aria-expanded="false"
+                            aria-controls="control-20361000">
+                        Documents
+                    </button>
+
+                    <div id="control-20361000" class="usa-accordion-content">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>URL</th>
+                                    <th>Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var document in Model.Documents)
+                                {
+                                    <tr>
+                                        <td><a href="@document.URL">@document.URL</a></td>
+                                        <td>@document.Type</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+                }
+            </ul>
+        </div>
+    </main>
+

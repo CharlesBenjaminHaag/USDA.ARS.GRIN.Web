@@ -1,0 +1,57 @@
+﻿@model USDA.ARS.GRIN.Web.WebUI.ViewModels.PVPSearchViewModel
+
+<h5 style="padding-bottom:0px; padding-top:0px;">Search Results: @Model.SearchResults.Count() Records Found</h5>
+
+<input type="hidden" id="hfResultsFound" value="@Model.SearchResults.Count()" />
+
+<div class="search-results-container-grid">
+    @if (Model.SearchResults.Count() > 0)
+    {
+        <table id="search-results-table" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>PV Number</th>
+                    <th>Synonyms</th>
+                    <th>Taxon</th>
+                    <th>Crop</th>
+                    <th>Applicant</th>
+                    <th>Application Date</th>
+                    <td>Cert. Seed</td>
+                    <td>Status</td>
+                    <th>Status Date</th>
+                    <th>Issued Date</th>
+                    <th>Yrs. Protected</th>
+                    <th>Variety</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pVPCertificateRecord in Model.SearchResults)
+                {
+                <tr>
+                    <td>@pVPCertificateRecord.PVNUmber</td>
+                    <td>@pVPCertificateRecord.ExperimentalNameSynonyms</td>
+                    <td>@pVPCertificateRecord.TaxonomyDescription</td>
+                    <td>@pVPCertificateRecord.CropDescription</td>
+                    <td>@pVPCertificateRecord.ApplicantOwnerName</td>
+                    <td>@pVPCertificateRecord.ApplicationDate.ToShortDateString()</td>
+                    <td>@pVPCertificateRecord.CertifiedSeed</td>
+                    <td>@pVPCertificateRecord.ApplicationStatusDescription</td>
+                    <td>@pVPCertificateRecord.StatusDate.ToShortDateString()</td>
+                    <td>@pVPCertificateRecord.IssuedDate.ToShortDateString()</td>
+                    <td>@pVPCertificateRecord.YearsProtected</td>
+                    <td>@pVPCertificateRecord.VarietyDescription</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#search-results-table').DataTable({
+            "searching": false,
+             "scrollX": true
+        });
+    });
+</script>

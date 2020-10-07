@@ -1,0 +1,67 @@
+﻿@model USDA.ARS.GRIN.Web.WebUI.ViewModels.RhizobiumSearchViewModel
+    
+<h5 style="padding-bottom:0px;">Search Results: @Model.SearchResults.Count() Records Found</h5>
+
+<input type="hidden" id="hfResultsFound" value="@Model.SearchResults.Count()" />
+
+@using (Html.BeginForm("ExportToExcel", "Rhizobium", FormMethod.Post))
+{
+    <div class="search-results-container-grid">
+        <table id="search-results-table" class="table table-striped table-bordered" style="margin-top:0px; width:100%;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>USDA Accession</th>
+                    <th>Synonym 1</th>
+                    <th>Synonym 2</th>
+                    <th>Synonym 3</th>
+                    <th>Synonym 4</th>
+                    <th>Host Plant</th>
+                    <th>Common Name</th>
+                    <th>Source</th>
+                    <th>GEO Source</th>
+                    <th>Serogroup</th>
+                    <th>Hosts Nodules</th>
+                    <th>Comments</th>
+                    <th>Genus SPP</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.SearchResults != null)
+                {
+                    if (Model.SearchResults.Count() > 0)
+                    {
+                        foreach (var result in Model.SearchResults)
+                        {
+                            <tr>
+                                <td>@result.RhyID</td>
+                                <td>@result.USDAAccession</td>
+                                <td>@result.Synonym1</td>
+                                <td>@result.Synonym2</td>
+                                <td>@result.Synonym3</td>
+                                <td>@result.Synonym4</td>
+                                <td>@result.HostPlant</td>
+                                <td>@result.CommonName</td>
+                                <td>@result.Source</td>
+                                <td>@result.GeoSource</td>
+                                <td>@result.SeroGroup</td>
+                                <td>@result.HostsNodu</td>
+                                <td>@result.Comments</td>
+                                <td>@result.GenusSPP</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+}
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#search-results-table').DataTable(
+        {
+            "searching": false,
+            "scrollX": true
+        });
+} );
+</script>

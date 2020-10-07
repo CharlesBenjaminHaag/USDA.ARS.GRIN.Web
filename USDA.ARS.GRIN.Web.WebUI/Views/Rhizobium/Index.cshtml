@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
+}
+
+<div class="usa-overlay"></div>
+
+<style>
+    table {
+        border: none;
+    }
+
+        table th {
+            background-color: #0071bc;
+            color: white;
+        }
+
+        table td {
+            background-color: #dfdfdf;
+            color: black;
+        }
+</style>
+
+@Html.Partial("~/Views/Shared/_Banner.cshtml")
+
+<!-- BREADCRUMBS -->
+<div class="usda-breadcrumb-with-sidebar">
+    <div id="block-usda-breadcrumbs" class="usda-block usda-breadcrumb">
+        <nav class="usa-grid" aria-label="Breadcrumb">
+            <ol class="usda-breadcrumb-list">
+                <li class="usda-breadcrumb-item">
+                    <a href="@Url.Action("Index", "Home")" class="no-ext-icon">GRIN Home</a>
+                </li>
+                <li class="usda-breadcrumb-item">
+                    <a href="@Url.Action("Collections","Pages")" class="no-ext-icon">GRIN Collections</a>
+                </li>
+                <li class="usda-breadcrumb-item">
+                    Rhizobium Collection
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main id="main-content" class="usa-section usa-content usa-layout-docs with-breadcrumb with-sidebar with-hero">
+    <div id="block-usda-page-title" class="usda-block usda-page-title-block usda-page-title-block-with-hero">
+        <h1 class="usda-page-title usda-page-title-with-hero"><span class="usda-page-title--main">GRIN </span><span class="usda-page-title--sub">Databases</span><span class="usda-page-title--sub">Rhizobium</span></h1>
+    </div>
+    <div class="usa-layout-docs-main_content">
+        <aside class="usa-layout-docs-sidenav">
+            @Html.Partial("~/Views/Shared/_LeftNavSearch.cshtml")
+            @{Html.RenderAction("_LeftNavRhizobium", "Rhizobium");}
+        </aside>
+
+        <div id="block-usda-content" class="usda-block block-usda-content">
+            <h2>Rhizobium Collection</h2>
+            <div class="alert alert-primary">
+                To request material from the Rhizobium collection, please contact <strong>Patrick Elia</strong> at
+                <a href="mailto:​patrick.elia@usda.gov">​patrick.elia@usda.gov</a>
+            </div>
+            <div id="section-detail">
+
+            </div>
+        </div>
+    </div>
+</main>

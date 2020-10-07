@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!-- photo carsouel -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="~/Content/styleguide.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/ARSBranding.css"rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="https://www.ars.usda.gov/Jquery/ARSbranding.js"></script>
+
+</head>
+<body class="layout-demo" role="banner">
+    <header class="usa-header usa-header-basic" role="banner">
+        <!-- Gov banner BEGIN -->
+        <div class="usa-banner">
+            <div class="usa-accordion">
+                <header class="usa-banner-header">
+                    <div class="usa-grid usa-banner-inner">
+                        <img src="https://www.ars.usda.gov/USWDS/img/favicons/favicon-57.png" alt="U.S. flag">
+                        <p>An official website of the United States government</p>
+                        <button class="usa-accordion-button usa-banner-button"
+                                aria-expanded="false" aria-controls="gov-banner">
+                            <span class="usa-banner-button-text">Here's how you know</span>
+                        </button>
+                    </div>
+                </header>
+                <div class="usa-banner-content usa-grid usa-accordion-content" id="gov-banner">
+                    <div class="usa-banner-guidance-gov usa-width-one-half">
+                        <img class="usa-banner-icon usa-media_block-img" src="https://www.ars.usda.gov/USWDS/img/icon-dot-gov.svg" alt="Dot gov">
+                        <div class="usa-media_block-body">
+                            <p>
+                                <strong>The .gov means it’s official.</strong>
+                                <br>
+                                Federal government websites always use a .gov or .mil domain. Before sharing sensitive information online, make sure you’re on a .gov or .mil site by inspecting your browser’s address (or “location”) bar.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="usa-banner-guidance-ssl usa-width-one-half">
+                        <img class="usa-banner-icon usa-media_block-img" src="https://www.ars.usda.gov/USWDS/img/icon-https.svg" alt="SSL">
+                        <div class="usa-media_block-body">
+                            <p>This site is also protected by an SSL (Secure Sockets Layer) certificate that’s been signed by the U.S. government. The <strong>https://</strong> means all transmitted data is encrypted  — in other words, any information or browsing history that you provide is transmitted securely.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gov banner END -->
+        <!-- Logo  and Log-Text Begin -->
+        <div class="usa-nav-container">
+            <div class="usa-navbar">
+                <button class="usa-menu-btn">Menu</button>
+                <div class="usa-logo" id="logo">
+
+                    <span href="https://www.usda.gov" title="Home" rel="home" class="usda-logo">
+                        <img src="https://www.ars.usda.gov/images/redesign/USDA-Logo.png" alt="USDA Logo" class="usda-logo-img">
+                    </span>
+
+                    <em class="usa-logo-text">
+                        <a href="https://www.usda.gov/" title="Home" aria-label="The U.S. Department of Agriculture Home Page" rel="home" id="anch_1">United States Department of Agriculture</a>
+                        <h6><a href="https://www.ars.usda.gov/" title="Home" aria-label="The Agricultural Research Service Home Page" rel="home" id="anch_1">Agricultural Research Service</a></h6>
+                    </em>
+                </div>
+            </div>
+
+            <div class="usa-grid-full usa-color-primary">
+                <h3 id="LocationHeader">
+                    Germplasm Resources Information Network (GRIN)
+                </h3>
+            </div>
+
+            <!-- Logo  and Log-Text End -->
+            <nav role="navigation" class="usa-nav usa-color-primary-darkest">
+
+                <button class="usa-nav-close">
+                    <img src="/USWDS/img/close.svg" alt="close">
+                </button>
+
+
+
+                <ul class="usa-nav-primary usa-accordion">
+                    <li>
+                        <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="side-nav-1" id="btnMenu-1">
+                            <span id="menuName">Research</span>
+                        </button>
+                        <ul id="side-nav-1" class="usa-nav-submenu usa-color-white" aria-hidden="true">
+                            <li><a href="/research/programs-projects/?modeCode=80-62-05-20">Research Projects</a></li>
+                            <li><a href="/research/publications/publications-at-this-location/?modeCode=80-62-05-20">Publications</a></li>
+                            <li><a href="/research/collaborations/?modeCode=80-62-05-20">Collaborations</a></li>
+                            <li><a href="/news-events/?modeCode=80-62-05-20">News</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="side-nav-2" id="btnMenu-2">
+                            <span id="menuName">People</span>
+                        </button>
+                        <ul id="side-nav-2" class="usa-nav-submenu usa-color-white" aria-hidden="true">
+                            <li><a href="/people-locations/people-list/?modeCode=80-62-05-20">Staff Listing</a></li>
+                            <li><a href="/careers/?modeCode=80-62-05-20">Careers</a></li>
+                        </ul>
+                    </li>
+
+
+
+
+
+                    <li>
+                        <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="side-nav-3" id="btnMenu-3">
+                            <span id="menuName">Research Units</span>
+                        </button>
+                        <ul id="side-nav-3" class="usa-nav-submenu usa-color-white" aria-hidden="true">
+                            <li><a href="/northeast-area/ithaca-ny/robert-w-holley-center-for-agriculture-health/">Robert W. Holley Center for Agriculture & Health</a></li>
+                            <li><a href="/northeast-area/ithaca-ny/robert-w-holley-center-for-agriculture-health/plant-soil-and-nutrition-research/">Plant, Soil and Nutrition Research</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <form class="usa-search usa-search-small" method="get" action="https://search.usa.gov/search?sort=rel">
+                    <div role="search">
+                        <label class="usa-sr-only" for="search-field-small">Search small</label>
+                        <input id="query" type="search" name="query">
+                        <input name="affiliate" id="affiliate" type="hidden" value="agriculturalresearchservicears">
+                        <button type="submit">
+                            <span class="usa-sr-only">Search</span>
+                        </button>
+                    </div>
+                </form>
+                <!-- Secondary Naivagation Start -->
+                <div class="usa-nav-secondary" style=top:-8.2rem>
+                    <ul class="usa-unstyled-list usa-nav-secondary-links">
+                        <li><a title="ARS Home" href="/"><b>ARS Home</b></a></li>
+                        <li><a title="About ARS" href="/about-ars/"><b>About GRIN</b></a></li>
+                        <li><a title="Contact Us" href="https://www.ars.usda.gov/contact-us/?modeCode=80-42-05-45"><b>Contact Us</b></a></li>
+
+                    </ul>
+                </div>
+                <!-- Secondary Naivagation End -->
+            </nav>
+
+        </div>
+    </header>
+
+
+
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="usa-footer usa-footer-big" role="contentinfo">
+            <!-- last modified date in documentation page -->
+            <div class="usa-grid usa-footer-return-to-top">
+                <a href="#">Return to top</a>
+                <div class="page-last-modified">
+                    Last Modified:
+                    5/8/2019
+                </div>
+            </div>
+
+            <!--  Headquarter pages only -->
+            <div class="usa-grid-full usa-color-gray-light">
+                <nav class="usa-footer-nav usa-width-two-thirds" id="footer-top">
+                    <ul class="usa-unstyled-list">
+                        <li class="usa-width-one-fourth usa-footer-primary-content"><a class="usa-footer-primary-link" href="/research/">Research</a></li>
+                        <li class="usa-width-one-fourth usa-footer-primary-content"><a class="usa-footer-primary-link" href="/news-events/news-events/">Media</a></li>
+                        <li class="usa-width-one-fourth usa-footer-primary-content"><a class="usa-footer-primary-link" href="/about-ars/">About ARS</a></li>
+                        <li class="usa-width-one-fourth usa-footer-primary-content"><a class="usa-footer-primary-link" href="/work-with-us/">Work With Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- middle footer -->
+            <div class="usa-grid-full usa-color-gray-dark">
+                <!-- Connect with ARS-->
+                <nav class="usa-footer-nav usa-width-one-half">
+                    <h3 class="usa-sign_up-header">Connect with ARS</h3>
+
+
+
+                    <div class="usa-footer-nav" id="socialLink">
+                        <a href="http://twitter.com/usda_ars">
+                            <img src="https://www.ars.usda.gov/ARSUserFiles/00000000/images/social_media///Twitter-Icon.png" title="Twitter icon" alt="Twitter icon" />
+                        </a>
+                        <a href="https://www.linkedin.com/company/usda-ars">
+                            <img src="https://www.ars.usda.gov/ARSUserFiles/00000000/images/social_media///Linked In Round 42 39.png" title="LinkedIn Icon" alt="LinkedIn Icon" />
+                        </a>
+                        <a href="https://public.govdelivery.com/accounts/USDAARS/subscriber/new">
+                            <img src="https://www.ars.usda.gov/ARSUserFiles/00000000/images/social_media///Email-Icon.png" title="Email Lists Icon" alt="Email Lists Icon" />
+                        </a>
+                        <a href="https://tellus.ars.usda.gov">
+                            <img src="https://www.ars.usda.gov/ARSUserFiles/00000000/images/social_media///Magazine-Icon.png" title="Tellus Icon" alt="Tellus Icon" />
+                        </a>
+                        <!-- AddThis Button BEGIN -->
+                        <a onmouseover="addthis_open(this, '', '[URL]', '[TITLE]')" onmouseout="addthis_close()" onclick="addthis_sendto()">
+                            <img src="https://www.ars.usda.gov/arsuserfiles/00000000/images/social_media/Add-This-Icon.png" alt="Bookmark This Page">
+
+
+                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=arsociowb"></script>
+                        </a>
+                        <!-- AddThis Button END -->
+                    </div>
+
+
+
+                </nav>
+
+                <!-- Sign up for ARS News updates-->
+                <nav class="usa-footer-nav usa-width-one-half">
+                    <form id="GD-snippet-form" action="https://public.govdelivery.com/accounts/USDAARS/subscriber/qualify?qsp=CODE_RED"
+                          accept-charset="UTF-8" method="post" target="_blank">
+
+                        <input name="utf8" type="hidden" value="&#x2713;" />
+                        <input type="hidden" name="authenticity_token" value="tV2OquJR5xnmtrmmZS3UWsIp7QddNiZcKotw2AMMUx2u9nfu4b3aL1Fb4L6RnJCoF5VYhXZ85qUPjpOyJiUlhg==" />
+
+                        <fieldset>
+                            <h3 class="usa-sign_up-header">Sign up</h3>
+                            <div class="EmailSignup-Footer">
+                                <input type="text" name="email" id="email" placeholder="Sign up for ARS News updates" style="display:inline-block;" value> <input type="submit" name="commit" class="form_button" id="go" value="Go" style="display:inline-block;" />
+                            </div>
+
+                        </fieldset>
+                    </form>
+
+                    <!-- GovDelivery Subscription Overlay -->
+                    <script src='https://content.govdelivery.com/overlay/js/6017.js'></script>
+                    <!-- End GovDelivery Overlay -->
+                </nav>
+                <!-- End Sign up for ARS News updates-->
+            </div>
+
+            <!-- bottom footer-->
+            <div class="usa-grid-full usa-color-gray-dark">
+                <nav class="usa-footer-nav" id="footer-bottom">
+                    <ul class="usa-unstyled-list">
+                        <li class="usa-width-one-fourth usa-footer-primary-content">
+                            <a href="/">ARS Home</a>
+                        </li>
+                        <li class="usa-width-one-fourth usa-footer-primary-content">
+                            <a href="http://www.usda.gov/">USDA.gov</a>
+                        </li>
+                        <li class="usa-width-one-fourth usa-footer-primary-content">
+                            <a href="https://www.usda.gov/plain-writing">Plain Writing</a>
+                        </li>
+                        <li class="usa-width-one-fourth usa-footer-primary-content">
+                            <a href="https://www.usda.gov/policies-and-links">Policies &amp; Links</a>
+                        </li>
+                        <li class="usa-width-one-fourth usa-footer-primary-content">
+                            <a href="/contact-us/">Contact Us</a>
+                        </li>
+                        <li class="usa-width-one-fourth usa-footer-primary-content">
+                            <a href="/research/freedom-of-information-act-and-privacy-act-reference-guide/">FOIA</a>
+
+                        </li>
+                        <li class="usa-width-one-fourth usa-footer-primary-content">
+                            <a href="https://www.usda.gov/accessibility-statement">Accessibility Statement</a>
+
+                        </li>
+                        <li class="usa-width-one-fourth usa-footer-primary-content">
+                            <a href="https://www.usda.gov/privacy-policy">Privacy Policy</a>
+
+                        </li>
+                        <li class="usa-width-one-fourth usa-footer-primary-content">
+                            <a href="https://www.usda.gov/non-discrimination-statement">Non-Discrimination Statement</a>
+
+                        </li>
+                        <li class="usa-width-one-fourth usa-footer-primary-content">
+                            <a href="/docs/quality-of-information/">Quality of Information</a>
+
+                        </li>
+                        <li class="usa-width-one-fourth usa-footer-primary-content">
+                            <a href="http://www.usa.gov" target="_blank">USA.gov</a>
+
+                        </li>
+                        <li class="usa-width-one-fourth usa-footer-primary-content">
+                            <a href="http://www.whitehouse.gov" target="_blank">WhiteHouse.gov</a>
+
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="https://www.ars.usda.gov/USWDS/js/uswds.min.js"></script>
+</body>
+</html>

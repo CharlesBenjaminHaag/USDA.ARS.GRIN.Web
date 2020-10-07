@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "PVP Dataset";
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
+}
+
+
+<div class="usa-overlay"></div>
+<section class="usa-hero usa-hero-border" id="randomHero" style="background: url(/Images/hero-topic-plants_0.jpg) center center / cover;">
+    <div class="usa-hero-grid">
+        <div class="usa-hero-search">
+            <h1 class="usda-page-title">Germplasm Resources Information Network (GRIN)</h1>
+            <div class="usa-hero-callout-default">
+                <form id="frmSearchCollections" class="usa-search usa-search--front usa-search-small js-search-form" action="fdc-app.html" onsubmit="location.href='https://npgsweb.ars-grin.gov/gringlobal/search.aspx?q=' + encodeURI(this.query.value); return false;">
+                    <div role="search">
+                        <input name="utf8" value="✓" type="hidden">
+                        <input id="affiliate" name="affiliate" value="usda" type="hidden">
+                        @*<label for="header-search">Search a collectionarch the GRIN-Global database:</label>*@
+
+                        <input type="hidden" name="query" />
+
+                        @*<input id="header-search" autocomplete="off" accesskey="i" name="query" type="search" placeholder="  ">*@
+                    <select id="ddlSelectCollection" style="        float: left;
+        height: 5.4rem;
+        margin-top: 0px;
+">
+                        <option value="default">-- Select a GRIN collection --</option>
+                        <option value="https://npgsweb.ars-grin.gov/gringlobal/search.aspx">Plant Germplasm</option>
+                        <option value="https://nrrc.ars.usda.gov/A-GRIN/main_webpage_dev/ars?language=EN&record_source=US">Animal Germplasm</option>
+                        <option value="https://www.cloud.ars-grin.gov/Pages/Collections#bkmk-3">Microbial Germplasm</option>
+                        @*<option value="https://www.cloud.ars-grin.gov/nigrp/robo.html">Invertebrate Germplasm</option>*@
+                    </select>
+                        <button id="btnGoToCollection" type="submit" style="height:5.5rem; background-size:2.25em;">
+                            <span class="usa-sr-only">Search</span>
+                        </button>
+                        <input name="commit" value="Search" type="hidden">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<main id="main-content" class="usa-section usa-content with-sidebar with-hero">
+    <div class="usa-grid">
+    </div>
+    <div class="cta-icons">
+        <div class="usa-grid-flex">
+            <div class="icon-download"><a href="~/Pages/Collections#bkmk-ds">Browse and Download GRIN Data Sets</a></div>
+            @*<div class="icon-key"><a href="api-key-signup.html">Get an API Key</a></div>
+            <div class="icon-api"><a href="api-guide.html">API Guide</a></div>*@
+        </div>
+    </div>
+    <div class="usa-grid" style="margin-top:5rem;">
+        <div class="usa-width-one-third">
+            <p style="font-size: 2rem; font-weight: 700; line-height: 1.3; margin-bottom: .5em;">
+                The <strong>National Genetic Resources Program (NGRP)</strong> of USDA acquires, characterizes, conserves, documents, 
+                and distributes to scientists germplasm of all life forms important for food and agricultural production.
+            </p>
+            @*<p style="font-size: 2rem; line-height: 1.3; margin-bottom: .5em;"></p>*@
+            @*<p>The suggested citation is: <br>U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2019. <a href="https://fdc.nal.usda.gov">fdc.nal.usda.gov</a>.*@
+        </div>
+        <div class="usa-width-two-thirds">
+            <p>
+                The Germplasm Resources Information Network (GRIN) documents these animal, microbial, and plant collections through informational pages, 
+                searchable databases, and links to USDA-ARS projects that curate the collections. 
+                GRIN is operated by the <a href="https://www.ars.usda.gov/northeast-area/beltsville-md-barc/beltsville-agricultural-research-center/national-germplasm-resources-laboratory/" >National Germplasm Resources Laboratory</a> in Beltsville, MD. 
+                The National Genetic Resources Advisory Council represents U.S. agricultural stakeholders and 
+                provides recommendations to the Secretary of USDA on national policies related to agricultural genetic resources.
+            </p>
+        </div>
+    </div>
+</main>
+
+<script type="text/javascript">
+ 
+    // ================================================================================================================
+    // When the user clicks the Search button after selecting a GRIN collection via the main-header drop-down list, 
+    // navigate to the URL of the selected collection.
+    // ================================================================================================================
+    $('#frmSearchCollections').on('submit', function (evt) {
+        evt.preventDefault();
+
+        var selectedCollection = $("#ddlSelectCollection").val();
+
+        if (selectedCollection != "default") {
+            window.location.href = selectedCollection;
+        }
+    });
+</script>

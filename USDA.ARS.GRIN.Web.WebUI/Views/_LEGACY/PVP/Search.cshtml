@@ -1,0 +1,167 @@
+﻿@model USDA.ARS.GRIN.Web.WebUI.ViewModels.PVPSearchViewModel
+@{
+    ViewBag.Title = "PVP Certificate Status Search";
+}
+
+<main class="usa-grid usa-section usa-content usa-layout-docs">
+
+    <div class="usa-width-one-whole usa-layout-docs-main_content">
+
+        <div>
+            <a href="https://npgsdev.ars-grin.gov/GRINWeb">GRIN Home</a> | @Html.ActionLink("PVP Certificate Status Database", "Index", "PVP") | Advanced Search
+        </div>
+
+        <div style="clear:both;">
+            <hr />
+        </div>
+
+        @using (Html.BeginForm("Search", "PVP", FormMethod.Post, new { id = "frmSearch" }))
+        {
+            <input type="hidden" id="hfPageAction" value="@Model.PageAction" />
+            <input type="hidden" id="hfRecordsFound" value="@Model.SearchResults.Count()" />
+            <div class="well">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="form-group" style="margin-bottom:0px;">
+                            <label style="margin-top:0px;">PVP No.</label>
+                            <select id="ddlSelectSearchType" , name="searchType" class="form-control">
+                                <option value="0">-- Select --</option>
+                                <option value="1">Above</option>
+                                <option value="2">Below</option>
+                                <option value="3">Equal to</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="form-group" style="margin-bottom:0px;">
+                            <label style="margin-top:0px; color:transparent;">HIDDEN</label>
+                            <input type="text" id="txtPVPNumber" name="pVPNumber" class="form-control" value="@Model.PVPNumber" />
+                            @*<small id="emailHelp" class="form-text text-muted">Search by PVP number.</small>*@
+                        </div>
+                    </div>
+                    @*<div class="col-lg-2">
+                        <div class="form-group" style="margin-bottom:0px;">
+                            <label style="margin-top:0px; color:transparent;">HIDDEN</label>
+                            <select id="ddlSelectSearchType" , name="searchType" class="form-control">
+                                <option value="0">-- Select --</option>
+                                <option value="1">AND</option>
+                                <option value="2">OR</option>
+                            </select>
+                        </div>
+                    </div>*@
+                    <div class="col-lg-4">
+                        <div class="form-group" style="margin-bottom:0px;">
+                            <label style="margin-top:0px;">Applicant</label>
+                            <input type="text" id="txtApplicantName" , name="applicantName" value="@Model.ApplicantName" class="form-control" style="margin-bottom:0px;" />
+                            @*<small id="emailHelp" class="form-text text-muted">Search by all or part of the applicant's full name.</small>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding:0px; margin:0px;">
+                    <div class="col-lg-12" style="padding:0px; margin:0px;">
+                        <div class="form-check pull-right" style="padding:0px; margin:0px;">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" style="margin:5px;" for="exampleCheck1">Search available accessions only</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <button id="btnSearchPVP" class="btn btn-outline-secondary pull-right" style="margin-top:5px; margin-bottom:0px;" type="submit">Search</button>
+                    </div>
+                </div>
+            </div>
+        }
+        <div id="pvp-search-results-container">
+            <input type="hidden" id="hfResultsFound" value="@Model.SearchResults.Count()" />
+            <table id="search-results-table" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>PV Number</th>
+                        <th>Variety</th>
+                        <th>Taxon</th>
+                        <th>Applicant</th>
+                        <th>Certificate Status</th>
+                        <th>As Of</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var pVPCertificateRecord in Model.SearchResults)
+                    {
+                        <tr>
+                            <td>@pVPCertificateRecord.PVNUmber</td>
+                            <td>@pVPCertificateRecord.VarietyDescription</td>
+                            <td>@pVPCertificateRecord.TaxonomyDescription</td>
+                            <td>@pVPCertificateRecord.ApplicantOwnerName</td>
+                            <td>@pVPCertificateRecord.ApplicationStatusDescription</td>
+                            <td>@pVPCertificateRecord.ApplicationStatusDate</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+<!-- No-results-found modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLongTitle">No Records Found</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                There are no records in the database that matched your search criteria.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    //$('#frmSearch').on('submit', function (evt) {
+    //    evt.preventDefault();
+
+    //    $('#pvp-search-results-container').html("");
+
+    //     $.post('Search', $(this).serialize(), function (response) {
+    //        $('#pvp-search-results-container').html(response); // assuming response is HTML
+    //    });
+
+    //});
+
+    $('#txtPVPNumber').on('input', function () {
+        $("#txtApplicantName").val("");
+    });
+
+    $('#txtApplicantName').on('input', function () {
+        $("#txtPVPNumber").val("");
+    });
+
+    $(document).ready(function () {
+        $('#search-results-table').dataTable({
+            "searching": false,
+            "scrollX": true
+        });
+
+        // If no records are found, trigger the modal notification.
+        var pageAction = $("#hfPageAction").val();
+        var recordsFound = $("#hfResultsFound").val();
+
+        if (recordsFound == 0) {
+            if (pageAction != 'INIT') {
+                $('#exampleModalCenter').modal('show');
+                $('#exampleModalCenter').css("z-index", "99999");
+            }
+        }
+    });
+
+
+</script>

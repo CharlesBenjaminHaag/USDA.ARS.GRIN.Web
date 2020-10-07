@@ -1,0 +1,50 @@
+﻿@model USDA.ARS.GRIN.Web.WebUI.ViewModels.PVPDetailViewModel
+
+<div  style="padding:5px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif">
+    <h3 style="padding:10px; margin:0px; color:#0071bc; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif">@Model.CropDescription</h3>
+
+    <div class="panel-group" id="accordionCity">
+        @foreach (var result2 in Model.PVPCertificateRecords)
+        {
+        <div class="panel panel-default accordion-heading-dark" style="background-color:#aeb0b5; " id="nested@(result2.PVPOCatalogID)">
+            <div class="panel-heading panel-default accordion-heading-dark" style="background-color:#aeb0b5; color:black;">
+                <h4 class="panel-title" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordionCity" href="#collapse@(result2.PVPOCatalogID)">
+                        @result2.TaxonomyDescription (@result2.VarietyDescription)
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse@(result2.PVPOCatalogID)" class="panel-collapse collapse">
+                <div class="panel-body" style="padding:10px; background-color:#323a45; color:white; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <span class="@Model.GetApplicationStatusCSSClass(result2.ApplicationStatusDescription) pull-right">@result2.ApplicationStatusDescription</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>PVP No.</strong></div>
+                        <div class="col-md-4"><span class="badge">@result2.PVNUmber</span></div>
+                        <div class="col-md-2"><strong>Variety</strong></div>
+                        <div class="col-md-4">@result2.VarietyDescription</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>Taxon</strong></div>
+                        <div class="col-md-4">@result2.TaxonomyDescription</div>
+                        <div class="col-md-2"><strong>Applicant</strong></div>
+                        <div class="col-md-4">@result2.ApplicantOwnerName</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            @if (Model.GetCertificateURL(result2.PVNUmber, result2.ApplicationStatusDescription) != String.Empty)
+                            {
+                                <a href="@Model.GetCertificateURL(result2.PVNUmber, result2.ApplicationStatusDescription)" target="_blank" style="color:white;" class="pull-right">View Certificate</a>
+                            }
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,48 @@
+﻿@model List<USDA.ARS.GRIN.Web.Models.RhizobiumDescriptor>
+
+<nav id="block-usda-subnavigation" class="usda-block" aria-label="Subnavigation">
+    <ul class="usa-accordion-bordered usa-sidenav-list">
+        <li>
+            <button class="usa-accordion-button" aria-expanded="false" aria-controls="a1"> Page Navigation </button>
+            <div id="a1" class="usa-accordion-content">
+                <a href="@Url.Action("Search", "Rhizobium")" class="usa-current is-active">Advanced Search</a>
+            </div>
+        </li>
+    </ul>
+    <div class="selector-list" style="padding:15px; overflow-y:scroll; height:500px;">
+        @foreach (var hostPlant in Model)
+        {
+            <a href="@hostPlant.HostPlant" class="dataset-selector" style="font-size: 1.7rem; font-weight:bold; color:#5b616b;">@hostPlant.HostPlant</a><br />
+            @*<input type="button" id="@hostPlant.HostPlant" value="@hostPlant.HostPlant" class="btn btn-success btn-block" style="width:100%; overflow-wrap: break-word; white-space: normal; font-size:small;" />*@
+        }
+
+    </div>
+</nav>
+
+<script type="text/javascript">
+
+    // ===============================================================================================
+    // On page load, obtain the ID of the first href; display data for that record.
+    // ===============================================================================================
+    var firstNavButtonValue = $("div.selector-list a:first-child").attr("href");
+    var url = '@Url.Action("Detail", "Rhizobium")';
+     $.post(url, { plantName: firstNavButtonValue })
+        .done(function (response) {
+        $("#section-detail").html(response);
+        });
+
+
+
+$(".dataset-selector").click(function () {
+
+    var value = $(this).attr("href");
+    event.preventDefault();
+
+    var url = '@Url.Action("Detail", "Rhizobium")';
+
+    $.post(url, { plantName: value })
+    .done(function (response) {
+    $("#section-detail").html(response);
+    });
+});
+</script>

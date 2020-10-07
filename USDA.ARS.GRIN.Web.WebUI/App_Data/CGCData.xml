@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CropGermplasmCommittees>
+  <CropGermplasmCommittee>
+    <Name>Alfalfa CGC</Name>
+    <MembershipRosterURL>https://docs.google.com/spreadsheets/d/1VLnqifKeMqX66Cbu9TvbNIt0GATV2d9PJKdv2gXIcRk/edit#gid=0</MembershipRosterURL>
+    <CropDescriptors>
+      <DescriptorID></DescriptorID>
+      <DescriptorName></DescriptorName>
+      <DescriptorListURL></DescriptorListURL>
+      <DescriptorReportURL></DescriptorReportURL>
+    </CropDescriptors>
+    <MeetingMinutesURLS>
+   
+    </MeetingMinutesURLS>
+  </CropGermplasmCommittee>
+</CropGermplasmCommittees>

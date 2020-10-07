@@ -1,0 +1,358 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+
+<div class="usa-overlay"></div>
+@*<div class="usa-hero" id="randomHero" style="height:100px;">
+    <h2>TITLE</h2>
+</div>*@
+
+<!-- TEST -->
+<div style="padding:20px; height:100px; background: url(/Images/sunflowers-1523812757U6y.jpg) center center / cover;">
+   
+</div>
+
+<div class="usda-breadcrumb-with-sidebar">
+    <div id="block-usda-breadcrumbs" class="usda-block usda-breadcrumb">
+        <nav class="usa-grid" aria-label="Breadcrumb">
+            <ol class="usda-breadcrumb-list">
+                <li class="usda-breadcrumb-item">
+                    <a href="https://www.ars.usda.gov" class="no-ext-icon">ARS Home</a>
+                </li>
+                <li class="usda-breadcrumb-item">
+                    <a href="index.html">FoodData Central</a>
+                </li>
+                <li class="usda-breadcrumb-item">
+                    MAIN TOPIC
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<main id="main-content" class="usa-section usa-content usa-layout-docs with-breadcrumb with-sidebar with-hero">
+    <div id="block-usda-page-title" class="usda-block usda-page-title-block usda-page-title-block-with-hero">
+        <h1 class="usda-page-title usda-page-title-with-hero"><span class="usda-page-title--main">FoodData Central </span><span class="usda-page-title--sub">API Guide</span></h1>
+    </div>
+    <div class="usa-layout-docs-main_content">
+        <aside class="usa-layout-docs-sidenav">
+            <form class="usa-search usa-search-small js-search-form" action="fdc-app.html" onsubmit="location.href=this.action+'#/?query='+this.query.value; return false;">
+                <div role="search">
+                    <input name="utf8" value="✓" type="hidden">
+                    <input id="affiliate" name="affiliate" value="usda" type="hidden">
+                    <label for="header-search">GRIN-Global Search</label>
+                    <input id="header-search" autocomplete="off" accesskey="i" name="query" type="search" placeholder="Name of food">
+                    <button type="submit">
+                        <span class="usa-sr-only">Search</span>
+                    </button>
+                    <input name="commit" value="Search" type="hidden">
+                </div>
+            </form>
+            <nav id="block-usda-subnavigation" class="usda-block" aria-label="Subnavigation">
+                <ul class="usa-accordion-bordered usa-sidenav-list">
+                    <li>
+                        <button class="usa-accordion-button" aria-expanded="false" aria-controls="a1"> Page Navigation </button>
+                        <div id="a1" class="usa-accordion-content">
+                            <a href="api-guide.html" class="usa-current is-active">GRIN Databases</a>
+                            <ul class="usa-sidenav-sub_list">
+                                <li>
+                                    <a href="#bkmk-1">Plant Germplasm</a>
+                                </li>
+                                <li>
+                                    <a href="#bkmk-2">Animal Germplasm</a>
+                                </li>
+                                <li>
+                                    <a href="#bkmk-3">Gaining Access</a>
+                                </li>
+                                <li>
+                                    <a href="#bkmk-4">Rate Limits</a>
+                                </li>
+                                <li>
+                                    <a href="#bkmk-5">Licensing</a>
+                                </li>
+                                <li>
+                                    <a href="#bkmk-6">Examples and Further Details</a>
+                                </li>
+                            </ul>
+                            <a href="api-key-signup.html">Get an API Key</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div id="block-usda-content" class="usda-block block-usda-content">
+
+            <div class="usa-table-wrapper">
+                <h2 id="bkmk-1">Plant Germplasm</h2>
+                The National Plant Germplasm System (NGPS) is a collaborative effort to safeguard the genetic diversity of agriculturally important plants.
+                The mission of the NPGS is to support agricultural production by acquiring, conserving, evaluating, documenting,and distributing crop germplasm.
+                The U.S. map shows the locations of NPGS genebanks. Click on the location for more information about their collections.
+                The information management system for the NPGS is part of an international collaboration called the GRIN-Global project.
+            </div>
+
+
+            <article>
+
+                <p>
+                    The National Plant Germplasm System (NGPS) is a collaborative effort to safeguard the genetic diversity of agriculturally important plants.
+                    The mission of the NPGS is to support agricultural production by acquiring, conserving, evaluating, documenting,and distributing crop germplasm.
+                    The U.S. map shows the locations of NPGS genebanks. Click on the location for more information about their collections.
+                    The information management system for the NPGS is part of an international collaboration called the GRIN-Global project.
+                </p>
+
+                <h2>DEBUG ACCORDION</h2>
+                <ul class="usa-accordion-bordered">
+                    <li>
+                        <button class="usa-accordion-button" style="background-color:#323a45; color:white;" id="button-1" aria-expanded="false" aria-controls="control-1">TEST 1</button>
+                        <div class="usa-accordion-content" style="background-color:#808080;" id="control-1" aria-hidden="true">
+                            <h3>CONTENT</h3>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="usa-accordion-button" style="background-color:#323a45; color:white;" id="button-2" aria-expanded="false" aria-controls="control-2">TEST 2</button>
+                        <div class="usa-accordion-content" id="control-2" aria-hidden="true">
+                            <h3>CONTENT 2</h3>
+                        </div>
+                    </li>
+                </ul>
+
+
+                <h2 id="bkmk-2">Animal Germplasm</h2>
+                <p>
+                    Animal genetic resources underpin the livestock sector’s production and profitability.
+                    As a result livestock industries contribute billions of dollars to national economies.Our mission is to acquire, evaluate and preserve these strategic resources so that industry and the researchcommunity can have access to a broad array of genetic variability for: national security, introduction ofgenetic variation, corrective mating, and various research initiatives.
+                </p>
+
+                <h2 id="bkmk-3">Gaining Access</h2>
+                <p>Anyone may access and use the API. However, a data.gov API key must be incorporated into each API request. <a href="api-key-signup.html">Sign up to obtain a key</a>.</p>
+
+                <h2 id="bkmk-4">Rate Limits</h2>
+                <p>
+                    FoodData Central currently limits the number of API requests to a default rate of 3,600 requests per hour per IP address, as this is adequate for most applications. Exceeding this limit will cause the API key to be temporarily blocked for 1 hour. More detailed information on rate limits may be found at <a href="https://api.data.gov/">api.data.gov</a>. <a href="contact.html">Contact FoodData Central</a> if a higher request rate setting is needed.
+                </p>
+                <h2 id="bkmk-5">Licensing</h2>
+                <p>USDA food composition data are in the public domain and they are not copyrighted. No permission is needed for their use. USDA would appreciate it if developers would list FoodData Central as the source of the data. And, when possible, USDA would like to see the product that uses the data or be notified of their use. The suggested citation is:</p>
+                <p style="margin-left: 3rem;">U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2019. <a href="https://fdc.nal.usda.gov">fdc.nal.usda.gov</a>.</p>
+                <p>Note: Release numbers and years change as new versions are released. For more information, please see <a href="download-datasets.html">Download Data</a>.</p>
+                <h2 id="bkmk-6">Examples and Further Details</h2>
+                <p>Select the links below for more detailed information on how to formulate API requests and understand responses.</p>
+                <ul>
+                    <li><a href="#food-search-endpoint">Food Search endpoint</a> – lists foods that match desired search criteria</li>
+                    <li><a href="#food-detail-endpoint">Food Details endpoint</a> – provides details on a particular food</li>
+                </ul>
+
+                <h3><a name="food-search-endpoint"></a>What is the Food Search endpoint</h3>
+                <p>The Food Search endpoint lists foods that match desired search criteria. <a href="/help.html#bkmk-2">Search operators are supported.</a> </p>
+                <h4>How it Works</h4>
+                <p>The Food Search endpoint requires at least one request parameter.</p>
+
+                <h4>Request Parameters</h4>
+                <div class="usa-table-wrapper">
+                    <table class="usa-table-borderless">
+                        <caption>Request Parameters</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Parameter</th>
+                                <th scope="col" style="min-width: 250px;">Description</th>
+                                <th scope="col">Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row"><code>api_key</code></td>
+                                <td>Required. Must be a data.gov registered API key.</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>generalSearchInput</code></td>
+                                <td>Search query (general text).</td>
+                                <td><code>"generalSearchInput":"raw +broccoli"</code></td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>includeDataTypes</code></td>
+                                <td>Specific data types to include in search.</td>
+                                <td><code>"includeDataTypes":{"Survey (FNDDS)":true,"Foundation":true,"Branded":false}</code></td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>ingredients</code></td>
+                                <td>The list of ingredients (as it appears on the product label).</td>
+                                <td><code>"ingredients":"sugar -syrup"</code></td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>brandOwner</code></td>
+                                <td>Brand owner for the food.</td>
+                                <td><code>"brandOwner":"usa"</code></td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>requireAllWords</code></td>
+                                <td>When true, the search will only return foods that contain all of the words that were entered in the search field.</td>
+                                <td><code>"requireAllWords":"true"</code></td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>pageNumber</code></td>
+                                <td>The page of results to return.</td>
+                                <td><code>"pageNumber":"1"</code></td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>sortField</code></td>
+                                <td>The name of the field by which to sort.<br /> Possible sorting options: lowercaseDescription.keyword, dataType.keyword, publishedDate, fdcId.</td>
+                                <td><code>"sortField":"publishedDate"</code></td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>sortDirection</code></td>
+                                <td>The direction of the sorting, either "asc" or "desc".</td>
+                                <td><code>"sortDirection":"asc"</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h4>Response Elements</h4>
+                <p>The Food Search endpoint returns a list of foods that match the search criteria.</p>
+                <div class="usa-table-wrapper">
+                    <table class="usa-table-borderless">
+                        <caption>Response Fields</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Field</th>
+                                <th scope="col" style="min-width: 250px;">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row"><code>foodSearchCriteria</code></td>
+                                <td>A copy of the criteria that were used in the search. See Request Parameters above.</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>totalHits</code></td>
+                                <td>The total number of foods found matching the search criteria.</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>currentPage</code></td>
+                                <td>The current page of results being returned.</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>totalPages</code></td>
+                                <td>The total number of pages found matching the search criteria.</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>foods</code></td>
+                                <td>The list of foods found matching the search criteria. See Food Fields below.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="usa-table-wrapper">
+                    <table class="usa-table-borderless">
+                        <caption>Food Fields</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Field</th>
+                                <th scope="col" style="min-width: 250px;">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row"><code>fdcId</code></td>
+                                <td>Unique ID of the food.</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>description</code></td>
+                                <td>The description of the food.</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>scientificName</code></td>
+                                <td>The scientific name of the food.</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>commonNames</code></td>
+                                <td>Any other common names for the food.</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>additionalDescriptions</code></td>
+                                <td>Any additional descriptions of the food.</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>dataType</code></td>
+                                <td>The type of the food data.</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>foodCode</code></td>
+                                <td>Any A unique ID identifying the food within FNDDS.</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>gtinUpc</code></td>
+                                <td>GTIN or UPC code identifying the food.</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>ndbNumber</code></td>
+                                <td>Unique number assigned for foundation foods.</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>publishedDate</code></td>
+                                <td>Date the item was published to FDC.</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>brandOwner</code></td>
+                                <td>Brand owner for the food.</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>ingredients</code></td>
+                                <td>The list of ingredients (as it appears on the product label).</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>allHighlightFields</code></td>
+                                <td>Fields that were found matching the criteria.</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><code>score</code></td>
+                                <td>Relative score indicating how well the food matches the search criteria.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h5>Example call to Food Search endpoint:</h5>
+                <p><code>curl -H "Content-Type:application/json"</code></p>
+                <p><code>-d '{"generalSearchInput":"Cheddar cheese"}'</code></p>
+                <p><code>-X POST</code></p>
+                <p><code>https://DEMO_KEY@api.nal.usda.gov/fdc/v1/search</code></p>
+                <h3><a name="food-detail-endpoint"></a>What is the Food Details endpoint</h3>
+                <p>The Food Details endpoint provides all available details on a particular food.</p>
+                <h4>How it Works</h4>
+                <p>The Food Details endpoint requires one request parameter in addition to the api_key: a FoodData Central ID. To find a valid FDC ID use the Food Search endpoint.</p>
+                <div class="usa-table-wrapper">
+                    <table class="usa-table-borderless">
+                        <caption>Request Parameters</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Parameter</th>
+                                <th scope="col">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">API key</td>
+                                <td>Required. Must be a data.gov registered API key.</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">FDC ID</td>
+                                <td>Required. Unique identifier for the food.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h4>Response Elements</h4>
+                <p>The Food Details endpoint returns all available details on a particular food. Hundreds of different data elements can be returned. For further details, see the Dictionary tab of the FoodData Central Download & API Field Descriptions <a href="/portal-data/external/dataDictionary">(XLSX - 50K)</a>. Note the following caveats:</p>
+                <ul>
+                    <li>Data elements in the Download & API Field Descriptions use the snake case naming convention (lower_case_separated_by_underscores) more commonly used in databases, while the API uses the lower camel case convention (allWordsButFirstAreCapitalized) typically used in web services.</li>
+                    <li>The API Location column on the Dictionary tab of the Download & API Field Descriptions lists the location of any element whose location is not obvious.</li>
+                    <li>The API returns a smaller number of data elements than does the downloaded dataset, because API data are returned as a structured JSON document.</li>
+                </ul>
+                <h5>Example call to Food Details endpoint:</h5>
+                <p><code>curl -H “Content-Type:application/json”</code></p>
+                <p><code>https://DEMO_KEY@api.nal.usda.gov/fdc/v1/#####</code> </p>
+                <p>The number at the end of the URL must be a valid FoodData Central ID.  To find a valid FoodData Central ID use the Food Search endpoint.</p>
+            </article>
+        </div>
+        </div>
+</main>

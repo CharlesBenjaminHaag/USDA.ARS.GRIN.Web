@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "NMGP";
+}
+
+<main class="usa-grid usa-section usa-content usa-layout-docs">
+    <div>
+        <a href="https://npgsdev.ars-grin.gov/GRINWeb">GRIN Home</a> | NMGP
+    </div>
+
+    <div style="clear:both;">
+        <hr />
+    </div>
+
+    @Html.Partial("~/Views/Shared/_LeftNav.cshtml")
+
+    <div class="usa-width-three-fourths usa-layout-docs-main_content">
+        <h4>National Microbial Germplasm Program</h4>
+        <p>
+        Mission:The goal of this program is to ensure that the genetic diversity of agriculturallyimportant microorganisms is maintained to enhance and increase agriculturalefficiency and profitability. The program will collect, authenticate and characterizepotentially useful microbial germplasm; preserve microbial genetic diversity;and facilitate distribution and utilization of microbial germplasm for researchand industry.
+
+        The Agricultural ResearchService maintains several microbial germplasm collections including:
+            <ul>
+                <li>
+                    <a href="https://nrrl.ncaur.usda.gov/">USDAARS Culture Collection</a>
+                </li>
+                <li>
+                    <a href="https://www.ars.usda.gov/northeast-area/ithaca-ny/robert-w-holley-center-for-agriculture-health/emerging-pests-and-pathogens-research/docs/mycology/">USDAARS Collection of Entomopathogenic Fungal Cultures (ARSEF)</a>
+                </li>
+                <li>@Html.ActionLink("rhizobium Database", "rhizobium", "Search")</li>
+                <li><a href="USDAARS Collection of Entomopathogenic Fungal Cultures (ARSEF)">US National Fungus Collections</a></li>
+            </ul>
+        </p>
+    </div>
+</main>

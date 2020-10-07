@@ -1,0 +1,753 @@
+﻿
+/* ARS Branding Style */	
+.section508 {display:none; }
+/* Header Style */	
+#go{width:20%}
+
+.email{width:50%}
+
+.usda-logo {
+        float: none;
+        width: 55px;
+        height: auto;
+    }
+table {  
+    margin: 0;
+}
+table th, table td {    
+     padding: 0.2rem; 
+    /* background-color:transparent; */
+}
+
+  .usa-footer-big ul.hidden li {
+      display: block; }
+
+  .usa-section {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+hr {
+    margin: 1em 0;
+}
+.usa-nav-submenu a {
+    color: #212121;
+}
+.page-last-modified {
+    float:right;
+}
+
+.usa-nav-primary button[aria-expanded=true] span {
+       color: #ffffff;} 
+.usa-nav-primary button{
+color: #ffffff;
+}
+ .usa-nav-primary button:hover {
+     background-color:transparent;
+    }
+
+.usa-nav-primary > li > a {
+color: #ffffff;
+}
+.usa-nav-primary > li > a:hover {
+    color: #ffffff;
+}
+.usa-nav-primary > li > a:hover{
+    border-bottom: 0.7rem solid #0071bc;
+    padding-bottom: 1rem;
+}
+.usa-nav-link:hover span {
+    color: #ffffff;
+    text-decoration: none;
+}
+.usa-footer-primary-section {
+     color: #ffffff;
+}
+.usa-footer-nav a {
+     color: #ffffff;
+}
+#footer-bottom a:visited{
+     color: #ffffff;
+}
+
+#footer-top a {
+     color:  #112e51;
+}
+.usa-footer-nav{
+ color: #ffffff;
+}
+.usa-sign_up-block {
+ color: #ffffff;
+}
+
+.usa-grid-full {
+    padding-right: 3rem;
+    padding-left: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.EmailSignup-Footer{
+display:flex;
+flex-direction:row;
+width:100%;
+}
+.usa-sign_up-block input {
+    width: 70%;
+}
+.EmailSignup-Footer go {
+        width:20%;
+    }
+#go {
+    margin-top: 0.4rem;
+}
+#search {
+    margin-top: 0.3rem;
+}
+
+.ars-dropdownlist-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.ars-dropdownlist-button {
+    margin-top: 0.3rem;
+    width:20%;
+}
+
+.usa-sign_up-block {
+    padding-bottom: 0rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+}
+
+.usa-grid-full-image {
+    padding-right: 0rem;
+    padding-left: 0rem;
+    padding-top: 0rem;
+    padding-bottom: 1rem;
+}
+.ars-grid-image {
+    padding-right: 0rem;
+    padding-left: 0rem;
+    padding-bottom: 0rem;
+}
+
+    .usa-content p:not(.usa-font-lead), .usa-content ul:not(.usa-accordion):not(.usa-accordion-bordered), .usa-content ol:not(.usa-accordion):not(.usa-accordion-bordered) {
+     max-width: none;
+}
+
+.usa-nav-primary button[aria-expanded=false] {
+    background-image: url(/USWDS/img/angle-arrow-down-hover.svg);
+}
+/*Start :ConnectwithARS*/
+.float-ConnectwithARS {
+    display: none;
+}
+.ars-li-style-none{
+    list-style-type:none;
+}
+.ars-margin-left-indent{
+   margin-left:2rem;
+}
+#ars-carousel-image{
+    float: right;
+}
+
+.ars-carousel-container{
+    padding-right:0px;padding-left:0px;
+}
+    #socialLink a{
+        text-decoration:none;
+    }
+
+/*Carousel and Story image styles*/
+ars-news-story-container{
+    overflow: auto;
+}
+ars-news-story-container ars-news-story {
+    float: left;
+    clear: both;    
+    position: relative;
+    overflow: auto;    
+    margin: 0 auto;    
+    font-size: 22px;
+    padding-bottom:1rem;
+}
+ars-news-story-container ars-news-story img {
+    vertical-align: bottom;
+}
+ars-news-story-container ars-news-story imagecaption {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;    
+    background: rgba(0,0,0,0.3);
+    text-align: center;
+    color: #fff; 
+    padding: 10px;
+}
+
+    #leftCustomContent{
+	   position: relative;
+	   float: left;
+	   width: 50%;
+	   margin: 0;
+	   padding: 0;
+	   border-right: 5px solid white;
+	   height: auto;
+       padding-top: 1rem;
+       padding-bottom: 1rem;
+       padding-left: 3rem;
+       min-height: 250px;
+       height:250px; 
+       overflow:auto;
+    }
+
+    #rightCustomContent{
+	   position: relative;
+	   float: left;
+	   width: 50%;
+	   margin: 0;
+	   padding: 0;	 
+	   height: auto;
+       padding-top: 1rem;
+       padding-bottom: 1rem;
+       padding-left: 2rem;
+       height:250px; 
+       overflow:auto;
+    }
+    .whiteLinkColor a{
+        color: #ffffff;
+    }
+    .whiteLinkColor a:visited {
+        color: #ffffff;
+    }
+     .blacklinkcolor a{
+     color:#112e51;
+     text-decoration:underline;
+     text-decoration-color:#112e51;
+    }
+    .blacklinkcolor a:visited{
+     color:#112e51;
+     text-decoration:underline;
+     text-decoration-color:#112e51;
+    }
+    .blueLinkColor a {
+        color:#205493;
+    }
+
+    .blueLinkColor a:visited {
+            color: #205493;
+        }
+    #upperfooter{
+        padding-top:1rem;
+        padding-bottom:1rem;
+    }
+   .ars-project-count{
+        color: #FF6600; font-weight: bold;
+    }
+    .ars-filter-project-list{
+         border: 1px solid #5b616b; 
+          padding-top:.5rem;
+          padding-bottom:.5rem;
+    }
+    .ars-project-filter-button{
+        display: flex;
+        flex-direction: row;       
+        align-items: center;
+    }
+    .ars-person-projectlist-filter{
+        padding:0px;
+    }
+     .ars-person-projectlist-filter{
+           padding: 0rem 0.7em;
+    }
+    .ars-label{
+        margin-top: 1.5rem;
+    }
+    .usa-banner-inner {
+    padding-left: 0rem;
+   }
+    .ars-tablecell-space{
+        padding:0.5rem;
+    }
+    .ars-more{
+    float: right;
+    font-size: 1.2rem;
+    padding-right: 1rem;
+    padding-top: .8rem;}
+
+    .ars-np-header{
+        font-size: 20px;
+        font-weight:700;
+    }
+    .ars-columnedpage-section{
+        overflow-x:hidden;
+        overflow-wrap:break-word;
+    }
+
+/*Carousel and Story image styles*/
+@media screen and (min-width: 1160px)
+{
+     .float-ConnectwithARS {
+         display: inline;
+        margin-bottom: 0;
+        padding-left: 0;
+        top: 620px;
+        margin-left:-10rem;
+        position:fixed;
+       transform: translateX(-30%);             
+    }
+    .connectwithARS li {
+         display:block;
+        list-style-type:none;
+        background-color:#fff;
+        color:#efefef;
+        height:auto;
+        padding:0px;
+        margin:0px 0px 1px 0px;
+        -webkit-transition:all 0.25s ease-in-out;
+        -moz-transition:all 0.25s ease-in-out;
+        -o-transition:all 0.25s ease-in-out;
+        transition:all 0.25s ease-in-out;
+        cursor:pointer;
+        background-color: transparent;                 
+    }
+}
+/*End :ConnectwithARS*/
+/*
+/* media section */
+@media screen and (max-width: 950px) 
+{
+    .usa-nav .usa-nav-secondary {
+		  -webkit-box-ordinal-group: 4;
+		  -ms-flex-order: 3;
+		  order: 3;
+		  color: #ffffff;
+		  padding-top:2rem;
+	   }
+	   .usa-nav-secondary-links a {
+	   color:#ffffff;
+       }
+	   .usda-logo-img {
+	   height: 31px;
+	   position: absolute;
+	   }
+	    .usa-logo-text {
+	    padding-left: 6rem;
+	    font-size: 1.2rem;
+	    }
+    .usa-logo-second-text{
+	    padding-left: 6rem;
+	    font-size: 1.0rem;
+	    }	
+    .usa-logo {
+	   line-height: 2rem;
+	   height: 2rem;
+	   margin-left: 0.5rem;
+    }
+    .usa-logo-text h6{
+	    font-size: 1.2rem;
+	    text-transform:none;
+	    font-weight:700;
+	    margin:0rem;
+	    }
+    .usa-sign_up-block input {
+	   width: 85%;
+    }
+    #ars-carousel-image{
+    float: right;
+    margin-right: 0rem;
+    margin-left: 0rem;
+   }
+    ars-news-story-container ars-news-story {
+    font-size: 15px;
+   } 
+}
+
+@media screen and (min-width: 951px) 
+{
+	   .usa-width-three-fourths{
+	   margin-right:0;
+    }
+		.usa-nav-container {
+	   padding-right: 0rem;
+	   padding-left: 0rem;
+	}
+
+    .usa-navbar {
+    height:6.3rem;
+    }
+    .usa-header-basic .usa-navbar {
+	   position: relative;
+	   width: 100%;
+    }
+    .usa-nav {
+	    padding-top: 1rem;
+	    float: left;
+	    width: 100%;
+	   min-height: 5.5rem;	
+    }
+	.usda-logo-img {
+		height: 38px;   
+		position: absolute;
+	   }	
+    .usa-logo-text {
+	    padding-left: 6rem;
+	    font-size: 1.8rem;
+	    font-weight:700rem;
+	    }
+    .usa-logo-text h6{
+	    font-size: 1.4rem;
+	    text-transform:none;
+	    font-weight:700;
+	    margin:0rem;
+	    }
+    .usa-nav-secondary{
+    right:3rem
+    }
+    .usa-nav .usa-search {
+		  right:3rem;
+	   }
+    .usa-header {
+	   border-bottom: none;
+    }
+
+    .usa-layout-docs {
+	   display: inherit;
+    }
+    .usa-width-one-fourth {
+	   float: left;
+	   display: block;
+	   margin-right: 2.35765%;
+	   width: 23.23176%;
+    }
+    .usa-layout-docs-sidenav {
+	   order: 1;
+    }
+    .usa-layout-docs-main_content {   
+	   order: 2;
+    }
+    .usa-width-three-fourths {
+	   float: left;
+	   display: block;
+	   width: 74.41059%;
+    }
+    .usa-nav-secondary {
+    top: -3.5rem; } 
+
+    #socialLink a{
+        text-decoration:none;
+    }
+
+    #socialLink [href^="http"]:not([href*=".gov"])::after {
+        display:none;
+    }
+    .usa-grid-full-image {
+	   padding-right: 0rem;
+	   padding-left: 0rem;
+	   padding-top: 0rem;
+	   width:100%;
+    }
+    .usa-header-basic .usa-logo {
+    bottom: 0.5rem;
+    position: absolute;
+  }
+    #ars-carousel-image{
+    max-width: 650px;
+    max-height: 350px;
+  }
+    #ars-main-content{
+        width:100%;
+    }
+   .usa-banner-button {
+    height: auto;
+    width: auto;
+   } 
+   /* Start :Bootstrap css changes for columed webpage*/
+    .col-md-12 {
+    width: 63.6666667%;
+	 padding-left:0px;
+    }
+    .col-md-6 {
+    width: 31.83333335%;
+	 padding-left:0px;
+    }
+    .col-md-4 {
+    width: 21.2222223%;
+	 padding-left:0px;
+    }
+    .col-md-3 {
+    width: 15.9166675%;
+	 padding-left:0px;
+    }
+  /* End :Bootstrap css changes for columed webpage*/ 
+}
+@media screen and (max-width: 481px) 
+{
+    .usda-logo-img {
+	   height: 31px;
+	   position: absolute;
+	   }
+    .usa-logo-text {
+	    padding-left: 6rem;
+	    font-size: 1.2rem;
+	    }
+    .usa-logo-second-text{
+	    padding-left: 6rem;
+	    font-size: 1.0rem;
+	    }	
+    .usa-logo {
+	   line-height: 2rem;
+	   height: 2rem;
+	   margin-left: 0.5rem;
+    }
+    .usa-logo-text h6{
+	    font-size: 1.2rem;
+	    text-transform:none;
+	    font-weight:700;
+	    margin:0rem;
+	    }
+    .usa-sign_up-block input {
+	   width: 85%;
+    }
+	   .usa-nav-secondary-links a {
+	   color:#ffffff;
+    }
+    #options {
+        display:block;
+    }
+    .controllers{
+        position:absolute;
+        top: 84px!important;
+        left: 26px!important;
+    }
+.carousel-control.right{       
+        top: 0px;
+        left: 321px;
+    }
+
+    #leftCustomContent{
+	   position: relative;
+	   float: left;
+	   width: 100%;
+	   margin: 0;
+	   padding: 0;
+	   border-bottom: 2px solid white;
+       border-right:none;
+	   height: auto;
+       padding-top: 2rem;
+       padding-bottom: 1rem;
+       padding-left: 1rem;
+       min-height: 0rem;
+       height:250px; 
+       overflow:auto;
+
+    }
+
+    #rightCustomContent{
+	   position: relative;
+	   float: left;
+	   width: 100%;
+	   margin: 0;
+	   padding: 0;	 
+	   height: auto;    
+       padding-bottom: 1rem;
+       padding-left: 1rem;
+       height:250px; 
+       overflow:auto;
+    }
+    #footer-top .usa-footer-primary-link{
+        background-image:none;
+    }
+    #footer-top ul:last-child{
+        border-bottom: 0px;
+    }  
+    .usa-footer-big ul {
+    padding-bottom: 0.5rem;
+   }
+    #footer-bottom ul li.usa-footer-primary-content:last-child {
+    border-bottom: 0px solid #212121;
+  }  
+    .ars-pulication-date  {
+        font-size:11px;
+    }
+   .usa-banner-inner {
+    padding-left: .5rem;
+   }
+    .usa-banner-button {
+        padding-left:3.8rem;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 950px) 
+{
+    .usda-logo-img {
+	   height: 31px;
+	   position: absolute;
+	   }
+	    .usa-logo-text {
+	    padding-left: 6rem;
+	    font-size: 1.2rem;
+	    }
+    .usa-logo-second-text{
+	    padding-left: 6rem;
+	    font-size: 1.0rem;
+	    }	
+    .usa-logo {
+	   line-height: 2rem;
+	   height: 2rem;
+	   margin-left: 0.5rem;
+    }
+    .usa-logo-text h6{
+	    font-size: 1.2rem;
+	    text-transform:none;
+	    font-weight:700;
+	    margin:0rem;
+	    }
+    .usa-sign_up-block input {
+	   width: 85%;
+    }
+	.usa-nav-secondary-links a {
+	   color:#ffffff;
+    }
+    ars-news-story-container ars-news-story {
+    font-size: 15px;
+}
+}
+
+@media screen and (max-width: 320px) 
+{
+    .usa-banner-header {
+	   font-size: 1.0rem;
+    }
+    .usa-logo-text {
+    font-size: 1.0rem;
+    }
+    .usa-sign_up-block input {
+	   width: 85%;
+    }
+	   .usa-nav-secondary-links a {
+	   color:#ffffff;
+    }
+    #options {
+        display:block;
+    }
+  .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
+    margin-right: 37px;
+   }
+    .carousel-control.right {
+        left: 302px;
+    }
+
+}
+    #LocationHeader{
+	   color:#ffffff
+}
+    
+    
+
+
+@media screen and (mid-width: 1000px)
+{
+    .usa-section{
+	   padding-right: 0rem;
+	   padding-left: 0rem;
+	   padding-top: 0rem;
+	   padding-bottom: 0rem;
+    }
+}
+
+/*
+@media screen and (min-width: 600px) {
+    .usa-width-one-half-left{
+    float: left;
+    display: block;
+    padding-bottom: 1rem;
+    }
+
+.usa-width-one-half-right {
+    float: right;
+    display: block;
+    }
+}
+*/
+
+/* Start :OC Image Gallery : Remove the download button
+  ie:  https://www.ars.usda.gov/oc/images/photos/jan01/k9179-1
+*/
+img[src$="downloadbutton.gif"] {
+    display: none;
+}
+/* End :OC Image Gallery : Remove the download button  */
+
+/* External Icon disable for Homepage floating ConnectwithARS section */
+.float-ConnectwithARS [href^="http"]:not([href*=".gov"])::after {
+    display: none;
+}
+
+/* CUSTOM GRIN STYLES */
+
+.highlight {
+    background-color:yellow;
+}
+
+.accordion-sub-heading {
+    background-color: #ebebeb;
+    padding: 15px;
+}
+
+accordion-sub-heading h4 {
+    color:red;
+}
+
+.panel-body {
+    padding: 0px;
+}
+
+.panel-default {
+    background-color: #dfdfdf;
+}
+
+a[href$=".pdf"]:before {
+    /* PDF file */
+    width: 32px;
+    height: 32px;
+    background: url('http://wwwimages.adobe.com/content/dam/acom/en/legal/images/badges/Adobe_PDF_file_icon_32x32.png');
+    display: inline-block;
+    content: ' ';
+}
+
+.accordion-heading-dark {
+    background-color: #aeb0b5;
+}
+
+.modal-header {
+    background-color: #f8d7da;
+    color: #c89499;
+    font-weight:bold;
+    padding:10px;
+    margin:1px;
+}
+
+.status-yes {
+    background-color: green;
+}
+
+.status-no {
+    background-color:red;
+}
+
+.main-nav-section {
+    padding:10px;
+    border-bottom: 1px solid;
+    border-bottom-color: lightgray;
+}
+
+.map-legend {
+    background-color: #aeb0b5;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:bold;
+}

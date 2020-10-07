@@ -1,0 +1,195 @@
+﻿@model USDA.ARS.GRIN.Web.WebUI.ViewModels.AccountRequestViewModel
+@{
+    ViewBag.Title = "GRINGlobal";
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
+}
+
+<div class="usa-overlay"></div>
+
+<style>
+    .abbr-required {
+        color:red;
+        font-weight:bold;
+    }
+
+    .validation-summary-errors {
+        padding-top:10px;
+        padding-bottom:10px;
+        background-color:red;
+        color:white;
+        font-weight:bold;
+    }
+
+    .field-validation-error {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+
+@Html.Partial("~/Views/Shared/_Banner.cshtml")
+
+<!-- BREADCRUMBS -->
+<div class="usda-breadcrumb-with-sidebar">
+    <div id="block-usda-breadcrumbs" class="usda-block usda-breadcrumb">
+        <nav class="usa-grid" aria-label="Breadcrumb">
+            <ol class="usda-breadcrumb-list">
+                <li class="usda-breadcrumb-item">
+                    <a href="@Url.Action("Index","Home")" class="no-ext-icon">GRIN Home</a>
+                </li>
+                <li class="usda-breadcrumb-item">
+                    Contact Us
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main id="main-content" class="usa-section usa-content usa-layout-docs with-breadcrumb with-sidebar with-hero">
+    <div id="block-usda-page-title" class="usda-block usda-page-title-block usda-page-title-block-with-hero">
+        <h1 class="usda-page-title usda-page-title-with-hero"><span class="usda-page-title--main">GRIN </span><span class="usda-page-title--sub">GRIN Account Request</span></h1>
+    </div>
+    <div class="usa-layout-docs-main_content">
+        <aside class="usa-layout-docs-sidenav">
+            @Html.Partial("~/Views/Shared/_LeftNavSearch.cshtml")
+            @Html.Partial("~/Views/Shared/_LeftNavContact.cshtml")
+        </aside>
+        <div id="block-usda-content" class="usda-block block-usda-content">
+            <div class="usa-table-wrapper">
+                <div id="apidatagov_signup" class="sign-up api-umbrella-embed">
+                    @if (Model.Status == "SUBMITTED")
+                    {
+                        <h2>Request Submitted</h2>
+                        <p>Your request has been submitted for approval.</p>
+                    }
+                    else
+                    {
+                        <h3>GRIN Account Request Form</h3>
+                        <p>USe this form to request the addition or deletion of a GRIN admin account.</p>
+                        <p>
+                            This account enables administrative access to the <a href="https://www.grin-global.org/">GRIN-Global</a> system via the Curator Tool. Please refer to the <a href="https://www.grin-global.org/videos.htm">documentation</a> for details of its installation
+                            and configuration.
+                        </p>
+                        <p class="required-fields">
+                            <abbr title="Required" class="required">
+                                <span class="abbr-required">*</span>
+                            </abbr> Required fields
+                        </p>
+
+                        using (Html.BeginForm("AccountRequest", "GRINGlobal", FormMethod.Post, new { id = "frmAccountRequest", @class = "form-horizontal" }))
+                        {
+                            @Html.ValidationSummary()
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="user_first_name">
+                                    Request Type
+                                </label>
+                                <div class="col-sm-5">
+                                    @Html.DropDownListFor(x => x.RequestType, Model.RequestTypes, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="user_first_name">
+                                    Environment
+                                </label>
+                                <div class="col-sm-5">
+                                    @Html.DropDownListFor(x => x.Environment, Model.Environments, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <h3>Requestor</h3>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="user_first_name">
+                                    <abbr title="Required" class="required">
+                                        <span class="abbr-required">*</span>
+                                    </abbr>Email
+                                </label>
+                                <div class="col-sm-5">
+                                    @Html.TextBoxFor(x => x.RequestorEmail, new { @id = "txtRequestorEmail", @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.RequestorEmail, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="user_last_name">
+                                    <abbr title="Required" class="required">
+                                        <span class="abbr-required">*</span>
+                                    </abbr>Name
+                                </label>
+                                <div class="col-sm-5">
+                                    @Html.TextBoxFor(x => x.RequestorName, new { @id = "txtRequestorName", @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.RequestorName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <h3>Account Owner</h3>
+                            <fieldset id="fieldset-search-fields">
+                                <ul _ngcontent-c3="" id="search-scope-settings" class="usa-unstyled-list">
+                                    <li _ngcontent-c3="">
+                                        <input _ngcontent-c3="" id="cbxUseRequestor" name="type-applicant" type="checkbox" value="Applicant" class="ng-untouched ng-pristine ng-valid">
+                                        <label _ngcontent-c3="" for="cbxUseRequestor">The requestor is also the account owner.</label>
+                                    </li>
+                                </ul>
+                            </fieldset>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="user_email">
+                                    <abbr title="Required" class="required">
+                                        <span class="abbr-required">*</span>
+                                    </abbr>Email
+                                </label><div class="col-sm-5">
+                                    @Html.TextBoxFor(x => x.AccountHolderEmail, new { @id = "txtAccountOwnerEmail", @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="user_email">
+                                    <abbr title="Required" class="required">
+                                        <span class="abbr-required">*</span>
+                                    </abbr>Name
+                                </label><div class="col-sm-5">
+                                    @Html.TextBoxFor(x => x.AccountHolderName, new { @id = "txtAccountOwnerName", @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="user_use_description">
+                                    Additional Information
+                                </label>
+                                <div class="col-sm-5">
+                                    @Html.TextAreaFor(x => x.Notes, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-4 col-sm-8">
+                                    <input type="hidden" name="user[registration_source]" value="web">
+                                    <button type="submit" class="btn btn-lg btn-primary" data-loading-text="Loading...">
+                                        Submit Request
+                                    </button>
+                                </div>
+                            </div>
+
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script type="text/javascript">
+    $('#cbxUseRequestor').click(function () {
+        var thisCheck = $(this);
+        var requestorName = $("#txtRequestorName").val();
+        var requestorEmail = $("#txtRequestorEmail").val();
+        var accountOwnerName = $("#txtAccountOwnerName").val();
+        var accountOwneEmail = $("#txtAccountOwnerEmail").val();
+
+        if ($(this).prop("checked") == true) {
+            $("#txtAccountOwnerName").val(requestorName);
+            $("#txtAccountOwnerEmail").val(requestorEmail);
+        }
+        else {
+            $("#txtAccountOwnerName").val("");
+            $("#txtAccountOwnerEmail").val("");
+        }
+    });
+
+</script>
+

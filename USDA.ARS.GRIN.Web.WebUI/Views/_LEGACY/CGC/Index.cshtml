@@ -1,0 +1,161 @@
+﻿@model List<USDA.ARS.GRIN.Web.Models.CropGermplasmCommittee>
+@{
+    ViewBag.Title = "CGC";
+}
+
+    <main class="usa-grid usa-section usa-content usa-layout-docs">
+        <div>
+            <a href="https://npgsdev.ars-grin.gov/GRINWeb">GRIN Home</a> | Crop Germplasm Committees
+        </div>
+
+        <div style="clear:both;">
+            <hr />
+        </div>
+    <div class="usa-width-one-whole">
+        <h3>Crop Germplasm Committees</h3>
+        <p>
+            The Crop Germplasm Committees (CGC) are comprised of a cross section of NPGS users who provide technical support to NPGS
+            genebanks and collections. They serve as subject matter experts to guide curatorial staff on best practices, including the
+            priorities and techniques for characterizing the collections. They also help review proposals that fund plant explorations
+            and evaluation grants for scientific rigor.
+        </p>
+        <p>
+            There are currently @Model.Count() CGCs representing almost all major and minor crops of economic importance in the U.S. Each committee
+            includes a chair and members from government agencies, universities, and commercial interests who volunteer their time and
+            expertise to support the NPGS.
+        </p>
+        <ul class="usa-accordion-bordered">
+            <li>
+                <button id="button-20360203"
+                        class="usa-accordion-button"
+                        aria-expanded="false"
+                        aria-controls="control-20360203">
+                       Roles and Responsibilities
+                </button>
+
+                <div id="control-20360203" class="usa-accordion-content">
+                    <p>
+                        <strong>Crop Germplasm Committee (CGC)</strong> is the generic name for a specific national working group of specialists providing analysis, data and 
+                        recommendations on genetic resources within a specific crop or group of related crops of present or future economic importance.
+
+                        These committees represent their user community. Their membership consists of representation from federal, state, and private sectors; representation 
+                        from various scientific disciplines; and geographical representation for the crop(s).
+
+                        Crop Germplasm Committees are concerned with critical issues facing the NPGS, including:
+
+                        <ol>
+                            <li>Identifying gaps in U.S. collections and developing proposals to fill these gaps through exchange and collaborative collecting trips.</li>
+                            <li>Assisting crop curators in identifying duplication in the collections.</li>
+                            <li>Prioritizing traits for evaluation and developing proposals to implement the evaluations.</li>
+                            <li>Assisting crop curators and GRIN personnel in correcting passport data and ensuring that standardized, accurate and useful information is entered into the GRIN database.</li>
+                            <li>Assisting in germplasm regeneration projects.</li>
+                            <li>Identifying closed out programs and other germplasm collections in danger of being lost and developing plans to rescue the important material in these programs.</li>
+                            <li>Working with quarantine officials to identify and ensure new techniques for pathogen identification which will assist in the expeditious release of plant germplasm.</li>
+                            <li>Maintaining current reports on the status of their crops for the Congress, ARS National Program Staff and Administrators, State administrators and other key individuals involved with the NPGS.</li>
+                            <li>Evaluating the potential benefits and problems associated with the development and use of core subsets.</li>
+                        </ol>
+                        <ul>
+                            <li><a href="https://www.ars-grin.gov/npgs/cgc_reports/cgcrole.doc">Roles and Responsibilities</a></li>
+                            <li><a href="https://www.ars-grin.gov/npgs/cgc_reports/Crop_Vulnerability_Statement_Outline.doc">Crop Vulnerability Statement Outline</a></li>
+                            <li><a href="https://www.ars-grin.gov/npgs/cgc_reports/cgcrole.doc">Charter</a></li>
+                        </ul>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <button id="button-20360200"
+                        class="usa-accordion-button"
+                        aria-expanded="false"
+                        aria-controls="control-20360200">
+                    CGC Directory
+                </button>
+
+                <div id="control-20360200" class="usa-accordion-content">
+                    <ul>
+                        @foreach (var result in Model)
+                        {
+                            <li>@Html.ActionLink(result.Name, "Detail", new { id = result.ID }, null)</li>
+                        }
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <button id="button-20360201"
+                        class="usa-accordion-button"
+                        aria-expanded="false"
+                        aria-controls="control-20360201">
+                    Meeting Dates and Locations
+                </button>
+
+                <div id="control-20360201" class="usa-accordion-content">
+                    <table class="table-striped">
+                        <thead>
+                            <tr>
+                                <th>Committee</th>
+                                <th>Date</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>W6 (Pullman, WA) Technical Advisory Committee</td>
+                                <td>June 21, 2019</td>
+                                <td>Teleconference</td>
+                            </tr>
+                            <tr>
+                                <td>NE9 (Geneva, NY) Technical Advisory Committee</td>
+                                <td>July 9, 2019</td>
+                                <td>Geneva, NY</td>
+                            </tr>
+                            <tr>
+                                <td>Herbaceous Ornamentals CGC</td>
+                                <td>July 12, 2019</td>
+                                <td>Ohio State University</td>
+                            </tr>
+                            <tr>
+                                <td>Leafy Vegetables CGC</td>
+                                <td>July 22, 2019</td>
+                                <td>Las Vegas, NV</td>
+                            </tr>
+                            <tr>
+                                <td>Sugarcane CGC</td>
+                                <td>July 23, 2019</td>
+                                <td>Beltsville, MD</td>
+                            </tr>
+                            <tr>
+                                <td>NC 7 (Ames, IA) Technical Advisory Committee</td>
+                                <td>August 6, 2019</td>
+                                <td>Urbana, IL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+
+            <li>
+                <button id="button-20360202"
+                        class="usa-accordion-button"
+                        aria-expanded="false"
+                        aria-controls="control-20360202">
+                    Briefings From CGC Chairs Webinar Meetings
+                </button>
+
+                <div id="control-20360202" class="usa-accordion-content">
+                    <p>
+                        <a href="https://www.ars-grin.gov/npgs/cgc_reports/cgc_webinar_briefings_2019mar25.pdf">2019 Meeting</a><br>
+                        <a href="https://www.ars-grin.gov/npgs/cgc_reports/cgc_webinar_briefings_2018jan25.pdf">2018 Meeting</a><br>
+                        <a href="https://www.ars-grin.gov/npgs/cgc_reports/cgc2016chairs.pdf">2016 Meeting</a><br>
+                        <a href="https://www.ars-grin.gov/npgs/cgc_reports/cgc2015chairs.pdf">2015 Meeting</a><br>
+                        <a href="https://www.ars-grin.gov/npgs/cgc_reports/cgc2014chairs.pdf">2014 Meeting</a><br>
+                        <a href="https://www.ars-grin.gov/npgs/cgc2013mtg.html"><span class="highlight">2013 Meeting</span></a><br>
+                        <a href="https://www.ars-grin.gov/npgs/cgc2012mtg.html"><span class="highlight">2012 Meeting</span></a><br>
+                        <a href="https://www.ars-grin.gov/npgs/cgc2011mtg.html"><span class="highlight">2011 Meeting</span></a><br>
+                        <a href="https://www.ars-grin.gov/npgs/cgc2010mtg.html"><span class="highlight">2010 Meeting</span></a><br>
+                    </p>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+    </main>
