@@ -107,9 +107,17 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
         {
             string uploadDir = "~/npgs/cgc_reports";
             string path = String.Empty;
+            CropGermplasmCommitteeDocument document = new CropGermplasmCommitteeDocument();
+            ResultContainer resultContainer = new ResultContainer();
 
             try
             {
+                
+                document.ID = viewModel.ID;
+                document.Title = viewModel.Title;
+                document.URL = viewModel.URL;
+                document.Committee.ID = viewModel.CommitteeID;
+                
                 if (viewModel.DocumentUpload != null && viewModel.DocumentUpload.ContentLength > 0)
                 {
                     path = Path.Combine(Server.MapPath("~/npgs/cgc_reports"), Path.GetFileName(viewModel.DocumentUpload.FileName));
@@ -126,15 +134,19 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
                         };
 
                     Uri uri = urlBuilder.Uri;
-                    viewModel.URL = urlBuilder.ToString();
-
-                    CropGermplasmCommitteeDocument document = new CropGermplasmCommitteeDocument();
-                    document.Title = viewModel.Title;
-                    document.URL = viewModel.URL;
-                    document.Committee.ID = viewModel.CommitteeID;
-                    _cgcRepository.InsertDocument(document);
+                    document.URL = urlBuilder.ToString();
                 }
-                return View("~/Views/Admin/CGC/View.cshtml", viewModel);
+
+                if (viewModel.ID > 0)
+                {
+                    resultContainer = _cgcRepository.UpdateDocument(document);
+                }
+                else
+                {
+                    resultContainer = _cgcRepository.InsertDocument(document);
+                }
+
+                return RedirectToAction("CGCDocumentView", "Admin", new { id = resultContainer.EntityID });
             }
             catch (Exception ex)
             {
@@ -145,7 +157,7 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
 
         public ActionResult CGCDocumentView(int id)
         {
-            DocumentEditViewModel viewModel = null;
+            DocumentEditViewModel viewModel = new DocumentEditViewModel();
             CropGermplasmCommitteeDocument document = null;
 
             try

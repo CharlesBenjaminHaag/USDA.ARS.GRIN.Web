@@ -86,5 +86,16 @@ namespace USDA.ARS.GRIN.Web.Repository.Properties {
                 return ((string)(this["gringlobal_2020_08_20ConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ARSMDBE34453151\\MSSQLSERVER01;Initial Catalog=gringlobal;Integrated S" +
+            "ecurity=True")]
+        public string gringlobalConnectionString3 {
+            get {
+                return ((string)(this["gringlobalConnectionString3"]));
+            }
+        }
     }
 }

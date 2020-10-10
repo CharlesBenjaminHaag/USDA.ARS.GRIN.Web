@@ -121,9 +121,30 @@ namespace USDA.ARS.GRIN.Web.Repository
             try
             {
                 _dataContext.usp_CGCDocument_Insert(ref errorNumber, ref id, document.Committee.ID, document.Title, document.URL);
+                resultContainer.EntityID = id.GetValueOrDefault();
+                resultContainer.ResultCode = errorNumber.GetValueOrDefault().ToString();
             }
             catch (SqlException ex)
-            { 
+            {
+                throw ex;
+            }
+            return resultContainer;
+        }
+
+        public ResultContainer UpdateDocument(CropGermplasmCommitteeDocument document)
+        {
+            int? errorNumber = 0;
+            ResultContainer resultContainer = new ResultContainer();
+
+            try
+            {
+                _dataContext.usp_CGCDocument_Update(ref errorNumber, document.ID, document.Committee.ID, document.Title, document.URL);
+                resultContainer.EntityID = document.ID;
+                resultContainer.ResultCode = errorNumber.GetValueOrDefault().ToString();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
             }
             return resultContainer;
         }

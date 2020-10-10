@@ -46,23 +46,21 @@
             @using (Html.BeginForm("CGCDocumentEdit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 <div class="section-paragraph">
-                    @*<form action="@Url.Action("Login","CGC")" method="post">*@
-                        <div class="usa-width-one-half">
-                            <label>Title</label>
-                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control input-lg" })
-                            
-                            <label>Committee</label>
-                            @Html.DropDownListFor(x => x.CommitteeID, Model.Committees, new { @id = "ddlCommittees", @class = "form-control-sm" })
-                            @Html.HiddenFor(x => x.CommitteeName, new { id = "hfCommitteeName" })
-                            <label>Document</label>
-                            @if (Model.ID > 0)
-                            { 
-                                <a href="@Model.URL">@Model.URL</a>
-                            }
-                            @Html.TextBoxFor(x => x.DocumentUpload, new { @class = "form-control input-sm", @type = "file" })
-                            <button class="btn-default">Save</button>
-                        </div>
-                    @*</form>*@
+                    <div class="usa-width-one-half">
+                        <label>Title</label>
+                        @Html.TextBoxFor(x => x.Title, new { @class = "form-control input-lg" })
+                        <label>Committee</label>
+                        @Html.DropDownListFor(x => x.CommitteeID, Model.Committees, new { @id = "ddlCommittees", @class = "form-control-sm" })
+                        @Html.HiddenFor(x => x.CommitteeName, new { id = "hfCommitteeName" })
+                        <label>Document</label>
+                        @if (Model.ID > 0)
+                        {
+                            @Html.HiddenFor(x => x.URL)
+                            <a href="@Model.URL">@Model.URL</a>
+                        }
+                        @Html.TextBoxFor(x => x.DocumentUpload, new { @class = "form-control input-sm", @type = "file" })
+                        <button class="btn-default">Save</button>
+                    </div>
                 </div>
             }
         </div>
@@ -70,10 +68,6 @@
 </main>
 
 <script>
-    //DEBUG
-    alert($("#ddlCommittees option:selected").text());
-
-
     $('#ddlCommittees').on('change', function () {
         var selectedCommitteeName = "";
 

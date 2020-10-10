@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="gringlobal_2020.08.20" Class="RepositoryDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=ARSMDBE34453151\MSSQLSERVER01;Initial Catalog=gringlobal_2020.08.20;Integrated Security=True" SettingsObjectName="USDA.ARS.GRIN.Web.Repository.Properties.Settings" SettingsPropertyName="gringlobal_2020_08_20ConnectionString1" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="gringlobal" Class="RepositoryDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ARSMDBE34453151\MSSQLSERVER01;Initial Catalog=gringlobal;Integrated Security=True" SettingsObjectName="USDA.ARS.GRIN.Web.Repository.Properties.Settings" SettingsPropertyName="gringlobalConnectionString3" Provider="System.Data.SqlClient" />
   <Function Name="dbo.LP_CGC_GET_DETAIL" Method="LP_CGC_GET_DETAIL">
     <Parameter Name="crop_germplasm_committee_id" Type="System.Int32" DbType="Int" />
     <ElementType Name="LP_CGC_GET_DETAILResult">
@@ -350,5 +350,18 @@
       <Column Name="modified_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
       <Column Name="modified_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.usp_CGCDocument_Update" Method="usp_CGCDocument_Update">
+    <Parameter Name="out_error_number" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="crop_germplasm_committee_document_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="crop_germplasm_committee_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="title" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="url" Type="System.String" DbType="NVarChar(120)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_CGCDocument_Delete" Method="usp_CGCDocument_Delete">
+    <Parameter Name="out_error_number" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="crop_germplasm_committee_document_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

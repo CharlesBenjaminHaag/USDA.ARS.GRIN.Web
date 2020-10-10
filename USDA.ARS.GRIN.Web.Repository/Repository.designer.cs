@@ -22,7 +22,7 @@ namespace USDA.ARS.GRIN.Web.Repository
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="gringlobal_2020.08.20")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="gringlobal")]
 	public partial class RepositoryDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -33,7 +33,7 @@ namespace USDA.ARS.GRIN.Web.Repository
     #endregion
 		
 		public RepositoryDataContext() : 
-				base(global::USDA.ARS.GRIN.Web.Repository.Properties.Settings.Default.gringlobal_2020_08_20ConnectionString1, mappingSource)
+				base(global::USDA.ARS.GRIN.Web.Repository.Properties.Settings.Default.gringlobalConnectionString3, mappingSource)
 		{
 			OnCreated();
 		}
@@ -223,6 +223,22 @@ namespace USDA.ARS.GRIN.Web.Repository
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<usp_CGCCommittees_SelectResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_CGCDocument_Update")]
+		public int usp_CGCDocument_Update([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> out_error_number, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_document_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(250)")] string title, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(120)")] string url)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), out_error_number, crop_germplasm_committee_document_id, crop_germplasm_committee_id, title, url);
+			out_error_number = ((System.Nullable<int>)(result.GetParameterValue(0)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_CGCDocument_Delete")]
+		public int usp_CGCDocument_Delete([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> out_error_number, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_document_id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), out_error_number, crop_germplasm_committee_document_id);
+			out_error_number = ((System.Nullable<int>)(result.GetParameterValue(0)));
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
