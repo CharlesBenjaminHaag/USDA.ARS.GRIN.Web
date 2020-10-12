@@ -7,12 +7,20 @@ using System.Web.Mvc;
 using System.IO;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Configuration;
 
 namespace USDA.ARS.GRIN.Web.WebUI.Controllers
 {
     public class BaseController : Controller
     {
         protected static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        public string GetSetting(string key)
+        {
+            string setting = String.Empty;
+            setting = ConfigurationManager.AppSettings[key];
+            return setting;
+        }
 
         protected ActionResult RenderExcel(string dataSourceName)
         {

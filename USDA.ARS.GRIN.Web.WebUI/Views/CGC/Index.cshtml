@@ -156,6 +156,8 @@
                                         <div class="row">
                                             @foreach (var item in result.Documents)
                                             {
+                                                string documentUrl = "https://www.ars-grin.gov/npgs/cgc_reports/" + item.URL;
+
                                                 <div class="usa-width-one-third">
                                                     <table border="0" style="border:none; margin:10px;">
                                                         <tr>
@@ -163,7 +165,7 @@
                                                                 doc
                                                             </td>
                                                             <td style="background-color:#dfdfdf;color:#0071bc; font-size:.7em; border:none; width: 385px;">
-                                                                <a href="@item.URL" target="_blank" style="color:#0071bc;">@item.Title</a>
+                                                                <a href="@documentUrl" target="_blank" style="color:#0071bc;">@item.Title</a>
                                                             </td>
                                                         </tr>
                                                     </table>
