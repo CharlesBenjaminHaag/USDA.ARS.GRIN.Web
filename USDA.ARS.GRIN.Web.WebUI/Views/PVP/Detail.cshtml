@@ -2,46 +2,43 @@
 
 <div style="padding:5px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif">
     <div class="usa-width-one-whole">
-
         <table id="tbl-cgc-meetings-@Model.CropID" class="pvp-application-table" style="width:100%" border="1px solid #323a45;">
-           
+            <thead>
+                <tr>
+                    <th>PVP No.</th>
+                    <th>Applicant Name</th>
+                    <th>Variety (Cultivar)</th>
+                    <th>Expiration Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var result in Model.Applications)
+                {
+                    string displayExpirationDate = String.Empty;
 
-                <thead>
-                    <tr>
-                        <th>PVP No.</th>
-                        <th>Applicant Name</th>
-                        <th>Variety (Cultivar)</th>
-                        <th>Expiration Date</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var result in Model.Applications)
+                    if (result.ExpirationDate != null && result.ExpirationDate != DateTime.MinValue) 
                     {
-                        string displayExpirationDate = String.Empty;
-
-                        if (result.ExpirationDate != null && result.ExpirationDate != DateTime.MinValue) 
-                        {
-                            displayExpirationDate = result.ExpirationDate.ToShortDateString();
-                        }
-                        
-                        <tr>
-                            <td>
-                                <a href="@Url.Action("Summary", "PVP", new { pvNumber = result.ApplicationNumber })">@result.ApplicationNumber</a>
-                            </td>
-                            <td>@result.ApplicantName</td>
-                            <td>@result.CultivarName</td>
-                            <td>@displayExpirationDate</td>
-                            <td>
-                                <span class="@Model.GetApplicationStatusCSSClass(result.ApplicationStatus) pull-right">
-
-                                    <a href="@result.CertificateURL" style="color:white;">@result.ApplicationStatus</a>
-
-                                </span>
-                            </td>
-                        </tr>
+                        displayExpirationDate = result.ExpirationDate.ToShortDateString();
                     }
-                </tbody>
+                        
+                    <tr>
+                        <td>
+                            <a href="@Url.Action("Summary", "PVP", new { pvNumber = result.ApplicationNumber })">@result.ApplicationNumber</a>
+                        </td>
+                        <td>@result.ApplicantName</td>
+                        <td>@result.CultivarName</td>
+                        <td>@displayExpirationDate</td>
+                        <td>
+                            <span class="@Model.GetApplicationStatusCSSClass(result.ApplicationStatus) pull-right">
+
+                                <a href="@result.CertificateURL" style="color:white;">@result.ApplicationStatus</a>
+
+                            </span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
             </table>
     </div>
 </div>

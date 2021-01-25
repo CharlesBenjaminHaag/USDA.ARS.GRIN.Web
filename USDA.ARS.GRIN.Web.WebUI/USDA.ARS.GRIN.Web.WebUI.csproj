@@ -187,6 +187,79 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\CGCData.xml" />
+    <Content Include="assets\angle-arrow-down-gray-90.svg" />
+    <Content Include="assets\angle-arrow-down-hover.svg" />
+    <Content Include="assets\angle-arrow-down-primary-hover.svg" />
+    <Content Include="assets\angle-arrow-down-primary.svg" />
+    <Content Include="assets\angle-arrow-down-white.svg" />
+    <Content Include="assets\angle-arrow-down.svg" />
+    <Content Include="assets\angle-arrow-right-white.svg" />
+    <Content Include="assets\angle-arrow-right.svg" />
+    <Content Include="assets\angle-arrow-up-primary-hover.svg" />
+    <Content Include="assets\angle-arrow-up-primary.svg" />
+    <Content Include="assets\angle-arrow-up-white.svg" />
+    <Content Include="assets\angle-double-left-solid.svg" />
+    <Content Include="assets\angle-double-right-solid.svg" />
+    <Content Include="assets\angle-left-solid.svg" />
+    <Content Include="assets\angle-right-solid.svg" />
+    <Content Include="assets\arrow-both.svg" />
+    <Content Include="assets\arrow-down-gray-60.svg" />
+    <Content Include="assets\arrow-down.svg" />
+    <Content Include="assets\arrow-left-indigo-cool-50v.svg" />
+    <Content Include="assets\arrow-left-white.svg" />
+    <Content Include="assets\arrow-left.svg" />
+    <Content Include="assets\arrow-right.svg" />
+    <Content Include="assets\calendar-alt-solid.svg" />
+    <Content Include="assets\checkbox-check-print.svg" />
+    <Content Include="assets\chevron-right-white.svg" />
+    <Content Include="assets\chevron-right.svg" />
+    <Content Include="assets\chevron-white.svg" />
+    <Content Include="assets\chevron.svg" />
+    <Content Include="assets\circle-124.png" />
+    <Content Include="assets\circle-gray-20.svg" />
+    <Content Include="assets\close-alt-blue-60v.svg" />
+    <Content Include="assets\close-alt.svg" />
+    <Content Include="assets\close-blue-30-alt.svg" />
+    <Content Include="assets\close-blue-40v-alt.svg" />
+    <Content Include="assets\close-blue-50-alt.svg" />
+    <Content Include="assets\close-blue-50v-alt.svg" />
+    <Content Include="assets\close-blue-60-alt.svg" />
+    <Content Include="assets\close-blue-60v-alt.svg" />
+    <Content Include="assets\close-gray-60.svg" />
+    <Content Include="assets\close-gray-90-alt.svg" />
+    <Content Include="assets\close-primary.svg" />
+    <Content Include="assets\close-white-alt.svg" />
+    <Content Include="assets\close-white.svg" />
+    <Content Include="assets\close.svg" />
+    <Content Include="assets\correct8-alt.png" />
+    <Content Include="assets\correct8-alt.svg" />
+    <Content Include="assets\correct8.svg" />
+    <Content Include="assets\correct9.svg" />
+    <Content Include="assets\external-link-alt-hover.svg" />
+    <Content Include="assets\external-link-alt.svg" />
+    <Content Include="assets\external-link-hover.svg" />
+    <Content Include="assets\external-link.svg" />
+    <Content Include="assets\file-excel.svg" />
+    <Content Include="assets\file-pdf.svg" />
+    <Content Include="assets\file-video.svg" />
+    <Content Include="assets\file-word.svg" />
+    <Content Include="assets\file.svg" />
+    <Content Include="assets\hero.png" />
+    <Content Include="assets\icon-dot-gov.svg" />
+    <Content Include="assets\icon-https.svg" />
+    <Content Include="assets\loader.gif" />
+    <Content Include="assets\loader.svg" />
+    <Content Include="assets\lock.svg" />
+    <Content Include="assets\logo-img.png" />
+    <Content Include="assets\minus-alt.svg" />
+    <Content Include="assets\minus.svg" />
+    <Content Include="assets\plus-alt.svg" />
+    <Content Include="assets\plus.svg" />
+    <Content Include="assets\search-alt.svg" />
+    <Content Include="assets\search-primary.svg" />
+    <Content Include="assets\search.svg" />
+    <Content Include="assets\sprite.svg" />
+    <Content Include="assets\us_flag_small.png" />
     <Content Include="Content\ARSBranding.css" />
     <Content Include="Content\BACKUP_styleguide.css" />
     <Content Include="Content\bootstrap.css" />
@@ -198,6 +271,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\styleguide.css" />
     <Content Include="Content\uswds.min.css" />
+    <Content Include="CSS\uswds.css" />
+    <Content Include="CSS\uswds.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -227,6 +302,10 @@
     <Content Include="img\minus.png" />
     <Content Include="img\search.svg" />
     <Content Include="img\plus.png" />
+    <Content Include="js\uswds-init.js" />
+    <Content Include="js\uswds-init.min.js" />
+    <Content Include="js\uswds.js" />
+    <Content Include="js\uswds.min.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -239,6 +318,9 @@
     <Content Include="libman.json" />
     <Content Include="log4net.config" />
     <Content Include="Images\ViewPDF.pdf" />
+    <Content Include="CSS\uswds.min.css.map" />
+    <Content Include="js\uswds-init.min.js.map" />
+    <Content Include="js\uswds.min.js.map" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -254,6 +336,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Search.js" />
     <Content Include="Scripts\_references.js" />
+    <None Include="Views\Home\TEMPLATE_INTERIOR.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -297,7 +380,7 @@
     <Content Include="Views\Shared\_Breadcrumbs.cshtml" />
     <Content Include="Views\Shared\_LeftNavContact.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
-    <Content Include="Views\Template.cshtml" />
+    <Content Include="Views\Home\TEMPLATE_LANDING.cshtml" />
     <Content Include="Views\Shared\_LeftNavTemplate.cshtml" />
     <Content Include="Views\Shared\LayoutInterior.cshtml" />
     <Content Include="Views\Admin\CGC\Edit.cshtml" />
@@ -307,6 +390,8 @@
     <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="assets\uswds-2.10.0\images\" />
+    <Folder Include="assets\uswds-2.10.0\stylesheets\" />
     <Folder Include="Documents\" />
     <Folder Include="Models\" />
   </ItemGroup>

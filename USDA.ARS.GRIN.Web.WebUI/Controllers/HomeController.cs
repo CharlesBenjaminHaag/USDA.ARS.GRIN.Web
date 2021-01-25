@@ -8,7 +8,7 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
 {
     public class HomeController : BaseController
     {
-        public ActionResult _TEMPLATE()
+        public ActionResult _TEMPLATE_LANDING()
         {
             return View();
         }
@@ -16,7 +16,7 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
         public ActionResult Index()
         {
             log.Info("TEST LOG ENTRY");
-            return View();
+            return View("~/Views/Home/TEMPLATE_INTERIOR.cshtml");
         }
 
         public PartialViewResult _Banner()

@@ -3,8 +3,8 @@
     ViewBag.Title = "PVPSearch";
 }
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+@*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>*@
 
 <style>
     table {
@@ -85,22 +85,6 @@
                 <button _ngcontent-c3="" class="usa-button-primary" title="application-status" onclick="location.href='@Url.Action("Index", "PVP", new { viewBy = "application-status" })'">View By Application Status</button>
                 <button _ngcontent-c3="" class="usa-button-primary" title="expiration-date" onclick="location.href='@Url.Action("Index", "PVP", new { viewBy = "expiration-date" })'">View By Expiration Date</button>
                 @{Html.RenderAction("_DetailList", "PVP", new { @viewBy = Model.ViewFormatName });}
-
-                @*<ul class="usa-accordion-bordered">
-
-                        @foreach (var crop in Model.CropList)
-                        {
-                            <li>
-                                <button class="usa-accordion-button" style="background-color:darkgray;" id="button-@crop.ID" title="@crop.ID" aria-expanded="false" aria-controls="control-@crop.ID">@crop.Name</button>
-                                <div class="usa-accordion-content" id="control-@crop.ID" style="padding:15px; border:none; background-color:white; color:white;" aria-hidden="true">
-                                    <div id="crop-detail-section-@crop.ID">
-
-                                    </div>
-                                </div>
-                            </li>
-                        }
-                    </ul>*@
-                <!-- END PARTIAL -->
             </div>
         </div>
     </div>
@@ -113,44 +97,40 @@
         $("#hfSelectedView").val(selectedView);
     });
 
+   
+
     $(".usa-accordion-button").click(function () {
         var id = $(this).attr("id");
-        var selectedView = $(this).attr("title");
+
+        
+
+        @*var selectedView = $(this).attr("title");
         var isExpanded = $(this).attr("aria-expanded");
         var cropId = id.replace("button-", "");
         var dataTableId = "#tbl-cgc-meetings-" + cropId;
         var cropDetailSectionId = "#crop-detail-section-" + cropId;
-        var url = '@Url.Action("Detail","PVP")';
+        var url = '@Url.Action("Detail","PVP")';*@
 
+        
 
-
-        //if (isExpanded == "true") {
-
-
-
-            $.post(url, { referenceItemId: cropId, displayFormat: selectedView })
-                .done(function (response) {
-                    $(cropDetailSectionId).html(response);
-
-                     $(dataTableId).DataTable(
-                    {
-                        "searching": false,
-                        "paging": true,
-                        "ordering": true,
-                            "order": [[1, 'desc']]
-                    });
-
-                });
-
-
-        //}
+        //$.post(url, { referenceItemId: cropId, displayFormat: selectedView })
+        //    .done(function (response) {
+        //        $(cropDetailSectionId).html(response);
+        //            $(dataTableId).DataTable(
+        //        {
+        //            "searching": false,
+        //            "pagingType": "full_numbers",
+        //            "ordering": true,
+        //                "order": [[1, 'desc']]
+        //        });
+        //    });
     });
 
     $(document).ajaxStart(function () {
         $("#wait").css("display", "block");
     });
 
-    $(document).ajaxComplete(function () {
+    $(document).ajaxStop(function () {
         $("#wait").css("display", "none");
     });
 
