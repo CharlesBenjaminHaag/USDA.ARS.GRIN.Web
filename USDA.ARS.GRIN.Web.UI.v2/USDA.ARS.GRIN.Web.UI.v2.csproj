@@ -177,6 +177,10 @@
     <Content Include="Views\NGRAC\Index.cshtml" />
     <Content Include="Views\PVP\Index.cshtml" />
     <Content Include="Views\Rhizobium\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutInterior.cshtml" />
+    <Content Include="Views\Shared\_USABanner.cshtml" />
+    <Content Include="Views\Shared\_USAFooter.cshtml" />
+    <Content Include="Views\Shared\_USAIdentifier.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

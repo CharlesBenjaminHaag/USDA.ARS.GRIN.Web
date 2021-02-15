@@ -11,7 +11,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
         // GET: Collections
         public ActionResult Index()
         {
-            return View();
+            return View("~/Views/Collections/Index.cshtml");
         }
     }
 }

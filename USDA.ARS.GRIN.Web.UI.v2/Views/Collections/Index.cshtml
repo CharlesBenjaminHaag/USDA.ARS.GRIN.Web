@@ -1,8 +1,426 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutInterior.cshtml";
 }
 
-<h2>Index</h2>
+<div class="grid-container">
+    <div class="grid-row grid-gap">
+        <div class="usa-layout-docs__sidenav desktop:grid-col-2">
+            <nav aria-label="Secondary navigation" style="padding-right:20px;">
+                <form class="usa-search usa-search--small" role="search">
+                    <label class="usa-sr-only" for="search-field-en-small">Search</label>
+                    <input class="usa-input" id="search-field-en-small" type="search" name="search" placeholder="Search GRIN-Global">
+                    <button class="usa-button" type="submit">
+                        <span class="usa-sr-only">Search</span>
+                    </button>
+                </form>
+                <br />
 
+                <ul class="usa-sidenav">
+                    <li class="usa-sidenav__item">
+                        <a href="">Home</a>
+                    </li>
+                    <li class="usa-sidenav__item">
+                        <a href="#collections" class="usa-current">Collections</a><ul class="usa-sidenav__sublist">
+
+                            <li class="usa-sidenav__item">
+                                <a href="#section-genetic-resource_collections" class="usa-current">Genetic Resource Collections</a><ul class="usa-sidenav__sublist">
+                                    <li id="" class="usa-sidenav__item">
+                                        <a href="#plant-germplasm">Plant Germplasm</a>
+                                    </li>
+                                    <li class="usa-sidenav__item">
+                                        <a href="#animal-germplasm">Animal Germplasm</a>
+                                    </li>
+                                    <li class="usa-sidenav__item">
+                                        <a href="#microbial-germplasm">Microbial Germplasm</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="usa-sidenav__item">
+                                <a href="#grin-collections" class="usa-current">GRIN Collections</a><ul class="usa-sidenav__sublist">
+                                    <li class="usa-sidenav__item">
+                                        <a href="">Rhizobium Collection</a>
+                                    </li>
+                                    <li class="usa-sidenav__item">
+                                        <a href="">PVP Applications</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
+            <h1 class="site-page-title" style="font-family: Public Sans Web,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol; font-size: 2.5rem; line-height: 1.2; font-weight: 700;">Collections</h1>
+            <p class="usa-intro">GRIN both provides data, and compiles references to databases hosted by collaborating projects.</p>
+            <section id="section-genetic-resource-collections">
+                <h2 id="section-genetic-resource_collections">Genetic Resource Collections</h2>
+
+                <a name="plant-germplasm"></a>
+                <h3>Plant Germplasm</h3>
+                <p>
+                    The National Plant Germplasm System (NGPS) is a collaborative effort to safeguard the genetic diversity of agriculturally important plants. The mission of the NPGS is to support agricultural production by acquiring, conserving, evaluating, documenting, and distributing crop germplasm.
+                </p>
+                <section>
+                    <div class="grid-row" style="background-color:#ebebeb;">
+                        <div class="grid-col-8"><div id="mapid" style="width: 800px; height: 500px;"></div></div>
+                        <div class="grid-col-4" style="padding:1rem;">
+                            <ul class="usa-collection">
+                                <li id="13" class="usa-collection__item">
+                                    <div class="usa-collection__body">
+                                        <h3 class="usa-collection__heading">
+                                            <a class="usa-link" href="https://npgsweb.ars-grin.gov/gringlobal/site.aspx?id=13">
+                                                C.M. Rick Tomato Genetics Resource Center
+                                            </a>
+                                        </h3>
+                                        <p class="usa-collection__description">
+                                            <ul class="usa-collection__meta" aria-label="More information">
+                                                <li class="usa-collection__meta-item">
+                                                    Department of Plant Sciences, Mail Stop 3
+                                                </li>
+                                                <li class="usa-collection__meta-item">
+                                                    One Shields Avenue
+                                                </li>
+                                                <li class="usa-collection__meta-item">
+                                                    Davis, California 95616
+                                                </li>
+                                                <li class="usa-collection__meta-item">
+                                                    Phone: (530) 752-6726
+                                                </li>
+                                            </ul>
+                                        </p>
+                                        <!-- CROPS AT SITE -->
+                                        <br />
+                                        <h5><strong>Crops Evaluated</strong></h5>
+                                        <ul class="usa-collection__meta" aria-label="Topics">
+                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                                                <a href="https://npgsweb.ars-grin.gov/gringlobal/crop?id=" style="color:white;">BLUE-</a>
+                                            </li>
+                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                                                BUTT
+                                            </li>
+                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                                                <a href="" style="color:white;">BLUE-HON</a>
+                                            </li>
+                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                                                BUTTER
+                                            </li>
+                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                                                <a href="" style="color:white;">BLUE-KLE</a>
+                                            </li>
+                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                                                BUTT
+                                            </li>
+                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                                                <a href="" style="color:white;">BLUE-E</a>
+                                            </li>
+                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                                                BUTT
+                                            </li>
+                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                                                <a href="" style="color:white;">BLUE-HONEYSUCKLE</a>
+                                            </li>
+                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                                                BUTT
+                                            </li>
+                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                                                <a href="" style="color:white;">BLUE-HONEYSUCKLE</a>
+                                            </li>
+                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                                                BUTTERNUT
+                                            </li>
+                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                                                <a href="" style="color:white;">BLUE-HONEYSUCKLE</a>
+                                            </li>
+                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                                                BUTTERNUT
+                                            </li>
+                                            @*CHESTNUT
+                                        ELDERBERRY
+                                        GOJI-BERRY
+                                        HAZELNUT
+                                        HOPS
+                                        INTERGENERIC
+                                        MEDLAR
+                                        MINT
+                                        MOUNTAIN-MINT
+                                        PAWPAW
+                                        PEAR
+                                        QUINCE
+                                        RIBES
+                                        RUBUS
+                                        STRAWBERRY
+                                        VACCINIUM
+                                        WINTERGREEN*@
+
+
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <a name="animal-germplasm"></a>
+                <h3>Animal Germplasm</h3>
+                <p>
+                    Animal genetic resources underpin the livestock sector’s production and profitability. As a result livestock industries contribute billions of dollars to national economies. Our mission is to acquire, evaluate and preserve these strategic resources so that industry and the research community can have access to a broad array of genetic variability for national security, the introduction of genetic variation, corrective mating, and various research initiatives.
+                </p>
+
+                <a name="microbial-germplasm"></a>
+                <h3>Microbial Germplasm</h3>
+                <p>
+                    The goal of this program is to ensure that the genetic diversity of agriculturally important microorganisms is maintained to enhance and increase agricultural efficiency and profitability.The program will collect, authenticate and characterizepotentially useful microbial germplasm; preserve microbial genetic diversity; and facilitate distribution and utilization of microbial germplasm for research and industry.
+                    Links
+                </p>
+            </section>
+            <section>
+                <a name="grin-collections"></a>
+                <h2>GRIN Collections</h2>
+                <div class="grid-row">
+                    <div class="grid-col-6">
+                        <h3 class="margin-x-0 margin-y-2">Rhizobium Collection</h3>
+                        <ul class="usa-collection">
+                            <li class="usa-collection__item">
+                                <img class="usa-collection__img" src="https://www.performance.gov/img/GoG/gears-govt-presidents.png" alt="Alt text">
+                                <div class="usa-collection__body">
+                                    <h3 class="usa-collection__heading">
+                                        <a class="usa-link" href="https://www.performance.gov/presidents-winners-press-release/">Gears of Government President’s Award winners</a>
+                                    </h3>
+                                    <p class="usa-collection__description">Today, the Administration announces the winners of the Gears of Government President’s Award. This program recognizes the contributions of individuals and teams across the federal workforce who make a profound difference in the lives of the American people.</p>
+                                    <ul class="usa-collection__meta" aria-label="More information">
+                                        <li class="usa-collection__meta-item">
+                                            By Sondra Ainsworth and Constance Lu
+                                        </li>
+                                        <li class="usa-collection__meta-item">
+                                            <time datetime="2020-09-30T12:00:00+01:00">
+                                                September 30, 2020
+                                            </time>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="usa-collection__meta" aria-label="Topics">
+                                        <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                                            New
+                                        </li>
+                                        <li class="usa-collection__meta-item usa-tag">
+                                            PMA
+                                        </li>
+                                        <li class="usa-collection__meta-item usa-tag">
+                                            OMB
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <div class="grid-col-6">
+                        <h3 class="margin-x-0 margin-y-2">PVP Applications</h3>
+                        <ul class="usa-collection">
+                            <li class="usa-collection__item">
+                                <img class="usa-collection__img" src="https://www.performance.gov/img/GoG/gears-govt-presidents.png" alt="Alt text">
+                                <div class="usa-collection__body">
+                                    <h3 class="usa-collection__heading">
+                                        <a class="usa-link" href="https://www.performance.gov/presidents-winners-press-release/">Gears of Government President’s Award winners</a>
+                                    </h3>
+                                    <p class="usa-collection__description">Today, the Administration announces the winners of the Gears of Government President’s Award. This program recognizes the contributions of individuals and teams across the federal workforce who make a profound difference in the lives of the American people.</p>
+                                    <ul class="usa-collection__meta" aria-label="More information">
+                                        <li class="usa-collection__meta-item">
+                                            By Sondra Ainsworth and Constance Lu
+                                        </li>
+                                        <li class="usa-collection__meta-item">
+                                            <time datetime="2020-09-30T12:00:00+01:00">
+                                                September 30, 2020
+                                            </time>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="usa-collection__meta" aria-label="Topics">
+                                        <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                                            New
+                                        </li>
+                                        <li class="usa-collection__meta-item usa-tag">
+                                            PMA
+                                        </li>
+                                        <li class="usa-collection__meta-item usa-tag">
+                                            OMB
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+
+<div id="myModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="https://leafletjs.com/examples/choropleth/us-states.js"></script>
+<script type="text/javascript">
+
+    
+
+    var map = L.map('mapid').setView([37.8, -96], 4);
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox/light-v9',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(map);
+   
+    //var marker = L.marker([44.550442, -123.220108]).addTo(map);
+
+    //function onMapClick(e) {
+    //    alert("You clicked the map at " + e.latlng);
+    //}
+
+    //CORVALLIS
+    //var marker = new L.Marker([44.550442, -123.220108]).on('click', markerOnClick);
+    //marker .id = 999;
+    //marker.addTo(map);
+   
+    var onMarkerClick = function (e) {
+        console.log(this);
+        alert("DEBUG: SITE ID IS: " + this.options.myCustomId);
+        //$('#myModal').modal('show');
+    }
+
+    //function markerOnClick(e) {
+    //    var id = e.id;
+    //    //alert("DEBUG TEST " + e.id);
+    //    $('#myModal').modal('show');
+    //    //$("#map-detail").html("Corvallis, OR");
+    //}
+
+    var siteId = "";
+
+    siteId = "13";
+    var marker = L.marker([38.534862012868864, -121.75462764434283], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "1";
+    var marker = L.marker([30.619591837167704, -96.36182821750184], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+    
+    siteId = "31";
+    var marker = L.marker([40.10305195116381, -88.22429523081477], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "15";
+    var marker = L.marker([39.026515487598985, -76.9234882308379], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "37";
+    var marker = L.marker([36.59667464938536, -119.51265894622854], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    //42	40.57317281015742, -105.07967561730995
+    //19	42.95707938078901, -112.82869678657434
+    //2	30.522515482482035, -96.42369203284417
+    //3	44.552400416076324, -123.22075287304186
+    //4	38.534862012868864, -121.75462764434283
+    //5	42.87768028143282, -77.0072383607277
+    //6	19.69834611262494, -155.09389535997298
+    //7	18.20681304702269, -67.13602555814018
+    //8	25.64388309000814, -80.2917109157293
+    //9	33.968078033711286, -117.33456035792699
+    //16	42.008928272568696, -93.66361315989242
+    //17	42.87763358522057, -77.00722278842248
+    //38	40.00198912431977, -83.02888870382807
+    //22	33.2677625332149, -84.2877572904676
+    //29	44.87961782641051, -87.33528967303394
+    //40	34.47581490375999, -91.41872793277506
+    //24	40.10145444323368, -88.22267277499076
+    //26	46.73192943628397, -117.15788711531751
+
+
+
+    var geojson;
+
+    function resetHighlight(e) {
+        geojson.resetStyle(e.target);
+        info.update();
+    }
+
+    function zoomToFeature(e) {
+        map.fitBounds(e.target.getBounds());
+    }
+
+    function onEachFeature(feature, layer) {
+        layer.on({
+            mouseover: highlightFeature,
+            mouseout: resetHighlight,
+            click: zoomToFeature
+        });
+    }
+
+    //geojson = L.geoJson(statesData, {
+    //    style: style,
+    //    onEachFeature: onEachFeature
+    //}).addTo(map);
+
+    map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
+
+
+    var legend = L.control({ position: 'bottomright' });
+
+    legend.onAdd = function (map) {
+
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+            labels = [],
+            from, to;
+
+        for (var i = 0; i < grades.length; i++) {
+            from = grades[i];
+            to = grades[i + 1];
+
+            labels.push(
+                '<i style="background:' + getColor(from + 1) + '"></i> ' +
+                from + (to ? '&ndash;' + to : '+'));
+        }
+
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+
+    legend.addTo(map);
+
+</script>
