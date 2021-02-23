@@ -21,24 +21,10 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
 
             try
             {
-                if (String.IsNullOrEmpty(viewBy))
-                    viewBy = "scientific-name";
-
-                viewModel.ViewFormatName = viewBy;
-
-                switch (viewBy)
-                {
-                    case "scientific-name":
-                        viewModel.ReferenceItems = _repository.GetCommonNameList();
-                        break;
-                    case "application-status":
-                        viewModel.ReferenceItems = _repository.GetApplicationStatusList();
-                        break;
-                    case "expiration-date":
-                        viewModel.ReferenceItems = _repository.GetExpirationPeriodList();
-                        break;
-                }
-
+                viewModel.RecentPVPApplications = _repository.GetPVPApplications("recent");
+                viewModel.ExpiringPVPApplications = _repository.GetPVPApplications("expiring");
+                viewModel.RecentlyExpiredPVPApplications = _repository.GetPVPApplications("recently-expired");
+                viewModel.RecentlyAvailablePVPApplications = _repository.GetPVPApplications("recently-available");
                 return View(viewModel);
             }
             catch (Exception ex)
@@ -104,7 +90,7 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
             {
 
                 viewModel.CropID = referenceItemId;
-                viewModel.Applications = _repository.GetPVPApplications(referenceItemId, displayFormat);
+                //viewModel.Applications = _repository.GetPVPApplications(referenceItemId, displayFormat);
             }
             catch (Exception ex)
             {
@@ -113,31 +99,31 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
             return PartialView("~/Views/PVP/Detail.cshtml", viewModel);
         }
 
-        public ActionResult _DetailList(string viewBy)
-        {
-            PVPDetailListViewModel viewModel = new PVPDetailListViewModel();
+        //public ActionResult _DetailList(string viewBy)
+        //{
+        //    PVPDetailListViewModel viewModel = new PVPDetailListViewModel();
 
-            try
-            {
-                switch (viewBy)
-                {
-                    case "scientific-name":
-                        viewModel.ReferenceItems = _repository.GetCommonNameList();
-                        break;
-                    case "application-status":
-                        viewModel.ReferenceItems = _repository.GetApplicationStatusList();
-                        break;
-                    default:
-                        viewModel.ReferenceItems = _repository.GetExpirationPeriodList();
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                log.Error(ex.Message + ex.StackTrace);
-            }
-            return PartialView("~/Views/PVP/_DetailList.cshtml", viewModel);
-        }
+        //    try
+        //    {
+        //        switch (viewBy)
+        //        {
+        //            case "scientific-name":
+        //                viewModel.ReferenceItems = _repository.GetCommonNameList();
+        //                break;
+        //            case "application-status":
+        //                viewModel.ReferenceItems = _repository.GetApplicationStatusList();
+        //                break;
+        //            default:
+        //                viewModel.ReferenceItems = _repository.GetExpirationPeriodList();
+        //                break;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        log.Error(ex.Message + ex.StackTrace);
+        //    }
+        //    return PartialView("~/Views/PVP/_DetailList.cshtml", viewModel);
+        //}
 
         public ActionResult Search(string searchField = "", string searchText = "")
         {
@@ -152,7 +138,12 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
 
             try
             {
-                if ((viewModel.PVNumber == 0) && (String.IsNullOrEmpty(viewModel.Variety) && (String.IsNullOrEmpty(viewModel.CommonName) && (String.IsNullOrEmpty(viewModel.ApplicantName)))))
+                if ((viewModel.PVNumber == 0) &&
+                    (String.IsNullOrEmpty(viewModel.Variety) &&
+                    (String.IsNullOrEmpty(viewModel.CommonName) &&
+                    (String.IsNullOrEmpty(viewModel.ApplicantName) &&
+                    (String.IsNullOrEmpty(viewModel.SelectedApplicationStatuses) &&
+                    (String.IsNullOrEmpty(viewModel.SelectedCertificateStatuses)))))))
                 {
                     throw new IndexOutOfRangeException("Please enter at least one search criterion.");
                 }
@@ -177,9 +168,23 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
                     search.SearchCriteria.Add(new SearchCriterion { FieldName = "papp.name", ComparisonOperator = "LIKE", FieldValue = viewModel.ApplicantName });
                 }
 
-                //search.ApplicationStatuses = viewModel.SelectedApplicationStatuses.Split(',');
-                //search.CertificateStatuses = viewModel.SelectedCertificateStatuses.Split(',');
+                if (!String.IsNullOrEmpty(viewModel.SelectedApplicationStatuses ))
+                {
+                    search.ApplicationStatuses = viewModel.SelectedApplicationStatuses.Split(',');
+                    foreach (var value in search.ApplicationStatuses)
+                        {
+                        search.SearchCriteria.Add(new SearchCriterion { FieldName = "pas.pvp_application_status_id", ComparisonOperator = "LIKE", FieldValue = value });
+                    }
+                }
 
+                if (!String.IsNullOrEmpty(viewModel.SelectedApplicationStatuses))
+                {
+                    search.CertificateStatuses = viewModel.SelectedCertificateStatuses.Split(',');
+                    foreach (var value in search.CertificateStatuses)
+                    {
+                        search.SearchCriteria.Add(new SearchCriterion { FieldName = "pas.pvp_application_status_id", ComparisonOperator = "LIKE", FieldValue = value });
+                    }
+                }
                 viewModel.SearchResults = _repository.Search(search);
                 return View("~/Views/PVP/Search.cshtml", viewModel);
             }

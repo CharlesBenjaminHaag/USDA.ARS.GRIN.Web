@@ -33,7 +33,7 @@ namespace USDA.ARS.GRIN.Web.Repository
     #endregion
 		
 		public RepositoryDataContext() : 
-				base(global::USDA.ARS.GRIN.Web.Repository.Properties.Settings.Default.gringlobalConnectionString3, mappingSource)
+				base(global::USDA.ARS.GRIN.Web.Repository.Properties.Settings.Default.gringlobalConnectionString4, mappingSource)
 		{
 			OnCreated();
 		}
@@ -132,34 +132,6 @@ namespace USDA.ARS.GRIN.Web.Repository
 			return ((ISingleResult<usp_GetCropsBySiteResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_PVPApplicationStatuses_Select")]
-		public ISingleResult<usp_PVPApplicationStatuses_SelectResult> usp_PVPApplicationStatuses_Select()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<usp_PVPApplicationStatuses_SelectResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_PVPExpirationPeriods_Select")]
-		public ISingleResult<usp_PVPExpirationPeriods_SelectResult> usp_PVPExpirationPeriods_Select()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<usp_PVPExpirationPeriods_SelectResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_PVPApplicationsByApplicationStatus_Select")]
-		public ISingleResult<usp_PVPApplicationsByApplicationStatus_SelectResult> usp_PVPApplicationsByApplicationStatus_Select([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> pvp_application_status_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pvp_application_status_id);
-			return ((ISingleResult<usp_PVPApplicationsByApplicationStatus_SelectResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_PVPApplicationsByExpiration_Select")]
-		public ISingleResult<usp_PVPApplicationsByExpiration_SelectResult> usp_PVPApplicationsByExpiration_Select([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> expiration_period_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), expiration_period_id);
-			return ((ISingleResult<usp_PVPApplicationsByExpiration_SelectResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_PVPApplication_Select")]
 		public ISingleResult<usp_PVPApplication_SelectResult> usp_PVPApplication_Select([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> pvp_application_number)
 		{
@@ -172,20 +144,6 @@ namespace USDA.ARS.GRIN.Web.Repository
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sql_where_clause);
 			return ((ISingleResult<usp_PVPSearchResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_PVPCommonNames_Select")]
-		public ISingleResult<usp_PVPCommonNames_SelectResult> usp_PVPCommonNames_Select()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<usp_PVPCommonNames_SelectResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_PVPApplicationsByCommonName_Select")]
-		public ISingleResult<usp_PVPApplicationsByCommonName_SelectResult> usp_PVPApplicationsByCommonName_Select([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> pvp_common_name_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pvp_common_name_id);
-			return ((ISingleResult<usp_PVPApplicationsByCommonName_SelectResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_User_Search")]
@@ -239,6 +197,41 @@ namespace USDA.ARS.GRIN.Web.Repository
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), out_error_number, crop_germplasm_committee_document_id);
 			out_error_number = ((System.Nullable<int>)(result.GetParameterValue(0)));
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_PVPRecentApplications_Select")]
+		public ISingleResult<usp_ARS_PVPRecentApplications_SelectResult> usp_ARS_PVPRecentApplications_Select()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<usp_ARS_PVPRecentApplications_SelectResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_PVPRecentlyAvailable_Select")]
+		public ISingleResult<usp_ARS_PVPRecentlyAvailable_SelectResult> usp_ARS_PVPRecentlyAvailable_Select()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<usp_ARS_PVPRecentlyAvailable_SelectResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_PVPApplicationStatuses_Select")]
+		public ISingleResult<usp_PVPApplicationStatuses_SelectResult> usp_PVPApplicationStatuses_Select()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<usp_PVPApplicationStatuses_SelectResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_PVPRecentlyExpired_Select")]
+		public ISingleResult<usp_ARS_PVPRecentlyExpired_SelectResult> usp_ARS_PVPRecentlyExpired_Select()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<usp_ARS_PVPRecentlyExpired_SelectResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_PVPExpiring6Months_Select")]
+		public ISingleResult<usp_ARS_PVPExpiring6Months_SelectResult> usp_ARS_PVPExpiring6Months_Select()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<usp_ARS_PVPExpiring6Months_SelectResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1924,776 +1917,6 @@ namespace USDA.ARS.GRIN.Web.Repository
 		}
 	}
 	
-	public partial class usp_PVPApplicationStatuses_SelectResult
-	{
-		
-		private int _id;
-		
-		private string _title;
-		
-		private System.Nullable<int> _count;
-		
-		public usp_PVPApplicationStatuses_SelectResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL")]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this._id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string title
-		{
-			get
-			{
-				return this._title;
-			}
-			set
-			{
-				if ((this._title != value))
-				{
-					this._title = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count", DbType="Int")]
-		public System.Nullable<int> count
-		{
-			get
-			{
-				return this._count;
-			}
-			set
-			{
-				if ((this._count != value))
-				{
-					this._count = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_PVPExpirationPeriods_SelectResult
-	{
-		
-		private int _sort_order;
-		
-		private string _category;
-		
-		private System.Nullable<int> _count;
-		
-		public usp_PVPExpirationPeriods_SelectResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sort_order", DbType="Int NOT NULL")]
-		public int sort_order
-		{
-			get
-			{
-				return this._sort_order;
-			}
-			set
-			{
-				if ((this._sort_order != value))
-				{
-					this._sort_order = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_category", DbType="VarChar(24) NOT NULL", CanBeNull=false)]
-		public string category
-		{
-			get
-			{
-				return this._category;
-			}
-			set
-			{
-				if ((this._category != value))
-				{
-					this._category = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count", DbType="Int")]
-		public System.Nullable<int> count
-		{
-			get
-			{
-				return this._count;
-			}
-			set
-			{
-				if ((this._count != value))
-				{
-					this._count = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_PVPApplicationsByApplicationStatus_SelectResult
-	{
-		
-		private int _pvp_application_number;
-		
-		private string _cultivar_name;
-		
-		private string _experimental_name;
-		
-		private System.Nullable<int> _pvp_crop_id;
-		
-		private string _scientific_name;
-		
-		private string _common_name;
-		
-		private System.Nullable<int> _pvp_applicant_id;
-		
-		private string _applicant_name;
-		
-		private System.Nullable<System.DateTime> _application_date;
-		
-		private System.Nullable<bool> _is_certified_seed;
-		
-		private int _pvp_application_status_id;
-		
-		private string _application_status;
-		
-		private System.Nullable<System.DateTime> _status_date;
-		
-		private System.Nullable<System.DateTime> _certificate_issued_date;
-		
-		private System.Nullable<int> _years_protected;
-		
-		private System.Nullable<int> _accession_id;
-		
-		private string _expiration_date;
-		
-		public usp_PVPApplicationsByApplicationStatus_SelectResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_number", DbType="Int NOT NULL")]
-		public int pvp_application_number
-		{
-			get
-			{
-				return this._pvp_application_number;
-			}
-			set
-			{
-				if ((this._pvp_application_number != value))
-				{
-					this._pvp_application_number = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cultivar_name", DbType="NVarChar(150)")]
-		public string cultivar_name
-		{
-			get
-			{
-				return this._cultivar_name;
-			}
-			set
-			{
-				if ((this._cultivar_name != value))
-				{
-					this._cultivar_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_experimental_name", DbType="NVarChar(150)")]
-		public string experimental_name
-		{
-			get
-			{
-				return this._experimental_name;
-			}
-			set
-			{
-				if ((this._experimental_name != value))
-				{
-					this._experimental_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_crop_id", DbType="Int")]
-		public System.Nullable<int> pvp_crop_id
-		{
-			get
-			{
-				return this._pvp_crop_id;
-			}
-			set
-			{
-				if ((this._pvp_crop_id != value))
-				{
-					this._pvp_crop_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_scientific_name", DbType="NVarChar(150)")]
-		public string scientific_name
-		{
-			get
-			{
-				return this._scientific_name;
-			}
-			set
-			{
-				if ((this._scientific_name != value))
-				{
-					this._scientific_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_common_name", DbType="NVarChar(150)")]
-		public string common_name
-		{
-			get
-			{
-				return this._common_name;
-			}
-			set
-			{
-				if ((this._common_name != value))
-				{
-					this._common_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_applicant_id", DbType="Int")]
-		public System.Nullable<int> pvp_applicant_id
-		{
-			get
-			{
-				return this._pvp_applicant_id;
-			}
-			set
-			{
-				if ((this._pvp_applicant_id != value))
-				{
-					this._pvp_applicant_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_applicant_name", DbType="NVarChar(4000) NOT NULL", CanBeNull=false)]
-		public string applicant_name
-		{
-			get
-			{
-				return this._applicant_name;
-			}
-			set
-			{
-				if ((this._applicant_name != value))
-				{
-					this._applicant_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> application_date
-		{
-			get
-			{
-				return this._application_date;
-			}
-			set
-			{
-				if ((this._application_date != value))
-				{
-					this._application_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_certified_seed", DbType="Bit")]
-		public System.Nullable<bool> is_certified_seed
-		{
-			get
-			{
-				return this._is_certified_seed;
-			}
-			set
-			{
-				if ((this._is_certified_seed != value))
-				{
-					this._is_certified_seed = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_status_id", DbType="Int NOT NULL")]
-		public int pvp_application_status_id
-		{
-			get
-			{
-				return this._pvp_application_status_id;
-			}
-			set
-			{
-				if ((this._pvp_application_status_id != value))
-				{
-					this._pvp_application_status_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_status", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string application_status
-		{
-			get
-			{
-				return this._application_status;
-			}
-			set
-			{
-				if ((this._application_status != value))
-				{
-					this._application_status = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> status_date
-		{
-			get
-			{
-				return this._status_date;
-			}
-			set
-			{
-				if ((this._status_date != value))
-				{
-					this._status_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_certificate_issued_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> certificate_issued_date
-		{
-			get
-			{
-				return this._certificate_issued_date;
-			}
-			set
-			{
-				if ((this._certificate_issued_date != value))
-				{
-					this._certificate_issued_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_years_protected", DbType="Int")]
-		public System.Nullable<int> years_protected
-		{
-			get
-			{
-				return this._years_protected;
-			}
-			set
-			{
-				if ((this._years_protected != value))
-				{
-					this._years_protected = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accession_id", DbType="Int")]
-		public System.Nullable<int> accession_id
-		{
-			get
-			{
-				return this._accession_id;
-			}
-			set
-			{
-				if ((this._accession_id != value))
-				{
-					this._accession_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_expiration_date", DbType="NVarChar(12)")]
-		public string expiration_date
-		{
-			get
-			{
-				return this._expiration_date;
-			}
-			set
-			{
-				if ((this._expiration_date != value))
-				{
-					this._expiration_date = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_PVPApplicationsByExpiration_SelectResult
-	{
-		
-		private int _pvp_application_number;
-		
-		private string _cultivar_name;
-		
-		private string _experimental_name;
-		
-		private System.Nullable<int> _pvp_crop_id;
-		
-		private string _scientific_name;
-		
-		private string _common_name;
-		
-		private System.Nullable<int> _pvp_applicant_id;
-		
-		private string _applicant_name;
-		
-		private System.Nullable<System.DateTime> _application_date;
-		
-		private System.Nullable<bool> _is_certified_seed;
-		
-		private int _pvp_application_status_id;
-		
-		private string _application_status;
-		
-		private System.Nullable<System.DateTime> _status_date;
-		
-		private System.Nullable<System.DateTime> _certificate_issued_date;
-		
-		private System.Nullable<int> _years_protected;
-		
-		private string _expiration_date;
-		
-		private System.Nullable<int> _months_remaining;
-		
-		private System.Nullable<int> _accession_id;
-		
-		public usp_PVPApplicationsByExpiration_SelectResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_number", DbType="Int NOT NULL")]
-		public int pvp_application_number
-		{
-			get
-			{
-				return this._pvp_application_number;
-			}
-			set
-			{
-				if ((this._pvp_application_number != value))
-				{
-					this._pvp_application_number = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cultivar_name", DbType="NVarChar(150)")]
-		public string cultivar_name
-		{
-			get
-			{
-				return this._cultivar_name;
-			}
-			set
-			{
-				if ((this._cultivar_name != value))
-				{
-					this._cultivar_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_experimental_name", DbType="NVarChar(150)")]
-		public string experimental_name
-		{
-			get
-			{
-				return this._experimental_name;
-			}
-			set
-			{
-				if ((this._experimental_name != value))
-				{
-					this._experimental_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_crop_id", DbType="Int")]
-		public System.Nullable<int> pvp_crop_id
-		{
-			get
-			{
-				return this._pvp_crop_id;
-			}
-			set
-			{
-				if ((this._pvp_crop_id != value))
-				{
-					this._pvp_crop_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_scientific_name", DbType="NVarChar(150)")]
-		public string scientific_name
-		{
-			get
-			{
-				return this._scientific_name;
-			}
-			set
-			{
-				if ((this._scientific_name != value))
-				{
-					this._scientific_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_common_name", DbType="NVarChar(150)")]
-		public string common_name
-		{
-			get
-			{
-				return this._common_name;
-			}
-			set
-			{
-				if ((this._common_name != value))
-				{
-					this._common_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_applicant_id", DbType="Int")]
-		public System.Nullable<int> pvp_applicant_id
-		{
-			get
-			{
-				return this._pvp_applicant_id;
-			}
-			set
-			{
-				if ((this._pvp_applicant_id != value))
-				{
-					this._pvp_applicant_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_applicant_name", DbType="NVarChar(4000) NOT NULL", CanBeNull=false)]
-		public string applicant_name
-		{
-			get
-			{
-				return this._applicant_name;
-			}
-			set
-			{
-				if ((this._applicant_name != value))
-				{
-					this._applicant_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> application_date
-		{
-			get
-			{
-				return this._application_date;
-			}
-			set
-			{
-				if ((this._application_date != value))
-				{
-					this._application_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_certified_seed", DbType="Bit")]
-		public System.Nullable<bool> is_certified_seed
-		{
-			get
-			{
-				return this._is_certified_seed;
-			}
-			set
-			{
-				if ((this._is_certified_seed != value))
-				{
-					this._is_certified_seed = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_status_id", DbType="Int NOT NULL")]
-		public int pvp_application_status_id
-		{
-			get
-			{
-				return this._pvp_application_status_id;
-			}
-			set
-			{
-				if ((this._pvp_application_status_id != value))
-				{
-					this._pvp_application_status_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_status", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string application_status
-		{
-			get
-			{
-				return this._application_status;
-			}
-			set
-			{
-				if ((this._application_status != value))
-				{
-					this._application_status = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> status_date
-		{
-			get
-			{
-				return this._status_date;
-			}
-			set
-			{
-				if ((this._status_date != value))
-				{
-					this._status_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_certificate_issued_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> certificate_issued_date
-		{
-			get
-			{
-				return this._certificate_issued_date;
-			}
-			set
-			{
-				if ((this._certificate_issued_date != value))
-				{
-					this._certificate_issued_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_years_protected", DbType="Int")]
-		public System.Nullable<int> years_protected
-		{
-			get
-			{
-				return this._years_protected;
-			}
-			set
-			{
-				if ((this._years_protected != value))
-				{
-					this._years_protected = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_expiration_date", DbType="NVarChar(12)")]
-		public string expiration_date
-		{
-			get
-			{
-				return this._expiration_date;
-			}
-			set
-			{
-				if ((this._expiration_date != value))
-				{
-					this._expiration_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_months_remaining", DbType="Int")]
-		public System.Nullable<int> months_remaining
-		{
-			get
-			{
-				return this._months_remaining;
-			}
-			set
-			{
-				if ((this._months_remaining != value))
-				{
-					this._months_remaining = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accession_id", DbType="Int")]
-		public System.Nullable<int> accession_id
-		{
-			get
-			{
-				return this._accession_id;
-			}
-			set
-			{
-				if ((this._accession_id != value))
-				{
-					this._accession_id = value;
-				}
-			}
-		}
-	}
-	
 	public partial class usp_PVPApplication_SelectResult
 	{
 		
@@ -3293,400 +2516,6 @@ namespace USDA.ARS.GRIN.Web.Repository
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_expiration_date", DbType="DateTime2")]
 		public System.Nullable<System.DateTime> expiration_date
-		{
-			get
-			{
-				return this._expiration_date;
-			}
-			set
-			{
-				if ((this._expiration_date != value))
-				{
-					this._expiration_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_months_remaining", DbType="Int")]
-		public System.Nullable<int> months_remaining
-		{
-			get
-			{
-				return this._months_remaining;
-			}
-			set
-			{
-				if ((this._months_remaining != value))
-				{
-					this._months_remaining = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accession_id", DbType="Int")]
-		public System.Nullable<int> accession_id
-		{
-			get
-			{
-				return this._accession_id;
-			}
-			set
-			{
-				if ((this._accession_id != value))
-				{
-					this._accession_id = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_PVPCommonNames_SelectResult
-	{
-		
-		private int _id;
-		
-		private string _title;
-		
-		private System.Nullable<int> _count;
-		
-		public usp_PVPCommonNames_SelectResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL")]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this._id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="NVarChar(150)")]
-		public string title
-		{
-			get
-			{
-				return this._title;
-			}
-			set
-			{
-				if ((this._title != value))
-				{
-					this._title = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count", DbType="Int")]
-		public System.Nullable<int> count
-		{
-			get
-			{
-				return this._count;
-			}
-			set
-			{
-				if ((this._count != value))
-				{
-					this._count = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_PVPApplicationsByCommonName_SelectResult
-	{
-		
-		private int _pvp_application_number;
-		
-		private string _cultivar_name;
-		
-		private string _experimental_name;
-		
-		private System.Nullable<int> _pvp_common_name_id;
-		
-		private string _scientific_name;
-		
-		private string _common_name;
-		
-		private System.Nullable<int> _pvp_applicant_id;
-		
-		private string _applicant_name;
-		
-		private System.Nullable<System.DateTime> _application_date;
-		
-		private System.Nullable<bool> _is_certified_seed;
-		
-		private int _pvp_application_status_id;
-		
-		private string _application_status;
-		
-		private System.Nullable<System.DateTime> _status_date;
-		
-		private System.Nullable<System.DateTime> _certificate_issued_date;
-		
-		private System.Nullable<int> _years_protected;
-		
-		private string _expiration_date;
-		
-		private System.Nullable<int> _months_remaining;
-		
-		private System.Nullable<int> _accession_id;
-		
-		public usp_PVPApplicationsByCommonName_SelectResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_number", DbType="Int NOT NULL")]
-		public int pvp_application_number
-		{
-			get
-			{
-				return this._pvp_application_number;
-			}
-			set
-			{
-				if ((this._pvp_application_number != value))
-				{
-					this._pvp_application_number = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cultivar_name", DbType="NVarChar(150)")]
-		public string cultivar_name
-		{
-			get
-			{
-				return this._cultivar_name;
-			}
-			set
-			{
-				if ((this._cultivar_name != value))
-				{
-					this._cultivar_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_experimental_name", DbType="NVarChar(150)")]
-		public string experimental_name
-		{
-			get
-			{
-				return this._experimental_name;
-			}
-			set
-			{
-				if ((this._experimental_name != value))
-				{
-					this._experimental_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_common_name_id", DbType="Int")]
-		public System.Nullable<int> pvp_common_name_id
-		{
-			get
-			{
-				return this._pvp_common_name_id;
-			}
-			set
-			{
-				if ((this._pvp_common_name_id != value))
-				{
-					this._pvp_common_name_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_scientific_name", DbType="NVarChar(150)")]
-		public string scientific_name
-		{
-			get
-			{
-				return this._scientific_name;
-			}
-			set
-			{
-				if ((this._scientific_name != value))
-				{
-					this._scientific_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_common_name", DbType="NVarChar(150)")]
-		public string common_name
-		{
-			get
-			{
-				return this._common_name;
-			}
-			set
-			{
-				if ((this._common_name != value))
-				{
-					this._common_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_applicant_id", DbType="Int")]
-		public System.Nullable<int> pvp_applicant_id
-		{
-			get
-			{
-				return this._pvp_applicant_id;
-			}
-			set
-			{
-				if ((this._pvp_applicant_id != value))
-				{
-					this._pvp_applicant_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_applicant_name", DbType="NVarChar(4000) NOT NULL", CanBeNull=false)]
-		public string applicant_name
-		{
-			get
-			{
-				return this._applicant_name;
-			}
-			set
-			{
-				if ((this._applicant_name != value))
-				{
-					this._applicant_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> application_date
-		{
-			get
-			{
-				return this._application_date;
-			}
-			set
-			{
-				if ((this._application_date != value))
-				{
-					this._application_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_certified_seed", DbType="Bit")]
-		public System.Nullable<bool> is_certified_seed
-		{
-			get
-			{
-				return this._is_certified_seed;
-			}
-			set
-			{
-				if ((this._is_certified_seed != value))
-				{
-					this._is_certified_seed = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_status_id", DbType="Int NOT NULL")]
-		public int pvp_application_status_id
-		{
-			get
-			{
-				return this._pvp_application_status_id;
-			}
-			set
-			{
-				if ((this._pvp_application_status_id != value))
-				{
-					this._pvp_application_status_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_status", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string application_status
-		{
-			get
-			{
-				return this._application_status;
-			}
-			set
-			{
-				if ((this._application_status != value))
-				{
-					this._application_status = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> status_date
-		{
-			get
-			{
-				return this._status_date;
-			}
-			set
-			{
-				if ((this._status_date != value))
-				{
-					this._status_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_certificate_issued_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> certificate_issued_date
-		{
-			get
-			{
-				return this._certificate_issued_date;
-			}
-			set
-			{
-				if ((this._certificate_issued_date != value))
-				{
-					this._certificate_issued_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_years_protected", DbType="Int")]
-		public System.Nullable<int> years_protected
-		{
-			get
-			{
-				return this._years_protected;
-			}
-			set
-			{
-				if ((this._years_protected != value))
-				{
-					this._years_protected = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_expiration_date", DbType="NVarChar(12)")]
-		public string expiration_date
 		{
 			get
 			{
@@ -4751,6 +3580,1324 @@ namespace USDA.ARS.GRIN.Web.Repository
 				if ((this._modified_by != value))
 				{
 					this._modified_by = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_ARS_PVPRecentApplications_SelectResult
+	{
+		
+		private int _pvp_application_number;
+		
+		private string _cultivar_name;
+		
+		private string _experimental_name;
+		
+		private System.Nullable<int> _pvp_common_name_id;
+		
+		private string _common_name;
+		
+		private string _scientific_name;
+		
+		private System.Nullable<int> _pvp_applicant_id;
+		
+		private string _applicant_name;
+		
+		private System.Nullable<System.DateTime> _application_date;
+		
+		private System.Nullable<bool> _is_certified_seed;
+		
+		private int _pvp_application_status_id;
+		
+		private string _application_status;
+		
+		private System.Nullable<System.DateTime> _status_date;
+		
+		private System.Nullable<System.DateTime> _certificate_issued_date;
+		
+		private System.Nullable<int> _years_protected;
+		
+		private System.Nullable<int> _accession_id;
+		
+		private string _expiration_date;
+		
+		public usp_ARS_PVPRecentApplications_SelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_number", DbType="Int NOT NULL")]
+		public int pvp_application_number
+		{
+			get
+			{
+				return this._pvp_application_number;
+			}
+			set
+			{
+				if ((this._pvp_application_number != value))
+				{
+					this._pvp_application_number = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cultivar_name", DbType="NVarChar(150)")]
+		public string cultivar_name
+		{
+			get
+			{
+				return this._cultivar_name;
+			}
+			set
+			{
+				if ((this._cultivar_name != value))
+				{
+					this._cultivar_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_experimental_name", DbType="NVarChar(150)")]
+		public string experimental_name
+		{
+			get
+			{
+				return this._experimental_name;
+			}
+			set
+			{
+				if ((this._experimental_name != value))
+				{
+					this._experimental_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_common_name_id", DbType="Int")]
+		public System.Nullable<int> pvp_common_name_id
+		{
+			get
+			{
+				return this._pvp_common_name_id;
+			}
+			set
+			{
+				if ((this._pvp_common_name_id != value))
+				{
+					this._pvp_common_name_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_common_name", DbType="NVarChar(150)")]
+		public string common_name
+		{
+			get
+			{
+				return this._common_name;
+			}
+			set
+			{
+				if ((this._common_name != value))
+				{
+					this._common_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_scientific_name", DbType="NVarChar(150)")]
+		public string scientific_name
+		{
+			get
+			{
+				return this._scientific_name;
+			}
+			set
+			{
+				if ((this._scientific_name != value))
+				{
+					this._scientific_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_applicant_id", DbType="Int")]
+		public System.Nullable<int> pvp_applicant_id
+		{
+			get
+			{
+				return this._pvp_applicant_id;
+			}
+			set
+			{
+				if ((this._pvp_applicant_id != value))
+				{
+					this._pvp_applicant_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_applicant_name", DbType="NVarChar(4000) NOT NULL", CanBeNull=false)]
+		public string applicant_name
+		{
+			get
+			{
+				return this._applicant_name;
+			}
+			set
+			{
+				if ((this._applicant_name != value))
+				{
+					this._applicant_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> application_date
+		{
+			get
+			{
+				return this._application_date;
+			}
+			set
+			{
+				if ((this._application_date != value))
+				{
+					this._application_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_certified_seed", DbType="Bit")]
+		public System.Nullable<bool> is_certified_seed
+		{
+			get
+			{
+				return this._is_certified_seed;
+			}
+			set
+			{
+				if ((this._is_certified_seed != value))
+				{
+					this._is_certified_seed = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_status_id", DbType="Int NOT NULL")]
+		public int pvp_application_status_id
+		{
+			get
+			{
+				return this._pvp_application_status_id;
+			}
+			set
+			{
+				if ((this._pvp_application_status_id != value))
+				{
+					this._pvp_application_status_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_status", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string application_status
+		{
+			get
+			{
+				return this._application_status;
+			}
+			set
+			{
+				if ((this._application_status != value))
+				{
+					this._application_status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> status_date
+		{
+			get
+			{
+				return this._status_date;
+			}
+			set
+			{
+				if ((this._status_date != value))
+				{
+					this._status_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_certificate_issued_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> certificate_issued_date
+		{
+			get
+			{
+				return this._certificate_issued_date;
+			}
+			set
+			{
+				if ((this._certificate_issued_date != value))
+				{
+					this._certificate_issued_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_years_protected", DbType="Int")]
+		public System.Nullable<int> years_protected
+		{
+			get
+			{
+				return this._years_protected;
+			}
+			set
+			{
+				if ((this._years_protected != value))
+				{
+					this._years_protected = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accession_id", DbType="Int")]
+		public System.Nullable<int> accession_id
+		{
+			get
+			{
+				return this._accession_id;
+			}
+			set
+			{
+				if ((this._accession_id != value))
+				{
+					this._accession_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_expiration_date", DbType="NVarChar(12)")]
+		public string expiration_date
+		{
+			get
+			{
+				return this._expiration_date;
+			}
+			set
+			{
+				if ((this._expiration_date != value))
+				{
+					this._expiration_date = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_ARS_PVPRecentlyAvailable_SelectResult
+	{
+		
+		private int _pvp_application_number;
+		
+		private string _cultivar_name;
+		
+		private string _experimental_name;
+		
+		private System.Nullable<int> _pvp_common_name_id;
+		
+		private string _common_name;
+		
+		private string _scientific_name;
+		
+		private System.Nullable<int> _pvp_applicant_id;
+		
+		private string _applicant_name;
+		
+		private System.Nullable<System.DateTime> _application_date;
+		
+		private System.Nullable<bool> _is_certified_seed;
+		
+		private int _pvp_application_status_id;
+		
+		private string _application_status;
+		
+		private System.Nullable<System.DateTime> _status_date;
+		
+		private System.Nullable<System.DateTime> _certificate_issued_date;
+		
+		private System.Nullable<int> _years_protected;
+		
+		private System.Nullable<int> _accession_id;
+		
+		private string _expiration_date;
+		
+		public usp_ARS_PVPRecentlyAvailable_SelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_number", DbType="Int NOT NULL")]
+		public int pvp_application_number
+		{
+			get
+			{
+				return this._pvp_application_number;
+			}
+			set
+			{
+				if ((this._pvp_application_number != value))
+				{
+					this._pvp_application_number = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cultivar_name", DbType="NVarChar(150)")]
+		public string cultivar_name
+		{
+			get
+			{
+				return this._cultivar_name;
+			}
+			set
+			{
+				if ((this._cultivar_name != value))
+				{
+					this._cultivar_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_experimental_name", DbType="NVarChar(150)")]
+		public string experimental_name
+		{
+			get
+			{
+				return this._experimental_name;
+			}
+			set
+			{
+				if ((this._experimental_name != value))
+				{
+					this._experimental_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_common_name_id", DbType="Int")]
+		public System.Nullable<int> pvp_common_name_id
+		{
+			get
+			{
+				return this._pvp_common_name_id;
+			}
+			set
+			{
+				if ((this._pvp_common_name_id != value))
+				{
+					this._pvp_common_name_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_common_name", DbType="NVarChar(150)")]
+		public string common_name
+		{
+			get
+			{
+				return this._common_name;
+			}
+			set
+			{
+				if ((this._common_name != value))
+				{
+					this._common_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_scientific_name", DbType="NVarChar(150)")]
+		public string scientific_name
+		{
+			get
+			{
+				return this._scientific_name;
+			}
+			set
+			{
+				if ((this._scientific_name != value))
+				{
+					this._scientific_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_applicant_id", DbType="Int")]
+		public System.Nullable<int> pvp_applicant_id
+		{
+			get
+			{
+				return this._pvp_applicant_id;
+			}
+			set
+			{
+				if ((this._pvp_applicant_id != value))
+				{
+					this._pvp_applicant_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_applicant_name", DbType="NVarChar(4000) NOT NULL", CanBeNull=false)]
+		public string applicant_name
+		{
+			get
+			{
+				return this._applicant_name;
+			}
+			set
+			{
+				if ((this._applicant_name != value))
+				{
+					this._applicant_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> application_date
+		{
+			get
+			{
+				return this._application_date;
+			}
+			set
+			{
+				if ((this._application_date != value))
+				{
+					this._application_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_certified_seed", DbType="Bit")]
+		public System.Nullable<bool> is_certified_seed
+		{
+			get
+			{
+				return this._is_certified_seed;
+			}
+			set
+			{
+				if ((this._is_certified_seed != value))
+				{
+					this._is_certified_seed = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_status_id", DbType="Int NOT NULL")]
+		public int pvp_application_status_id
+		{
+			get
+			{
+				return this._pvp_application_status_id;
+			}
+			set
+			{
+				if ((this._pvp_application_status_id != value))
+				{
+					this._pvp_application_status_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_status", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string application_status
+		{
+			get
+			{
+				return this._application_status;
+			}
+			set
+			{
+				if ((this._application_status != value))
+				{
+					this._application_status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> status_date
+		{
+			get
+			{
+				return this._status_date;
+			}
+			set
+			{
+				if ((this._status_date != value))
+				{
+					this._status_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_certificate_issued_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> certificate_issued_date
+		{
+			get
+			{
+				return this._certificate_issued_date;
+			}
+			set
+			{
+				if ((this._certificate_issued_date != value))
+				{
+					this._certificate_issued_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_years_protected", DbType="Int")]
+		public System.Nullable<int> years_protected
+		{
+			get
+			{
+				return this._years_protected;
+			}
+			set
+			{
+				if ((this._years_protected != value))
+				{
+					this._years_protected = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accession_id", DbType="Int")]
+		public System.Nullable<int> accession_id
+		{
+			get
+			{
+				return this._accession_id;
+			}
+			set
+			{
+				if ((this._accession_id != value))
+				{
+					this._accession_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_expiration_date", DbType="NVarChar(12)")]
+		public string expiration_date
+		{
+			get
+			{
+				return this._expiration_date;
+			}
+			set
+			{
+				if ((this._expiration_date != value))
+				{
+					this._expiration_date = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_PVPApplicationStatuses_SelectResult
+	{
+		
+		private int _id;
+		
+		private string _title;
+		
+		private System.Nullable<int> _count;
+		
+		public usp_PVPApplicationStatuses_SelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL")]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string title
+		{
+			get
+			{
+				return this._title;
+			}
+			set
+			{
+				if ((this._title != value))
+				{
+					this._title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count", DbType="Int")]
+		public System.Nullable<int> count
+		{
+			get
+			{
+				return this._count;
+			}
+			set
+			{
+				if ((this._count != value))
+				{
+					this._count = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_ARS_PVPRecentlyExpired_SelectResult
+	{
+		
+		private int _pvp_application_number;
+		
+		private string _cultivar_name;
+		
+		private string _experimental_name;
+		
+		private System.Nullable<int> _pvp_common_name_id;
+		
+		private string _common_name;
+		
+		private string _scientific_name;
+		
+		private System.Nullable<int> _pvp_applicant_id;
+		
+		private string _applicant_name;
+		
+		private System.Nullable<System.DateTime> _application_date;
+		
+		private System.Nullable<bool> _is_certified_seed;
+		
+		private int _pvp_application_status_id;
+		
+		private string _application_status;
+		
+		private System.Nullable<System.DateTime> _status_date;
+		
+		private System.Nullable<System.DateTime> _certificate_issued_date;
+		
+		private System.Nullable<int> _years_protected;
+		
+		private System.Nullable<int> _accession_id;
+		
+		private string _expiration_date;
+		
+		public usp_ARS_PVPRecentlyExpired_SelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_number", DbType="Int NOT NULL")]
+		public int pvp_application_number
+		{
+			get
+			{
+				return this._pvp_application_number;
+			}
+			set
+			{
+				if ((this._pvp_application_number != value))
+				{
+					this._pvp_application_number = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cultivar_name", DbType="NVarChar(150)")]
+		public string cultivar_name
+		{
+			get
+			{
+				return this._cultivar_name;
+			}
+			set
+			{
+				if ((this._cultivar_name != value))
+				{
+					this._cultivar_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_experimental_name", DbType="NVarChar(150)")]
+		public string experimental_name
+		{
+			get
+			{
+				return this._experimental_name;
+			}
+			set
+			{
+				if ((this._experimental_name != value))
+				{
+					this._experimental_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_common_name_id", DbType="Int")]
+		public System.Nullable<int> pvp_common_name_id
+		{
+			get
+			{
+				return this._pvp_common_name_id;
+			}
+			set
+			{
+				if ((this._pvp_common_name_id != value))
+				{
+					this._pvp_common_name_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_common_name", DbType="NVarChar(150)")]
+		public string common_name
+		{
+			get
+			{
+				return this._common_name;
+			}
+			set
+			{
+				if ((this._common_name != value))
+				{
+					this._common_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_scientific_name", DbType="NVarChar(150)")]
+		public string scientific_name
+		{
+			get
+			{
+				return this._scientific_name;
+			}
+			set
+			{
+				if ((this._scientific_name != value))
+				{
+					this._scientific_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_applicant_id", DbType="Int")]
+		public System.Nullable<int> pvp_applicant_id
+		{
+			get
+			{
+				return this._pvp_applicant_id;
+			}
+			set
+			{
+				if ((this._pvp_applicant_id != value))
+				{
+					this._pvp_applicant_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_applicant_name", DbType="NVarChar(4000) NOT NULL", CanBeNull=false)]
+		public string applicant_name
+		{
+			get
+			{
+				return this._applicant_name;
+			}
+			set
+			{
+				if ((this._applicant_name != value))
+				{
+					this._applicant_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> application_date
+		{
+			get
+			{
+				return this._application_date;
+			}
+			set
+			{
+				if ((this._application_date != value))
+				{
+					this._application_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_certified_seed", DbType="Bit")]
+		public System.Nullable<bool> is_certified_seed
+		{
+			get
+			{
+				return this._is_certified_seed;
+			}
+			set
+			{
+				if ((this._is_certified_seed != value))
+				{
+					this._is_certified_seed = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_status_id", DbType="Int NOT NULL")]
+		public int pvp_application_status_id
+		{
+			get
+			{
+				return this._pvp_application_status_id;
+			}
+			set
+			{
+				if ((this._pvp_application_status_id != value))
+				{
+					this._pvp_application_status_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_status", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string application_status
+		{
+			get
+			{
+				return this._application_status;
+			}
+			set
+			{
+				if ((this._application_status != value))
+				{
+					this._application_status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> status_date
+		{
+			get
+			{
+				return this._status_date;
+			}
+			set
+			{
+				if ((this._status_date != value))
+				{
+					this._status_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_certificate_issued_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> certificate_issued_date
+		{
+			get
+			{
+				return this._certificate_issued_date;
+			}
+			set
+			{
+				if ((this._certificate_issued_date != value))
+				{
+					this._certificate_issued_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_years_protected", DbType="Int")]
+		public System.Nullable<int> years_protected
+		{
+			get
+			{
+				return this._years_protected;
+			}
+			set
+			{
+				if ((this._years_protected != value))
+				{
+					this._years_protected = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accession_id", DbType="Int")]
+		public System.Nullable<int> accession_id
+		{
+			get
+			{
+				return this._accession_id;
+			}
+			set
+			{
+				if ((this._accession_id != value))
+				{
+					this._accession_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_expiration_date", DbType="NVarChar(12)")]
+		public string expiration_date
+		{
+			get
+			{
+				return this._expiration_date;
+			}
+			set
+			{
+				if ((this._expiration_date != value))
+				{
+					this._expiration_date = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_ARS_PVPExpiring6Months_SelectResult
+	{
+		
+		private int _pvp_application_number;
+		
+		private string _cultivar_name;
+		
+		private string _experimental_name;
+		
+		private System.Nullable<int> _pvp_common_name_id;
+		
+		private string _common_name;
+		
+		private string _scientific_name;
+		
+		private System.Nullable<int> _pvp_applicant_id;
+		
+		private string _applicant_name;
+		
+		private System.Nullable<System.DateTime> _application_date;
+		
+		private System.Nullable<bool> _is_certified_seed;
+		
+		private int _pvp_application_status_id;
+		
+		private string _application_status;
+		
+		private System.Nullable<System.DateTime> _status_date;
+		
+		private System.Nullable<System.DateTime> _certificate_issued_date;
+		
+		private System.Nullable<int> _years_protected;
+		
+		private System.Nullable<int> _accession_id;
+		
+		private string _expiration_date;
+		
+		public usp_ARS_PVPExpiring6Months_SelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_number", DbType="Int NOT NULL")]
+		public int pvp_application_number
+		{
+			get
+			{
+				return this._pvp_application_number;
+			}
+			set
+			{
+				if ((this._pvp_application_number != value))
+				{
+					this._pvp_application_number = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cultivar_name", DbType="NVarChar(150)")]
+		public string cultivar_name
+		{
+			get
+			{
+				return this._cultivar_name;
+			}
+			set
+			{
+				if ((this._cultivar_name != value))
+				{
+					this._cultivar_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_experimental_name", DbType="NVarChar(150)")]
+		public string experimental_name
+		{
+			get
+			{
+				return this._experimental_name;
+			}
+			set
+			{
+				if ((this._experimental_name != value))
+				{
+					this._experimental_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_common_name_id", DbType="Int")]
+		public System.Nullable<int> pvp_common_name_id
+		{
+			get
+			{
+				return this._pvp_common_name_id;
+			}
+			set
+			{
+				if ((this._pvp_common_name_id != value))
+				{
+					this._pvp_common_name_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_common_name", DbType="NVarChar(150)")]
+		public string common_name
+		{
+			get
+			{
+				return this._common_name;
+			}
+			set
+			{
+				if ((this._common_name != value))
+				{
+					this._common_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_scientific_name", DbType="NVarChar(150)")]
+		public string scientific_name
+		{
+			get
+			{
+				return this._scientific_name;
+			}
+			set
+			{
+				if ((this._scientific_name != value))
+				{
+					this._scientific_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_applicant_id", DbType="Int")]
+		public System.Nullable<int> pvp_applicant_id
+		{
+			get
+			{
+				return this._pvp_applicant_id;
+			}
+			set
+			{
+				if ((this._pvp_applicant_id != value))
+				{
+					this._pvp_applicant_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_applicant_name", DbType="NVarChar(4000) NOT NULL", CanBeNull=false)]
+		public string applicant_name
+		{
+			get
+			{
+				return this._applicant_name;
+			}
+			set
+			{
+				if ((this._applicant_name != value))
+				{
+					this._applicant_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> application_date
+		{
+			get
+			{
+				return this._application_date;
+			}
+			set
+			{
+				if ((this._application_date != value))
+				{
+					this._application_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_certified_seed", DbType="Bit")]
+		public System.Nullable<bool> is_certified_seed
+		{
+			get
+			{
+				return this._is_certified_seed;
+			}
+			set
+			{
+				if ((this._is_certified_seed != value))
+				{
+					this._is_certified_seed = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_status_id", DbType="Int NOT NULL")]
+		public int pvp_application_status_id
+		{
+			get
+			{
+				return this._pvp_application_status_id;
+			}
+			set
+			{
+				if ((this._pvp_application_status_id != value))
+				{
+					this._pvp_application_status_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_status", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string application_status
+		{
+			get
+			{
+				return this._application_status;
+			}
+			set
+			{
+				if ((this._application_status != value))
+				{
+					this._application_status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> status_date
+		{
+			get
+			{
+				return this._status_date;
+			}
+			set
+			{
+				if ((this._status_date != value))
+				{
+					this._status_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_certificate_issued_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> certificate_issued_date
+		{
+			get
+			{
+				return this._certificate_issued_date;
+			}
+			set
+			{
+				if ((this._certificate_issued_date != value))
+				{
+					this._certificate_issued_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_years_protected", DbType="Int")]
+		public System.Nullable<int> years_protected
+		{
+			get
+			{
+				return this._years_protected;
+			}
+			set
+			{
+				if ((this._years_protected != value))
+				{
+					this._years_protected = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accession_id", DbType="Int")]
+		public System.Nullable<int> accession_id
+		{
+			get
+			{
+				return this._accession_id;
+			}
+			set
+			{
+				if ((this._accession_id != value))
+				{
+					this._accession_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_expiration_date", DbType="NVarChar(12)")]
+		public string expiration_date
+		{
+			get
+			{
+				return this._expiration_date;
+			}
+			set
+			{
+				if ((this._expiration_date != value))
+				{
+					this._expiration_date = value;
 				}
 			}
 		}

@@ -1,30 +1,64 @@
 ﻿@model USDA.ARS.GRIN.Web.WebUI.ViewModels.PVPHomeViewModel
 @{
     ViewBag.Title = "PVPSearch";
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
 }
 
-@*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>*@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+@*<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>*@
 
 <style>
     table {
-        border: none;
+        border:none;
+    }
+    
+    table th {
+        background-color:#0071bc; color:white;
     }
 
-        table th {
-            background-color: #0071bc;
-            color: white;
-        }
+    table td {
+        background-color:#dfdfdf; color:black;
+    }
+    .usa-alert {
+        font-family: Source Sans Pro Web,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+        font-size: 1.56rem;
+        line-height: 1.5;
+        background-color: #f0f0f0;
+        background-position: 1.75rem .75rem;
+        background-repeat: no-repeat;
+        background-size: 2rem;
+        /*padding: 1.25rem 1.25rem 1rem 1.25rem;*/
+        position: relative;
+    }
 
-        table td {
-            background-color: #dfdfdf;
-            color: black;
-        }
+    .usa-alert--info, .usa-alert--warning {
+        
+        background-repeat: no-repeat;
+        background-color: #faf3d1;
+        color: #1b1b1b;
+    }
+
+    .usa-alert--info {
+        
+        background-color: #e7f6f8;
+    }
+
+    .usa-alert--info::before {
+        background-color: #00bde3;
+    }
+
+    .usa-accordion-button {
+       background-color: darkgray;
+    }
+
 </style>
 
 <div class="usa-overlay"></div>
 
-@Html.Partial("~/Views/Shared/_Banner.cshtml")
+<!-- HEADER IMAGE -->
+<div style="padding:20px; height:100px; text-align:center; background: url(Images/sunflowers-1523812757U6y.jpg) center center / cover;">
+    @*<div class="DEBUG-TITLE" style="font-size:larger; font-weight:bold; margin-top:7px; color:white;  background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0; padding: 1rem 1.5rem; width:40%; text-align:center;">GRIN: Crop Germplasm Committees</div>*@
+</div>
 
 <!-- BREADCRUMBS -->
 <div class="usda-breadcrumb-with-sidebar">
@@ -38,7 +72,7 @@
                     <a href="@Url.Action("Collections","Pages")" class="no-ext-icon">Collections</a>
                 </li>
                 <li class="usda-breadcrumb-item">
-                    PVP
+                   PVP
                 </li>
             </ol>
         </nav>
@@ -67,70 +101,327 @@
                 This collection is maintained in conjunction with the <a href="https://www.ams.usda.gov/services/plant-variety-protection">Agricultural Marketing Service Plant Variety Protection Office (PVPO)</a>, which provides intellectual property protection to breeders. This office publishes
                 monthly updates to the <a href="https://www.ams.usda.gov/services/plant-variety-protection/application-status">status</a> of PVP certificates.
             </div>
-            <p>All data is current as of <strong>May 24, 2020</strong>.</p>
-            @*<div class="alert alert-primary" style="padding:15px; margin-top:30px;">
-                    <div class="form-group">
-                        <strong>This page is temporarily down for maintenance.</strong> Please refer to the following pages for up-to-date PVP application status information:
-                        <ul>
-                            <li><a href="https://www.ams.usda.gov/services/plant-variety-protection/application-status" style="color:#004085;">Agricultural Marketing Service PVPO Application Status</a></li>
-                            <li><a href="https://www.upov.int/pluto/en/" style="color:#004085;">International Union for the Protection of New Varieties of Plants (UPOV) Plant Variety Database</a></li>
-                        </ul>
-                    </div>
-                </div>*@
 
-            <div id="section-detail-browse" class="usa-width-one-whole">
-                <h4>PVP Applications</h4>
-
-                <button _ngcontent-c3="" class="usa-button-primary" title="scientific-name" onclick="location.href='@Url.Action("Index", "PVP", new { viewBy = "scientific-name" })'">View By Crop (Scientific) Name</button>
-                <button _ngcontent-c3="" class="usa-button-primary" title="application-status" onclick="location.href='@Url.Action("Index", "PVP", new { viewBy = "application-status" })'">View By Application Status</button>
-                <button _ngcontent-c3="" class="usa-button-primary" title="expiration-date" onclick="location.href='@Url.Action("Index", "PVP", new { viewBy = "expiration-date" })'">View By Expiration Date</button>
-                @{Html.RenderAction("_DetailList", "PVP", new { @viewBy = Model.ViewFormatName });}
+            <div class="usa-alert usa-alert--info">
+                <div class="usa-alert__body">
+                    Data is current as of <strong>12/20/2020</strong>.
+                </div>
             </div>
+            <br />
+            <ul class="usa-accordion-bordered" style="width:100%;">
+                <li>
+                    <button class="usa-accordion-button" id="button-01" aria-expanded="true" aria-controls="control-01">Certificates Expiring in 6 Months (@Model.ExpiringPVPApplications.Count())</button>
+                    <div class="usa-accordion-content" id="control-01" aria-hidden="false">
+                        <div class="usa-width-one-whole">
+                            <table id="tbl-pvp-applications" class="pvp-application-table" style="width:100%" border="1px solid #323a45;">
+                                <thead>
+                                    <tr>
+                                        <th>PVP No.</th>
+                                        <th>Applicant Name</th>
+                                        <th>Variety (Cultivar)</th>
+                                        <th>Expiration Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var result in Model.ExpiringPVPApplications)
+                                    {
+                                        string displayExpirationDate = String.Empty;
+
+                                        if (result.ExpirationDate != null && result.ExpirationDate != DateTime.MinValue)
+                                        {
+                                            displayExpirationDate = result.ExpirationDate.ToShortDateString();
+                                        }
+
+                                        <tr>
+                                            <td>
+                                                <a href="@Url.Action("Summary", "PVP", new { pvNumber = result.ApplicationNumber })">@result.ApplicationNumber</a>
+                                            </td>
+                                            <td>@result.ApplicantName</td>
+                                            <td>@result.CultivarName</td>
+                                            <td>@result.ExpirationDate.ToShortDateString()</td>
+                                            <td>
+                                                <span class="@Model.GetApplicationStatusCSSClass(result.ApplicationStatus) pull-right">
+
+                                                    <a href="@result.CertificateURL" style="color:white;">@result.ApplicationStatus</a>
+
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <button class="usa-accordion-button" id="button-1" aria-expanded="false" aria-controls="control-1">Recently Submitted Applications (@Model.RecentPVPApplications.Count())</button>
+                    <div class="usa-accordion-content" id="control-1" aria-hidden="true">
+                        <div class="usa-width-one-whole">
+                            <table id="tbl-pvp-applications" class="pvp-application-table" style="width:100%" border="1px solid #323a45;">
+                                <thead>
+                                    <tr>
+                                        <th>PVP No.</th>
+                                        <th>Applicant Name</th>
+                                        <th>Variety (Cultivar)</th>
+                                        <th>Application Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var result in Model.RecentPVPApplications)
+                                    {
+                                        string displayExpirationDate = String.Empty;
+
+                                        if (result.ExpirationDate != null && result.ExpirationDate != DateTime.MinValue)
+                                        {
+                                            displayExpirationDate = result.ExpirationDate.ToShortDateString();
+                                        }
+
+                                        <tr>
+                                            <td>
+                                                <a href="@Url.Action("Summary", "PVP", new { pvNumber = result.ApplicationNumber })">@result.ApplicationNumber</a>
+                                            </td>
+                                            <td>@result.ApplicantName</td>
+                                            <td>@result.CultivarName</td>
+                                            <td>@result.ApplicationDate.ToShortDateString()</td>
+                                            <td>
+                                                <span class="@Model.GetApplicationStatusCSSClass(result.ApplicationStatus) pull-right">
+
+                                                    <a href="@result.CertificateURL" style="color:white;">@result.ApplicationStatus</a>
+
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <button class="usa-accordion-button" id="button-2" aria-expanded="false" aria-controls="control-2">Recently Expired Certificates (@Model.RecentlyExpiredPVPApplications.Count())</button>
+                    <div class="usa-accordion-content" id="control-2" aria-hidden="true">
+                        <div class="usa-width-one-whole">
+                            <table id="tbl-pvp-applications" class="pvp-application-table" style="width:100%" border="1px solid #323a45;">
+                                <thead>
+                                    <tr>
+                                        <th>PVP No.</th>
+                                        <th>Applicant Name</th>
+                                        <th>Variety (Cultivar)</th>
+                                        <th>Expiration Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var result in Model.RecentlyExpiredPVPApplications)
+                                    {
+                                        string displayExpirationDate = String.Empty;
+
+                                        if (result.ExpirationDate != null && result.ExpirationDate != DateTime.MinValue)
+                                        {
+                                            displayExpirationDate = result.ExpirationDate.ToShortDateString();
+                                        }
+
+                                        <tr>
+                                            <td>
+                                                <a href="@Url.Action("Summary", "PVP", new { pvNumber = result.ApplicationNumber })">@result.ApplicationNumber</a>
+                                            </td>
+                                            <td>@result.ApplicantName</td>
+                                            <td>@result.CultivarName</td>
+                                            <td>@displayExpirationDate</td>
+                                            <td>
+                                                <span class="@Model.GetApplicationStatusCSSClass(result.ApplicationStatus) pull-right">
+
+                                                    <a href="@result.CertificateURL" style="color:white;">@result.ApplicationStatus</a>
+
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <button class="usa-accordion-button" id="button-3" aria-expanded="false" aria-controls="control-3">Recently Available in GRIN (@Model.RecentlyAvailablePVPApplications.Count())</button>
+                    <div class="usa-accordion-content" id="control-3" aria-hidden="true">
+                        <div class="usa-width-one-whole">
+                            <table id="tbl-pvp-applications" class="pvp-application-table" style="width:100%" border="1px solid #323a45;">
+                                <thead>
+                                    <tr>
+                                        <th>PVP No.</th>
+                                        <th>Applicant Name</th>
+                                        <th>Variety (Cultivar)</th>
+                                        <th>Status Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                    <!--<tr>
+                        <td>
+                            <div style="display: table;">
+                                <div class="t" style="display: table-cell; width: 100%;">-->
+                                    <!-- This is the wrapper div around the text input -->
+                                    <!--<input id="txtSearchPINumber" type="text" class="form-control input-sm search-field" />
+                                </div>
+                                <input type="button" id="btnSearchPINumber" class="search-button" value="" />
+                            </div>
+                        </td>
+
+                        <td>
+                            <div style="display: table;">
+                                <div class="t" style="display: table-cell; width: 100%;">-->
+                                    <!-- This is the wrapper div around the text input -->
+                                    <!--<input id="txtSearchPINumber" type="text" class="form-control input-sm search-field" />
+                                    </div>
+                                    <input type="button" id="btnSearchPINumber" class="search-button" value="" />
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control input-sm" /></td>
+                            <td><input type="text" class="form-control input-sm" /></td>
+                            <td><input type="text" class="form-control input-sm" /></td>
+                        </tr>-->
+                                </thead>
+                                <tbody>
+                                    @foreach (var result in Model.RecentlyAvailablePVPApplications)
+                                    {
+                                        string displayExpirationDate = String.Empty;
+
+                                        if (result.ExpirationDate != null && result.ExpirationDate != DateTime.MinValue)
+                                        {
+                                            displayExpirationDate = result.ExpirationDate.ToShortDateString();
+                                        }
+
+                                        <tr>
+                                            <td>
+                                                <a href="@Url.Action("Summary", "PVP", new { pvNumber = result.ApplicationNumber })">@result.ApplicationNumber</a>
+                                            </td>
+                                            <td>@result.ApplicantName</td>
+                                            <td>@result.CultivarName</td>
+                                            <td>@result.ApplicationStatusDate.ToShortDateString()</td>
+                                            <td>
+                                                <span class="@Model.GetApplicationStatusCSSClass(result.ApplicationStatus) pull-right">
+
+                                                    <a href="@result.CertificateURL" style="color:white;">@result.ApplicationStatus</a>
+
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            @*<div class="alert alert-primary" style="padding:15px; margin-top:30px;">
+            <div class="form-group">
+                <strong>This page is temporarily down for maintenance.</strong> Please refer to the following pages for up-to-date PVP application status information:
+                <ul>
+                    <li><a href="https://www.ams.usda.gov/services/plant-variety-protection/application-status" style="color:#004085;">Agricultural Marketing Service PVPO Application Status</a></li>
+                    <li><a href="https://www.upov.int/pluto/en/" style="color:#004085;">International Union for the Protection of New Varieties of Plants (UPOV) Plant Variety Database</a></li>
+                </ul>
+            </div>
+        </div>*@
+
+            <style>
+
+                .search-field {
+                    padding-top: 0;
+                    padding-bottom: 0;
+                    border-bottom-right-radius: 0;
+                    border-right: none;
+                    border-top-right-radius: 0;
+                    box-sizing: border-box;
+                    float: left;
+                    font-size: 1.4rem;
+                    height: 3.3rem;
+                    margin: 0;
+                    max-width: none;
+                    /*width: calc(100% - 4.5rem);*/
+                }
+
+
+                .search-button {
+                    background-image: url(../img/search.png);
+                    background-image: url(../img/search.svg);
+                    background-position: 50%;
+                    background-color: #205493;
+                    background-repeat: no-repeat;
+                    border-bottom-left-radius: 0;
+                    border-top-left-radius: 0;
+                    height: 3.3rem;
+                    margin: 0;
+                    padding: 0;
+                    width: 4.5rem;
+                }
+            </style>
         </div>
     </div>
 </main>
 
 <script type="text/javascript">
 
-    $(".usa-button-primary").click(function () {
-        var selectedView = $(this).attr("title");
-        $("#hfSelectedView").val(selectedView);
-    });
+    $(".usa-accordion-bordered table").DataTable(
+        {
+            "searching": false,
+            "paging": true,
+            "ordering": true,
+            "order": [[1, 'desc']]
+        });
 
-   
 
-    $(".usa-accordion-button").click(function () {
+
+
+    //$("#txtSearchApplicant").change(function () {
+    //    alert("CHANGED");
+    //});
+
+    @*$(".usa-accordion-button").click(function () {
+
+        alert("DEBUG");
+
         var id = $(this).attr("id");
+        var selectedView = $(this).attr("title");
 
         
 
-        @*var selectedView = $(this).attr("title");
         var isExpanded = $(this).attr("aria-expanded");
         var cropId = id.replace("button-", "");
         var dataTableId = "#tbl-cgc-meetings-" + cropId;
         var cropDetailSectionId = "#crop-detail-section-" + cropId;
-        var url = '@Url.Action("Detail","PVP")';*@
+        var url = '@Url.Action("Detail","PVP")';
 
         
 
-        //$.post(url, { referenceItemId: cropId, displayFormat: selectedView })
-        //    .done(function (response) {
-        //        $(cropDetailSectionId).html(response);
-        //            $(dataTableId).DataTable(
-        //        {
-        //            "searching": false,
-        //            "pagingType": "full_numbers",
-        //            "ordering": true,
-        //                "order": [[1, 'desc']]
-        //        });
-        //    });
-    });
+        if (isExpanded == "true") {
 
+            
+
+            $.post(url, { referenceItemId: cropId, displayFormat: selectedView })
+                .done(function (response) {
+                    $(cropDetailSectionId).html(response);
+
+                     $(dataTableId).DataTable(
+                    {
+                        "searching": false,
+                        "paging": true,
+                        "ordering": true,
+                            "order": [[1, 'desc']]
+                    });
+
+                });
+
+            
+        }
+    });*@
+    
     $(document).ajaxStart(function () {
         $("#wait").css("display", "block");
     });
 
-    $(document).ajaxStop(function () {
+    $(document).ajaxComplete(function () {
         $("#wait").css("display", "none");
     });
 

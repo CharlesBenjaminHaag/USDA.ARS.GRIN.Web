@@ -14,12 +14,15 @@ namespace USDA.ARS.GRIN.Web.WebUI.ViewModels
         public List<PVPApplicationStatus> ApplicationStatusList { get; set; }
         public List<ReferenceItem> ReferenceItems { get; set; }
 
-        public List<PVPApplication> PVPApplications { get; set; }
-
+        public List<PVPApplication> RecentPVPApplications { get; set; }
+        public List<PVPApplication> ExpiringPVPApplications { get; set; }
+        public List<PVPApplication> RecentlyExpiredPVPApplications { get; set; }
+        public List<PVPApplication> RecentlyAvailablePVPApplications { get; set; }
         public PVPHomeViewModel()
         {
-            this.CropList = new List<PVPScientificName>();
-            this.PVPApplications = new List<PVPApplication>();
+            this.RecentPVPApplications = new List<PVPApplication>();
+            this.RecentlyAvailablePVPApplications = new List<PVPApplication>();
+            this.RecentlyExpiredPVPApplications = new List<PVPApplication>();
         }
 
         public string GetApplicationStatusCSSClass(string applicationStatusDescription)

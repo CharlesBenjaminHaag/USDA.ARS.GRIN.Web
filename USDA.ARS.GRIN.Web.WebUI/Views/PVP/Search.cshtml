@@ -115,7 +115,7 @@
                     <h5 style="margin-top:7px; margin-bottom:1px;">Common Name</h5>
                     @Html.TextBoxFor(x => x.CommonName, new { @id = "txtCommonName", @class = "form-control input-sm" })
 
-                    <h5 style="margin-top:7px; margin-bottom:1px;">Application Status</h5>
+                    @*<h5 style="margin-top:7px; margin-bottom:1px;">Application Status</h5>
                     <fieldset id="fieldset-search-app-status">
                         <ul _ngcontent-c3="" id="search-scope-settings" class="usa-unstyled-list">
 
@@ -127,9 +127,9 @@
                                 </li>
                             }
                         </ul>
-                    </fieldset>
+                    </fieldset>*@
 
-                    <h5 style="margin-top:7px; margin-bottom:1px;">Certificate Status</h5>
+                    @*<h5 style="margin-top:7px; margin-bottom:1px;">Certificate Status</h5>
                     <fieldset id="fieldset-search-cert-status">
                         <ul _ngcontent-c3="" id="search-scope-settings" class="usa-unstyled-list">
                             @foreach (var certificateStatus in Model.CertificateStatusOptions)
@@ -140,7 +140,7 @@
                                 </li>
                             }
                         </ul>
-                    </fieldset>
+                    </fieldset>*@
                     <button id="btnSearch" type="submit" class="btn btn-primary" style="margin-top:0px;">Search</button>
                     <button id="btnReset" type="button" class="btn btn-danger" style="margin-top:0px;" onclick="location.href='@Url.Action("Search", "PVP")'">Reset</button>
                 }
@@ -245,7 +245,7 @@
         var valueArrayAppStatuses = [];
         var valueArrayCertStatuses = [];
 
-        alert("SEARCH");
+        
 
         $("#fieldset-search-app-status input:checked").each(function () {
             var id = $(this).attr("id");

@@ -16,7 +16,7 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
         public ActionResult Index()
         {
             log.Info("TEST LOG ENTRY");
-            return View("~/Views/Home/TEMPLATE_INTERIOR.cshtml");
+            return View("~/Views/Home/Index.cshtml");
         }
 
         public PartialViewResult _Banner()
