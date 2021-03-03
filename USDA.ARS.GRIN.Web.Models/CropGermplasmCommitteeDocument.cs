@@ -12,7 +12,7 @@ namespace USDA.ARS.GRIN.Web.Models
 
         public string Title { get; set; }
         public string URL { get; set; }
-        public string Type { get; set; }
+        public string Category { get; set; }
         public DateTime CreatedDate { get; set; }
         public CropGermplasmCommittee Committee { get; set; }
 

@@ -366,4 +366,17 @@
       <Column Name="expiration_date" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.usp_CodesByGroup_Select" Method="usp_CodesByGroup_Select">
+    <Parameter Name="group_name" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="usp_CodesByGroup_SelectResult">
+      <Column Name="code_value_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="code_value_lang_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="group_name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="value" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="created_date" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="modified_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

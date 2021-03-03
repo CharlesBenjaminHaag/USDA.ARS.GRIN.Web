@@ -233,6 +233,13 @@ namespace USDA.ARS.GRIN.Web.Repository
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<usp_ARS_PVPExpiring6Months_SelectResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_CodesByGroup_Select")]
+		public ISingleResult<usp_CodesByGroup_SelectResult> usp_CodesByGroup_Select([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string group_name)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), group_name);
+			return ((ISingleResult<usp_CodesByGroup_SelectResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class LP_CGC_GET_DETAILResult
@@ -4898,6 +4905,158 @@ namespace USDA.ARS.GRIN.Web.Repository
 				if ((this._expiration_date != value))
 				{
 					this._expiration_date = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_CodesByGroup_SelectResult
+	{
+		
+		private int _code_value_id;
+		
+		private int _code_value_lang_id;
+		
+		private string _group_name;
+		
+		private string _value;
+		
+		private string _title;
+		
+		private string _description;
+		
+		private System.DateTime _created_date;
+		
+		private System.Nullable<System.DateTime> _modified_date;
+		
+		public usp_CodesByGroup_SelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_code_value_id", DbType="Int NOT NULL")]
+		public int code_value_id
+		{
+			get
+			{
+				return this._code_value_id;
+			}
+			set
+			{
+				if ((this._code_value_id != value))
+				{
+					this._code_value_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_code_value_lang_id", DbType="Int NOT NULL")]
+		public int code_value_lang_id
+		{
+			get
+			{
+				return this._code_value_lang_id;
+			}
+			set
+			{
+				if ((this._code_value_lang_id != value))
+				{
+					this._code_value_lang_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_group_name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string group_name
+		{
+			get
+			{
+				return this._group_name;
+			}
+			set
+			{
+				if ((this._group_name != value))
+				{
+					this._group_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_value", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string value
+		{
+			get
+			{
+				return this._value;
+			}
+			set
+			{
+				if ((this._value != value))
+				{
+					this._value = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
+		public string title
+		{
+			get
+			{
+				return this._title;
+			}
+			set
+			{
+				if ((this._title != value))
+				{
+					this._title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(MAX)")]
+		public string description
+		{
+			get
+			{
+				return this._description;
+			}
+			set
+			{
+				if ((this._description != value))
+				{
+					this._description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_date", DbType="DateTime2 NOT NULL")]
+		public System.DateTime created_date
+		{
+			get
+			{
+				return this._created_date;
+			}
+			set
+			{
+				if ((this._created_date != value))
+				{
+					this._created_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> modified_date
+		{
+			get
+			{
+				return this._modified_date;
+			}
+			set
+			{
+				if ((this._modified_date != value))
+				{
+					this._modified_date = value;
 				}
 			}
 		}

@@ -51,6 +51,7 @@
                                 <thead>
                                     <tr>
                                         <th style="background-color:#0071bc; color:white;">Title</th>
+                                        <th style="background-color:#0071bc; color:white;">Category</th>
                                         <th style="background-color:#0071bc; color:white;">Committee</th>
                                         <th style="background-color:#0071bc; color:white;">Added</th>
                                         <th style="background-color:#0071bc; color:white;"></th>
@@ -61,6 +62,7 @@
                                     {
                                         <tr>
                                             <td>@result.Title</td>
+                                            <td>@result.Category</td>
                                             <td>@result.Committee.Name</td>
                                             <td>@result.CreatedDate.ToShortDateString()</td>
                                             <td>

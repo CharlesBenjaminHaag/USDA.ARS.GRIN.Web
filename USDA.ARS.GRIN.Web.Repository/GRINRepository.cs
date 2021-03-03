@@ -78,7 +78,16 @@ namespace USDA.ARS.GRIN.Web.Repository
             }
             return cropGermplasmCommitteeList;
         }
-
+        public List<CodeValueReferenceItem> GetCropGermplasmCommitteeDocumentCategoryList()
+        {
+            List<CodeValueReferenceItem> codeValueReferenceItems = new List<CodeValueReferenceItem>();
+            var results = _dataContext.usp_CodesByGroup_Select("CGC_DOCUMENT_CATEGORY");
+            foreach (var result in results)
+            {
+                codeValueReferenceItems.Add(new CodeValueReferenceItem { CodeValueID = result.code_value_id, Title = result.title, Description = result.description } );
+            }
+            return codeValueReferenceItems;
+        }
         #endregion // CGC
     }
 }

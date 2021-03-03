@@ -89,6 +89,7 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
                 {
                     document = _cgcRepository.GetDocument(id);
                     viewModel.ID = document.ID;
+                    viewModel.CategoryCode = document.Category;
                     viewModel.Title = document.Title;
                     viewModel.URL = document.URL;
                     viewModel.CommitteeID = document.Committee.ID;

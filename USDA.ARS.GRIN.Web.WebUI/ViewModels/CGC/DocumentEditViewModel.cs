@@ -13,9 +13,13 @@ namespace USDA.ARS.GRIN.Web.WebUI.ViewModels.CGC
     public class DocumentEditViewModel 
     {
         private List<CropGermplasmCommittee> _committees = null;
+        private List<CodeValueReferenceItem> _categories = null;
+
         private GRINRepository _repository = new GRINRepository();
         public int ID { get; set; }
         public string Title { get; set; }
+        public string CategoryCode { get; set; }
+        
         public string URL { get; set; }
         public int CommitteeID { get; set; }
         public string CommitteeName { get; set; }
@@ -30,9 +34,17 @@ namespace USDA.ARS.GRIN.Web.WebUI.ViewModels.CGC
                 return new SelectList(_committees, "ID", "Name");
             }
         }
+        public SelectList Categories
+        {
+            get
+            {
+                return new SelectList(_categories, "ID", "Name");
+            }
+        }
 
         public DocumentEditViewModel()
         {
+            _categories = _repository.GetCropGermplasmCommitteeDocumentCategoryList();
             _committees = _repository.GetCropGermplasmCommitteeList();
         }
     }
