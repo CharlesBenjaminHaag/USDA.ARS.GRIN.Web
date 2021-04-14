@@ -4,6 +4,16 @@
     Layout = "~/Views/Shared/_LayoutV2.cshtml";
 }
 
+<style>
+    #section-login-error {
+        background-color:red;
+        padding:5px;
+        margin-top:5px;
+        margin-bottom:10px;
+        font-weight:bold;
+        color:white;
+    }
+</style>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fh-3.1.4/r-2.2.2/rr-1.2.4/sl-1.2.6/datatables.min.css" />
 <link rel="stylesheet" href="https://gyrocode.github.io/jquery-datatables-checkboxes/1.2.10/css/dataTables.checkboxes.css" />
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fh-3.1.4/r-2.2.2/rr-1.2.4/sl-1.2.6/datatables.min.js"></script>
@@ -45,6 +55,12 @@
             <div class="section-paragraph">
                 <form action="@Url.Action("Login","Admin")" method="post">
                     <div class="usa-width-one-fourth">
+                        @if (!String.IsNullOrEmpty(Model.ErrorMessage))
+                        {
+                            <div id="section-login-error">
+                                @Model.ErrorMessage
+                            </div>
+                        }
                         <label>Username</label>
                         @Html.TextBoxFor(x => x.UserName, new { @class = "form-control input-sm" })
                         <label>Password</label>

@@ -11,11 +11,12 @@ namespace USDA.ARS.GRIN.Web.Repository
     {
         public GRINUser Find(string userName)
         {
-            GRINUser grinUser = null;
+            GRINUser grinUser = new GRINUser();
 
-            var user = _dataContext.usp_User_Search(userName).First();
-            if (user != null)
+            var users = _dataContext.usp_User_Search(userName).ToList();
+            if (users.Count() > 0)
             {
+                var user = users.First();
                 grinUser = new GRINUser();
                 grinUser.ID = user.sys_user_id;
                 grinUser.UserName = user.user_name;

@@ -5,11 +5,19 @@
 }
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
 @*<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>*@
 
 <style>
+
+    #tbl-pvp-applications-length { width:220px;}
+
+    .dataTables_length label {
+        background-color:yellow; width:200px;
+    }
+
     table {
-        border:none;
+        border: none;
     }
     
     table th {
@@ -368,11 +376,11 @@
             "searching": false,
             "paging": true,
             "ordering": true,
+            "bLengthChange": false,
             "order": [[1, 'desc']]
         });
 
-
-
+   
 
     //$("#txtSearchApplicant").change(function () {
     //    alert("CHANGED");

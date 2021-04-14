@@ -15,7 +15,7 @@ namespace USDA.ARS.GRIN.Web.Repository
         {
             CropGermplasmCommittee cropGermplasmCommittee = new CropGermplasmCommittee();
             List<CropGermplasmCommittee> cropGermplasmCommitteeList = new List<CropGermplasmCommittee>();
-            var results = _dataContext.LP_CGC_GET_LIST();
+            var results = _dataContext.usp_ARS_CropGermplasmCommittees_Select();
             if (results != null)
             {
                 foreach (var result in results)
@@ -38,7 +38,7 @@ namespace USDA.ARS.GRIN.Web.Repository
 
             try
             {
-                var result = _dataContext.LP_CGC_GET_DETAIL(id).FirstOrDefault();
+                var result = _dataContext.usp_ARS_CropGermplasmCommittee_Select(id).FirstOrDefault();
                 if (result != null)
                 {
                     cropGermplasmCommittee = new CropGermplasmCommittee();
@@ -61,7 +61,7 @@ namespace USDA.ARS.GRIN.Web.Repository
 
             try
             {
-                var result = _dataContext.usp_CGCDocument_Select(id).FirstOrDefault();
+                var result = _dataContext.usp_ARS_CropGermplasmCommitteeDocument_Select(id).FirstOrDefault();
                 if (result != null)
                 {
                     cropGermplasmCommitteeDocument = new CropGermplasmCommitteeDocument { ID = result.crop_germplasm_committee_document_id, Title = result.title, URL = result.url };
@@ -80,7 +80,7 @@ namespace USDA.ARS.GRIN.Web.Repository
         {
             CropGermplasmCommitteeDocument document = null;
             List<CropGermplasmCommitteeDocument> documents = new List<CropGermplasmCommitteeDocument>();
-            var results = _dataContext.usp_CGCDocuments_Select();
+            var results = _dataContext.usp_ARS_CropGermplasmCommitteeDocuments_SelectAll();
             foreach (var result in results)
             {
                 document = new CropGermplasmCommitteeDocument();
@@ -98,7 +98,7 @@ namespace USDA.ARS.GRIN.Web.Repository
             List<CropGermplasmCommitteeDocument> cropGermplasmCommitteeDocuments = new List<CropGermplasmCommitteeDocument>();
             CropGermplasmCommitteeDocument document = null;
             
-            var results = _dataContext.LP_CGC_GET_DOCUMENTS(cropGermplasmCommitteeId);
+            var results = _dataContext.usp_ARS_CropGermplasmCommitteeDocuments_Select(cropGermplasmCommitteeId);
             foreach (var result in results)
             {
                 document = new CropGermplasmCommitteeDocument();
@@ -120,7 +120,7 @@ namespace USDA.ARS.GRIN.Web.Repository
 
             try
             {
-                _dataContext.usp_CGCDocument_Insert(ref errorNumber, ref id, document.Committee.ID, document.Title, document.URL);
+                _dataContext.usp_ARS_CropGermplasmCommitteeDocument_Insert(ref errorNumber, ref id, document.Committee.ID, document.Title, document.Year, document.Category, document.URL);
                 resultContainer.EntityID = id.GetValueOrDefault();
                 resultContainer.ResultCode = errorNumber.GetValueOrDefault().ToString();
             }
@@ -138,7 +138,7 @@ namespace USDA.ARS.GRIN.Web.Repository
 
             try
             {
-                _dataContext.usp_CGCDocument_Update(ref errorNumber, document.ID, document.Committee.ID, document.Title, document.URL);
+                _dataContext.usp_ARS_CropGermplasmCommitteeDocument_Update(ref errorNumber, document.ID, document.Committee.ID, document.Title, document.Year, document.Category, document.URL);
                 resultContainer.EntityID = document.ID;
                 resultContainer.ResultCode = errorNumber.GetValueOrDefault().ToString();
             }
@@ -152,7 +152,7 @@ namespace USDA.ARS.GRIN.Web.Repository
         public List<CropGermplasmCommitteeCropDescriptor> GetCropDescriptors(int cropGermplasmCommitteeId)
         {
             List<CropGermplasmCommitteeCropDescriptor> cropGermplasmCommitteeCropDescriptors = new List<CropGermplasmCommitteeCropDescriptor>();
-            var results = _dataContext.LP_CGC_GET_CROP_DESCRIPTORS(cropGermplasmCommitteeId);
+            var results = _dataContext.usp_ARS_CropGermplasmCommitteeCropDescriptors_Select(cropGermplasmCommitteeId);
             foreach (var result in results)
             {
                cropGermplasmCommitteeCropDescriptors.Add(new CropGermplasmCommitteeCropDescriptor { ID = result.crop_germplasm_committee_id, CropID = result.crop_id, CropName = result.name } );

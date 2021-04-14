@@ -28,6 +28,7 @@ namespace USDA.ARS.GRIN.Web.Service
                 if (user.ID == 0)
                 {
                     resultContainer.ResultCode = LoginResult.USER_NOT_FOUND.ToString();
+                    resultContainer.ResultDescription = String.Format("The user {0} does not exist.", userName);
                     return resultContainer;
                 }
 
@@ -39,6 +40,7 @@ namespace USDA.ARS.GRIN.Web.Service
                 else
                 {
                     resultContainer.ResultCode = LoginResult.INVALID_PASSWORD.ToString();
+                    resultContainer.ResultDescription = "Your password is invalid.";
                     return resultContainer;
                 }
             }

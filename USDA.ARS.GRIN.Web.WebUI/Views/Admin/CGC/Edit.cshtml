@@ -49,6 +49,10 @@
                     <div class="usa-width-one-half">
                         <label>Title</label>
                         @Html.TextBoxFor(x => x.Title, new { @class = "form-control input-lg" })
+                        <label>Category</label>
+                        @Html.DropDownListFor(x => x.CategoryCode, Model.Categories, new { @id = "ddlCategories", @class = "form-control-sm" })
+                        <label>Year</label>
+                        @Html.DropDownListFor(x => x.Year, Model.GetYear(), new { id="ddlYears", @class="form-control-sm" })
                         <label>Committee</label>
                         @Html.DropDownListFor(x => x.CommitteeID, Model.Committees, new { @id = "ddlCommittees", @class = "form-control-sm" })
                         @Html.HiddenFor(x => x.CommitteeName, new { id = "hfCommitteeName" })
@@ -70,10 +74,18 @@
 <script>
     $('#ddlCommittees').on('change', function () {
         var selectedCommitteeName = "";
-
         selectedCommitteeName = $("#ddlCommittees option:selected").text();
         $("#hfCommitteeName").val(selectedCommitteeName);
     });
+
+    $('#ddlCategories').on('change', function () {
+        var selectedCategory = "";
+        selectedCategory = $("#ddlCategories option:selected").text();
+        $("#hfCommitteeName").val(selectedCommitteeName);
+    });
+
+
+
 </script>
 
 

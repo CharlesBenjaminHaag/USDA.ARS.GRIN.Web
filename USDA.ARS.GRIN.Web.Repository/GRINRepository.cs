@@ -71,7 +71,7 @@ namespace USDA.ARS.GRIN.Web.Repository
         public List<CropGermplasmCommittee> GetCropGermplasmCommitteeList()
         {
             List<CropGermplasmCommittee> cropGermplasmCommitteeList = new List<CropGermplasmCommittee>();
-            var results = _dataContext.LP_CGC_GET_LIST();
+            var results = _dataContext.usp_ARS_CropGermplasmCommittees_Select();
             foreach (var result in results)
             {
                 cropGermplasmCommitteeList.Add(new CropGermplasmCommittee { ID = result.crop_germplasm_committee_id, Name = result.crop_germplasm_committee_name });
@@ -84,7 +84,7 @@ namespace USDA.ARS.GRIN.Web.Repository
             var results = _dataContext.usp_CodesByGroup_Select("CGC_DOCUMENT_CATEGORY");
             foreach (var result in results)
             {
-                codeValueReferenceItems.Add(new CodeValueReferenceItem { CodeValueID = result.code_value_id, Title = result.title, Description = result.description } );
+                codeValueReferenceItems.Add(new CodeValueReferenceItem { CodeValueID = result.code_value_id, CodeValue = result.value, Title = result.title } );
             }
             return codeValueReferenceItems;
         }

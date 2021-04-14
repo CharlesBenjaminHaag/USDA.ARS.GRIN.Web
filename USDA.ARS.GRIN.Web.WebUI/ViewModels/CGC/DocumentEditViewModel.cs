@@ -19,7 +19,7 @@ namespace USDA.ARS.GRIN.Web.WebUI.ViewModels.CGC
         public int ID { get; set; }
         public string Title { get; set; }
         public string CategoryCode { get; set; }
-        
+        public int Year { get; set; }
         public string URL { get; set; }
         public int CommitteeID { get; set; }
         public string CommitteeName { get; set; }
@@ -38,8 +38,23 @@ namespace USDA.ARS.GRIN.Web.WebUI.ViewModels.CGC
         {
             get
             {
-                return new SelectList(_categories, "ID", "Name");
+                return new SelectList(_categories, "CodeValue", "Title");
             }
+        }
+
+        public IList<SelectListItem> GetYear()
+        {
+            const int numberOfYears = 21;
+            //var startYear = DateTime.Now.Year;
+            var startYear = 2009;
+            var endYear = startYear + numberOfYears;
+
+            var yearList = new List<SelectListItem>();
+            for (var i = startYear; i < endYear; i++)
+            {
+                yearList.Add(new SelectListItem() { Value = i.ToString(), Text = i.ToString() });
+            }
+            return yearList;
         }
 
         public DocumentEditViewModel()

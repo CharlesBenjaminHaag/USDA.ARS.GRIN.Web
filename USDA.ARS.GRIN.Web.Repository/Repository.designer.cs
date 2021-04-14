@@ -33,7 +33,7 @@ namespace USDA.ARS.GRIN.Web.Repository
     #endregion
 		
 		public RepositoryDataContext() : 
-				base(global::USDA.ARS.GRIN.Web.Repository.Properties.Settings.Default.gringlobalConnectionString4, mappingSource)
+				base(global::USDA.ARS.GRIN.Web.Repository.Properties.Settings.Default.gringlobalConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -60,20 +60,6 @@ namespace USDA.ARS.GRIN.Web.Repository
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LP_CGC_GET_DETAIL")]
-		public ISingleResult<LP_CGC_GET_DETAILResult> LP_CGC_GET_DETAIL([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), crop_germplasm_committee_id);
-			return ((ISingleResult<LP_CGC_GET_DETAILResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LP_CGC_GET_CROP_DESCRIPTORS")]
-		public ISingleResult<LP_CGC_GET_CROP_DESCRIPTORSResult> LP_CGC_GET_CROP_DESCRIPTORS([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), crop_germplasm_committee_id);
-			return ((ISingleResult<LP_CGC_GET_CROP_DESCRIPTORSResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LP_SEARCH_RHIZOBIUM")]
@@ -111,20 +97,6 @@ namespace USDA.ARS.GRIN.Web.Repository
 			return ((ISingleResult<LP_RHIZOBIUM_GET_DETAILResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LP_CGC_GET_LIST")]
-		public ISingleResult<LP_CGC_GET_LISTResult> LP_CGC_GET_LIST()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<LP_CGC_GET_LISTResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LP_CGC_GET_DOCUMENTS")]
-		public ISingleResult<LP_CGC_GET_DOCUMENTSResult> LP_CGC_GET_DOCUMENTS([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), crop_germplasm_committee_id);
-			return ((ISingleResult<LP_CGC_GET_DOCUMENTSResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_GetCropsBySite")]
 		public ISingleResult<usp_GetCropsBySiteResult> usp_GetCropsBySite()
 		{
@@ -151,52 +123,6 @@ namespace USDA.ARS.GRIN.Web.Repository
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), user_name);
 			return ((ISingleResult<usp_User_SearchResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_CGCDocument_Insert")]
-		public int usp_CGCDocument_Insert([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> out_error_number, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> out_crop_germplasm_committee_document_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(250)")] string title, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(120)")] string url)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), out_error_number, out_crop_germplasm_committee_document_id, crop_germplasm_committee_id, title, url);
-			out_error_number = ((System.Nullable<int>)(result.GetParameterValue(0)));
-			out_crop_germplasm_committee_document_id = ((System.Nullable<int>)(result.GetParameterValue(1)));
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_CGCDocuments_Select")]
-		public ISingleResult<usp_CGCDocuments_SelectResult> usp_CGCDocuments_Select()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<usp_CGCDocuments_SelectResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_CGCDocument_Select")]
-		public ISingleResult<usp_CGCDocument_SelectResult> usp_CGCDocument_Select([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_document_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), crop_germplasm_committee_document_id);
-			return ((ISingleResult<usp_CGCDocument_SelectResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_CGCCommittees_Select")]
-		public ISingleResult<usp_CGCCommittees_SelectResult> usp_CGCCommittees_Select()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<usp_CGCCommittees_SelectResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_CGCDocument_Update")]
-		public int usp_CGCDocument_Update([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> out_error_number, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_document_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(250)")] string title, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(120)")] string url)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), out_error_number, crop_germplasm_committee_document_id, crop_germplasm_committee_id, title, url);
-			out_error_number = ((System.Nullable<int>)(result.GetParameterValue(0)));
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_CGCDocument_Delete")]
-		public int usp_CGCDocument_Delete([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> out_error_number, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_document_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), out_error_number, crop_germplasm_committee_document_id);
-			out_error_number = ((System.Nullable<int>)(result.GetParameterValue(0)));
-			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_PVPRecentApplications_Select")]
@@ -240,201 +166,114 @@ namespace USDA.ARS.GRIN.Web.Repository
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), group_name);
 			return ((ISingleResult<usp_CodesByGroup_SelectResult>)(result.ReturnValue));
 		}
-	}
-	
-	public partial class LP_CGC_GET_DETAILResult
-	{
 		
-		private int _crop_germplasm_committee_id;
-		
-		private string _crop_germplasm_committee_name;
-		
-		private string _roster_url;
-		
-		private System.Nullable<System.DateTime> _created_date;
-		
-		private System.Nullable<int> _created_by;
-		
-		private System.Nullable<System.DateTime> _modified_date;
-		
-		private System.Nullable<int> _modified_by;
-		
-		public LP_CGC_GET_DETAILResult()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_PVPRecentlyExpired_Select")]
+		public ISingleResult<usp_ARS_PVPRecentlyExpired_SelectResult1> usp_ARS_PVPRecentlyExpired_Select1()
 		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<usp_ARS_PVPRecentlyExpired_SelectResult1>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_id", DbType="Int NOT NULL")]
-		public int crop_germplasm_committee_id
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_CropGermplasmCommittee_Select")]
+		public ISingleResult<usp_ARS_CropGermplasmCommittee_SelectResult> usp_ARS_CropGermplasmCommittee_Select([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_id)
 		{
-			get
-			{
-				return this._crop_germplasm_committee_id;
-			}
-			set
-			{
-				if ((this._crop_germplasm_committee_id != value))
-				{
-					this._crop_germplasm_committee_id = value;
-				}
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), crop_germplasm_committee_id);
+			return ((ISingleResult<usp_ARS_CropGermplasmCommittee_SelectResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_name", DbType="NVarChar(80) NOT NULL", CanBeNull=false)]
-		public string crop_germplasm_committee_name
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_CropGermplasmCommitteeApplicationStatuses_Select")]
+		public ISingleResult<usp_ARS_CropGermplasmCommitteeApplicationStatuses_SelectResult> usp_ARS_CropGermplasmCommitteeApplicationStatuses_Select()
 		{
-			get
-			{
-				return this._crop_germplasm_committee_name;
-			}
-			set
-			{
-				if ((this._crop_germplasm_committee_name != value))
-				{
-					this._crop_germplasm_committee_name = value;
-				}
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<usp_ARS_CropGermplasmCommitteeApplicationStatuses_SelectResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roster_url", DbType="VarChar(120)")]
-		public string roster_url
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_CropGermplasmCommitteeDocument_Delete")]
+		public int usp_ARS_CropGermplasmCommitteeDocument_Delete([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> out_error_number, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_document_id)
 		{
-			get
-			{
-				return this._roster_url;
-			}
-			set
-			{
-				if ((this._roster_url != value))
-				{
-					this._roster_url = value;
-				}
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), out_error_number, crop_germplasm_committee_document_id);
+			out_error_number = ((System.Nullable<int>)(result.GetParameterValue(0)));
+			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> created_date
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_CropGermplasmCommittees_Select")]
+		public ISingleResult<usp_ARS_CropGermplasmCommittees_SelectResult> usp_ARS_CropGermplasmCommittees_Select()
 		{
-			get
-			{
-				return this._created_date;
-			}
-			set
-			{
-				if ((this._created_date != value))
-				{
-					this._created_date = value;
-				}
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<usp_ARS_CropGermplasmCommittees_SelectResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_by", DbType="Int")]
-		public System.Nullable<int> created_by
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_PVPExpiring6Months_Select")]
+		public ISingleResult<usp_ARS_PVPExpiring6Months_SelectResult1> usp_ARS_PVPExpiring6Months_Select1()
 		{
-			get
-			{
-				return this._created_by;
-			}
-			set
-			{
-				if ((this._created_by != value))
-				{
-					this._created_by = value;
-				}
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<usp_ARS_PVPExpiring6Months_SelectResult1>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> modified_date
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_PVPRecentApplications_Select")]
+		public ISingleResult<usp_ARS_PVPRecentApplications_SelectResult1> usp_ARS_PVPRecentApplications_Select1()
 		{
-			get
-			{
-				return this._modified_date;
-			}
-			set
-			{
-				if ((this._modified_date != value))
-				{
-					this._modified_date = value;
-				}
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<usp_ARS_PVPRecentApplications_SelectResult1>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_by", DbType="Int")]
-		public System.Nullable<int> modified_by
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_PVPRecentlyAvailable_Select")]
+		public ISingleResult<usp_ARS_PVPRecentlyAvailable_SelectResult1> usp_ARS_PVPRecentlyAvailable_Select1()
 		{
-			get
-			{
-				return this._modified_by;
-			}
-			set
-			{
-				if ((this._modified_by != value))
-				{
-					this._modified_by = value;
-				}
-			}
-		}
-	}
-	
-	public partial class LP_CGC_GET_CROP_DESCRIPTORSResult
-	{
-		
-		private int _crop_germplasm_committee_id;
-		
-		private int _crop_id;
-		
-		private string _name;
-		
-		public LP_CGC_GET_CROP_DESCRIPTORSResult()
-		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<usp_ARS_PVPRecentlyAvailable_SelectResult1>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_id", DbType="Int NOT NULL")]
-		public int crop_germplasm_committee_id
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_CropGermplasmCommitteeCropDescriptors_Select")]
+		public ISingleResult<usp_ARS_CropGermplasmCommitteeCropDescriptors_SelectResult> usp_ARS_CropGermplasmCommitteeCropDescriptors_Select([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_id)
 		{
-			get
-			{
-				return this._crop_germplasm_committee_id;
-			}
-			set
-			{
-				if ((this._crop_germplasm_committee_id != value))
-				{
-					this._crop_germplasm_committee_id = value;
-				}
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), crop_germplasm_committee_id);
+			return ((ISingleResult<usp_ARS_CropGermplasmCommitteeCropDescriptors_SelectResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_id", DbType="Int NOT NULL")]
-		public int crop_id
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_CropGermplasmCommitteeDocument_Insert")]
+		public int usp_ARS_CropGermplasmCommitteeDocument_Insert([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> out_error_number, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> out_crop_germplasm_committee_document_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(250)")] string title, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> document_year, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(4)")] string category_code, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(120)")] string url)
 		{
-			get
-			{
-				return this._crop_id;
-			}
-			set
-			{
-				if ((this._crop_id != value))
-				{
-					this._crop_id = value;
-				}
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), out_error_number, out_crop_germplasm_committee_document_id, crop_germplasm_committee_id, title, document_year, category_code, url);
+			out_error_number = ((System.Nullable<int>)(result.GetParameterValue(0)));
+			out_crop_germplasm_committee_document_id = ((System.Nullable<int>)(result.GetParameterValue(1)));
+			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string name
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_CropGermplasmCommitteeDocument_Select")]
+		public ISingleResult<usp_ARS_CropGermplasmCommitteeDocument_SelectResult> usp_ARS_CropGermplasmCommitteeDocument_Select([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_document_id)
 		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this._name = value;
-				}
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), crop_germplasm_committee_document_id);
+			return ((ISingleResult<usp_ARS_CropGermplasmCommitteeDocument_SelectResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_CropGermplasmCommitteeDocument_Update")]
+		public int usp_ARS_CropGermplasmCommitteeDocument_Update([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> out_error_number, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_document_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(250)")] string title, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> document_year, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(4)")] string category_code, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(120)")] string url)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), out_error_number, crop_germplasm_committee_document_id, crop_germplasm_committee_id, title, document_year, category_code, url);
+			out_error_number = ((System.Nullable<int>)(result.GetParameterValue(0)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_CropGermplasmCommitteeDocuments_Select")]
+		public ISingleResult<usp_ARS_CropGermplasmCommitteeDocuments_SelectResult> usp_ARS_CropGermplasmCommitteeDocuments_Select([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), crop_germplasm_committee_id);
+			return ((ISingleResult<usp_ARS_CropGermplasmCommitteeDocuments_SelectResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_CropGermplasmCommitteeDocuments_SelectAll")]
+		public ISingleResult<usp_ARS_CropGermplasmCommitteeDocuments_SelectAllResult> usp_ARS_CropGermplasmCommitteeDocuments_SelectAll()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<usp_ARS_CropGermplasmCommitteeDocuments_SelectAllResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_CropGermplasmCommitteeDocumentsRecent_Select")]
+		public ISingleResult<usp_ARS_CropGermplasmCommitteeDocumentsRecent_SelectResult> usp_ARS_CropGermplasmCommitteeDocumentsRecent_Select()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<usp_ARS_CropGermplasmCommitteeDocumentsRecent_SelectResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1571,220 +1410,6 @@ namespace USDA.ARS.GRIN.Web.Repository
 				if ((this._genus_spp != value))
 				{
 					this._genus_spp = value;
-				}
-			}
-		}
-	}
-	
-	public partial class LP_CGC_GET_LISTResult
-	{
-		
-		private int _crop_germplasm_committee_id;
-		
-		private string _crop_germplasm_committee_name;
-		
-		private string _roster_url;
-		
-		public LP_CGC_GET_LISTResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_id", DbType="Int NOT NULL")]
-		public int crop_germplasm_committee_id
-		{
-			get
-			{
-				return this._crop_germplasm_committee_id;
-			}
-			set
-			{
-				if ((this._crop_germplasm_committee_id != value))
-				{
-					this._crop_germplasm_committee_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_name", DbType="NVarChar(80) NOT NULL", CanBeNull=false)]
-		public string crop_germplasm_committee_name
-		{
-			get
-			{
-				return this._crop_germplasm_committee_name;
-			}
-			set
-			{
-				if ((this._crop_germplasm_committee_name != value))
-				{
-					this._crop_germplasm_committee_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roster_url", DbType="VarChar(120)")]
-		public string roster_url
-		{
-			get
-			{
-				return this._roster_url;
-			}
-			set
-			{
-				if ((this._roster_url != value))
-				{
-					this._roster_url = value;
-				}
-			}
-		}
-	}
-	
-	public partial class LP_CGC_GET_DOCUMENTSResult
-	{
-		
-		private int _crop_germplasm_committee_document_id;
-		
-		private System.Nullable<int> _crop_germplasm_committee_id;
-		
-		private string _url;
-		
-		private System.Nullable<System.DateTime> _created_date;
-		
-		private System.Nullable<int> _created_by;
-		
-		private System.Nullable<System.DateTime> _modified_date;
-		
-		private System.Nullable<int> _modified_by;
-		
-		private string _title;
-		
-		public LP_CGC_GET_DOCUMENTSResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_document_id", DbType="Int NOT NULL")]
-		public int crop_germplasm_committee_document_id
-		{
-			get
-			{
-				return this._crop_germplasm_committee_document_id;
-			}
-			set
-			{
-				if ((this._crop_germplasm_committee_document_id != value))
-				{
-					this._crop_germplasm_committee_document_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_id", DbType="Int")]
-		public System.Nullable<int> crop_germplasm_committee_id
-		{
-			get
-			{
-				return this._crop_germplasm_committee_id;
-			}
-			set
-			{
-				if ((this._crop_germplasm_committee_id != value))
-				{
-					this._crop_germplasm_committee_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_url", DbType="NVarChar(120) NOT NULL", CanBeNull=false)]
-		public string url
-		{
-			get
-			{
-				return this._url;
-			}
-			set
-			{
-				if ((this._url != value))
-				{
-					this._url = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> created_date
-		{
-			get
-			{
-				return this._created_date;
-			}
-			set
-			{
-				if ((this._created_date != value))
-				{
-					this._created_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_by", DbType="Int")]
-		public System.Nullable<int> created_by
-		{
-			get
-			{
-				return this._created_by;
-			}
-			set
-			{
-				if ((this._created_by != value))
-				{
-					this._created_by = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> modified_date
-		{
-			get
-			{
-				return this._modified_date;
-			}
-			set
-			{
-				if ((this._modified_date != value))
-				{
-					this._modified_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_by", DbType="Int")]
-		public System.Nullable<int> modified_by
-		{
-			get
-			{
-				return this._modified_by;
-			}
-			set
-			{
-				if ((this._modified_by != value))
-				{
-					this._modified_by = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="VarChar(250)")]
-		public string title
-		{
-			get
-			{
-				return this._title;
-			}
-			set
-			{
-				if ((this._title != value))
-				{
-					this._title = value;
 				}
 			}
 		}
@@ -3113,480 +2738,6 @@ namespace USDA.ARS.GRIN.Web.Repository
 				if ((this._site_long_name != value))
 				{
 					this._site_long_name = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_CGCDocuments_SelectResult
-	{
-		
-		private string _crop_germplasm_committee_name;
-		
-		private int _crop_germplasm_committee_document_id;
-		
-		private System.Nullable<int> _crop_germplasm_committee_id;
-		
-		private string _title;
-		
-		private string _url;
-		
-		private System.Nullable<System.DateTime> _created_date;
-		
-		private System.Nullable<int> _created_by;
-		
-		private System.Nullable<System.DateTime> _modified_date;
-		
-		private System.Nullable<int> _modified_by;
-		
-		public usp_CGCDocuments_SelectResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_name", DbType="NVarChar(80) NOT NULL", CanBeNull=false)]
-		public string crop_germplasm_committee_name
-		{
-			get
-			{
-				return this._crop_germplasm_committee_name;
-			}
-			set
-			{
-				if ((this._crop_germplasm_committee_name != value))
-				{
-					this._crop_germplasm_committee_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_document_id", DbType="Int NOT NULL")]
-		public int crop_germplasm_committee_document_id
-		{
-			get
-			{
-				return this._crop_germplasm_committee_document_id;
-			}
-			set
-			{
-				if ((this._crop_germplasm_committee_document_id != value))
-				{
-					this._crop_germplasm_committee_document_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_id", DbType="Int")]
-		public System.Nullable<int> crop_germplasm_committee_id
-		{
-			get
-			{
-				return this._crop_germplasm_committee_id;
-			}
-			set
-			{
-				if ((this._crop_germplasm_committee_id != value))
-				{
-					this._crop_germplasm_committee_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="VarChar(250)")]
-		public string title
-		{
-			get
-			{
-				return this._title;
-			}
-			set
-			{
-				if ((this._title != value))
-				{
-					this._title = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_url", DbType="NVarChar(120) NOT NULL", CanBeNull=false)]
-		public string url
-		{
-			get
-			{
-				return this._url;
-			}
-			set
-			{
-				if ((this._url != value))
-				{
-					this._url = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> created_date
-		{
-			get
-			{
-				return this._created_date;
-			}
-			set
-			{
-				if ((this._created_date != value))
-				{
-					this._created_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_by", DbType="Int")]
-		public System.Nullable<int> created_by
-		{
-			get
-			{
-				return this._created_by;
-			}
-			set
-			{
-				if ((this._created_by != value))
-				{
-					this._created_by = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> modified_date
-		{
-			get
-			{
-				return this._modified_date;
-			}
-			set
-			{
-				if ((this._modified_date != value))
-				{
-					this._modified_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_by", DbType="Int")]
-		public System.Nullable<int> modified_by
-		{
-			get
-			{
-				return this._modified_by;
-			}
-			set
-			{
-				if ((this._modified_by != value))
-				{
-					this._modified_by = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_CGCDocument_SelectResult
-	{
-		
-		private string _crop_germplasm_committee_name;
-		
-		private int _crop_germplasm_committee_document_id;
-		
-		private System.Nullable<int> _crop_germplasm_committee_id;
-		
-		private string _title;
-		
-		private string _url;
-		
-		private System.Nullable<System.DateTime> _created_date;
-		
-		private System.Nullable<int> _created_by;
-		
-		private System.Nullable<System.DateTime> _modified_date;
-		
-		private System.Nullable<int> _modified_by;
-		
-		public usp_CGCDocument_SelectResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_name", DbType="NVarChar(80) NOT NULL", CanBeNull=false)]
-		public string crop_germplasm_committee_name
-		{
-			get
-			{
-				return this._crop_germplasm_committee_name;
-			}
-			set
-			{
-				if ((this._crop_germplasm_committee_name != value))
-				{
-					this._crop_germplasm_committee_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_document_id", DbType="Int NOT NULL")]
-		public int crop_germplasm_committee_document_id
-		{
-			get
-			{
-				return this._crop_germplasm_committee_document_id;
-			}
-			set
-			{
-				if ((this._crop_germplasm_committee_document_id != value))
-				{
-					this._crop_germplasm_committee_document_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_id", DbType="Int")]
-		public System.Nullable<int> crop_germplasm_committee_id
-		{
-			get
-			{
-				return this._crop_germplasm_committee_id;
-			}
-			set
-			{
-				if ((this._crop_germplasm_committee_id != value))
-				{
-					this._crop_germplasm_committee_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="VarChar(250)")]
-		public string title
-		{
-			get
-			{
-				return this._title;
-			}
-			set
-			{
-				if ((this._title != value))
-				{
-					this._title = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_url", DbType="NVarChar(120) NOT NULL", CanBeNull=false)]
-		public string url
-		{
-			get
-			{
-				return this._url;
-			}
-			set
-			{
-				if ((this._url != value))
-				{
-					this._url = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> created_date
-		{
-			get
-			{
-				return this._created_date;
-			}
-			set
-			{
-				if ((this._created_date != value))
-				{
-					this._created_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_by", DbType="Int")]
-		public System.Nullable<int> created_by
-		{
-			get
-			{
-				return this._created_by;
-			}
-			set
-			{
-				if ((this._created_by != value))
-				{
-					this._created_by = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> modified_date
-		{
-			get
-			{
-				return this._modified_date;
-			}
-			set
-			{
-				if ((this._modified_date != value))
-				{
-					this._modified_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_by", DbType="Int")]
-		public System.Nullable<int> modified_by
-		{
-			get
-			{
-				return this._modified_by;
-			}
-			set
-			{
-				if ((this._modified_by != value))
-				{
-					this._modified_by = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_CGCCommittees_SelectResult
-	{
-		
-		private int _crop_germplasm_committee_id;
-		
-		private string _crop_germplasm_committee_name;
-		
-		private string _roster_url;
-		
-		private System.Nullable<System.DateTime> _created_date;
-		
-		private System.Nullable<int> _created_by;
-		
-		private System.Nullable<System.DateTime> _modified_date;
-		
-		private System.Nullable<int> _modified_by;
-		
-		public usp_CGCCommittees_SelectResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_id", DbType="Int NOT NULL")]
-		public int crop_germplasm_committee_id
-		{
-			get
-			{
-				return this._crop_germplasm_committee_id;
-			}
-			set
-			{
-				if ((this._crop_germplasm_committee_id != value))
-				{
-					this._crop_germplasm_committee_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_name", DbType="NVarChar(80) NOT NULL", CanBeNull=false)]
-		public string crop_germplasm_committee_name
-		{
-			get
-			{
-				return this._crop_germplasm_committee_name;
-			}
-			set
-			{
-				if ((this._crop_germplasm_committee_name != value))
-				{
-					this._crop_germplasm_committee_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roster_url", DbType="VarChar(120)")]
-		public string roster_url
-		{
-			get
-			{
-				return this._roster_url;
-			}
-			set
-			{
-				if ((this._roster_url != value))
-				{
-					this._roster_url = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> created_date
-		{
-			get
-			{
-				return this._created_date;
-			}
-			set
-			{
-				if ((this._created_date != value))
-				{
-					this._created_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_by", DbType="Int")]
-		public System.Nullable<int> created_by
-		{
-			get
-			{
-				return this._created_by;
-			}
-			set
-			{
-				if ((this._created_by != value))
-				{
-					this._created_by = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_date", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> modified_date
-		{
-			get
-			{
-				return this._modified_date;
-			}
-			set
-			{
-				if ((this._modified_date != value))
-				{
-					this._modified_date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_by", DbType="Int")]
-		public System.Nullable<int> modified_by
-		{
-			get
-			{
-				return this._modified_by;
-			}
-			set
-			{
-				if ((this._modified_by != value))
-				{
-					this._modified_by = value;
 				}
 			}
 		}
@@ -5057,6 +4208,2496 @@ namespace USDA.ARS.GRIN.Web.Repository
 				if ((this._modified_date != value))
 				{
 					this._modified_date = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_ARS_PVPRecentlyExpired_SelectResult1
+	{
+		
+		private int _pvp_application_number;
+		
+		private string _cultivar_name;
+		
+		private string _experimental_name;
+		
+		private System.Nullable<int> _pvp_common_name_id;
+		
+		private string _common_name;
+		
+		private string _scientific_name;
+		
+		private System.Nullable<int> _pvp_applicant_id;
+		
+		private string _applicant_name;
+		
+		private System.Nullable<System.DateTime> _application_date;
+		
+		private System.Nullable<bool> _is_certified_seed;
+		
+		private int _pvp_application_status_id;
+		
+		private string _application_status;
+		
+		private System.Nullable<System.DateTime> _status_date;
+		
+		private System.Nullable<System.DateTime> _certificate_issued_date;
+		
+		private System.Nullable<int> _years_protected;
+		
+		private System.Nullable<int> _accession_id;
+		
+		private string _expiration_date;
+		
+		public usp_ARS_PVPRecentlyExpired_SelectResult1()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_number", DbType="Int NOT NULL")]
+		public int pvp_application_number
+		{
+			get
+			{
+				return this._pvp_application_number;
+			}
+			set
+			{
+				if ((this._pvp_application_number != value))
+				{
+					this._pvp_application_number = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cultivar_name", DbType="NVarChar(150)")]
+		public string cultivar_name
+		{
+			get
+			{
+				return this._cultivar_name;
+			}
+			set
+			{
+				if ((this._cultivar_name != value))
+				{
+					this._cultivar_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_experimental_name", DbType="NVarChar(150)")]
+		public string experimental_name
+		{
+			get
+			{
+				return this._experimental_name;
+			}
+			set
+			{
+				if ((this._experimental_name != value))
+				{
+					this._experimental_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_common_name_id", DbType="Int")]
+		public System.Nullable<int> pvp_common_name_id
+		{
+			get
+			{
+				return this._pvp_common_name_id;
+			}
+			set
+			{
+				if ((this._pvp_common_name_id != value))
+				{
+					this._pvp_common_name_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_common_name", DbType="NVarChar(150)")]
+		public string common_name
+		{
+			get
+			{
+				return this._common_name;
+			}
+			set
+			{
+				if ((this._common_name != value))
+				{
+					this._common_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_scientific_name", DbType="NVarChar(150)")]
+		public string scientific_name
+		{
+			get
+			{
+				return this._scientific_name;
+			}
+			set
+			{
+				if ((this._scientific_name != value))
+				{
+					this._scientific_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_applicant_id", DbType="Int")]
+		public System.Nullable<int> pvp_applicant_id
+		{
+			get
+			{
+				return this._pvp_applicant_id;
+			}
+			set
+			{
+				if ((this._pvp_applicant_id != value))
+				{
+					this._pvp_applicant_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_applicant_name", DbType="NVarChar(4000) NOT NULL", CanBeNull=false)]
+		public string applicant_name
+		{
+			get
+			{
+				return this._applicant_name;
+			}
+			set
+			{
+				if ((this._applicant_name != value))
+				{
+					this._applicant_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> application_date
+		{
+			get
+			{
+				return this._application_date;
+			}
+			set
+			{
+				if ((this._application_date != value))
+				{
+					this._application_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_certified_seed", DbType="Bit")]
+		public System.Nullable<bool> is_certified_seed
+		{
+			get
+			{
+				return this._is_certified_seed;
+			}
+			set
+			{
+				if ((this._is_certified_seed != value))
+				{
+					this._is_certified_seed = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_status_id", DbType="Int NOT NULL")]
+		public int pvp_application_status_id
+		{
+			get
+			{
+				return this._pvp_application_status_id;
+			}
+			set
+			{
+				if ((this._pvp_application_status_id != value))
+				{
+					this._pvp_application_status_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_status", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string application_status
+		{
+			get
+			{
+				return this._application_status;
+			}
+			set
+			{
+				if ((this._application_status != value))
+				{
+					this._application_status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> status_date
+		{
+			get
+			{
+				return this._status_date;
+			}
+			set
+			{
+				if ((this._status_date != value))
+				{
+					this._status_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_certificate_issued_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> certificate_issued_date
+		{
+			get
+			{
+				return this._certificate_issued_date;
+			}
+			set
+			{
+				if ((this._certificate_issued_date != value))
+				{
+					this._certificate_issued_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_years_protected", DbType="Int")]
+		public System.Nullable<int> years_protected
+		{
+			get
+			{
+				return this._years_protected;
+			}
+			set
+			{
+				if ((this._years_protected != value))
+				{
+					this._years_protected = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accession_id", DbType="Int")]
+		public System.Nullable<int> accession_id
+		{
+			get
+			{
+				return this._accession_id;
+			}
+			set
+			{
+				if ((this._accession_id != value))
+				{
+					this._accession_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_expiration_date", DbType="NVarChar(12)")]
+		public string expiration_date
+		{
+			get
+			{
+				return this._expiration_date;
+			}
+			set
+			{
+				if ((this._expiration_date != value))
+				{
+					this._expiration_date = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_ARS_CropGermplasmCommittee_SelectResult
+	{
+		
+		private int _crop_germplasm_committee_id;
+		
+		private string _crop_germplasm_committee_name;
+		
+		private string _roster_url;
+		
+		private System.Nullable<System.DateTime> _created_date;
+		
+		private System.Nullable<int> _created_by;
+		
+		private System.Nullable<System.DateTime> _modified_date;
+		
+		private System.Nullable<int> _modified_by;
+		
+		public usp_ARS_CropGermplasmCommittee_SelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_id", DbType="Int NOT NULL")]
+		public int crop_germplasm_committee_id
+		{
+			get
+			{
+				return this._crop_germplasm_committee_id;
+			}
+			set
+			{
+				if ((this._crop_germplasm_committee_id != value))
+				{
+					this._crop_germplasm_committee_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_name", DbType="NVarChar(80) NOT NULL", CanBeNull=false)]
+		public string crop_germplasm_committee_name
+		{
+			get
+			{
+				return this._crop_germplasm_committee_name;
+			}
+			set
+			{
+				if ((this._crop_germplasm_committee_name != value))
+				{
+					this._crop_germplasm_committee_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roster_url", DbType="VarChar(120)")]
+		public string roster_url
+		{
+			get
+			{
+				return this._roster_url;
+			}
+			set
+			{
+				if ((this._roster_url != value))
+				{
+					this._roster_url = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> created_date
+		{
+			get
+			{
+				return this._created_date;
+			}
+			set
+			{
+				if ((this._created_date != value))
+				{
+					this._created_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_by", DbType="Int")]
+		public System.Nullable<int> created_by
+		{
+			get
+			{
+				return this._created_by;
+			}
+			set
+			{
+				if ((this._created_by != value))
+				{
+					this._created_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> modified_date
+		{
+			get
+			{
+				return this._modified_date;
+			}
+			set
+			{
+				if ((this._modified_date != value))
+				{
+					this._modified_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_by", DbType="Int")]
+		public System.Nullable<int> modified_by
+		{
+			get
+			{
+				return this._modified_by;
+			}
+			set
+			{
+				if ((this._modified_by != value))
+				{
+					this._modified_by = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_ARS_CropGermplasmCommitteeApplicationStatuses_SelectResult
+	{
+		
+		private int _status_id;
+		
+		private string _description;
+		
+		public usp_ARS_CropGermplasmCommitteeApplicationStatuses_SelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status_id", DbType="Int NOT NULL")]
+		public int status_id
+		{
+			get
+			{
+				return this._status_id;
+			}
+			set
+			{
+				if ((this._status_id != value))
+				{
+					this._status_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string description
+		{
+			get
+			{
+				return this._description;
+			}
+			set
+			{
+				if ((this._description != value))
+				{
+					this._description = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_ARS_CropGermplasmCommittees_SelectResult
+	{
+		
+		private int _crop_germplasm_committee_id;
+		
+		private string _crop_germplasm_committee_name;
+		
+		private string _roster_url;
+		
+		private System.Nullable<System.DateTime> _created_date;
+		
+		private System.Nullable<int> _created_by;
+		
+		private System.Nullable<System.DateTime> _modified_date;
+		
+		private System.Nullable<int> _modified_by;
+		
+		public usp_ARS_CropGermplasmCommittees_SelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_id", DbType="Int NOT NULL")]
+		public int crop_germplasm_committee_id
+		{
+			get
+			{
+				return this._crop_germplasm_committee_id;
+			}
+			set
+			{
+				if ((this._crop_germplasm_committee_id != value))
+				{
+					this._crop_germplasm_committee_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_name", DbType="NVarChar(80) NOT NULL", CanBeNull=false)]
+		public string crop_germplasm_committee_name
+		{
+			get
+			{
+				return this._crop_germplasm_committee_name;
+			}
+			set
+			{
+				if ((this._crop_germplasm_committee_name != value))
+				{
+					this._crop_germplasm_committee_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_roster_url", DbType="VarChar(120)")]
+		public string roster_url
+		{
+			get
+			{
+				return this._roster_url;
+			}
+			set
+			{
+				if ((this._roster_url != value))
+				{
+					this._roster_url = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> created_date
+		{
+			get
+			{
+				return this._created_date;
+			}
+			set
+			{
+				if ((this._created_date != value))
+				{
+					this._created_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_by", DbType="Int")]
+		public System.Nullable<int> created_by
+		{
+			get
+			{
+				return this._created_by;
+			}
+			set
+			{
+				if ((this._created_by != value))
+				{
+					this._created_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> modified_date
+		{
+			get
+			{
+				return this._modified_date;
+			}
+			set
+			{
+				if ((this._modified_date != value))
+				{
+					this._modified_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_by", DbType="Int")]
+		public System.Nullable<int> modified_by
+		{
+			get
+			{
+				return this._modified_by;
+			}
+			set
+			{
+				if ((this._modified_by != value))
+				{
+					this._modified_by = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_ARS_PVPExpiring6Months_SelectResult1
+	{
+		
+		private int _pvp_application_number;
+		
+		private string _cultivar_name;
+		
+		private string _experimental_name;
+		
+		private System.Nullable<int> _pvp_common_name_id;
+		
+		private string _common_name;
+		
+		private string _scientific_name;
+		
+		private System.Nullable<int> _pvp_applicant_id;
+		
+		private string _applicant_name;
+		
+		private System.Nullable<System.DateTime> _application_date;
+		
+		private System.Nullable<bool> _is_certified_seed;
+		
+		private int _pvp_application_status_id;
+		
+		private string _application_status;
+		
+		private System.Nullable<System.DateTime> _status_date;
+		
+		private System.Nullable<System.DateTime> _certificate_issued_date;
+		
+		private System.Nullable<int> _years_protected;
+		
+		private System.Nullable<int> _accession_id;
+		
+		private string _expiration_date;
+		
+		public usp_ARS_PVPExpiring6Months_SelectResult1()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_number", DbType="Int NOT NULL")]
+		public int pvp_application_number
+		{
+			get
+			{
+				return this._pvp_application_number;
+			}
+			set
+			{
+				if ((this._pvp_application_number != value))
+				{
+					this._pvp_application_number = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cultivar_name", DbType="NVarChar(150)")]
+		public string cultivar_name
+		{
+			get
+			{
+				return this._cultivar_name;
+			}
+			set
+			{
+				if ((this._cultivar_name != value))
+				{
+					this._cultivar_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_experimental_name", DbType="NVarChar(150)")]
+		public string experimental_name
+		{
+			get
+			{
+				return this._experimental_name;
+			}
+			set
+			{
+				if ((this._experimental_name != value))
+				{
+					this._experimental_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_common_name_id", DbType="Int")]
+		public System.Nullable<int> pvp_common_name_id
+		{
+			get
+			{
+				return this._pvp_common_name_id;
+			}
+			set
+			{
+				if ((this._pvp_common_name_id != value))
+				{
+					this._pvp_common_name_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_common_name", DbType="NVarChar(150)")]
+		public string common_name
+		{
+			get
+			{
+				return this._common_name;
+			}
+			set
+			{
+				if ((this._common_name != value))
+				{
+					this._common_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_scientific_name", DbType="NVarChar(150)")]
+		public string scientific_name
+		{
+			get
+			{
+				return this._scientific_name;
+			}
+			set
+			{
+				if ((this._scientific_name != value))
+				{
+					this._scientific_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_applicant_id", DbType="Int")]
+		public System.Nullable<int> pvp_applicant_id
+		{
+			get
+			{
+				return this._pvp_applicant_id;
+			}
+			set
+			{
+				if ((this._pvp_applicant_id != value))
+				{
+					this._pvp_applicant_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_applicant_name", DbType="NVarChar(4000) NOT NULL", CanBeNull=false)]
+		public string applicant_name
+		{
+			get
+			{
+				return this._applicant_name;
+			}
+			set
+			{
+				if ((this._applicant_name != value))
+				{
+					this._applicant_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> application_date
+		{
+			get
+			{
+				return this._application_date;
+			}
+			set
+			{
+				if ((this._application_date != value))
+				{
+					this._application_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_certified_seed", DbType="Bit")]
+		public System.Nullable<bool> is_certified_seed
+		{
+			get
+			{
+				return this._is_certified_seed;
+			}
+			set
+			{
+				if ((this._is_certified_seed != value))
+				{
+					this._is_certified_seed = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_status_id", DbType="Int NOT NULL")]
+		public int pvp_application_status_id
+		{
+			get
+			{
+				return this._pvp_application_status_id;
+			}
+			set
+			{
+				if ((this._pvp_application_status_id != value))
+				{
+					this._pvp_application_status_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_status", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string application_status
+		{
+			get
+			{
+				return this._application_status;
+			}
+			set
+			{
+				if ((this._application_status != value))
+				{
+					this._application_status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> status_date
+		{
+			get
+			{
+				return this._status_date;
+			}
+			set
+			{
+				if ((this._status_date != value))
+				{
+					this._status_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_certificate_issued_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> certificate_issued_date
+		{
+			get
+			{
+				return this._certificate_issued_date;
+			}
+			set
+			{
+				if ((this._certificate_issued_date != value))
+				{
+					this._certificate_issued_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_years_protected", DbType="Int")]
+		public System.Nullable<int> years_protected
+		{
+			get
+			{
+				return this._years_protected;
+			}
+			set
+			{
+				if ((this._years_protected != value))
+				{
+					this._years_protected = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accession_id", DbType="Int")]
+		public System.Nullable<int> accession_id
+		{
+			get
+			{
+				return this._accession_id;
+			}
+			set
+			{
+				if ((this._accession_id != value))
+				{
+					this._accession_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_expiration_date", DbType="NVarChar(12)")]
+		public string expiration_date
+		{
+			get
+			{
+				return this._expiration_date;
+			}
+			set
+			{
+				if ((this._expiration_date != value))
+				{
+					this._expiration_date = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_ARS_PVPRecentApplications_SelectResult1
+	{
+		
+		private int _pvp_application_number;
+		
+		private string _cultivar_name;
+		
+		private string _experimental_name;
+		
+		private System.Nullable<int> _pvp_common_name_id;
+		
+		private string _common_name;
+		
+		private string _scientific_name;
+		
+		private System.Nullable<int> _pvp_applicant_id;
+		
+		private string _applicant_name;
+		
+		private System.Nullable<System.DateTime> _application_date;
+		
+		private System.Nullable<bool> _is_certified_seed;
+		
+		private int _pvp_application_status_id;
+		
+		private string _application_status;
+		
+		private System.Nullable<System.DateTime> _status_date;
+		
+		private System.Nullable<System.DateTime> _certificate_issued_date;
+		
+		private System.Nullable<int> _years_protected;
+		
+		private System.Nullable<int> _accession_id;
+		
+		private string _expiration_date;
+		
+		public usp_ARS_PVPRecentApplications_SelectResult1()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_number", DbType="Int NOT NULL")]
+		public int pvp_application_number
+		{
+			get
+			{
+				return this._pvp_application_number;
+			}
+			set
+			{
+				if ((this._pvp_application_number != value))
+				{
+					this._pvp_application_number = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cultivar_name", DbType="NVarChar(150)")]
+		public string cultivar_name
+		{
+			get
+			{
+				return this._cultivar_name;
+			}
+			set
+			{
+				if ((this._cultivar_name != value))
+				{
+					this._cultivar_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_experimental_name", DbType="NVarChar(150)")]
+		public string experimental_name
+		{
+			get
+			{
+				return this._experimental_name;
+			}
+			set
+			{
+				if ((this._experimental_name != value))
+				{
+					this._experimental_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_common_name_id", DbType="Int")]
+		public System.Nullable<int> pvp_common_name_id
+		{
+			get
+			{
+				return this._pvp_common_name_id;
+			}
+			set
+			{
+				if ((this._pvp_common_name_id != value))
+				{
+					this._pvp_common_name_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_common_name", DbType="NVarChar(150)")]
+		public string common_name
+		{
+			get
+			{
+				return this._common_name;
+			}
+			set
+			{
+				if ((this._common_name != value))
+				{
+					this._common_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_scientific_name", DbType="NVarChar(150)")]
+		public string scientific_name
+		{
+			get
+			{
+				return this._scientific_name;
+			}
+			set
+			{
+				if ((this._scientific_name != value))
+				{
+					this._scientific_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_applicant_id", DbType="Int")]
+		public System.Nullable<int> pvp_applicant_id
+		{
+			get
+			{
+				return this._pvp_applicant_id;
+			}
+			set
+			{
+				if ((this._pvp_applicant_id != value))
+				{
+					this._pvp_applicant_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_applicant_name", DbType="NVarChar(4000) NOT NULL", CanBeNull=false)]
+		public string applicant_name
+		{
+			get
+			{
+				return this._applicant_name;
+			}
+			set
+			{
+				if ((this._applicant_name != value))
+				{
+					this._applicant_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> application_date
+		{
+			get
+			{
+				return this._application_date;
+			}
+			set
+			{
+				if ((this._application_date != value))
+				{
+					this._application_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_certified_seed", DbType="Bit")]
+		public System.Nullable<bool> is_certified_seed
+		{
+			get
+			{
+				return this._is_certified_seed;
+			}
+			set
+			{
+				if ((this._is_certified_seed != value))
+				{
+					this._is_certified_seed = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_status_id", DbType="Int NOT NULL")]
+		public int pvp_application_status_id
+		{
+			get
+			{
+				return this._pvp_application_status_id;
+			}
+			set
+			{
+				if ((this._pvp_application_status_id != value))
+				{
+					this._pvp_application_status_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_status", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string application_status
+		{
+			get
+			{
+				return this._application_status;
+			}
+			set
+			{
+				if ((this._application_status != value))
+				{
+					this._application_status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> status_date
+		{
+			get
+			{
+				return this._status_date;
+			}
+			set
+			{
+				if ((this._status_date != value))
+				{
+					this._status_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_certificate_issued_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> certificate_issued_date
+		{
+			get
+			{
+				return this._certificate_issued_date;
+			}
+			set
+			{
+				if ((this._certificate_issued_date != value))
+				{
+					this._certificate_issued_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_years_protected", DbType="Int")]
+		public System.Nullable<int> years_protected
+		{
+			get
+			{
+				return this._years_protected;
+			}
+			set
+			{
+				if ((this._years_protected != value))
+				{
+					this._years_protected = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accession_id", DbType="Int")]
+		public System.Nullable<int> accession_id
+		{
+			get
+			{
+				return this._accession_id;
+			}
+			set
+			{
+				if ((this._accession_id != value))
+				{
+					this._accession_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_expiration_date", DbType="NVarChar(12)")]
+		public string expiration_date
+		{
+			get
+			{
+				return this._expiration_date;
+			}
+			set
+			{
+				if ((this._expiration_date != value))
+				{
+					this._expiration_date = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_ARS_PVPRecentlyAvailable_SelectResult1
+	{
+		
+		private int _pvp_application_number;
+		
+		private string _cultivar_name;
+		
+		private string _experimental_name;
+		
+		private System.Nullable<int> _pvp_common_name_id;
+		
+		private string _common_name;
+		
+		private string _scientific_name;
+		
+		private System.Nullable<int> _pvp_applicant_id;
+		
+		private string _applicant_name;
+		
+		private System.Nullable<System.DateTime> _application_date;
+		
+		private System.Nullable<bool> _is_certified_seed;
+		
+		private int _pvp_application_status_id;
+		
+		private string _application_status;
+		
+		private System.Nullable<System.DateTime> _status_date;
+		
+		private System.Nullable<System.DateTime> _certificate_issued_date;
+		
+		private System.Nullable<int> _years_protected;
+		
+		private System.Nullable<int> _accession_id;
+		
+		private string _expiration_date;
+		
+		public usp_ARS_PVPRecentlyAvailable_SelectResult1()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_number", DbType="Int NOT NULL")]
+		public int pvp_application_number
+		{
+			get
+			{
+				return this._pvp_application_number;
+			}
+			set
+			{
+				if ((this._pvp_application_number != value))
+				{
+					this._pvp_application_number = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cultivar_name", DbType="NVarChar(150)")]
+		public string cultivar_name
+		{
+			get
+			{
+				return this._cultivar_name;
+			}
+			set
+			{
+				if ((this._cultivar_name != value))
+				{
+					this._cultivar_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_experimental_name", DbType="NVarChar(150)")]
+		public string experimental_name
+		{
+			get
+			{
+				return this._experimental_name;
+			}
+			set
+			{
+				if ((this._experimental_name != value))
+				{
+					this._experimental_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_common_name_id", DbType="Int")]
+		public System.Nullable<int> pvp_common_name_id
+		{
+			get
+			{
+				return this._pvp_common_name_id;
+			}
+			set
+			{
+				if ((this._pvp_common_name_id != value))
+				{
+					this._pvp_common_name_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_common_name", DbType="NVarChar(150)")]
+		public string common_name
+		{
+			get
+			{
+				return this._common_name;
+			}
+			set
+			{
+				if ((this._common_name != value))
+				{
+					this._common_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_scientific_name", DbType="NVarChar(150)")]
+		public string scientific_name
+		{
+			get
+			{
+				return this._scientific_name;
+			}
+			set
+			{
+				if ((this._scientific_name != value))
+				{
+					this._scientific_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_applicant_id", DbType="Int")]
+		public System.Nullable<int> pvp_applicant_id
+		{
+			get
+			{
+				return this._pvp_applicant_id;
+			}
+			set
+			{
+				if ((this._pvp_applicant_id != value))
+				{
+					this._pvp_applicant_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_applicant_name", DbType="NVarChar(4000) NOT NULL", CanBeNull=false)]
+		public string applicant_name
+		{
+			get
+			{
+				return this._applicant_name;
+			}
+			set
+			{
+				if ((this._applicant_name != value))
+				{
+					this._applicant_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> application_date
+		{
+			get
+			{
+				return this._application_date;
+			}
+			set
+			{
+				if ((this._application_date != value))
+				{
+					this._application_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_certified_seed", DbType="Bit")]
+		public System.Nullable<bool> is_certified_seed
+		{
+			get
+			{
+				return this._is_certified_seed;
+			}
+			set
+			{
+				if ((this._is_certified_seed != value))
+				{
+					this._is_certified_seed = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pvp_application_status_id", DbType="Int NOT NULL")]
+		public int pvp_application_status_id
+		{
+			get
+			{
+				return this._pvp_application_status_id;
+			}
+			set
+			{
+				if ((this._pvp_application_status_id != value))
+				{
+					this._pvp_application_status_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_application_status", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string application_status
+		{
+			get
+			{
+				return this._application_status;
+			}
+			set
+			{
+				if ((this._application_status != value))
+				{
+					this._application_status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> status_date
+		{
+			get
+			{
+				return this._status_date;
+			}
+			set
+			{
+				if ((this._status_date != value))
+				{
+					this._status_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_certificate_issued_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> certificate_issued_date
+		{
+			get
+			{
+				return this._certificate_issued_date;
+			}
+			set
+			{
+				if ((this._certificate_issued_date != value))
+				{
+					this._certificate_issued_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_years_protected", DbType="Int")]
+		public System.Nullable<int> years_protected
+		{
+			get
+			{
+				return this._years_protected;
+			}
+			set
+			{
+				if ((this._years_protected != value))
+				{
+					this._years_protected = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accession_id", DbType="Int")]
+		public System.Nullable<int> accession_id
+		{
+			get
+			{
+				return this._accession_id;
+			}
+			set
+			{
+				if ((this._accession_id != value))
+				{
+					this._accession_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_expiration_date", DbType="NVarChar(12)")]
+		public string expiration_date
+		{
+			get
+			{
+				return this._expiration_date;
+			}
+			set
+			{
+				if ((this._expiration_date != value))
+				{
+					this._expiration_date = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_ARS_CropGermplasmCommitteeCropDescriptors_SelectResult
+	{
+		
+		private int _crop_germplasm_committee_id;
+		
+		private int _crop_id;
+		
+		private string _name;
+		
+		public usp_ARS_CropGermplasmCommitteeCropDescriptors_SelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_id", DbType="Int NOT NULL")]
+		public int crop_germplasm_committee_id
+		{
+			get
+			{
+				return this._crop_germplasm_committee_id;
+			}
+			set
+			{
+				if ((this._crop_germplasm_committee_id != value))
+				{
+					this._crop_germplasm_committee_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_id", DbType="Int NOT NULL")]
+		public int crop_id
+		{
+			get
+			{
+				return this._crop_id;
+			}
+			set
+			{
+				if ((this._crop_id != value))
+				{
+					this._crop_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_ARS_CropGermplasmCommitteeDocument_SelectResult
+	{
+		
+		private string _crop_germplasm_committee_name;
+		
+		private int _crop_germplasm_committee_document_id;
+		
+		private System.Nullable<int> _crop_germplasm_committee_id;
+		
+		private string _title;
+		
+		private string _category_code;
+		
+		private string _url;
+		
+		private System.Nullable<System.DateTime> _created_date;
+		
+		private System.Nullable<int> _created_by;
+		
+		private System.Nullable<System.DateTime> _modified_date;
+		
+		private System.Nullable<int> _modified_by;
+		
+		public usp_ARS_CropGermplasmCommitteeDocument_SelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_name", DbType="NVarChar(80)")]
+		public string crop_germplasm_committee_name
+		{
+			get
+			{
+				return this._crop_germplasm_committee_name;
+			}
+			set
+			{
+				if ((this._crop_germplasm_committee_name != value))
+				{
+					this._crop_germplasm_committee_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_document_id", DbType="Int NOT NULL")]
+		public int crop_germplasm_committee_document_id
+		{
+			get
+			{
+				return this._crop_germplasm_committee_document_id;
+			}
+			set
+			{
+				if ((this._crop_germplasm_committee_document_id != value))
+				{
+					this._crop_germplasm_committee_document_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_id", DbType="Int")]
+		public System.Nullable<int> crop_germplasm_committee_id
+		{
+			get
+			{
+				return this._crop_germplasm_committee_id;
+			}
+			set
+			{
+				if ((this._crop_germplasm_committee_id != value))
+				{
+					this._crop_germplasm_committee_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="VarChar(250)")]
+		public string title
+		{
+			get
+			{
+				return this._title;
+			}
+			set
+			{
+				if ((this._title != value))
+				{
+					this._title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_category_code", DbType="NVarChar(4)")]
+		public string category_code
+		{
+			get
+			{
+				return this._category_code;
+			}
+			set
+			{
+				if ((this._category_code != value))
+				{
+					this._category_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_url", DbType="NVarChar(120) NOT NULL", CanBeNull=false)]
+		public string url
+		{
+			get
+			{
+				return this._url;
+			}
+			set
+			{
+				if ((this._url != value))
+				{
+					this._url = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> created_date
+		{
+			get
+			{
+				return this._created_date;
+			}
+			set
+			{
+				if ((this._created_date != value))
+				{
+					this._created_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_by", DbType="Int")]
+		public System.Nullable<int> created_by
+		{
+			get
+			{
+				return this._created_by;
+			}
+			set
+			{
+				if ((this._created_by != value))
+				{
+					this._created_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> modified_date
+		{
+			get
+			{
+				return this._modified_date;
+			}
+			set
+			{
+				if ((this._modified_date != value))
+				{
+					this._modified_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_by", DbType="Int")]
+		public System.Nullable<int> modified_by
+		{
+			get
+			{
+				return this._modified_by;
+			}
+			set
+			{
+				if ((this._modified_by != value))
+				{
+					this._modified_by = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_ARS_CropGermplasmCommitteeDocuments_SelectResult
+	{
+		
+		private string _crop_germplasm_committee_name;
+		
+		private int _crop_germplasm_committee_document_id;
+		
+		private System.Nullable<int> _crop_germplasm_committee_id;
+		
+		private string _title;
+		
+		private string _category_code;
+		
+		private System.Nullable<int> _document_year;
+		
+		private string _category;
+		
+		private string _url;
+		
+		private System.Nullable<System.DateTime> _created_date;
+		
+		private System.Nullable<int> _created_by;
+		
+		private System.Nullable<System.DateTime> _modified_date;
+		
+		private System.Nullable<int> _modified_by;
+		
+		public usp_ARS_CropGermplasmCommitteeDocuments_SelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_name", DbType="NVarChar(80) NOT NULL", CanBeNull=false)]
+		public string crop_germplasm_committee_name
+		{
+			get
+			{
+				return this._crop_germplasm_committee_name;
+			}
+			set
+			{
+				if ((this._crop_germplasm_committee_name != value))
+				{
+					this._crop_germplasm_committee_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_document_id", DbType="Int NOT NULL")]
+		public int crop_germplasm_committee_document_id
+		{
+			get
+			{
+				return this._crop_germplasm_committee_document_id;
+			}
+			set
+			{
+				if ((this._crop_germplasm_committee_document_id != value))
+				{
+					this._crop_germplasm_committee_document_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_id", DbType="Int")]
+		public System.Nullable<int> crop_germplasm_committee_id
+		{
+			get
+			{
+				return this._crop_germplasm_committee_id;
+			}
+			set
+			{
+				if ((this._crop_germplasm_committee_id != value))
+				{
+					this._crop_germplasm_committee_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="VarChar(250)")]
+		public string title
+		{
+			get
+			{
+				return this._title;
+			}
+			set
+			{
+				if ((this._title != value))
+				{
+					this._title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_category_code", DbType="NVarChar(4)")]
+		public string category_code
+		{
+			get
+			{
+				return this._category_code;
+			}
+			set
+			{
+				if ((this._category_code != value))
+				{
+					this._category_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_document_year", DbType="Int")]
+		public System.Nullable<int> document_year
+		{
+			get
+			{
+				return this._document_year;
+			}
+			set
+			{
+				if ((this._document_year != value))
+				{
+					this._document_year = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_category", DbType="NVarChar(500)")]
+		public string category
+		{
+			get
+			{
+				return this._category;
+			}
+			set
+			{
+				if ((this._category != value))
+				{
+					this._category = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_url", DbType="NVarChar(120) NOT NULL", CanBeNull=false)]
+		public string url
+		{
+			get
+			{
+				return this._url;
+			}
+			set
+			{
+				if ((this._url != value))
+				{
+					this._url = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> created_date
+		{
+			get
+			{
+				return this._created_date;
+			}
+			set
+			{
+				if ((this._created_date != value))
+				{
+					this._created_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_by", DbType="Int")]
+		public System.Nullable<int> created_by
+		{
+			get
+			{
+				return this._created_by;
+			}
+			set
+			{
+				if ((this._created_by != value))
+				{
+					this._created_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> modified_date
+		{
+			get
+			{
+				return this._modified_date;
+			}
+			set
+			{
+				if ((this._modified_date != value))
+				{
+					this._modified_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_by", DbType="Int")]
+		public System.Nullable<int> modified_by
+		{
+			get
+			{
+				return this._modified_by;
+			}
+			set
+			{
+				if ((this._modified_by != value))
+				{
+					this._modified_by = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_ARS_CropGermplasmCommitteeDocuments_SelectAllResult
+	{
+		
+		private string _crop_germplasm_committee_name;
+		
+		private int _crop_germplasm_committee_document_id;
+		
+		private System.Nullable<int> _crop_germplasm_committee_id;
+		
+		private string _title;
+		
+		private string _category_code;
+		
+		private System.Nullable<int> _document_year;
+		
+		private string _category;
+		
+		private string _url;
+		
+		private System.Nullable<System.DateTime> _created_date;
+		
+		private System.Nullable<int> _created_by;
+		
+		private System.Nullable<System.DateTime> _modified_date;
+		
+		private System.Nullable<int> _modified_by;
+		
+		public usp_ARS_CropGermplasmCommitteeDocuments_SelectAllResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_name", DbType="NVarChar(80) NOT NULL", CanBeNull=false)]
+		public string crop_germplasm_committee_name
+		{
+			get
+			{
+				return this._crop_germplasm_committee_name;
+			}
+			set
+			{
+				if ((this._crop_germplasm_committee_name != value))
+				{
+					this._crop_germplasm_committee_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_document_id", DbType="Int NOT NULL")]
+		public int crop_germplasm_committee_document_id
+		{
+			get
+			{
+				return this._crop_germplasm_committee_document_id;
+			}
+			set
+			{
+				if ((this._crop_germplasm_committee_document_id != value))
+				{
+					this._crop_germplasm_committee_document_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_id", DbType="Int")]
+		public System.Nullable<int> crop_germplasm_committee_id
+		{
+			get
+			{
+				return this._crop_germplasm_committee_id;
+			}
+			set
+			{
+				if ((this._crop_germplasm_committee_id != value))
+				{
+					this._crop_germplasm_committee_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="VarChar(250)")]
+		public string title
+		{
+			get
+			{
+				return this._title;
+			}
+			set
+			{
+				if ((this._title != value))
+				{
+					this._title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_category_code", DbType="NVarChar(4)")]
+		public string category_code
+		{
+			get
+			{
+				return this._category_code;
+			}
+			set
+			{
+				if ((this._category_code != value))
+				{
+					this._category_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_document_year", DbType="Int")]
+		public System.Nullable<int> document_year
+		{
+			get
+			{
+				return this._document_year;
+			}
+			set
+			{
+				if ((this._document_year != value))
+				{
+					this._document_year = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_category", DbType="NVarChar(500)")]
+		public string category
+		{
+			get
+			{
+				return this._category;
+			}
+			set
+			{
+				if ((this._category != value))
+				{
+					this._category = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_url", DbType="NVarChar(120) NOT NULL", CanBeNull=false)]
+		public string url
+		{
+			get
+			{
+				return this._url;
+			}
+			set
+			{
+				if ((this._url != value))
+				{
+					this._url = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> created_date
+		{
+			get
+			{
+				return this._created_date;
+			}
+			set
+			{
+				if ((this._created_date != value))
+				{
+					this._created_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_by", DbType="Int")]
+		public System.Nullable<int> created_by
+		{
+			get
+			{
+				return this._created_by;
+			}
+			set
+			{
+				if ((this._created_by != value))
+				{
+					this._created_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> modified_date
+		{
+			get
+			{
+				return this._modified_date;
+			}
+			set
+			{
+				if ((this._modified_date != value))
+				{
+					this._modified_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_by", DbType="Int")]
+		public System.Nullable<int> modified_by
+		{
+			get
+			{
+				return this._modified_by;
+			}
+			set
+			{
+				if ((this._modified_by != value))
+				{
+					this._modified_by = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_ARS_CropGermplasmCommitteeDocumentsRecent_SelectResult
+	{
+		
+		private string _crop_germplasm_committee_name;
+		
+		private int _crop_germplasm_committee_document_id;
+		
+		private System.Nullable<int> _crop_germplasm_committee_id;
+		
+		private string _title;
+		
+		private string _category_code;
+		
+		private System.Nullable<int> _document_year;
+		
+		private string _category;
+		
+		private string _url;
+		
+		private System.Nullable<System.DateTime> _created_date;
+		
+		private System.Nullable<int> _created_by;
+		
+		private System.Nullable<System.DateTime> _modified_date;
+		
+		private System.Nullable<int> _modified_by;
+		
+		public usp_ARS_CropGermplasmCommitteeDocumentsRecent_SelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_name", DbType="NVarChar(80) NOT NULL", CanBeNull=false)]
+		public string crop_germplasm_committee_name
+		{
+			get
+			{
+				return this._crop_germplasm_committee_name;
+			}
+			set
+			{
+				if ((this._crop_germplasm_committee_name != value))
+				{
+					this._crop_germplasm_committee_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_document_id", DbType="Int NOT NULL")]
+		public int crop_germplasm_committee_document_id
+		{
+			get
+			{
+				return this._crop_germplasm_committee_document_id;
+			}
+			set
+			{
+				if ((this._crop_germplasm_committee_document_id != value))
+				{
+					this._crop_germplasm_committee_document_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_crop_germplasm_committee_id", DbType="Int")]
+		public System.Nullable<int> crop_germplasm_committee_id
+		{
+			get
+			{
+				return this._crop_germplasm_committee_id;
+			}
+			set
+			{
+				if ((this._crop_germplasm_committee_id != value))
+				{
+					this._crop_germplasm_committee_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="VarChar(250)")]
+		public string title
+		{
+			get
+			{
+				return this._title;
+			}
+			set
+			{
+				if ((this._title != value))
+				{
+					this._title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_category_code", DbType="NVarChar(4)")]
+		public string category_code
+		{
+			get
+			{
+				return this._category_code;
+			}
+			set
+			{
+				if ((this._category_code != value))
+				{
+					this._category_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_document_year", DbType="Int")]
+		public System.Nullable<int> document_year
+		{
+			get
+			{
+				return this._document_year;
+			}
+			set
+			{
+				if ((this._document_year != value))
+				{
+					this._document_year = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_category", DbType="NVarChar(500)")]
+		public string category
+		{
+			get
+			{
+				return this._category;
+			}
+			set
+			{
+				if ((this._category != value))
+				{
+					this._category = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_url", DbType="NVarChar(120) NOT NULL", CanBeNull=false)]
+		public string url
+		{
+			get
+			{
+				return this._url;
+			}
+			set
+			{
+				if ((this._url != value))
+				{
+					this._url = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> created_date
+		{
+			get
+			{
+				return this._created_date;
+			}
+			set
+			{
+				if ((this._created_date != value))
+				{
+					this._created_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_by", DbType="Int")]
+		public System.Nullable<int> created_by
+		{
+			get
+			{
+				return this._created_by;
+			}
+			set
+			{
+				if ((this._created_by != value))
+				{
+					this._created_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_date", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> modified_date
+		{
+			get
+			{
+				return this._modified_date;
+			}
+			set
+			{
+				if ((this._modified_date != value))
+				{
+					this._modified_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modified_by", DbType="Int")]
+		public System.Nullable<int> modified_by
+		{
+			get
+			{
+				return this._modified_by;
+			}
+			set
+			{
+				if ((this._modified_by != value))
+				{
+					this._modified_by = value;
 				}
 			}
 		}

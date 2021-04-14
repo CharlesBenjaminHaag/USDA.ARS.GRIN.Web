@@ -41,7 +41,8 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
         
         public ActionResult Login()
         {
-            return View("~/Views/Admin/Login.cshtml");
+            LoginViewModel loginViewModel = new LoginViewModel();
+            return View("~/Views/Admin/Login.cshtml", loginViewModel);
         }
 
         [HttpPost]
@@ -68,7 +69,7 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
                 log.Error(aex.Message);
                 viewModel.Status = resultContainer.ResultCode;
                 viewModel.ErrorMessage = resultContainer.ResultDescription;
-                return View("~/Views/User/Login.cshtml", viewModel);
+                return View("~/Views/Admin/Login.cshtml", viewModel);
             }
             catch (Exception ex)
             {
@@ -106,22 +107,35 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
         [HttpPost]
         public ActionResult CGCDocumentEdit(DocumentEditViewModel viewModel)
         {
-            string uploadDir = "~/npgs/cgc_reports";
+            string uploadDir = "~/documents/cgc/";
             string path = String.Empty;
             CropGermplasmCommitteeDocument document = new CropGermplasmCommitteeDocument();
             ResultContainer resultContainer = new ResultContainer();
 
             try
             {
-                
                 document.ID = viewModel.ID;
                 document.Title = viewModel.Title;
                 document.URL = viewModel.URL;
+                document.Category = viewModel.CategoryCode;
                 document.Committee.ID = viewModel.CommitteeID;
                 
                 if (viewModel.DocumentUpload != null && viewModel.DocumentUpload.ContentLength > 0)
                 {
-                    path = Path.Combine(Server.MapPath("~/npgs/cgc_reports"), Path.GetFileName(viewModel.DocumentUpload.FileName));
+                    if (document.Category == "CVS")
+                    {
+                        uploadDir = uploadDir + "cvs";
+                    }
+                    else
+                    {
+                        if (document.Category == "MIN")
+                        {
+                            uploadDir = uploadDir + "committee";
+                        }
+                    }
+
+                    //NEEDED?
+                    //path = Path.Combine(Server.MapPath(uploadDir), Path.GetFileName(viewModel.DocumentUpload.FileName));
 
                     var documentPath = Path.Combine(Server.MapPath(uploadDir), viewModel.DocumentUpload.FileName);
                     var documentUrl = Path.Combine(uploadDir, viewModel.DocumentUpload.FileName);
