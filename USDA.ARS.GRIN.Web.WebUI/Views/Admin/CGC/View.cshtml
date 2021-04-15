@@ -42,21 +42,22 @@
             @Html.Partial("~/Views/Shared/_LeftNavAdmin.cshtml")
         </aside>
         <div id="block-usda-content" class="usda-block block-usda-content">
-            <h2>Confirmation</h2>
-
-           
+            <h2>Document Uploaded Successfully</h2>
                 <div class="section-paragraph">
-                    
                         <div class="usa-width-one-whole">
                             <label>Title</label>
                             @Model.Title
-
+                            <label>Category</label>
+                            @Model.CategoryCode
+                            <label>Year</label>
+                            @Model.Year
                             <label>Committee</label>
                             @Model.CommitteeName
-
-                            <label>Document</label>
+                            <label>Document URL</label>
                             <a href="@Model.URL">@Model.URL</a>
-
+                            <label>Created</label>
+                            
+                            <label>Last Modified</label>
                             <div style="margin-top:20px;">
                                 <button id="btnUpload" class="btn-default">Upload Another Document</button>
                             </div>

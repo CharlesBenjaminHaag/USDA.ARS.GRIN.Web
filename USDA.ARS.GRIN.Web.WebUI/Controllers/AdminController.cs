@@ -118,6 +118,7 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
                 document.Title = viewModel.Title;
                 document.URL = viewModel.URL;
                 document.Category = viewModel.CategoryCode;
+                document.Year = viewModel.Year;
                 document.Committee.ID = viewModel.CommitteeID;
                 
                 if (viewModel.DocumentUpload != null && viewModel.DocumentUpload.ContentLength > 0)
@@ -181,6 +182,8 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
                 viewModel.ID = document.ID;
                 viewModel.Title = document.Title;
                 viewModel.URL = document.URL;
+                viewModel.CategoryCode = document.Category;
+                viewModel.Year = document.Year;
                 viewModel.CommitteeID = document.Committee.ID;
                 viewModel.CommitteeName = document.Committee.Name;
             }

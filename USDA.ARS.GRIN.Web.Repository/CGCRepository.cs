@@ -64,7 +64,7 @@ namespace USDA.ARS.GRIN.Web.Repository
                 var result = _dataContext.usp_ARS_CropGermplasmCommitteeDocument_Select(id).FirstOrDefault();
                 if (result != null)
                 {
-                    cropGermplasmCommitteeDocument = new CropGermplasmCommitteeDocument { ID = result.crop_germplasm_committee_document_id, Title = result.title, URL = result.url };
+                    cropGermplasmCommitteeDocument = new CropGermplasmCommitteeDocument { ID = result.crop_germplasm_committee_document_id, Title = result.title, Category = result.category_code, URL = result.url };
                     cropGermplasmCommitteeDocument.Committee.ID = result.crop_germplasm_committee_id.GetValueOrDefault();
                     cropGermplasmCommitteeDocument.Committee.Name = result.crop_germplasm_committee_name;
                 }
