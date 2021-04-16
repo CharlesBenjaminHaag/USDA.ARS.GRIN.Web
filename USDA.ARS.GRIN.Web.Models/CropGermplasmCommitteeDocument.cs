@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace USDA.ARS.GRIN.Web.Models
 {
-    public class CropGermplasmCommitteeDocument
+    public class CropGermplasmCommitteeDocument: BaseModel
     {
         public int ID { get; set; }
 

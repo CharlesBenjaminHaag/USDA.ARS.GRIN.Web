@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Security.Authentication;
 using System.Runtime.CompilerServices;
+using NLog;
 using USDA.ARS.GRIN.Web;
 using USDA.ARS.GRIN.Web.Models;
 using USDA.ARS.GRIN.Web.WebUI;
@@ -19,6 +20,7 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
 {
     public class AdminController : BaseController 
     {
+        private static readonly Logger Log = LogManager.GetCurrentClassLogger();
         Repository.CGCRepository _cgcRepository = new Repository.CGCRepository();
         SecurityService _securityService = new SecurityService();
 
@@ -33,8 +35,14 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
             }
             catch (Exception ex)
             {
-                log.Error(ex.Message + ex.StackTrace);
-                return View("~/Views/Shared/Error.cshtml");
+                Log.Error(ex, ex.Message);
+                string actionName = this.ControllerContext.RouteData.Values["action"].ToString();
+                string controllerName = this.ControllerContext.RouteData.Values["controller"].ToString();
+                string errorText = "<label>Controller:</label>" + controllerName;
+                errorText = errorText + "<br><label>Action:</label>" + actionName;
+                errorText = errorText + "<br><label>Details:</label>" + ex.TargetSite + ex.Message;
+                Session["ERROR_TEXT"] = errorText;
+                return RedirectToAction("InternalServerError", "Error");
             }
             return View("~/Views/Admin/Index.cshtml", viewModel);
         }
@@ -166,9 +174,51 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
             }
             catch (Exception ex)
             {
-                log.Error(ex.Message + ex.StackTrace);
-                return View("~/Views/Shared/Error.cshtml");
+                Log.Error(ex, ex.Message);
+                string actionName = this.ControllerContext.RouteData.Values["action"].ToString();
+                string controllerName = this.ControllerContext.RouteData.Values["controller"].ToString();
+                string errorText = "<label>Controller:</label>" + controllerName;
+                errorText = errorText + "<br><label>Action:</label>" + actionName;
+                errorText = errorText + "<br><label>Details:</label>" + ex.TargetSite + ex.Message;
+                Session["ERROR_TEXT"] = errorText;
+                return RedirectToAction("InternalServerError", "Error");
             }
+        }
+
+        public ActionResult CGCDocumentDelete(int id)
+        {
+            CropGermplasmCommitteeDocument cropGermplasmCommitteeDocument = null;
+            try
+            {
+                cropGermplasmCommitteeDocument = _cgcRepository.GetDocument(id);
+
+                Uri uri = new Uri(cropGermplasmCommitteeDocument.URL);
+                string filename = System.IO.Path.GetFileName(cropGermplasmCommitteeDocument.URL);
+
+                string rootPath = "~/documents/CGC";
+                string fullPath = System.IO.Path.Combine(Server.MapPath(rootPath), filename);
+
+                if (System.IO.File.Exists(uri.LocalPath))
+                {
+                    System.IO.File.Delete(uri.LocalPath);
+                }
+                else
+                {
+                    throw new IOException(String.Format("The file {0} does not exist and cannot be deleted.", filename));
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                string actionName = this.ControllerContext.RouteData.Values["action"].ToString();
+                string controllerName = this.ControllerContext.RouteData.Values["controller"].ToString();
+                string errorText = "<label>Controller:</label>" + controllerName;
+                errorText = errorText + "<br><label>Action:</label>" + actionName;
+                errorText = errorText + "<br><label>Details:</label>" + ex.TargetSite + ex.Message;
+                Session["ERROR_TEXT"] = errorText;
+                return RedirectToAction("InternalServerError", "Error");
+            }
+            return RedirectToAction("Index", "Admin");
         }
 
         public ActionResult CGCDocumentView(int id)
@@ -186,11 +236,19 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
                 viewModel.Year = document.Year;
                 viewModel.CommitteeID = document.Committee.ID;
                 viewModel.CommitteeName = document.Committee.Name;
+                viewModel.CreatedDate = document.CreatedDate;
+                viewModel.ModifiedDate = document.ModifiedDate;
             }
             catch (Exception ex)
             {
-                log.Error(ex.Message + ex.StackTrace);
-                return View("~/Views/Shared/Error.cshtml");
+                Log.Error(ex, ex.Message);
+                string actionName = this.ControllerContext.RouteData.Values["action"].ToString();
+                string controllerName = this.ControllerContext.RouteData.Values["controller"].ToString();
+                string errorText = "<label>Controller:</label>" + controllerName;
+                errorText = errorText + "<br><label>Action:</label>" + actionName;
+                errorText = errorText + "<br><label>Details:</label>" + ex.TargetSite + ex.Message;
+                Session["ERROR_TEXT"] = errorText;
+                return RedirectToAction("InternalServerError", "Error");
             }
             return View("~/Views/Admin/CGC/View.cshtml", viewModel);
         }

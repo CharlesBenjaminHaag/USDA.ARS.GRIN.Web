@@ -28,5 +28,10 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
         {
             return PartialView("~/Views/Shared/_Breadcrumbs.cshtml");
         }
+
+        public PartialViewResult _LeftNav()
+        {
+            return PartialView("~/Views/Shared/_LeftNav.cshtml");
+        }
     }
 }

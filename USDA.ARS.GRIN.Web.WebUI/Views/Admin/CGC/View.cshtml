@@ -56,8 +56,7 @@
                             <label>Document URL</label>
                             <a href="@Model.URL">@Model.URL</a>
                             <label>Created</label>
-                            
-                            <label>Last Modified</label>
+                            @Model.CreatedDate.ToShortDateString() at @Model.CreatedDate.ToShortTimeString()
                             <div style="margin-top:20px;">
                                 <button id="btnUpload" class="btn-default">Upload Another Document</button>
                             </div>

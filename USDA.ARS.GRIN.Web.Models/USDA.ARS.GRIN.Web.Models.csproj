@@ -48,6 +48,7 @@
     <Compile Include="CropGermplasmCommittee.cs" />
     <Compile Include="CropGermplasmCommitteeCropDescriptor.cs" />
     <Compile Include="CropGermplasmCommitteeDocument.cs" />
+    <Compile Include="EmailMessage.cs" />
     <Compile Include="Group.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="PVPApplication.cs" />

@@ -92,6 +92,7 @@
   <ItemGroup>
     <Content Include="SQL\USDA.ARS.GRIN.Web.Data.sql" />
     <Content Include="SQL\USDA.ARS.GRIN.Web.StoredProcedures.sql" />
+    <Content Include="SQL\USDA.ARS.GRIN.Web.Tables.ALTER.sql" />
     <Content Include="SQL\USDA.ARS.GRIN.Web.Tables.sql" />
     <Content Include="SQL\USDA.ARS.GRIN.Web.Views.sql" />
   </ItemGroup>

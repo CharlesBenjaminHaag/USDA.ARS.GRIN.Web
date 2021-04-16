@@ -16,6 +16,7 @@ namespace USDA.ARS.GRIN.Web.WebUI.ViewModels.CGC
         private List<CodeValueReferenceItem> _categories = null;
 
         private GRINRepository _repository = new GRINRepository();
+        public string Action { get; set; }
         public int ID { get; set; }
         public string Title { get; set; }
         public string CategoryCode { get; set; }
@@ -23,7 +24,8 @@ namespace USDA.ARS.GRIN.Web.WebUI.ViewModels.CGC
         public string URL { get; set; }
         public int CommitteeID { get; set; }
         public string CommitteeName { get; set; }
-
+        public DateTime CreatedDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
         [DataType(DataType.Upload)]
         public HttpPostedFileBase DocumentUpload { get; set; }
 

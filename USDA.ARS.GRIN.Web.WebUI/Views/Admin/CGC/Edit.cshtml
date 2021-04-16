@@ -24,7 +24,7 @@
                     <a href="@Url.Action("Admin","CGC")" class="no-ext-icon">Admin</a>
                 </li>
                 <li class="usda-breadcrumb-item">
-                    Document Upload
+                    Document Edit
                 </li>
             </ol>
         </nav>
@@ -42,9 +42,11 @@
             @Html.Partial("~/Views/Shared/_LeftNavAdmin.cshtml")
         </aside>
         <div id="block-usda-content" class="usda-block block-usda-content">
-            <h2>CGC Document Upload</h2>
+            <h2>CGC Document Edit</h2>
+            @*<a href="@Url.Action("CGCDocumentDelete","Admin", new { id = Model.ID })" class="btn-default" style="color:red;">Delete Document</a>*@
             @using (Html.BeginForm("CGCDocumentEdit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
+                @Html.HiddenFor(x => x.Action)
                 <div class="section-paragraph">
                     <div class="usa-width-one-half">
                         <label>Title</label>
@@ -52,7 +54,7 @@
                         <label>Category</label>
                         @Html.DropDownListFor(x => x.CategoryCode, Model.Categories, new { @id = "ddlCategories", @class = "form-control-sm" })
                         <label>Year</label>
-                        @Html.DropDownListFor(x => x.Year, Model.GetYear(), new { id="ddlYears", @class="form-control-sm" })
+                        @Html.DropDownListFor(x => x.Year, Model.GetYear(), new { id = "ddlYears", @class = "form-control-sm" })
                         <label>Committee</label>
                         @Html.DropDownListFor(x => x.CommitteeID, Model.Committees, new { @id = "ddlCommittees", @class = "form-control-sm" })
                         @Html.HiddenFor(x => x.CommitteeName, new { id = "hfCommitteeName" })
@@ -63,7 +65,7 @@
                             <a href="@Model.URL">@Model.URL</a>
                         }
                         @Html.TextBoxFor(x => x.DocumentUpload, new { @class = "form-control input-sm", @type = "file" })
-                        <button class="btn-default">Save</button>
+                        <input type="submit" class="btn-default" value="Save" />
                     </div>
                 </div>
             }
@@ -84,7 +86,11 @@
         $("#hfCommitteeName").val(selectedCommitteeName);
     });
 
+    $("#btnDelete").click(function () {
+        alert("DEBUG");
 
+       @Url.Action("CGCDocumentDelete", "Admin", new { id = 1 });
+    });
 
 </script>
 

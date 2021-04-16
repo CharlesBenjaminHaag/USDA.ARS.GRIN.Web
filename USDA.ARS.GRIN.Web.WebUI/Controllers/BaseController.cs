@@ -8,6 +8,8 @@ using System.IO;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Configuration;
+using System.Net.Mail;
+using USDA.ARS.GRIN.Web.Models;
 
 namespace USDA.ARS.GRIN.Web.WebUI.Controllers
 {
@@ -52,6 +54,27 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
             Response.Flush();
             Response.End();
             return View("Index");
+        }
+
+        public int SendMessage(EmailMessage emailMessage)
+        {
+            MailAddress to = new MailAddress(emailMessage.RecipientAddress);
+            MailAddress from = new MailAddress(emailMessage.SenderAddress);
+            MailMessage message = new MailMessage(from, to);
+            message.Subject = emailMessage.Subject;
+            message.Body = emailMessage.Body;
+            message.IsBodyHtml = emailMessage.IsHtmlFormat;
+            SmtpClient client = new SmtpClient("mailproxy1.usda.gov");
+
+            try
+            {
+                client.Send(message);
+            }
+            catch (SmtpException ex)
+            {
+                return -1;
+            }
+            return 0;
         }
     }
 }

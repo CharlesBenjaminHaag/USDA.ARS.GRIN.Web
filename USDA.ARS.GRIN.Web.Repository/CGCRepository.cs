@@ -64,9 +64,16 @@ namespace USDA.ARS.GRIN.Web.Repository
                 var result = _dataContext.usp_ARS_CropGermplasmCommitteeDocument_Select(id).FirstOrDefault();
                 if (result != null)
                 {
-                    cropGermplasmCommitteeDocument = new CropGermplasmCommitteeDocument { ID = result.crop_germplasm_committee_document_id, Title = result.title, Category = result.category_code, URL = result.url };
+                    cropGermplasmCommitteeDocument = new CropGermplasmCommitteeDocument();
+                    cropGermplasmCommitteeDocument.ID = result.crop_germplasm_committee_document_id;
+                    cropGermplasmCommitteeDocument.Title = result.document_title;
+                    cropGermplasmCommitteeDocument.Category = result.title;
+                    cropGermplasmCommitteeDocument.URL = result.url;
+                    cropGermplasmCommitteeDocument.Year = result.document_year.GetValueOrDefault();
                     cropGermplasmCommitteeDocument.Committee.ID = result.crop_germplasm_committee_id.GetValueOrDefault();
                     cropGermplasmCommitteeDocument.Committee.Name = result.crop_germplasm_committee_name;
+                    cropGermplasmCommitteeDocument.CreatedDate = result.created_date.GetValueOrDefault();
+                    cropGermplasmCommitteeDocument.ModifiedDate = result.modified_date.GetValueOrDefault();
                 }
             }
             catch (SqlException ex)
@@ -85,8 +92,10 @@ namespace USDA.ARS.GRIN.Web.Repository
             {
                 document = new CropGermplasmCommitteeDocument();
                 document.ID = result.crop_germplasm_committee_document_id;
-                document.Title = result.title;
+                document.Title = result.document_title;
                 document.URL = result.url;
+                document.Category = result.category;
+                document.Year = result.document_year.GetValueOrDefault();
                 document.CreatedDate = result.created_date.GetValueOrDefault();
                 document.Committee.Name = result.crop_germplasm_committee_name;documents.Add(document);
             }
@@ -103,7 +112,7 @@ namespace USDA.ARS.GRIN.Web.Repository
             {
                 document = new CropGermplasmCommitteeDocument();
                 document.ID = result.crop_germplasm_committee_document_id;
-                document.Title = result.title;
+                document.Title = result.document_title;
                 document.URL = result.url;
                 cropGermplasmCommitteeDocuments.Add(document);
             }

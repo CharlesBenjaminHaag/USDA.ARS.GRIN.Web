@@ -96,51 +96,6 @@
       <Column Name="owned_by" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.usp_PVPApplication_Select" Method="usp_PVPApplication_Select">
-    <Parameter Name="pvp_application_number" Type="System.Int32" DbType="Int" />
-    <ElementType Name="usp_PVPApplication_SelectResult">
-      <Column Name="pvp_application_number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="cultivar_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="experimental_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="pvp_crop_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="scientific_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="common_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="pvp_applicant_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="applicant_name" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
-      <Column Name="application_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="is_certified_seed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="pvp_application_status_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="application_status" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="status_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="certificate_issued_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="years_protected" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="expiration_date" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
-      <Column Name="accession_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.usp_PVPSearch" Method="usp_PVPSearch">
-    <Parameter Name="sql_where_clause" Type="System.String" DbType="NVarChar(MAX)" />
-    <ElementType Name="usp_PVPSearchResult">
-      <Column Name="pvp_application_number" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="cultivar_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="experimental_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="pvp_crop_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="scientific_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="common_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="pvp_applicant_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="applicant_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="application_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="is_certified_seed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="pvp_application_status_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="application_status" Type="System.String" DbType="NVarChar(120)" CanBeNull="true" />
-      <Column Name="status_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="certificate_issued_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="years_protected" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="expiration_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="months_remaining" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="accession_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.usp_User_Search" Method="usp_User_Search">
     <Parameter Name="user_name" Type="System.String" DbType="NVarChar(50)" />
     <ElementType Name="usp_User_SearchResult">
@@ -218,13 +173,6 @@
       <Column Name="expiration_date" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.usp_PVPApplicationStatuses_Select" Method="usp_PVPApplicationStatuses_Select">
-    <ElementType Name="usp_PVPApplicationStatuses_SelectResult">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="count" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.usp_ARS_PVPRecentlyExpired_Select" Method="usp_ARS_PVPRecentlyExpired_Select">
     <ElementType Name="usp_ARS_PVPRecentlyExpired_SelectResult">
       <Column Name="pvp_application_number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -280,27 +228,6 @@
       <Column Name="modified_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.usp_ARS_PVPRecentlyExpired_Select" Method="usp_ARS_PVPRecentlyExpired_Select1">
-    <ElementType Name="usp_ARS_PVPRecentlyExpired_SelectResult1">
-      <Column Name="pvp_application_number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="cultivar_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="experimental_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="pvp_common_name_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="common_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="scientific_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="pvp_applicant_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="applicant_name" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
-      <Column Name="application_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="is_certified_seed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="pvp_application_status_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="application_status" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="status_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="certificate_issued_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="years_protected" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="accession_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="expiration_date" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.usp_ARS_CropGermplasmCommittee_Select" Method="usp_ARS_CropGermplasmCommittee_Select">
     <Parameter Name="crop_germplasm_committee_id" Type="System.Int32" DbType="Int" />
     <ElementType Name="usp_ARS_CropGermplasmCommittee_SelectResult">
@@ -319,11 +246,6 @@
       <Column Name="description" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.usp_ARS_CropGermplasmCommitteeDocument_Delete" Method="usp_ARS_CropGermplasmCommitteeDocument_Delete">
-    <Parameter Name="out_error_number" Type="System.Int32" DbType="Int" Direction="InOut" />
-    <Parameter Name="crop_germplasm_committee_document_id" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.usp_ARS_CropGermplasmCommittees_Select" Method="usp_ARS_CropGermplasmCommittees_Select">
     <ElementType Name="usp_ARS_CropGermplasmCommittees_SelectResult">
       <Column Name="crop_germplasm_committee_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -335,69 +257,6 @@
       <Column Name="modified_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.usp_ARS_PVPExpiring6Months_Select" Method="usp_ARS_PVPExpiring6Months_Select1">
-    <ElementType Name="usp_ARS_PVPExpiring6Months_SelectResult1">
-      <Column Name="pvp_application_number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="cultivar_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="experimental_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="pvp_common_name_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="common_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="scientific_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="pvp_applicant_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="applicant_name" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
-      <Column Name="application_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="is_certified_seed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="pvp_application_status_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="application_status" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="status_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="certificate_issued_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="years_protected" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="accession_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="expiration_date" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.usp_ARS_PVPRecentApplications_Select" Method="usp_ARS_PVPRecentApplications_Select1">
-    <ElementType Name="usp_ARS_PVPRecentApplications_SelectResult1">
-      <Column Name="pvp_application_number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="cultivar_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="experimental_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="pvp_common_name_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="common_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="scientific_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="pvp_applicant_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="applicant_name" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
-      <Column Name="application_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="is_certified_seed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="pvp_application_status_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="application_status" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="status_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="certificate_issued_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="years_protected" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="accession_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="expiration_date" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.usp_ARS_PVPRecentlyAvailable_Select" Method="usp_ARS_PVPRecentlyAvailable_Select1">
-    <ElementType Name="usp_ARS_PVPRecentlyAvailable_SelectResult1">
-      <Column Name="pvp_application_number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="cultivar_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="experimental_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="pvp_common_name_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="common_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="scientific_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="pvp_applicant_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="applicant_name" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
-      <Column Name="application_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="is_certified_seed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="pvp_application_status_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="application_status" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="status_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="certificate_issued_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="years_protected" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="accession_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="expiration_date" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.usp_ARS_CropGermplasmCommitteeCropDescriptors_Select" Method="usp_ARS_CropGermplasmCommitteeCropDescriptors_Select">
     <Parameter Name="crop_germplasm_committee_id" Type="System.Int32" DbType="Int" />
     <ElementType Name="usp_ARS_CropGermplasmCommitteeCropDescriptors_SelectResult">
@@ -405,6 +264,94 @@
       <Column Name="crop_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.usp_ARS_PVPApplication_Select" Method="usp_ARS_PVPApplication_Select" IsComposable="true">
+    <Parameter Name="crop_description" Type="System.String" DbType="NVarChar(60)" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.usp_ARS_PVPApplications_Search" Method="usp_ARS_PVPApplications_Search">
+    <Parameter Name="sql_where_clause" Type="System.String" DbType="NVarChar(MAX)" />
+    <ElementType Name="usp_ARS_PVPApplications_SearchResult">
+      <Column Name="pvp_application_number" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cultivar_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="experimental_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="pvp_crop_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="scientific_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="common_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="pvp_applicant_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="applicant_name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="application_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="is_certified_seed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="pvp_application_status_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="application_status" Type="System.String" DbType="NVarChar(120)" CanBeNull="true" />
+      <Column Name="status_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="certificate_issued_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="years_protected" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="expiration_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="months_remaining" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="accession_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_ARS_PVPApplicationStatuses_Select" Method="usp_ARS_PVPApplicationStatuses_Select">
+    <ElementType Name="usp_ARS_PVPApplicationStatuses_SelectResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_ARS_CropGermplasmCommitteeDocuments_Select" Method="usp_ARS_CropGermplasmCommitteeDocuments_Select">
+    <Parameter Name="crop_germplasm_committee_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="usp_ARS_CropGermplasmCommitteeDocuments_SelectResult">
+      <Column Name="crop_germplasm_committee_name" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="crop_germplasm_committee_document_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="crop_germplasm_committee_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="document_title" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="category_code" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="document_year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="category" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="url" Type="System.String" DbType="NVarChar(120) NOT NULL" CanBeNull="false" />
+      <Column Name="created_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="created_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="modified_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="modified_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_ARS_CropGermplasmCommitteeDocuments_SelectAll" Method="usp_ARS_CropGermplasmCommitteeDocuments_SelectAll">
+    <ElementType Name="usp_ARS_CropGermplasmCommitteeDocuments_SelectAllResult">
+      <Column Name="crop_germplasm_committee_name" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="crop_germplasm_committee_document_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="crop_germplasm_committee_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="document_title" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="category_code" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="document_year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="category" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="url" Type="System.String" DbType="NVarChar(120) NOT NULL" CanBeNull="false" />
+      <Column Name="created_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="created_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="modified_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="modified_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_ARS_CropGermplasmCommitteeDocumentsRecent_Select" Method="usp_ARS_CropGermplasmCommitteeDocumentsRecent_Select">
+    <ElementType Name="usp_ARS_CropGermplasmCommitteeDocumentsRecent_SelectResult">
+      <Column Name="crop_germplasm_committee_name" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="crop_germplasm_committee_document_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="crop_germplasm_committee_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="document_title" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="category_code" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="document_year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="category" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="url" Type="System.String" DbType="NVarChar(120) NOT NULL" CanBeNull="false" />
+      <Column Name="created_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="created_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="modified_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="modified_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_ARS_CropGermplasmCommitteeDocument_Delete" Method="usp_ARS_CropGermplasmCommitteeDocument_Delete">
+    <Parameter Name="out_error_number" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="crop_germplasm_committee_document_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_ARS_CropGermplasmCommitteeDocument_Insert" Method="usp_ARS_CropGermplasmCommitteeDocument_Insert">
     <Parameter Name="out_error_number" Type="System.Int32" DbType="Int" Direction="InOut" />
@@ -422,8 +369,10 @@
       <Column Name="crop_germplasm_committee_name" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
       <Column Name="crop_germplasm_committee_document_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="crop_germplasm_committee_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="title" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="document_title" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="category_code" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="document_year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="url" Type="System.String" DbType="NVarChar(120) NOT NULL" CanBeNull="false" />
       <Column Name="created_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
       <Column Name="created_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -440,54 +389,5 @@
     <Parameter Name="category_code" Type="System.String" DbType="NVarChar(4)" />
     <Parameter Name="url" Type="System.String" DbType="NVarChar(120)" />
     <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.usp_ARS_CropGermplasmCommitteeDocuments_Select" Method="usp_ARS_CropGermplasmCommitteeDocuments_Select">
-    <Parameter Name="crop_germplasm_committee_id" Type="System.Int32" DbType="Int" />
-    <ElementType Name="usp_ARS_CropGermplasmCommitteeDocuments_SelectResult">
-      <Column Name="crop_germplasm_committee_name" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
-      <Column Name="crop_germplasm_committee_document_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="crop_germplasm_committee_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="title" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="category_code" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
-      <Column Name="document_year" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="category" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="url" Type="System.String" DbType="NVarChar(120) NOT NULL" CanBeNull="false" />
-      <Column Name="created_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="created_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="modified_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="modified_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.usp_ARS_CropGermplasmCommitteeDocuments_SelectAll" Method="usp_ARS_CropGermplasmCommitteeDocuments_SelectAll">
-    <ElementType Name="usp_ARS_CropGermplasmCommitteeDocuments_SelectAllResult">
-      <Column Name="crop_germplasm_committee_name" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
-      <Column Name="crop_germplasm_committee_document_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="crop_germplasm_committee_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="title" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="category_code" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
-      <Column Name="document_year" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="category" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="url" Type="System.String" DbType="NVarChar(120) NOT NULL" CanBeNull="false" />
-      <Column Name="created_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="created_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="modified_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="modified_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.usp_ARS_CropGermplasmCommitteeDocumentsRecent_Select" Method="usp_ARS_CropGermplasmCommitteeDocumentsRecent_Select">
-    <ElementType Name="usp_ARS_CropGermplasmCommitteeDocumentsRecent_SelectResult">
-      <Column Name="crop_germplasm_committee_name" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
-      <Column Name="crop_germplasm_committee_document_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="crop_germplasm_committee_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="title" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="category_code" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
-      <Column Name="document_year" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="category" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="url" Type="System.String" DbType="NVarChar(120) NOT NULL" CanBeNull="false" />
-      <Column Name="created_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="created_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="modified_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="modified_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
   </Function>
 </Database>
