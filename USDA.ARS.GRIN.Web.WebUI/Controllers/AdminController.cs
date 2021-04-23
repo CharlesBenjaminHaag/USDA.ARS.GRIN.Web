@@ -97,18 +97,26 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
                 if (id > 0)
                 {
                     document = _cgcRepository.GetDocument(id);
-                    viewModel.ID = document.ID;
-                    viewModel.CategoryCode = document.Category;
-                    viewModel.Title = document.Title;
-                    viewModel.URL = document.URL;
                     viewModel.CommitteeID = document.Committee.ID;
                     viewModel.CommitteeName = document.Committee.Name;
+                    viewModel.Title = document.Title;
+                    viewModel.CategoryCode = document.CategoryCode;
+                    viewModel.CategoryTitle = document.CategoryTitle;
+                    viewModel.Year = document.DocumentYear;
+                    viewModel.ID = document.ID;
+                    viewModel.URL = document.URL;
                 }
             }
             catch (Exception ex)
             {
-                log.Error(ex.Message + ex.StackTrace);
-                return View("~/Views/Shared/Error.cshtml");
+                Log.Error(ex, ex.Message);
+                string actionName = this.ControllerContext.RouteData.Values["action"].ToString();
+                string controllerName = this.ControllerContext.RouteData.Values["controller"].ToString();
+                string errorText = "<label>Controller:</label>" + controllerName;
+                errorText = errorText + "<br><label>Action:</label>" + actionName;
+                errorText = errorText + "<br><label>Details:</label>" + ex.TargetSite + ex.Message;
+                Session["ERROR_TEXT"] = errorText;
+                return RedirectToAction("InternalServerError", "Error");
             }
             return View("~/Views/Admin/CGC/Edit.cshtml", viewModel);
         }
@@ -123,21 +131,21 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
             try
             {
                 document.ID = viewModel.ID;
-                document.Title = viewModel.Title;
-                document.URL = viewModel.URL;
-                document.Category = viewModel.CategoryCode;
-                document.Year = viewModel.Year;
                 document.Committee.ID = viewModel.CommitteeID;
+                document.Title = viewModel.Title;
+                document.DocumentYear = viewModel.Year;
+                document.CategoryCode = viewModel.CategoryCode;
+                document.URL = viewModel.URL;
                 
                 if (viewModel.DocumentUpload != null && viewModel.DocumentUpload.ContentLength > 0)
                 {
-                    if (document.Category == "CVS")
+                    if (document.CategoryTitle == "CVS")
                     {
                         uploadDir = uploadDir + "cvs";
                     }
                     else
                     {
-                        if (document.Category == "MIN")
+                        if (document.CategoryTitle == "MIN")
                         {
                             uploadDir = uploadDir + "committee";
                         }
@@ -188,24 +196,26 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
         public ActionResult CGCDocumentDelete(int id)
         {
             CropGermplasmCommitteeDocument cropGermplasmCommitteeDocument = null;
+            ResultContainer resultContainer = null;
             try
             {
                 cropGermplasmCommitteeDocument = _cgcRepository.GetDocument(id);
 
-                Uri uri = new Uri(cropGermplasmCommitteeDocument.URL);
-                string filename = System.IO.Path.GetFileName(cropGermplasmCommitteeDocument.URL);
+                //Uri uri = new Uri(cropGermplasmCommitteeDocument.URL);
+                //string filename = System.IO.Path.GetFileName(cropGermplasmCommitteeDocument.URL);
 
-                string rootPath = "~/documents/CGC";
-                string fullPath = System.IO.Path.Combine(Server.MapPath(rootPath), filename);
+                //string rootPath = "~/documents/CGC";
+                //string fullPath = System.IO.Path.Combine(Server.MapPath(rootPath), filename);
 
-                if (System.IO.File.Exists(uri.LocalPath))
-                {
-                    System.IO.File.Delete(uri.LocalPath);
-                }
-                else
-                {
-                    throw new IOException(String.Format("The file {0} does not exist and cannot be deleted.", filename));
-                }
+                //if (System.IO.File.Exists(uri.LocalPath))
+                //{
+                //    System.IO.File.Delete(uri.LocalPath);
+                //}
+                //else
+                //{
+                //    throw new IOException(String.Format("The file {0} does not exist and cannot be deleted.", filename));
+                //}
+                resultContainer = _cgcRepository.DeleteDocument(cropGermplasmCommitteeDocument);
             }
             catch (Exception ex)
             {
@@ -232,8 +242,9 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
                 viewModel.ID = document.ID;
                 viewModel.Title = document.Title;
                 viewModel.URL = document.URL;
-                viewModel.CategoryCode = document.Category;
-                viewModel.Year = document.Year;
+                viewModel.CategoryCode = document.CategoryCode;
+                viewModel.CategoryTitle = document.CategoryTitle;
+                viewModel.Year = document.DocumentYear;
                 viewModel.CommitteeID = document.Committee.ID;
                 viewModel.CommitteeName = document.Committee.Name;
                 viewModel.CreatedDate = document.CreatedDate;

@@ -363,23 +363,6 @@
     <Parameter Name="url" Type="System.String" DbType="NVarChar(120)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.usp_ARS_CropGermplasmCommitteeDocument_Select" Method="usp_ARS_CropGermplasmCommitteeDocument_Select">
-    <Parameter Name="crop_germplasm_committee_document_id" Type="System.Int32" DbType="Int" />
-    <ElementType Name="usp_ARS_CropGermplasmCommitteeDocument_SelectResult">
-      <Column Name="crop_germplasm_committee_name" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
-      <Column Name="crop_germplasm_committee_document_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="crop_germplasm_committee_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="document_title" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="category_code" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
-      <Column Name="document_year" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="url" Type="System.String" DbType="NVarChar(120) NOT NULL" CanBeNull="false" />
-      <Column Name="created_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="created_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="modified_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="modified_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.usp_ARS_CropGermplasmCommitteeDocument_Update" Method="usp_ARS_CropGermplasmCommitteeDocument_Update">
     <Parameter Name="out_error_number" Type="System.Int32" DbType="Int" Direction="InOut" />
     <Parameter Name="crop_germplasm_committee_document_id" Type="System.Int32" DbType="Int" />
@@ -389,5 +372,22 @@
     <Parameter Name="category_code" Type="System.String" DbType="NVarChar(4)" />
     <Parameter Name="url" Type="System.String" DbType="NVarChar(120)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_ARS_CropGermplasmCommitteeDocument_Select" Method="usp_ARS_CropGermplasmCommitteeDocument_Select">
+    <Parameter Name="crop_germplasm_committee_document_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="usp_ARS_CropGermplasmCommitteeDocument_SelectResult">
+      <Column Name="crop_germplasm_committee_name" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="crop_germplasm_committee_document_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="crop_germplasm_committee_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="document_title" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="category_code" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="document_year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="category_title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="url" Type="System.String" DbType="NVarChar(120) NOT NULL" CanBeNull="false" />
+      <Column Name="created_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="created_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="modified_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="modified_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

@@ -43,7 +43,7 @@
         </aside>
         <div id="block-usda-content" class="usda-block block-usda-content">
             <h2>CGC Document Edit</h2>
-            @*<a href="@Url.Action("CGCDocumentDelete","Admin", new { id = Model.ID })" class="btn-default" style="color:red;">Delete Document</a>*@
+            <a href="@Url.Action("CGCDocumentDelete","Admin", new { id = Model.ID })" class="btn-default" style="color:red;">Delete Document</a>
             @using (Html.BeginForm("CGCDocumentEdit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 @Html.HiddenFor(x => x.Action)

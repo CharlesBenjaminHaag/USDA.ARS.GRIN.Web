@@ -67,9 +67,10 @@ namespace USDA.ARS.GRIN.Web.Repository
                     cropGermplasmCommitteeDocument = new CropGermplasmCommitteeDocument();
                     cropGermplasmCommitteeDocument.ID = result.crop_germplasm_committee_document_id;
                     cropGermplasmCommitteeDocument.Title = result.document_title;
-                    cropGermplasmCommitteeDocument.Category = result.title;
+                    cropGermplasmCommitteeDocument.CategoryCode = result.category_code;
+                    cropGermplasmCommitteeDocument.CategoryTitle = result.category_title;
                     cropGermplasmCommitteeDocument.URL = result.url;
-                    cropGermplasmCommitteeDocument.Year = result.document_year.GetValueOrDefault();
+                    cropGermplasmCommitteeDocument.DocumentYear = result.document_year.GetValueOrDefault();
                     cropGermplasmCommitteeDocument.Committee.ID = result.crop_germplasm_committee_id.GetValueOrDefault();
                     cropGermplasmCommitteeDocument.Committee.Name = result.crop_germplasm_committee_name;
                     cropGermplasmCommitteeDocument.CreatedDate = result.created_date.GetValueOrDefault();
@@ -94,9 +95,10 @@ namespace USDA.ARS.GRIN.Web.Repository
                 document.ID = result.crop_germplasm_committee_document_id;
                 document.Title = result.document_title;
                 document.URL = result.url;
-                document.Category = result.category;
-                document.Year = result.document_year.GetValueOrDefault();
+                document.CategoryTitle = result.category;
+                document.DocumentYear = result.document_year.GetValueOrDefault();
                 document.CreatedDate = result.created_date.GetValueOrDefault();
+                document.ModifiedDate = result.modified_date.GetValueOrDefault();
                 document.Committee.Name = result.crop_germplasm_committee_name;documents.Add(document);
             }
             return documents;
@@ -129,7 +131,7 @@ namespace USDA.ARS.GRIN.Web.Repository
 
             try
             {
-                _dataContext.usp_ARS_CropGermplasmCommitteeDocument_Insert(ref errorNumber, ref id, document.Committee.ID, document.Title, document.Year, document.Category, document.URL);
+                _dataContext.usp_ARS_CropGermplasmCommitteeDocument_Insert(ref errorNumber, ref id, document.Committee.ID, document.Title, document.DocumentYear, document.CategoryTitle, document.URL);
                 resultContainer.EntityID = id.GetValueOrDefault();
                 resultContainer.ResultCode = errorNumber.GetValueOrDefault().ToString();
             }
@@ -147,7 +149,25 @@ namespace USDA.ARS.GRIN.Web.Repository
 
             try
             {
-                _dataContext.usp_ARS_CropGermplasmCommitteeDocument_Update(ref errorNumber, document.ID, document.Committee.ID, document.Title, document.Year, document.Category, document.URL);
+                _dataContext.usp_ARS_CropGermplasmCommitteeDocument_Update(ref errorNumber, document.ID, document.Committee.ID, document.Title, document.DocumentYear, document.CategoryCode, document.URL);
+                resultContainer.EntityID = document.ID;
+                resultContainer.ResultCode = errorNumber.GetValueOrDefault().ToString();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return resultContainer;
+        }
+
+        public ResultContainer DeleteDocument(CropGermplasmCommitteeDocument document)
+        {
+            int? errorNumber = 0;
+            ResultContainer resultContainer = new ResultContainer();
+
+            try
+            {
+                _dataContext.usp_ARS_CropGermplasmCommitteeDocument_Delete(ref errorNumber, document.ID);
                 resultContainer.EntityID = document.ID;
                 resultContainer.ResultCode = errorNumber.GetValueOrDefault().ToString();
             }

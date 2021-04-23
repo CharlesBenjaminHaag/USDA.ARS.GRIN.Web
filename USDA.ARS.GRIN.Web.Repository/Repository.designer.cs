@@ -232,19 +232,19 @@ namespace USDA.ARS.GRIN.Web.Repository
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_CropGermplasmCommitteeDocument_Select")]
-		public ISingleResult<usp_ARS_CropGermplasmCommitteeDocument_SelectResult> usp_ARS_CropGermplasmCommitteeDocument_Select([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_document_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), crop_germplasm_committee_document_id);
-			return ((ISingleResult<usp_ARS_CropGermplasmCommitteeDocument_SelectResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_CropGermplasmCommitteeDocument_Update")]
 		public int usp_ARS_CropGermplasmCommitteeDocument_Update([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> out_error_number, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_document_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(250)")] string title, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> document_year, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(4)")] string category_code, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(120)")] string url)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), out_error_number, crop_germplasm_committee_document_id, crop_germplasm_committee_id, title, document_year, category_code, url);
 			out_error_number = ((System.Nullable<int>)(result.GetParameterValue(0)));
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_CropGermplasmCommitteeDocument_Select")]
+		public ISingleResult<usp_ARS_CropGermplasmCommitteeDocument_SelectResult> usp_ARS_CropGermplasmCommitteeDocument_Select([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> crop_germplasm_committee_document_id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), crop_germplasm_committee_document_id);
+			return ((ISingleResult<usp_ARS_CropGermplasmCommitteeDocument_SelectResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -4931,7 +4931,7 @@ namespace USDA.ARS.GRIN.Web.Repository
 		
 		private System.Nullable<int> _document_year;
 		
-		private string _title;
+		private string _category_title;
 		
 		private string _url;
 		
@@ -5043,18 +5043,18 @@ namespace USDA.ARS.GRIN.Web.Repository
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
-		public string title
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_category_title", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
+		public string category_title
 		{
 			get
 			{
-				return this._title;
+				return this._category_title;
 			}
 			set
 			{
-				if ((this._title != value))
+				if ((this._category_title != value))
 				{
-					this._title = value;
+					this._category_title = value;
 				}
 			}
 		}

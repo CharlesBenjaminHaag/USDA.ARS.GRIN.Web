@@ -20,6 +20,7 @@ namespace USDA.ARS.GRIN.Web.WebUI.ViewModels.CGC
         public int ID { get; set; }
         public string Title { get; set; }
         public string CategoryCode { get; set; }
+        public string CategoryTitle { get; set; }
         public int Year { get; set; }
         public string URL { get; set; }
         public int CommitteeID { get; set; }
