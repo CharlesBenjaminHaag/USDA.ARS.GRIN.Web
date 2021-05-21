@@ -7,7 +7,7 @@
 <div class="grid-container">
     <div class="grid-row grid-gap">
         <div class="usa-layout-docs__sidenav desktop:grid-col-2">
-            <nav aria-label="Secondary navigation" style="padding-right:20px;">
+            <nav aria-label="Secondary navigation">
                 <form class="usa-search usa-search--small" role="search">
                     <label class="usa-sr-only" for="search-field-en-small">Search</label>
                     <input class="usa-input" id="search-field-en-small" type="search" name="search" placeholder="Search GRIN-Global">
@@ -22,7 +22,7 @@
                         <a href="">Home</a>
                     </li>
                     <li class="usa-sidenav__item">
-                        <a href="#collections" class="usa-current">Collections</a><ul class="usa-sidenav__sublist">
+                        <a href="#collections" class="usa-current">@TempData["PAGE_CONTEXT"]</a><ul class="usa-sidenav__sublist">
 
                             <li class="usa-sidenav__item">
                                 <a href="#section-genetic-resource_collections" class="usa-current">Genetic Resource Collections</a><ul class="usa-sidenav__sublist">
@@ -40,10 +40,10 @@
                             <li class="usa-sidenav__item">
                                 <a href="#grin-collections" class="usa-current">GRIN Collections</a><ul class="usa-sidenav__sublist">
                                     <li class="usa-sidenav__item">
-                                        <a href="">Rhizobium Collection</a>
+                                        <a href="#grin-collections">Rhizobium Collection</a>
                                     </li>
                                     <li class="usa-sidenav__item">
-                                        <a href="@Url.Action("Index","PVP")">PVP Applications</a>
+                                        <a href="#grin-collections">PVP Applications</a>
                                     </li>
                                 </ul>
                             </li>
@@ -53,121 +53,33 @@
             </nav>
         </div>
 
-        <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
-            <h1 class="site-page-title" style="font-family: Public Sans Web,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol; font-size: 2.5rem; line-height: 1.2; font-weight: 700;">Collections</h1>
-            <p class="usa-intro">GRIN both provides data, and compiles references to databases hosted by collaborating projects.</p>
-            <section id="section-genetic-resource-collections">
-                <h2 id="section-genetic-resource_collections">Genetic Resource Collections</h2>
+        <main class="usa-layout-docs__main desktop:grid-col-9 usa-prose usa-layout-docs" id="main-content">
+            <h1>Collections</h1>
+            <p class="usa-intro measure-none">GRIN both provides data, and compiles references to databases hosted by collaborating projects.</p>
 
-                <a name="plant-germplasm"></a>
-                <h3>Plant Germplasm</h3>
-                <p>
+            <h2 id="section-genetic-resource_collections">Genetic Resource Collections</h2>
+            
+            <a name="plant-germplasm"></a>
+            <h3>Plant Germplasm</h3>
+            <section id="section-genetic-resource-collections">
+                
+                <p class="line-height-serif-4 margin-top-0 measure-none padding-bottom-05 margin-bottom-2">
                     The National Plant Germplasm System (NGPS) is a collaborative effort to safeguard the genetic diversity of agriculturally important plants. The mission of the NPGS is to support agricultural production by acquiring, conserving, evaluating, documenting, and distributing crop germplasm.
                 </p>
-                <section>
-                    <div class="grid-row" style="background-color:#ebebeb;">
-                        <div class="grid-col-8"><div id="mapid" style="width: 800px; height: 500px;"></div></div>
-                        <div class="grid-col-4" style="padding:1rem;">
-                            <ul class="usa-collection">
-                                <li id="13" class="usa-collection__item">
-                                    <div class="usa-collection__body">
-                                        <h3 class="usa-collection__heading">
-                                            <a class="usa-link" href="https://npgsweb.ars-grin.gov/gringlobal/site.aspx?id=13">
-                                                C.M. Rick Tomato Genetics Resource Center
-                                            </a>
-                                        </h3>
-                                        <p class="usa-collection__description">
-                                            <ul class="usa-collection__meta" aria-label="More information">
-                                                <li class="usa-collection__meta-item">
-                                                    Department of Plant Sciences, Mail Stop 3
-                                                </li>
-                                                <li class="usa-collection__meta-item">
-                                                    One Shields Avenue
-                                                </li>
-                                                <li class="usa-collection__meta-item">
-                                                    Davis, California 95616
-                                                </li>
-                                                <li class="usa-collection__meta-item">
-                                                    Phone: (530) 752-6726
-                                                </li>
-                                            </ul>
-                                        </p>
-                                        <!-- CROPS AT SITE -->
-                                        <br />
-                                        <h5><strong>Crops Evaluated</strong></h5>
-                                        <ul class="usa-collection__meta" aria-label="Topics">
-                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
-                                                <a href="https://npgsweb.ars-grin.gov/gringlobal/crop?id=" style="color:white;">BLUE-</a>
-                                            </li>
-                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
-                                                BUTT
-                                            </li>
-                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
-                                                <a href="" style="color:white;">BLUE-HON</a>
-                                            </li>
-                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
-                                                BUTTER
-                                            </li>
-                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
-                                                <a href="" style="color:white;">BLUE-KLE</a>
-                                            </li>
-                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
-                                                BUTT
-                                            </li>
-                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
-                                                <a href="" style="color:white;">BLUE-E</a>
-                                            </li>
-                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
-                                                BUTT
-                                            </li>
-                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
-                                                <a href="" style="color:white;">BLUE-HONEYSUCKLE</a>
-                                            </li>
-                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
-                                                BUTT
-                                            </li>
-                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
-                                                <a href="" style="color:white;">BLUE-HONEYSUCKLE</a>
-                                            </li>
-                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
-                                                BUTTERNUT
-                                            </li>
-                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
-                                                <a href="" style="color:white;">BLUE-HONEYSUCKLE</a>
-                                            </li>
-                                            <li class="usa-collection__meta-item usa-tag usa-tag--new">
-                                                BUTTERNUT
-                                            </li>
-                                            @*CHESTNUT
-                                        ELDERBERRY
-                                        GOJI-BERRY
-                                        HAZELNUT
-                                        HOPS
-                                        INTERGENERIC
-                                        MEDLAR
-                                        MINT
-                                        MOUNTAIN-MINT
-                                        PAWPAW
-                                        PEAR
-                                        QUINCE
-                                        RIBES
-                                        RUBUS
-                                        STRAWBERRY
-                                        VACCINIUM
-                                        WINTERGREEN*@
-
-
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
+                <section id="section-repository-map">
+                    <div class="grid-container">
+                        <div class="grid-row">
+                            <h4>Repository Map (U.S. and Territories)</h4>
+                            <div class="tablet:grid-col-12">
+                                <div id="mapid" style="width:900px; height:700px;"></div>
+                            </div>
                         </div>
                     </div>
                 </section>
 
                 <a name="animal-germplasm"></a>
                 <h3>Animal Germplasm</h3>
-                <p>
+                <p class="line-height-serif-4 margin-top-0 measure-none padding-bottom-05 margin-bottom-2">
                     Animal genetic resources underpin the livestock sector’s production and profitability. As a result livestock industries contribute billions of dollars to national economies. Our mission is to acquire, evaluate and preserve these strategic resources so that industry and the research community can have access to a broad array of genetic variability for national security, the introduction of genetic variation, corrective mating, and various research initiatives.
                 </p>
 
@@ -178,32 +90,37 @@
                     Links
                 </p>
             </section>
+
+            <a name="grin-collections"></a>
+            <h2>GRIN Collections</h2>
             <section>
-                <a name="grin-collections"></a>
-                <h2>GRIN Collections</h2>
                 <div class="grid-row">
                     <div class="grid-col-6">
-                        <h3 class="margin-x-0 margin-y-2">Rhizobium Collection</h3>
+                        <h3 class="margin-x-0 margin-y-2">PVP Application Status</h3>
                         <ul class="usa-collection">
                             <li class="usa-collection__item">
-                                <img class="usa-collection__img" src="https://www.performance.gov/img/GoG/gears-govt-presidents.png" alt="Alt text">
+                                <img class="usa-collection__img" src="~/assets/images/PVPSeal.png" alt="Alt text">
                                 <div class="usa-collection__body">
                                     <h3 class="usa-collection__heading">
-                                        <a class="usa-link" href="https://www.performance.gov/presidents-winners-press-release/">Gears of Government President’s Award winners</a>
+                                        <a class="usa-link" href="@Url.Action("Index","PVP")">PVP Application Status Database</a>
                                     </h3>
-                                    <p class="usa-collection__description">Today, the Administration announces the winners of the Gears of Government President’s Award. This program recognizes the contributions of individuals and teams across the federal workforce who make a profound difference in the lives of the American people.</p>
+                                    <p class="usa-collection__description">
+                                        The Plant Variety Protection Office (PVPO) provides intellectual property protection to breeders of new varieties of sexually reproduced, tuber propagated, and asexually reproduced plant varieties.
+                                    </p>
                                     <ul class="usa-collection__meta" aria-label="More information">
                                         <li class="usa-collection__meta-item">
-                                            By Sondra Ainsworth and Constance Lu
+                                            <strong>Contact: </strong>
+                                            <a href="mailto:PVPOmail@usda.gov">Bernadette Johnson, AMS</a>
                                         </li>
                                         <li class="usa-collection__meta-item">
+                                            <strong>Last Updated: </strong>
                                             <time datetime="2020-09-30T12:00:00+01:00">
                                                 September 30, 2020
                                             </time>
                                         </li>
                                     </ul>
 
-                                    <ul class="usa-collection__meta" aria-label="Topics">
+                                    @*<ul class="usa-collection__meta" aria-label="Topics">
                                         <li class="usa-collection__meta-item usa-tag usa-tag--new">
                                             New
                                         </li>
@@ -213,35 +130,45 @@
                                         <li class="usa-collection__meta-item usa-tag">
                                             OMB
                                         </li>
-                                    </ul>
+                                    </ul>*@
                                 </div>
                             </li>
 
                         </ul>
-
                     </div>
                     <div class="grid-col-6">
-                        <h3 class="margin-x-0 margin-y-2">PVP Applications</h3>
+                        <h3 class="margin-x-0 margin-y-2">Rhizobium Collection</h3>
                         <ul class="usa-collection">
                             <li class="usa-collection__item">
-                                <img class="usa-collection__img" src="https://www.performance.gov/img/GoG/gears-govt-presidents.png" alt="Alt text">
+                                <img class="usa-collection__img" src="~/assets/images/rhizobium.jpg" alt="Alt text">
                                 <div class="usa-collection__body">
                                     <h3 class="usa-collection__heading">
-                                        <a class="usa-link" href="https://www.performance.gov/presidents-winners-press-release/">Gears of Government President’s Award winners</a>
+                                        <a class="usa-link" href="@Url.Action("Index","Rhizobium")">Rhizobium Collection</a>
                                     </h3>
-                                    <p class="usa-collection__description">Today, the Administration announces the winners of the Gears of Government President’s Award. This program recognizes the contributions of individuals and teams across the federal workforce who make a profound difference in the lives of the American people.</p>
+                                    <p class="usa-collection__description">The Collection is a service-oriented program with a major objective of distributing characterized germplasm of rhizobia to stakeholders in industry for use in inoculants and for research at State, Federal and University laboratories. </p>
                                     <ul class="usa-collection__meta" aria-label="More information">
                                         <li class="usa-collection__meta-item">
-                                            By Sondra Ainsworth and Constance Lu
+                                            <strong>Contact: </strong>
+                                            <a href="mailto:patrick.elia@usda.gov">
+                                                Patrick Elia
+                                            </a>
                                         </li>
                                         <li class="usa-collection__meta-item">
+                                            <strong>Last Updated: </strong>
                                             <time datetime="2020-09-30T12:00:00+01:00">
                                                 September 30, 2020
                                             </time>
                                         </li>
                                     </ul>
 
-                                    <ul class="usa-collection__meta" aria-label="Topics">
+                                    <!-- TODO: MOVE PDF EMBED CODE -->
+                                    @*<embed src="https://apps.ams.usda.gov/CMS//AdobeImages/201500355.pdf" type="application/pdf" width="100%" height="600px" />
+                                    <embed src="https://drive.google.com/viewerng/
+viewer?embedded=true&url=https://apps.ams.usda.gov/CMS//AdobeImages/201500355.pdf" width="500" height="375">
+
+                                    <iframe src="https://docs.google.com/viewer?url=https://apps.ams.usda.gov/CMS//AdobeImages/201500355.pdf&embedded=true" frameborder="0" height="500px" width="100%"></iframe>*@
+
+                                    @*<ul class="usa-collection__meta" aria-label="Topics">
                                         <li class="usa-collection__meta-item usa-tag usa-tag--new">
                                             New
                                         </li>
@@ -251,7 +178,7 @@
                                         <li class="usa-collection__meta-item usa-tag">
                                             OMB
                                         </li>
-                                    </ul>
+                                    </ul>*@
                                 </div>
                             </li>
 
@@ -263,31 +190,13 @@
     </div>
 </div>
 
-<div id="myModal" class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
+<div id="section-modal">
+
 </div>
 
 
 <script type="text/javascript" src="https://leafletjs.com/examples/choropleth/us-states.js"></script>
 <script type="text/javascript">
-
-    
 
     var map = L.map('mapid').setView([37.8, -96], 4);
 
@@ -299,45 +208,57 @@
         tileSize: 512,
         zoomOffset: -1
     }).addTo(map);
-   
-    //var marker = L.marker([44.550442, -123.220108]).addTo(map);
 
-    //function onMapClick(e) {
-    //    alert("You clicked the map at " + e.latlng);
-    //}
-
-    //CORVALLIS
-    //var marker = new L.Marker([44.550442, -123.220108]).on('click', markerOnClick);
-    //marker .id = 999;
-    //marker.addTo(map);
-   
     var onMarkerClick = function (e) {
-        console.log(this);
-        alert("DEBUG: SITE ID IS: " + this.options.myCustomId);
-        //$('#myModal').modal('show');
+      
+        var link = '@Url.Action("_Detail", "Site")';
+
+        $.ajax(
+            {
+                type: 'POST',
+                url: link,
+                data: { id : this.options.myCustomId },
+                success:
+                    function (response) {
+                        $("#section-modal").html(response);
+                        $('#myModal').modal('show');
+                    },
+                error:
+                    function (response) {
+                        console.log(response);
+                    }
+            });
     }
 
-    //function markerOnClick(e) {
-    //    var id = e.id;
-    //    //alert("DEBUG TEST " + e.id);
-    //    $('#myModal').modal('show');
-    //    //$("#map-detail").html("Corvallis, OR");
-    //}
+    //TODO: PDF EMBED
+    if (navigator.userAgent.search("MSIE") >= 0) {
+        //code goes here
+    }
+    else if (navigator.userAgent.search("Chrome") >= 0) {
+        //alert("DEBUG CHROME");
+    }
+    else if (navigator.userAgent.search("Firefox") >= 0) {
+        //code goes here
+    }
+    else if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
+        //code goes here
+    }
+    else if (navigator.userAgent.search("Opera") >= 0) {
+        //code goes here
+    }
+
+
+
 
     var siteId = "";
-
-    siteId = "13";
-    var marker = L.marker([38.534862012868864, -121.75462764434283], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
 
     siteId = "1";
     var marker = L.marker([30.619591837167704, -96.36182821750184], { myCustomId: siteId });
     marker.on('click', onMarkerClick);
     marker.addTo(map);
-    
-    siteId = "31";
-    var marker = L.marker([40.10305195116381, -88.22429523081477], { myCustomId: siteId });
+
+    siteId = "13";
+    var marker = L.marker([38.534862012868864, -121.75462764434283], { myCustomId: siteId });
     marker.on('click', onMarkerClick);
     marker.addTo(map);
 
@@ -346,20 +267,63 @@
     marker.on('click', onMarkerClick);
     marker.addTo(map);
 
+    siteId = "19";
+    var marker = L.marker([42.95707938078901, -112.82869678657434], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "31";
+    var marker = L.marker([40.10305195116381, -88.22429523081477], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
     siteId = "37";
     var marker = L.marker([36.59667464938536, -119.51265894622854], { myCustomId: siteId });
     marker.on('click', onMarkerClick);
     marker.addTo(map);
 
-    //42	40.57317281015742, -105.07967561730995
-    //19	42.95707938078901, -112.82869678657434
-    //2	30.522515482482035, -96.42369203284417
-    //3	44.552400416076324, -123.22075287304186
-    //4	38.534862012868864, -121.75462764434283
-    //5	42.87768028143282, -77.0072383607277
-    //6	19.69834611262494, -155.09389535997298
-    //7	18.20681304702269, -67.13602555814018
-    //8	25.64388309000814, -80.2917109157293
+    siteId = "42";
+    var marker = L.marker([40.57317281015742, -105.07967561730995], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "2";
+    var marker = L.marker([30.522515482482035, -96.42369203284417], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "3";
+    var marker = L.marker([44.552400416076324, -123.22075287304186], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "4";
+    var marker = L.marker([38.534862012868864, -121.75462764434283], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "5";
+    var marker = L.marker([42.87768028143282, -77.0072383607277], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "6";
+    var marker = L.marker([19.69834611262494, -155.09389535997298], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "7";
+    var marker = L.marker([18.20681304702269, -67.13602555814018], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "8";
+    var marker = L.marker([25.64388309000814, -80.2917109157293], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+
+    //8	
     //9	33.968078033711286, -117.33456035792699
     //16	42.008928272568696, -93.66361315989242
     //17	42.87763358522057, -77.00722278842248
@@ -391,13 +355,7 @@
         });
     }
 
-    //geojson = L.geoJson(statesData, {
-    //    style: style,
-    //    onEachFeature: onEachFeature
-    //}).addTo(map);
-
     map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
-
 
     var legend = L.control({ position: 'bottomright' });
 

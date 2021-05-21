@@ -51,44 +51,52 @@
     @Html.Partial("~/Views/Shared/_USABanner.cshtml")
 
     <div class="usa-overlay"></div>
+
+
+
     <header class="usa-header usa-header--extended">
         <div class="usa-navbar">
-            @*<div class="usa-logo" id="logo">
-                    <span class="usda-logo">
-                        <img src="https://www.ars-grin.gov/Images/usda-symbol.svg" width="38" height="54" alt="" class="usda-logo-img">
-                    </span>
-                    <div class="usa-logo-text">
-                        <a href="https://www.usda.gov/" aria-label="The U.S. Department of Agriculture Home Page" class="usda-logo-text no-ext-icon">U.S. Department of Agriculture</a>
-                        <a href="https://www.ars.usda.gov/" aria-label="The Agricultural Research Service Home Page" class="usda-logo-text--agency no-ext-icon">Agricultural Research Service</a>
-                    </div>
-                </div>*@
             <div class="usa-logo" id="extended-logo">
-                <em class="usa-logo__text"><a href="/" title="Home" aria-label="Home">Germplasm Resources Information Network (GRIN)</a></em>
-                <p class="usa-intro">USDA Agricultural Research Service</p>
+                <em class="usa-logo__text"><a href="/" title="Home" aria-label="Home">ARS-GRIN</a></em>
             </div>
             <button class="usa-menu-btn">Menu</button>
         </div>
-        <nav aria-label="Primary navigation" class="usa-nav" style="background-color: #f0f0f0;">
+        <nav aria-label="Primary navigation" class="usa-nav">
             <div class="usa-nav__inner">
-                <button class="usa-nav__close"><img src="/assets/uswds-2.10.0/img/close.svg" role="img" alt="close"></button>
+                <button class="usa-nav__close"><img src="/assets/img/usa-icons/close.svg" role="img" alt="close"></button>
                 <ul class="usa-nav__primary usa-accordion">
                     <li class="usa-nav__primary-item">
                         <button class="usa-accordion__button usa-nav__link  usa-current" aria-expanded="false" aria-controls="extended-nav-section-one"><span>Collections</span></button>
                         <ul id="extended-nav-section-one" class="usa-nav__submenu">
                             <li class="usa-nav__submenu-item">
-                                <a href="@Url.Action("Index","Collections")" class="">Overview</a>
+                                @{
+                                    var link_plants = Url.Action("Index", "Collections") + "#plant-germplasm";
+                                }
+                                <a href=@link_plants> Plant Germplasm</a>
                             </li>
                             <li class="usa-nav__submenu-item">
-                                <a href="/Collections#plant-germplasm" class="">Plant Germplasm</a>
+                                @{
+                                    var link_animals = Url.Action("Index", "Collections") + "#animal-germplasm";
+                                }
+                                <a href=@link_animals> Animal Germplasm</a>
                             </li>
                             <li class="usa-nav__submenu-item">
-                                <a href="/Collections#animal-germplasm" class="">Animal Germplasm</a>
+                                @{
+                                    var link_microbial = Url.Action("Index", "Collections") + "#microbial-germplasm";
+                                }
+                                <a href=@link_microbial> Microbial Germplasm</a>
                             </li>
                             <li class="usa-nav__submenu-item">
-                                <a href="/Collections#microbial-germplasm" class="">Microbial Germplasm</a>
+                                @{
+                                    var link_pvp = Url.Action("Index", "Collections") + "#pvp-applications";
+                                }
+                                <a href=@link_pvp> PVP Applications</a>
                             </li>
                             <li class="usa-nav__submenu-item">
-                                <a href="/Collections#grin-collections" class="">GRIN Collections</a>
+                                @{
+                                    var link_rhi = Url.Action("Index", "Rhizobium") + "#rhizobium";
+                                }
+                                <a href=@link_pvp> Rhizobium</a>
                             </li>
                         </ul>
                     </li>
@@ -96,54 +104,260 @@
                         <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-two"><span>Crop Germplasm Committees</span></button>
                         <ul id="extended-nav-section-two" class="usa-nav__submenu">
                             <li class="usa-nav__submenu-item">
-                                <a href="@Url.Action("Index","CGC")" class="">Overview</a>
+                                <a href="#" class=""> Overview</a>
                             </li>
                             <li class="usa-nav__submenu-item">
-                                <a href="/CGC#meeting-dates-and-locations" class="">Meeting Dates and Locations</a>
+                                <a href="#" class=""> Meeting Dates and Locations</a>
                             </li>
                             <li class="usa-nav__submenu-item">
-                                <a href="/CGC#directory" class="">CGC Directory</a>
+                                <a href="#" class=""> CGC Directory</a>
                             </li>
                             <li class="usa-nav__submenu-item">
-                                <a href="/CGC#annual-char-briefings" class="">Annual CGC Chair Briefings</a>
+                                <a href="#" class=""> Annual CGC Chair Briefings</a>
                             </li>
                         </ul>
                     </li>
                     <li class="usa-nav__primary-item">
-                        <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-three"><span>Mational Genetic Resources Advisory Council (NGRAC)</span></button>
+                        <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-three"><span>National Genetic Resources Advisory Council (NGRAC)</span></button>
                         <ul id="extended-nav-section-three" class="usa-nav__submenu">
                             <li class="usa-nav__submenu-item">
-                                <a href="@Url.Action("Index","NGRAC")" class="">Overview</a>
+                                <a href="#" class=""> Meetings</a>
                             </li>
                             <li class="usa-nav__submenu-item">
-                                <a href="/NGRAC#meetings" class="">Meetings</a>
+                                <a href="#" class=""> Membership</a>
                             </li>
                             <li class="usa-nav__submenu-item">
-                                <a href="/NGRAC#membership" class="">Membership</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href="/NGRAC#farm-bill" class="">Farm Bill</a>
+                                <a href="#" class=""> Farm Bill</a>
                             </li>
                         </ul>
                     </li>
+                    @*<li class="usa-nav__primary-item">
+                        <a class="usa-nav__link" href="javascript:void(0)"><span>Contact Us</span></a>
+                    </li>*@
                 </ul><div class="usa-nav__secondary">
                     <ul class="usa-nav__secondary-links">
                         <li class="usa-nav__secondary-item">
-                            <a href="@Url.Action("Index","Contact")">Contact Us</a>
+                            <a href="@Url.Action("Contact", "Home")">Contact Us</a>
                         </li>
-                        <li class="usa-nav__secondary-item">
-                            <a href="@Url.Action("News","Home")">What's New?</a>
-                        </li>
-                    </ul>
-                    @*<form class="usa-search usa-search--small " role="search">
-                            <label class="usa-sr-only" for="extended-search-field-small">Search small</label>
-                            <input class="usa-input" id="extended-search-field-small" type="search" name="search">
-                            <button class="usa-button" type="submit"><span class="usa-sr-only">Search</span></button>
-                        </form>*@
+                        @*<li class="usa-nav__secondary-item">
+                            <a href="">FAQ</a>
+                        </li>*@
+                    </ul><form class="usa-search usa-search--small " role="search">
+                        <label class="usa-sr-only" for="extended-search-field-small">Search small</label>
+                        <input class="usa-input" id="extended-search-field-small" type="search" name="search">
+                        <button class="usa-button" type="submit"><span class="usa-sr-only">Search</span></button>
+                    </form>
                 </div>
             </div>
         </nav>
     </header>
+
+
+
+    @*<header class="usa-header usa-header--basic usa-header--megamenu">
+            <div class="usa-nav-container">
+                <div class="usa-navbar">
+                    <div class="usa-logo" id="basic-mega-logo">
+                        <em class="usa-logo__text"><a href="/" title="Home" aria-label="Home">ARS-GRIN</a></em>
+                    </div>
+                    <button class="usa-menu-btn">Menu</button>
+                </div>
+                <nav aria-label="Primary navigation" class="usa-nav">
+                    <button class="usa-nav__close"><img src="../../dist/img/usa-icons/close.svg" role="img" alt="close"></button>
+                    <ul class="usa-nav__primary usa-accordion">
+                        <li class="usa-nav__primary-item">
+                            <button class="usa-accordion__button usa-nav__link  usa-current" aria-expanded="false" aria-controls="basic-mega-nav-section-one"><span>Collections</span></button>
+                            <div id="basic-mega-nav-section-one" class="usa-nav__submenu usa-megamenu">
+                                <div class="grid-row grid-gap-4">
+                                    <div class="usa-col">
+                                        <ul class="usa-nav__submenu-list">
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">Plant Germplasm</a>
+                                            </li>
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">Animal Germplasm</a>
+                                            </li>
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">Microbial Germplasm</a>
+                                            </li>
+                                        </ul>
+                                    </div><div class="usa-col">
+                                        <ul class="usa-nav__submenu-list">
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">Navigation link</a>
+                                            </li>
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">A very long navigation link that goes onto two lines</a>
+                                            </li>
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">Navigation link</a>
+                                            </li>
+                                        </ul>
+                                    </div><div class="usa-col">
+                                        <ul class="usa-nav__submenu-list">
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">Navigation link</a>
+                                            </li>
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">Navigation link</a>
+                                            </li>
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">Navigation link</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="usa-nav__primary-item">
+                            <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="basic-mega-nav-section-two"><span>Section</span></button>
+                            <div id="basic-mega-nav-section-two" class="usa-nav__submenu usa-megamenu">
+                                <div class="grid-row grid-gap-4">
+                                    <div class="usa-col">
+                                        <ul class="usa-nav__submenu-list">
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">Navigation link</a>
+                                            </li>
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">Navigation link</a>
+                                            </li>
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">Navigation link</a>
+                                            </li>
+                                        </ul>
+                                    </div><div class="usa-col">
+                                        <ul class="usa-nav__submenu-list">
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">Navigation link</a>
+                                            </li>
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">A very long navigation link that goes onto two lines</a>
+                                            </li>
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">Navigation link</a>
+                                            </li>
+                                        </ul>
+                                    </div><div class="usa-col">
+                                        <ul class="usa-nav__submenu-list">
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">Navigation link</a>
+                                            </li>
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">Navigation link</a>
+                                            </li>
+                                            <li class="usa-nav__submenu-item">
+                                                <a href="#" class="">Navigation link</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="usa-nav__primary-item">
+                            <a class="usa-nav__link" href="javascript:void(0)"><span>Simple link</span></a>
+                        </li>
+                    </ul><form class="usa-search usa-search--small " role="search">
+                        <label class="usa-sr-only" for="basic-mega-search-field-small">Search small</label>
+                        <input class="usa-input" id="basic-mega-search-field-small" type="search" name="search">
+                        <button class="usa-button" type="submit"><span class="usa-sr-only">Search</span></button>
+                    </form>
+                </nav>
+            </div>
+        </header>*@
+
+    <!--<header class="usa-header usa-header--extended" style="background-color:blue;">
+        <div class="usa-navbar">-->
+    @*<div class="usa-logo" id="logo">
+            <span class="usda-logo">
+                <img src="https://www.ars-grin.gov/Images/usda-symbol.svg" width="38" height="54" alt="" class="usda-logo-img">
+            </span>
+            <div class="usa-logo-text">
+                <a href="https://www.usda.gov/" aria-label="The U.S. Department of Agriculture Home Page" class="usda-logo-text no-ext-icon">U.S. Department of Agriculture</a>
+                <a href="https://www.ars.usda.gov/" aria-label="The Agricultural Research Service Home Page" class="usda-logo-text--agency no-ext-icon">Agricultural Research Service</a>
+            </div>
+        </div>*@
+    <!--<div class="usa-logo" id="extended-logo">
+            <em class="usa-logo__text"><a href="/" title="Home" aria-label="Home">Germplasm Resources Information Network (GRIN)</a></em>
+            <p class="usa-intro">USDA Agricultural Research Service</p>
+        </div>
+        <button class="usa-menu-btn">Menu</button>
+    </div>
+    <nav aria-label="Primary navigation" class="usa-nav" style="background-color: #f0f0f0;">
+        <div class="usa-nav__inner">
+            <button class="usa-nav__close"><img src="/assets/uswds-2.10.0/img/close.svg" role="img" alt="close"></button>
+            <ul class="usa-nav__primary usa-accordion">
+                <li class="usa-nav__primary-item">
+                    <button class="usa-accordion__button usa-nav__link  usa-current" aria-expanded="false" aria-controls="extended-nav-section-one"><span>Collections</span></button>
+                    <ul id="extended-nav-section-one" class="usa-nav__submenu">
+                        <li class="usa-nav__submenu-item">
+                            <a href="@Url.Action("Index","Collections")" class="">Overview</a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                            <a href="/Collections#plant-germplasm" class="">Plant Germplasm</a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                            <a href="/Collections#animal-germplasm" class="">Animal Germplasm</a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                            <a href="/Collections#microbial-germplasm" class="">Microbial Germplasm</a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                            <a href="/Collections#grin-collections" class="">GRIN Collections</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="usa-nav__primary-item">
+                    <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-two"><span>Crop Germplasm Committees</span></button>
+                    <ul id="extended-nav-section-two" class="usa-nav__submenu">
+                        <li class="usa-nav__submenu-item">
+                            <a href="@Url.Action("Index","CGC")" class="">Overview</a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                            <a href="/CGC#meeting-dates-and-locations" class="">Meeting Dates and Locations</a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                            <a href="/CGC#directory" class="">CGC Directory</a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                            <a href="/CGC#annual-char-briefings" class="">Annual CGC Chair Briefings</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="usa-nav__primary-item">
+                    <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-three"><span>Mational Genetic Resources Advisory Council (NGRAC)</span></button>
+                    <ul id="extended-nav-section-three" class="usa-nav__submenu">
+                        <li class="usa-nav__submenu-item">
+                            <a href="@Url.Action("Index","NGRAC")" class="">Overview</a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                            <a href="/NGRAC#meetings" class="">Meetings</a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                            <a href="/NGRAC#membership" class="">Membership</a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                            <a href="/NGRAC#farm-bill" class="">Farm Bill</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><div class="usa-nav__secondary">
+                <ul class="usa-nav__secondary-links">
+                    <li class="usa-nav__secondary-item">
+                        <a href="@Url.Action("Index","Contact")">Contact Us</a>
+                    </li>
+                    <li class="usa-nav__secondary-item">
+                        <a href="@Url.Action("News","Home")">What's New?</a>
+                    </li>
+                </ul>-->
+    @*<form class="usa-search usa-search--small " role="search">
+    <label class="usa-sr-only" for="extended-search-field-small">Search small</label>
+    <input class="usa-input" id="extended-search-field-small" type="search" name="search">
+<button class="usa-button" type="submit"><span class="usa-sr-only">Search</span></button>
+    </form>*@
+    <!--</div>
+            </div>
+        </nav>
+    </header>-->
 
     <main id="main-content">
         @RenderBody()

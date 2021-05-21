@@ -4,12 +4,35 @@
     Layout = "~/Views/Shared/_LayoutInterior.cshtml";
 }
 
->
+<style>
+    #overlay {
+        height: 100%;
+        width: 100%;
+        position: fixed; /* NOTE: Had originally been "absolute;" overlay did not conceal entire page and allowed scrolling behind it. */
+        top: 0px;
+        left: 0px;
+        z-index: 99999;
+        background-color: #1b1b1b;
+        color: white;
+        filter: alpha(opacity=75);
+        -moz-opacity: 0.75;
+        opacity: 0.75;
+        display: none;
+        overflow: scroll;
+    }
 
+    #overlay h2 {
+        position: fixed;
+        margin-left: 40%;
+        top: 40%;
+    }
+</style>
+
+<div id="overlay"><h2>Loading .. Please wait</h2></div>
 <div class="grid-container">
     <div class="grid-row grid-gap">
         <div class="usa-layout-docs__sidenav desktop:grid-col-2">
-            <nav aria-label="Secondary navigation" style="padding-right:20px;">
+            <nav aria-label="Secondary navigation">
                 <form class="usa-search usa-search--small" role="search">
                     <label class="usa-sr-only" for="search-field-en-small">Search</label>
                     <input class="usa-input" id="search-field-en-small" type="search" name="search" placeholder="Search GRIN-Global">
@@ -18,38 +41,114 @@
                     </button>
                 </form>
                 <br />
-
                 <ul class="usa-sidenav">
+                    <li class="usa-sidenav__item">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="usa-sidenav__item">
+                        <a href="" class="usa-current">Overview</a>
+                        <ul class="usa-sidenav__sublist">
+                            <li class="usa-sidenav__item">
+                                <a href="" class="usa-current">Browse Applications</a><ul class="usa-sidenav__sublist">
+                                    <li class="usa-sidenav__item">
+                                        <a href="">Expired This Week</a>
+                                    </li>
+                                    <li class="usa-sidenav__item">
+                                        <a href="">Expiring in 6 Months</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="usa-sidenav__item">
+                                <a href="">Advanced Search</a>
+                            </li>
+                            <li class="usa-sidenav__item">
+                                <a href="">Report a Problem</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </div>
-
         <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
-            <h1 class="site-page-title" style="font-family: Public Sans Web,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol; font-size: 2.5rem; line-height: 1.2; font-weight: 700;">PVP</h1>
-            <p class="usa-intro">GRIN both provides data, and compiles references to databases hosted by collaborating projects.</p>
-            <table id="table_id" class="display">
-                <thead>
-                    <tr>
-                        <th>Column 1</th>
-                        <th>Column 2</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Row 1 Data 1</td>
-                        <td>Row 1 Data 2</td>
-                    </tr>
-                    <tr>
-                        <td>Row 2 Data 1</td>
-                        <td>Row 2 Data 2</td>
-                    </tr>
-                </tbody>
-            </table>
+            <p class="usa-intro">
+                GRIN both provides data, and compiles references to databases hosted by collaborating projects.
+            </p>
+            <h2 id="section-heading-h2">Overview</h2>
+            <p>
+                This collection is maintained in conjunction with the Agricultural Marketing Service Plant Variety Protection Office (PVPO), which provides intellectual property protection to breeders. This office publishes monthly updates to the status of PVP certificates.
+            </p>
+            <h2>Browse Applications</h2>
+            <div class="usa-alert usa-alert--info">
+                <div class="usa-alert__body">
+                    <h4 class="usa-alert__heading">Note</h4>
+                    <p class="usa-alert__text">This data was last updated on <strong>12/20/2020</strong>. Source data can be found at <a class="usa-link" href="javascript:void(0);">The PVP Office</a>.</p>
+                </div>
+            </div>
+            <ul class="usa-button-group usa-button-group--segmented" style="padding-left:0px;">
+                <li class="usa-button-group__item">
+                    <button id="btn-expired" title="expired" class="usa-button">Expired This Week</button>
+                </li>
+                <li class="usa-button-group__item">
+                    <button id="btn-expiring" title="expiring" class="usa-button usa-button--outline">Expiring in 6 Months</button>
+                </li>
+                <li class="usa-button-group__item">
+                    <button id="btn-submitted" title="submitted" class="usa-button usa-button--outline">Submitted This Week</button>
+                </li>
+            </ul>
+            <div id="section-data">
+
+            </div>
         </main>
     </div>
 </div>
 <script>
     $(document).ready(function () {
-        $('#table_id').DataTable();
+        LoadData("expired");
     });
+
+    $(function () {
+        $('.usa-button-group__item button').on('click', function () {
+            var context = $(this).attr("title");
+
+            $('.usa-button-group__item button').addClass('usa-button--outline');
+            $(this).removeClass('usa-button--outline');
+            LoadData(context);
+        });
+    });
+
+    $(function () {
+        $('.pvp-detail-btn').on('click', function () {
+            var id = this.id;
+
+            //DEBUG
+            alert("CLICKED " + id);
+
+            $('.usa-button-group__item button').addClass('usa-button--outline');
+            $(this).removeClass('usa-button--outline');
+            LoadData(context);
+        });
+    });
+
+    function LoadData(context)
+    {
+        $("#overlay").show();
+        var link = '@Url.Action("_List", "PVP")';
+        $.ajax(
+            {
+                type: 'POST',
+                url: link,
+                data: { context: context },
+                success:
+                    function (response) {
+                        $("#section-data").html(response);
+                        $('#table_id').DataTable();
+                        $("#overlay").hide();
+                    },
+                error:
+                    function (response) {
+                        console.log(response);
+                        $("#overlay").hide();
+                    }
+            });
+    }
 </script>

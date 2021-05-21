@@ -11,6 +11,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
         // GET: NGRAC
         public ActionResult Index()
         {
+            TempData["PAGE_CONTEXT"] = "NGRAC";
             return View();
         }
     }

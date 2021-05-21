@@ -6,13 +6,17 @@ using System.Web.Mvc;
 
 namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
 {
-    public class CGCController : Controller
+    public class SiteController : Controller
     {
-        // GET: CGC
+        // GET: Site
         public ActionResult Index()
         {
-            TempData["PAGE_CONTEXT"] = "Crop Germplasm Committees";
             return View();
+        }
+
+        public PartialViewResult _Detail(int id)
+        {
+            return PartialView("~/Views/Site/_Detail.cshtml");
         }
     }
 }

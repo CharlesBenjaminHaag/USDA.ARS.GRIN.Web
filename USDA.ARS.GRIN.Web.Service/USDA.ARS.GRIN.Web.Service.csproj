@@ -91,6 +91,7 @@
     <Compile Include="MailService.cs" />
     <Compile Include="PDFService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PVPService.cs" />
     <Compile Include="SecurityService.cs" />
   </ItemGroup>
   <ItemGroup>

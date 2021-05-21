@@ -133,15 +133,25 @@
     <Compile Include="Controllers\NGRACController.cs" />
     <Compile Include="Controllers\PVPController.cs" />
     <Compile Include="Controllers\RhizobiumController.cs" />
+    <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\ajax-loader.gif" />
+    <Content Include="assets\images\animals.jfif" />
+    <Content Include="assets\images\animals.jpg" />
+    <Content Include="assets\images\collections.jpg" />
     <Content Include="assets\images\hero-topic-plants_0.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="assets\images\icon-dot-gov.svg" />
+    <Content Include="assets\images\microbial.jpg" />
+    <Content Include="assets\images\plants.jpg" />
+    <Content Include="assets\images\PVPSeal.png" />
+    <Content Include="assets\images\rhizobium.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -190,6 +200,9 @@
     <Content Include="Views\Shared\_USABanner.cshtml" />
     <Content Include="Views\Shared\_USAFooter.cshtml" />
     <Content Include="Views\Shared\_USAIdentifier.cshtml" />
+    <Content Include="Views\Site\_Detail.cshtml" />
+    <Content Include="Views\PVP\Detail.cshtml" />
+    <Content Include="Views\PVP\_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -205,6 +218,16 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\USDA.ARS.GRIN.Web.Models\USDA.ARS.GRIN.Web.Models.csproj">
+      <Project>{88e87de6-5143-4711-b26a-86ba98bc1fbf}</Project>
+      <Name>USDA.ARS.GRIN.Web.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\USDA.ARS.GRIN.Web.Service\USDA.ARS.GRIN.Web.Service.csproj">
+      <Project>{a400d8e9-6d7c-48c5-9d3d-085c0517aaab}</Project>
+      <Name>USDA.ARS.GRIN.Web.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

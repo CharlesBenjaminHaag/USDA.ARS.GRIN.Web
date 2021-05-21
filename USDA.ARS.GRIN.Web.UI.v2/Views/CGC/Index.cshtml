@@ -1,8 +1,195 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutInterior.cshtml";
 }
 
-<h2>Index</h2>
+<div class="grid-container">
+    <div class="grid-row grid-gap">
+        <div class="usa-layout-docs__sidenav desktop:grid-col-2">
+            <nav aria-label="Secondary navigation">
+                <form class="usa-search usa-search--small" role="search">
+                    <label class="usa-sr-only" for="search-field-en-small">Search</label>
+                    <input class="usa-input" id="search-field-en-small" type="search" name="search" placeholder="Search GRIN-Global">
+                    <button class="usa-button" type="submit">
+                        <span class="usa-sr-only">Search</span>
+                    </button>
+                </form>
+                <br />
+                <ul class="usa-sidenav">
+                    <li class="usa-sidenav__item">
+                        <a href="">Home</a>
+                    </li>
+                    <li class="usa-sidenav__item">
+                        <a href="" class="usa-current">Crop Germplasm Committees</a><ul class="usa-sidenav__sublist">
+                            <li class="usa-sidenav__item">
+                                <a href="">Overview</a>
+                            </li>
+                            <li class="usa-sidenav__item">
+                                <a href="" class="usa-current">Meeting Dates and Locations</a><ul class="usa-sidenav__sublist">
+                                    <li class="usa-sidenav__item">
+                                        <a href="">Grandchild link</a>
+                                    </li>
+                                    <li class="usa-sidenav__item">
+                                        <a href="">Grandchild link</a>
+                                    </li>
+                                    <li class="usa-sidenav__item">
+                                        <a href="" class="usa-current">Grandchild link</a>
+                                    </li>
+                                    <li class="usa-sidenav__item">
+                                        <a href="">Grandchild link</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="usa-sidenav__item">
+                                <a href="">CGC Directory</a>
+                            </li>
+                            <li class="usa-sidenav__item">
+                                <a href="">Annual CGC Chair Briefings</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
+                @*<h1>Crop Germplasm Committees</h1>*@
+                <p class="usa-intro">
+                    The Crop Germplasm Committees (CGC) are comprised of a cross section of NPGS users who provide technical support to NPGS genebanks
+                    and collections.
+                </p>
+                <h2 id="section-heading-h2">Overview</h2>
+                <p>
+                    Crop Germplasm Committees (CGC) serve as subject matter experts to guide curatorial staff on best practices, including the priorities and techniques for characterizing the collections. They also help review proposals that fund plant explorations and evaluation grants for scientific rigor.
+                </p>
+                <p>
+                    There are currently 44 CGCs representing almost all major and minor crops of economic importance in the U.S. Each committee includes a chair and members from government agencies, universities, and commercial interests who volunteer their time and expertise to support the NPGS.
+                </p>
+
+                <h2>Meeting Dates and Locations</h2>
+
+                <div class="grid-container">
+                    <div class="grid-row">
+
+                        <div class="tablet:grid-col-6">
+
+                            <ul class="usa-collection">
+                                <li class="usa-collection__item">
+                                    <div class="usa-collection__calendar-date" href="https://www.performance.gov/presidents-winners-press-release/">
+                                        <time datetime="2020-09-30T12:00:00+01:00">
+                                            <span class="usa-collection__calendar-date-month">SEP</span>
+                                            <span class="usa-collection__calendar-date-day">30</span>
+                                        </time>
+                                    </div>
+                                    <div class="usa-collection__body">
+                                        <h3 class="usa-collection__heading">
+                                            <a class="usa-link" href="https://www.performance.gov/presidents-winners-press-release/">Gears of Government President’s Award winners</a>
+                                        </h3>
+                                        <p class="usa-collection__description">Today, the Administration announces the winners of the Gears of Government President’s Award. This program recognizes the contributions of individuals and teams across the federal workforce who make a profound difference in the lives of the American people.</p>
+                                    </div>
+                                </li>
+                                <li class="usa-collection__item">
+                                    <div class="usa-collection__calendar-date" href="https://www.performance.gov/sba-wosb-dashboard/">
+                                        <time datetime="2020-09-30T12:00:00+01:00">
+                                            <span class="usa-collection__calendar-date-month">SEP</span>
+                                            <span class="usa-collection__calendar-date-day">30</span>
+                                        </time>
+                                    </div>
+                                    <div class="usa-collection__body">
+                                        <h3 class="usa-collection__heading">
+                                            <a class="usa-link" href="https://www.performance.gov/sba-wosb-dashboard/">Women-owned small business dashboard</a>
+                                        </h3>
+                                        <p class="usa-collection__description">In honor of National Women’s Small Business Month, we’ve partnered with SBA’s Office of Government Contracting and Business Development and Office of Program Performance, Analysis, and Evaluation to highlight the Women-Owned Small Businesses (WOSBs) data dashboard!</p>
+                                    </div>
+                                </li>
+                                <li class="usa-collection__item">
+                                    <div class="usa-collection__calendar-date" href="https://www.performance.gov/September-2020-Updates-Show-Progress/">
+                                        <time datetime="2020-09-17T12:00:00+01:00">
+                                            <span class="usa-collection__calendar-date-month">SEP</span>
+                                            <span class="usa-collection__calendar-date-day">17</span>
+                                        </time>
+                                    </div>
+                                    <div class="usa-collection__body">
+                                        <h3 class="usa-collection__heading">
+                                            <a class="usa-link" href="https://www.performance.gov/September-2020-Updates-Show-Progress/">September 2020 updates show progress on cross-agency and agency priority goals</a>
+                                        </h3>
+                                        <p class="usa-collection__description">Today, we published progress updates for both Cross-Agency Priority (CAP) Goals and Agency Priority Goals (APGs) for the third quarter of FY2020. These updates highlight recent milestones and accomplishments as well as related initiatives that support progress towards a more modern and effective government.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tablet:grid-col-6">
+
+                            <ul class="usa-collection">
+                                <li class="usa-collection__item">
+                                    <div class="usa-collection__calendar-date" href="https://www.performance.gov/presidents-winners-press-release/">
+                                        <time datetime="2020-09-30T12:00:00+01:00">
+                                            <span class="usa-collection__calendar-date-month">SEP</span>
+                                            <span class="usa-collection__calendar-date-day">30</span>
+                                        </time>
+                                    </div>
+                                    <div class="usa-collection__body">
+                                        <h3 class="usa-collection__heading">
+                                            <a class="usa-link" href="https://www.performance.gov/presidents-winners-press-release/">Gears of Government President’s Award winners</a>
+                                        </h3>
+                                        <p class="usa-collection__description">Today, the Administration announces the winners of the Gears of Government President’s Award. This program recognizes the contributions of individuals and teams across the federal workforce who make a profound difference in the lives of the American people.</p>
+                                    </div>
+                                </li>
+                                <li class="usa-collection__item">
+                                    <div class="usa-collection__calendar-date" href="https://www.performance.gov/sba-wosb-dashboard/">
+                                        <time datetime="2020-09-30T12:00:00+01:00">
+                                            <span class="usa-collection__calendar-date-month">SEP</span>
+                                            <span class="usa-collection__calendar-date-day">30</span>
+                                        </time>
+                                    </div>
+                                    <div class="usa-collection__body">
+                                        <h3 class="usa-collection__heading">
+                                            <a class="usa-link" href="https://www.performance.gov/sba-wosb-dashboard/">Women-owned small business dashboard</a>
+                                        </h3>
+                                        <p class="usa-collection__description">In honor of National Women’s Small Business Month, we’ve partnered with SBA’s Office of Government Contracting and Business Development and Office of Program Performance, Analysis, and Evaluation to highlight the Women-Owned Small Businesses (WOSBs) data dashboard!</p>
+                                    </div>
+                                </li>
+                                <li class="usa-collection__item">
+                                    <div class="usa-collection__calendar-date" href="https://www.performance.gov/September-2020-Updates-Show-Progress/">
+                                        <time datetime="2020-09-17T12:00:00+01:00">
+                                            <span class="usa-collection__calendar-date-month">SEP</span>
+                                            <span class="usa-collection__calendar-date-day">17</span>
+                                        </time>
+                                    </div>
+                                    <div class="usa-collection__body">
+                                        <h3 class="usa-collection__heading">
+                                            <a class="usa-link" href="https://www.performance.gov/September-2020-Updates-Show-Progress/">September 2020 updates show progress on cross-agency and agency priority goals</a>
+                                        </h3>
+                                        <p class="usa-collection__description">Today, we published progress updates for both Cross-Agency Priority (CAP) Goals and Agency Priority Goals (APGs) for the third quarter of FY2020. These updates highlight recent milestones and accomplishments as well as related initiatives that support progress towards a more modern and effective government.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <h2>Committee Directory</h2>
+                <p style="background-color:gray;">
+                    <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                        <use xlink:href="https://designsystem.digital.gov/assets/img/sprite.svg#groups"></use>
+                    </svg>
+                </p>
+
+        <h3 id="section-heading-h3">Subsection heading (h3)</h3>
+
+        <p>The particulars of your body copy will be determined by the topic of your page. Regardless of topic, it’s a good practice to follow the inverted pyramid structure when writing copy: Begin with the information that’s most important to your users and then present information of less importance.</p>
+
+        <p>Keep each section and subsection focused — a good approach is to include one theme (topic) per section.</p>
+
+        <h4 id="section-heading-h4">Subsection heading (h4)</h4>
+
+        <p>Use the side navigation menu to help your users quickly skip to different sections of your page. The menu is best suited to displaying a hierarchy with one to three levels and, as we mentioned, to display the sub-navigation of a given page.</p>
+
+        <p>Read the full documentation on our side navigation on the component page.</p>
+        </main>
+    </div>
+    </div>
+
 

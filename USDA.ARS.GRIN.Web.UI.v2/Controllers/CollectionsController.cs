@@ -11,6 +11,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
         // GET: Collections
         public ActionResult Index()
         {
+            TempData["PAGE_CONTEXT"] = "Collections";
             return View("~/Views/Collections/Index.cshtml");
         }
     }

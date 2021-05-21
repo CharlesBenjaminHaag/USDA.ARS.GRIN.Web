@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseDAO.cs" />
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="CGCDAO.cs" />
     <Compile Include="CGCRepository.cs" />
     <Compile Include="CollectionRepository.cs" />
     <Compile Include="GRINRepository.cs" />
@@ -53,6 +55,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="PVPApplicationDAO.cs" />
     <Compile Include="PVPRepository.cs" />
     <Compile Include="Repository.designer.cs">
       <AutoGen>True</AutoGen>
@@ -60,6 +63,7 @@
       <DependentUpon>Repository.dbml</DependentUpon>
     </Compile>
     <Compile Include="RhizobiumRepository.cs" />
+    <Compile Include="SiteDAO.cs" />
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
