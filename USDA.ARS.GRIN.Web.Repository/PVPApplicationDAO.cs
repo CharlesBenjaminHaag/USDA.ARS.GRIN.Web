@@ -59,6 +59,7 @@ namespace USDA.ARS.GRIN.Web.Repository
                                 pVPApplication.YearsProtected = GetInt(reader["years_protected"].ToString());
                                 pVPApplication.ExpirationDate = GetDate(reader["expiration_date"].ToString());
                                 pVPApplication.AccessionID = GetInt(reader["accession_id"].ToString());
+                                pVPApplication.IsAvailableInGRIN = pVPApplication.AccessionID > 0 ? true : false;
                                 pVPApplications.Add(pVPApplication);
                             }
                         }

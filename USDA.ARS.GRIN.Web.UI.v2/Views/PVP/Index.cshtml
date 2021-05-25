@@ -21,11 +21,11 @@
         overflow: scroll;
     }
 
-    #overlay h2 {
-        position: fixed;
-        margin-left: 40%;
-        top: 40%;
-    }
+        #overlay h2 {
+            position: fixed;
+            margin-left: 40%;
+            top: 40%;
+        }
 </style>
 
 <div id="overlay"><h2>Loading .. Please wait</h2></div>
@@ -50,19 +50,13 @@
                         <ul class="usa-sidenav__sublist">
                             <li class="usa-sidenav__item">
                                 <a href="" class="usa-current">Browse Applications</a><ul class="usa-sidenav__sublist">
-                                    <li class="usa-sidenav__item">
-                                        <a href="">Expired This Week</a>
-                                    </li>
-                                    <li class="usa-sidenav__item">
-                                        <a href="">Expiring in 6 Months</a>
-                                    </li>
                                 </ul>
                             </li>
                             <li class="usa-sidenav__item">
-                                <a href="">Advanced Search</a>
+                                <a href="@Url.Action("Search","PVP")">Advanced Search</a>
                             </li>
                             <li class="usa-sidenav__item">
-                                <a href="">Report a Problem</a>
+                                <a href="@Url.Action("Contact","Home", new { topic = "PVP" })">Report a Problem</a>
                             </li>
                         </ul>
                     </li>
@@ -101,6 +95,8 @@
         </main>
     </div>
 </div>
+
+
 <script>
     $(document).ready(function () {
         LoadData("expired");

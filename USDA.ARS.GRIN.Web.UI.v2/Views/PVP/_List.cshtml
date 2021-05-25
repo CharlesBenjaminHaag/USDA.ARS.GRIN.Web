@@ -1,4 +1,4 @@
-﻿@model List<USDA.ARS.GRIN.Web.Models.PVPApplication>
+﻿@model USDA.ARS.GRIN.Web.UI.v2.ViewModels.PVPApplicationListViewModel
 <table id="table_id" class="display">
     <thead>
         <tr>
@@ -9,26 +9,26 @@
             <th>Years Protected</th>
             <th>Status</th>
             <th>Common Name</th>
-            <th>Scientific Name</th>
+            <th>Available</th>
             <th></th>
 
         </tr>
     </thead>
     <tbody>
-        @foreach (var pVpApplication in Model)
+        @foreach (var pVpApplication in Model.PVPApplications)
         {
-        <tr>
-            <td>@pVpApplication.ApplicationNumber</td>
-            <td>@pVpApplication.ApplicantName</td>
-            <td>@pVpApplication.CultivarName</td>
-            <td>@pVpApplication.ExpirationDate.ToShortDateString()</td>
-            <td>@pVpApplication.YearsProtected</td>
-            <td>@pVpApplication.ApplicationStatus</td>
-            <td>@pVpApplication.CommonName</td>
-            <td>@pVpApplication.ScientificName</td>
-            <td>
-            <a href="@Url.Action("Detail","PVP", new { id = pVpApplication.ApplicationNumber })" class="usa-button usa-button--outline">DEBUG</a>
-        </tr>
+            <tr>
+                <td>@pVpApplication.ApplicationNumber</td>
+                <td>@pVpApplication.ApplicantName</td>
+                <td>@pVpApplication.CultivarName</td>
+                <td>@pVpApplication.ExpirationDate.ToShortDateString()</td>
+                <td>@pVpApplication.YearsProtected</td>
+                <td>@pVpApplication.ApplicationStatus</td>
+                <td>@pVpApplication.CommonName</td>
+                <td>@Html.Raw(Model.GetBooleanDisplayString(pVpApplication.IsAvailableInGRIN))</td>
+                <td>
+                <a href="@Url.Action("Detail","PVP", new { id = pVpApplication.ApplicationNumber })" class="usa-button usa-button--outline">Detail</a>
+            </tr>
         }
     </tbody>
 </table>

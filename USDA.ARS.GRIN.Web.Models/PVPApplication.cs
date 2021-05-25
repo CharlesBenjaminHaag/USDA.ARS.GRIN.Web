@@ -16,6 +16,7 @@ namespace USDA.ARS.GRIN.Web.Models
         public string ApplicantName { get; set; }
         public DateTime ApplicationDate { get; set; }
         public bool IsCertifiedSeed { get; set; }
+        public bool IsAvailableInGRIN { get; set; }
         public string ApplicationStatus { get; set; }
         public DateTime ApplicationStatusDate { get; set; }
         public DateTime CertificateIssuedDate { get; set; }

@@ -1,8 +1,39 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutInterior.cshtml";
 }
 
-<h2>Index</h2>
+<div class="grid-container">
+    <div class="grid-row grid-gap">
+        <div class="usa-layout-docs__sidenav desktop:grid-col-2">
+            <nav aria-label="Secondary navigation">
+                <form class="usa-search usa-search--small" role="search">
+                    <label class="usa-sr-only" for="search-field-en-small">Search</label>
+                    <input class="usa-input" id="search-field-en-small" type="search" name="search" placeholder="Search GRIN-Global">
+                    <button class="usa-button" type="submit">
+                        <span class="usa-sr-only">Search</span>
+                    </button>
+                </form>
+                <br />
+                <ul class="usa-sidenav">
+                    <li class="usa-sidenav__item">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="usa-sidenav__item">
+                        <a href="" class="usa-current">Overview</a>
+                        <ul class="usa-sidenav__sublist">
+                            <li class="usa-sidenav__item">
+                                <a href="" class="usa-current">Browse</a><ul class="usa-sidenav__sublist">
+                                </ul>
+                            </li>
+                            <li class="usa-sidenav__item">
+                                <a href="@Url.Action("Contact","Home", new { topic = "PVP" })">Report a Problem</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
 

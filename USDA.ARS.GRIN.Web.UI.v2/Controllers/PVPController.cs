@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using USDA.ARS.GRIN.Web.Service;
 using USDA.ARS.GRIN.Web.Models;
+using USDA.ARS.GRIN.Web.UI.v2.ViewModels;
 
 namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
 {
@@ -27,16 +28,16 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
         public PartialViewResult _List(string context)
         {
             PVPService pVPService = new PVPService();
-            List<PVPApplication> pVPApplications = new List<PVPApplication>();
+            PVPApplicationListViewModel pVPApplicationListViewModel = new PVPApplicationListViewModel();
 
             try 
             {
-                pVPApplications = pVPService.List(context);
+                pVPApplicationListViewModel.PVPApplications = pVPService.List(context);
             }
             catch (Exception ex)
             {
             }
-            return PartialView("~/Views/PVP/_List.cshtml", pVPApplications);
+            return PartialView("~/Views/PVP/_List.cshtml", pVPApplicationListViewModel);
         }
     }
 }

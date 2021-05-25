@@ -11,6 +11,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
         // GET: Rhizobium
         public ActionResult Index()
         {
+            TempData["PAGE_CONTEXT"] = "Rhizobium Collection";
             return View();
         }
     }

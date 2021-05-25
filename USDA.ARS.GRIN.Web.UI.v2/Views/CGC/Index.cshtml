@@ -27,18 +27,7 @@
                             </li>
                             <li class="usa-sidenav__item">
                                 <a href="" class="usa-current">Meeting Dates and Locations</a><ul class="usa-sidenav__sublist">
-                                    <li class="usa-sidenav__item">
-                                        <a href="">Grandchild link</a>
-                                    </li>
-                                    <li class="usa-sidenav__item">
-                                        <a href="">Grandchild link</a>
-                                    </li>
-                                    <li class="usa-sidenav__item">
-                                        <a href="" class="usa-current">Grandchild link</a>
-                                    </li>
-                                    <li class="usa-sidenav__item">
-                                        <a href="">Grandchild link</a>
-                                    </li>
+                                    
                                 </ul>
                             </li>
                             <li class="usa-sidenav__item">
@@ -171,11 +160,9 @@
                 </div>
 
                 <h2>Committee Directory</h2>
-                <p style="background-color:gray;">
-                    <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                        <use xlink:href="https://designsystem.digital.gov/assets/img/sprite.svg#groups"></use>
-                    </svg>
-                </p>
+                @Html.Partial("_CommitteeList","CGC")
+
+
 
         <h3 id="section-heading-h3">Subsection heading (h3)</h3>
 

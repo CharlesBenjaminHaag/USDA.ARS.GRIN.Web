@@ -1,8 +1,382 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutInterior.cshtml";
 }
 
-<h2>Index</h2>
+<div class="grid-container">
+    <div class="grid-row grid-gap">
+        <div class="usa-layout-docs__sidenav desktop:grid-col-2">
+            <nav aria-label="Secondary navigation,,,">
+                <ul class="usa-sidenav">
+                    <li class="usa-sidenav__item">
+                        <a href="javascript:void(0);">Home</a>
+                    </li>
+                    <li class="usa-sidenav__item">
+                        <a href="javascript:void(0);" class="usa-current">NGRAC</a>
+                        <ul class="usa-sidenav__sublist">
+                            <li class="usa-sidenav__item">
+                                <a href="javascript:void(0);">Overview</a><ul class="usa-sidenav__sublist">
+                                    <li class="usa-sidenav__item">
+                                        <a href="javascript:void(0);">Authority</a>
+                                    </li>
+                                    @*<li class="usa-sidenav__item">
+                                        <a href="javascript:void(0);">Grandchild link</a>
+                                    </li>
+                                    <li class="usa-sidenav__item">
+                                        <a href="javascript:void(0);" class="usa-current">Grandchild link</a>
+                                    </li>*@
+                                </ul>
+                            </li>
+                            <li class="usa-sidenav__item">
+                                <a href="javascript:void(0);">Meetings</a>
+                            </li>
+                            <li class="usa-sidenav__item">
+                                <a href="javascript:void(0);">Membership</a>
+                                    <ul class="usa-sidenav__sublist">
+                                        <li class="usa-sidenav__item">
+                                            <a href="javascript:void(0);">Directory</a>
+                                            <ul class="usa-sidenav__sublist">
+                                                <li class="usa-sidenav__item">
+                                                    <a href="javascript:void(0);">General Public Members</a>
+                                                </li>
+                                                <li class="usa-sidenav__item">
+                                                    <a href="javascript:void(0);">Scientific Members</a>
+                                                </li>
+                                                <li class="usa-sidenav__item">
+                                                    <a href="javascript:void(0);" class="usa-current">Grandchild link</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="usa-sidenav__item">
+                                            <a href="javascript:void(0);">Scientific Members</a>
+                                        </li>
+                                        <li class="usa-sidenav__item">
+                                            <a href="javascript:void(0);" class="usa-current">Grandchild link</a>
+                                        </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="usa-sidenav__item">
+                        <a href="javascript:void(0);">Parent link</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
+            <p class="usa-intro">
+                The NGRAC advises and makes recommendations to the Secretary and Director of the NGRP through the NAREEE Advisory Board.
+            </p>
+
+            <a name="overview"></a>
+            <h2>Overview</h2>
+            <section id="section-overview">
+                The National Genetic Resources Advisory Council (NGRAC) advises and makes recommendations to the Secretary and Director of the National Genetic Resources Program (NGRP) through the National Agricultural Research, Extension, Education, and Economics (NAREEE) Advisory Board on matters related to the activities, policies and operations of the NGRP. The Agricultural Improvement Act of 2018  further expanded the responsibilities of the Council to include recommendations on public cultivar development.
+            </section>
+            <h3>Authority</h3>
+            <section id="section-authority">
+                The NGRAC was established in March, 1992, under USDA Departmental Regulation 1043-8 as directed by Section 1632 of P.L. 101-624. It was re-chartered on May 31, 2011, as a subcommittee of the NAREE. In April 2012, it was transitioned under the NAREE, and inactivated as a standalone entity.
+                The NAREEE Advisory Board, established by the Federal Agricultural Improvement and Reform Act of 1996, P.L. 104-127, Sec. 802, provides advice to the Secretary of Agriculture and land-grant colleges and universities on top priorities and policies for food and agricultural research, education, extension and economics.
+            </section>
+            <a name="meetings"></a>
+            <h2>Meetings</h2>
+            <section id="section-meetings"></section>
+            <ul class="usa-collection">
+                <li class="usa-collection__item">
+                    <div class="usa-collection__calendar-date" href="https://www.performance.gov/presidents-winners-press-release/">
+                        <time datetime="2020-09-30T12:00:00+01:00">
+                            <span class="usa-collection__calendar-date-month">APR</span>
+                            <span class="usa-collection__calendar-date-day">21-22</span>
+                        </time>
+                    </div>
+                    <div class="usa-collection__body">
+                        <h3 class="usa-collection__heading">
+                            ARS Plant Genetic Resources Conservation Unit at the University of Georgia Research Garden Education Building Griffin, GA
+                        </h3>
+                        <ul class="usa-collection__meta" aria-label="Topics">
+                            <li class="usa-collection__meta-item usa-tag">
+                                <a href="">Stakeholder Announcement</a>
+                            </li>
+                            <li class="usa-collection__meta-item usa-tag">
+                                Agenda
+                            </li>
+                            <li class="usa-collection__meta-item usa-tag">
+                                OMB
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="usa-collection__item">
+                    <div class="usa-collection__calendar-date" href="https://www.performance.gov/sba-wosb-dashboard/">
+                        <time datetime="2020-09-30T12:00:00+01:00">
+                            <span class="usa-collection__calendar-date-month">SEP</span>
+                            <span class="usa-collection__calendar-date-day">30</span>
+                        </time>
+                    </div>
+                    <div class="usa-collection__body">
+                        <h3 class="usa-collection__heading">
+                            <a class="usa-link" href="https://www.performance.gov/sba-wosb-dashboard/">Women-owned small business dashboard</a>
+                        </h3>
+                        <p class="usa-collection__description">In honor of National Women’s Small Business Month, we’ve partnered with SBA’s Office of Government Contracting and Business Development and Office of Program Performance, Analysis, and Evaluation to highlight the Women-Owned Small Businesses (WOSBs) data dashboard!</p>
+                    </div>
+                </li>
+                <li class="usa-collection__item">
+                    <div class="usa-collection__calendar-date" href="https://www.performance.gov/September-2020-Updates-Show-Progress/">
+                        <time datetime="2020-09-17T12:00:00+01:00">
+                            <span class="usa-collection__calendar-date-month">SEP</span>
+                            <span class="usa-collection__calendar-date-day">17</span>
+                        </time>
+                    </div>
+                    to
+                    <div class="usa-collection__calendar-date" href="https://www.performance.gov/September-2020-Updates-Show-Progress/">
+                        <time datetime="2020-09-17T12:00:00+01:00">
+                            <span class="usa-collection__calendar-date-month">SEP</span>
+                            <span class="usa-collection__calendar-date-day">17-18</span>
+                        </time>
+                    </div>
+                    <div class="usa-collection__body">
+                        <h3 class="usa-collection__heading">
+                            <a class="usa-link" href="https://www.performance.gov/September-2020-Updates-Show-Progress/">September 2020 updates show progress on cross-agency and agency priority goals</a>
+                        </h3>
+                        <p class="usa-collection__description">Today, we published progress updates for both Cross-Agency Priority (CAP) Goals and Agency Priority Goals (APGs) for the third quarter of FY2020. These updates highlight recent milestones and accomplishments as well as related initiatives that support progress towards a more modern and effective government.</p>
+                    </div>
+                </li>
+            </ul>
+
+
+            <a name="membership"></a>
+            <h2>Membership</h2>
+            <section id="section-membership">
+                The NGRAC shall consist of thirteen members appointed by the Secretary, and seven or more ex-officio members. The membership categories are:
+                6 members from scientific disciplines relevant to the NGRP, including agricultural sciences, economics and policy, environmental sciences, natural resource sciences, health sciences, and nutritional sciences.
+                3 members from the general public, and shall include leaders in fields of public policy, community development, trade, international development, law, or management.
+                4 members from public cultivar development and animal breed development.
+                Of the total members, 4 must also represent the 1862 land-grant colleges and universities, 1890 land-grant college and universities, Latinx-serving institutions, or 1994 Equity in Education Land-Grant Act institutions. As a general rule, each of the life forms in the NGRP (plants, forest species, animals, aquatics, insects, and microbes) is represented by only one of the appointed Scientific Members.
+
+
+            </section>
+            <h3>Membership Directory</h3>
+            <table class="usa-table usa-table--borderless usa-table--striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>State</th>
+                        <th>Title and Organization</th>
+                        <th>Term</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="4" style="background-color: #c9c9c9; font-size: 1em; font-weight: bold;">
+                            Scientific Members
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>
+                            Krishnan, Sarada
+                        </td>
+                        <td>CO</td>
+                        <td>Director of Horticulture and Center for Global Initiatives, Denver Botanic Gardens</td>
+                        <td>
+                            2017 – 2019 <br>(2nd Term)
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Hardison, Preston D.
+                        </td>
+                        <td>WA</td>
+                        <td>Policy Analyst, Tulalip Tribes of Washington</td>
+                        <td>
+                            General Public Members
+                        </td>
+                        <td>
+                            2019 – 2021 <br>(1st Term)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Kerns, Steven L.
+                        </td>
+                        <td>IA</td>
+                        <td>
+                            President, Universal Pig Genes, Inc./dba, International Boar Semen
+                        </td>
+                        <td>
+                            General Public Members
+                        </td>
+                        <td>
+                            2019 – 2021 <br>(1st Term)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ibrahim, Amir, M.
+                        </td>
+                        <td>TX</td>
+                        <td>
+                            Regents Professor, Small Grains Breeder/Geneticist
+                            Soil and Crop Sciences Department, Texas A&M University
+                        </td>
+                        <td>
+                            Plant or Animal Breed Development Members
+                        </td>
+                        <td>
+                            2019 – 2021
+                            <br>(1st Term)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Dechow, Chad D.
+                        </td>
+                        <td>PA</td>
+                        <td>
+                            Associate Professor of Dairy Genetics, Penn State University
+                        </td>
+                        <td>
+                            Plant or Animal Breed Development Members
+                        </td>
+                        <td>
+                            2019 – 2021
+                            <br>(1st Term)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Rainey, Katherine, M.
+                        </td>
+                        <td>IN</td>
+                        <td>
+                            Associate Professor, Plant Breeding & Genetics, Purdue University
+                        </td>
+                        <td>
+                            Plant or Animal Breed Development Members
+                        </td>
+                        <td>
+                            2019 – 2021
+                            <br>(1st Term)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Smith, Margaret E.
+                        </td>
+                        <td>NY</td>
+                        <td>
+                            Professor, Plant Breeding & Genetics, Cornell University and Associate Director, Cornell Agricultural Experiment Station
+                        </td>
+                        <td>
+                            Plant or Animal Breed Development Members
+                        </td>
+                        <td>
+                            2019 – 2021
+                            <br>(1st Term)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Bretting, Dr. Peter
+                        </td>
+                        <td>MD</td>
+                        <td>
+                            National Program Leader, Office of National Programs (ONP)
+                        </td>
+                        <td>
+                            Ex-Officio Members
+                        </td>
+                        <td>
+                            N/A
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Blackburn, Dr. Harvey
+                        </td>
+                        <td>CO</td>
+                        <td>Animal Geneticist</td>
+                        <td>
+                            Ex-Officio Members
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>US Department of Energy</td>
+                        <td>DC</td>
+                        <td></td>
+                        <td>
+                            Ex-Officio Members
+                        </td>
+                        <td>
+                            N/A
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            National Institutes of Health
+                        </td>
+                        <td>MD</td>
+                        <td></td>
+                        <td>
+                            Ex-Officio Members
+                        </td>
+                        <td>
+                            N/A
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Office of Science and Technology Policy
+                        </td>
+                        <td>DC</td>
+                        <td></td>
+                        <td>Ex-Officio Members</td>
+                        <td>
+                            N/A
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Wester, Paul
+                        </td>
+                        <td>MD</td>
+                        <td>Director, National Agricultural Library</td>
+                        <td>Ex-Officio Members</td>
+                        <td>
+                            N/A
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            The National Science Foundation
+                        </td>
+                        <td>VA</td>
+                        <td></td>
+                        <td>Ex-Officio Members</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Hutchins, Scott</td>
+                        <td>DC</td>
+                        <td>Under Secretary for REE</td>
+                        <td>Ex-Officio Members</td>
+                        <td>N/A</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+            <a name="farm-bill"></a>
+            <h2>Farm Bill</h2>
+            <section id="section-farm-bill">
+            </section>
+        </main>
+    </div>
+</div>
 

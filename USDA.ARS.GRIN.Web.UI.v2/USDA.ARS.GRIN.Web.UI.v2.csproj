@@ -138,6 +138,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\PVPApplicationListViewModel.cs" />
+    <Compile Include="ViewModels\PVPApplicationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\images\ajax-loader.gif" />
@@ -169,6 +171,7 @@
     <Content Include="Views\Collections\Index.cshtml" />
     <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.5.1.min.map" />
+    <Content Include="Views\CGC\_CommitteeList.cshtml" />
     <None Include="Views\Home\indexV2.cshtml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -201,8 +204,8 @@
     <Content Include="Views\Shared\_USAFooter.cshtml" />
     <Content Include="Views\Shared\_USAIdentifier.cshtml" />
     <Content Include="Views\Site\_Detail.cshtml" />
-    <Content Include="Views\PVP\Detail.cshtml" />
     <Content Include="Views\PVP\_List.cshtml" />
+    <Content Include="Views\Shared\_USANavPrimary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

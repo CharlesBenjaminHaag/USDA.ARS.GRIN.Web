@@ -9,10 +9,7 @@
     @*@Scripts.Render("~/bundles/modernizr")*@
     <script src="~/assets/uswds-2.10.0/js/uswds-init.min.js"></script>
     <link rel="stylesheet" href="~/assets/uswds-2.10.0/css/uswds.min.css" />
-    
-
-    
-
+ 
     <!-- ====================================================================
     OVERRIDDEN STYLES
     ====================================================================
@@ -42,18 +39,12 @@
             width: 100%;
         }
     </style>
-
-    
 </head>
 
 <body>
     <a class="usa-skipnav" href="#main-content">Skip to main content</a>
     @Html.Partial("~/Views/Shared/_USABanner.cshtml")
-
     <div class="usa-overlay"></div>
-
-
-
     <header class="usa-header usa-header--extended">
         <div class="usa-navbar">
             <div class="usa-logo" id="extended-logo">
@@ -64,85 +55,102 @@
         <nav aria-label="Primary navigation" class="usa-nav">
             <div class="usa-nav__inner">
                 <button class="usa-nav__close"><img src="/assets/img/usa-icons/close.svg" role="img" alt="close"></button>
-                <ul class="usa-nav__primary usa-accordion">
-                    <li class="usa-nav__primary-item">
-                        <button class="usa-accordion__button usa-nav__link  usa-current" aria-expanded="false" aria-controls="extended-nav-section-one"><span>Collections</span></button>
-                        <ul id="extended-nav-section-one" class="usa-nav__submenu">
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_plants = Url.Action("Index", "Collections") + "#plant-germplasm";
-                                }
-                                <a href=@link_plants> Plant Germplasm</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_animals = Url.Action("Index", "Collections") + "#animal-germplasm";
-                                }
-                                <a href=@link_animals> Animal Germplasm</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_microbial = Url.Action("Index", "Collections") + "#microbial-germplasm";
-                                }
-                                <a href=@link_microbial> Microbial Germplasm</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_pvp = Url.Action("Index", "Collections") + "#pvp-applications";
-                                }
-                                <a href=@link_pvp> PVP Applications</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_rhi = Url.Action("Index", "Rhizobium") + "#rhizobium";
-                                }
-                                <a href=@link_pvp> Rhizobium</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="usa-nav__primary-item">
-                        <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-two"><span>Crop Germplasm Committees</span></button>
-                        <ul id="extended-nav-section-two" class="usa-nav__submenu">
-                            <li class="usa-nav__submenu-item">
-                                <a href="#" class=""> Overview</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href="#" class=""> Meeting Dates and Locations</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href="#" class=""> CGC Directory</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href="#" class=""> Annual CGC Chair Briefings</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="usa-nav__primary-item">
-                        <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-three"><span>National Genetic Resources Advisory Council (NGRAC)</span></button>
-                        <ul id="extended-nav-section-three" class="usa-nav__submenu">
-                            <li class="usa-nav__submenu-item">
-                                <a href="#" class=""> Meetings</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href="#" class=""> Membership</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href="#" class=""> Farm Bill</a>
-                            </li>
-                        </ul>
-                    </li>
-                    @*<li class="usa-nav__primary-item">
-                        <a class="usa-nav__link" href="javascript:void(0)"><span>Contact Us</span></a>
-                    </li>*@
-                </ul><div class="usa-nav__secondary">
+
+                @Html.Partial("~/Views/Shared/_USANavPrimary.cshtml")
+
+                <!--<ul class="usa-nav__primary usa-accordion">
+        <li class="usa-nav__primary-item">
+            <button class="usa-accordion__button usa-nav__link  usa-current" aria-expanded="false" aria-controls="extended-nav-section-one"><span>Collections</span></button>
+            <ul id="extended-nav-section-one" class="usa-nav__submenu">
+                <li class="usa-nav__submenu-item">
+                    @{
+                        var link_plants = Url.Action("Index", "Collections") + "#plant-germplasm";
+                    }
+                    <a href=@link_plants> Plant Germplasm</a>
+                </li>
+                <li class="usa-nav__submenu-item">
+                    @{
+                        var link_animals = Url.Action("Index", "Collections") + "#animal-germplasm";
+                    }
+                    <a href=@link_animals> Animal Germplasm</a>
+                </li>
+                <li class="usa-nav__submenu-item">
+                    @{
+                        var link_microbial = Url.Action("Index", "Collections") + "#microbial-germplasm";
+                    }
+                    <a href=@link_microbial> Microbial Germplasm</a>
+                </li>
+                <li class="usa-nav__submenu-item">
+                    @{
+                        var link_pvp = Url.Action("Index", "PVP") + "#pvp-applications";
+                    }
+                    <a href=@link_pvp> PVP Applications</a>
+                </li>
+                <li class="usa-nav__submenu-item">
+                    @{
+                        var link_rhi = Url.Action("Index", "Rhizobium") + "#rhizobium";
+                    }
+                    <a href=@link_rhi> Rhizobium</a>
+                </li>
+            </ul>
+        </li>
+        <li class="usa-nav__primary-item">
+            <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-two"><span>Crop Germplasm Committees</span></button>
+            <ul id="extended-nav-section-two" class="usa-nav__submenu">
+                <li class="usa-nav__submenu-item">
+                    @{
+                        var link_cgc = Url.Action("Index", "CGC") + "#overview";
+                    }
+                    <a href=@link_cgc> Oveview</a>
+                </li>
+                <li class="usa-nav__submenu-item">
+                    @{
+                        var link_cgc_meetings = Url.Action("Index", "CGC") + "#meeting-dates-and-locations";
+                    }
+                    <a href=@link_cgc_meetings> Meeting Dates and Locations</a>
+                </li>
+                <li class="usa-nav__submenu-item">
+                    @{
+                        var link_cgc_directory = Url.Action("Index", "CGC") + "#cgc-directory";
+                    }
+                    <a href=@link_cgc_directory> CGC Directory</a>
+                </li>
+                <li class="usa-nav__submenu-item">
+                    @{
+                        var link_cgc_briefings = Url.Action("Index", "CGC") + "#cgc-annual-cgc-chair-briefings";
+                    }
+                    <a href=@link_cgc_directory> Annual CGC Chair Briefings</a>
+                </li>
+            </ul>
+        </li>
+        <li class="usa-nav__primary-item">
+            <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-three"><span>National Genetic Resources Advisory Council (NGRAC)</span></button>
+            <ul id="extended-nav-section-three" class="usa-nav__submenu">
+                <li class="usa-nav__submenu-item">
+                    <a href="#" class=""> Meetings</a>
+                </li>
+                <li class="usa-nav__submenu-item">
+                    <a href="#" class=""> Membership</a>
+                </li>
+                <li class="usa-nav__submenu-item">
+                    <a href="#" class=""> Farm Bill</a>
+                </li>
+            </ul>
+        </li>-->
+                @*<li class="usa-nav__primary-item">
+            <a class="usa-nav__link" href="javascript:void(0)"><span>Contact Us</span></a>
+        </li>*@
+                <!--</ul>-->
+                <div class="usa-nav__secondary">
                     <ul class="usa-nav__secondary-links">
                         <li class="usa-nav__secondary-item">
                             <a href="@Url.Action("Contact", "Home")">Contact Us</a>
                         </li>
                         @*<li class="usa-nav__secondary-item">
-                            <a href="">FAQ</a>
-                        </li>*@
-                    </ul><form class="usa-search usa-search--small " role="search">
+                    <a href="">FAQ</a>
+                </li>*@
+                    </ul>
+                    <form class="usa-search usa-search--small " role="search">
                         <label class="usa-sr-only" for="extended-search-field-small">Search small</label>
                         <input class="usa-input" id="extended-search-field-small" type="search" name="search">
                         <button class="usa-button" type="submit"><span class="usa-sr-only">Search</span></button>
