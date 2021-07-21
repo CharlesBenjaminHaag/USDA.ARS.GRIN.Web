@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "GRIN-U";
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
+}
+
+
+<main id="main-content" class="usa-section usa-content usa-layout-docs with-breadcrumb with-sidebar with-hero">
+    <div id="block-usda-page-title" class="usda-block usda-page-title-block usda-page-title-block-with-hero">
+        <h1 class="usda-page-title usda-page-title-with-hero"><span class="usda-page-title--main">GRIN </span><span class="usda-page-title--sub">NGRAC</span></h1>
+    </div>
+    <div class="usa-layout-docs-main_content">
+        <aside class="usa-layout-docs-sidenav">
+            @Html.Partial("~/Views/Shared/_LeftNavSearch.cshtml")
+            @Html.Partial("~/Views/Shared/_LeftNavNGRAC.cshtml")
+        </aside>
+        <div id="block-usda-content" class="usda-block block-usda-content">
+            <div class="usa-table-wrapper">
+                <div class="section-lead-paragraph">
+                    <h3 id="section-overview">Overview</h3>
+                    <a href="https://grin-u.org/">GRIN-U</a> is a collaborative project to provide open access to educational and training content on plant genetic resources (PGR) conservation
+                    and use. The project is funded by a grant from the <a href="https://nifa.usda.gov/">USDA National Institute of Food and Agriculture (NIFA)</a>, and includes investigators 
+                    from ARS, Colorado State University, Iowa State University, and a private contractor. 
+                </div>
+                <div class="section-paragraph">
+                    As part of the GRIN family of products,
+                    GRIN-U contains visual (videos, virtual tours, podcasts) and printed (e-books, infographics, manuals) materials on a variety of
+                    topics related to PGR management and plant genebank operations.
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+

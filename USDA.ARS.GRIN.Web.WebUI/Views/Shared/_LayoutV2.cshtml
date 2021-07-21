@@ -21,14 +21,12 @@
 
     @Scripts.Render("~/bundles/jquery")
     <script src="https://fdc.nal.usda.gov/assets/uswds-1.6.9/js/uswds.min.js"></script>
-    @*<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>*@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 
     <link rel="stylesheet" href="https://fdc.nal.usda.gov/assets/uswds-1.6.9/css/uswds.min.css" media="all">
     <link rel="stylesheet" href="~/Content/fooddata.css" media="all">
     <link rel="stylesheet" href="~/Content/Site.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/" />
-    @*<link rel="stylesheet" type="text/css" href="~/Content/dataTables.bootstrap4.min.css">*@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/dataTables.jqueryui.min.css" />
 
@@ -109,12 +107,6 @@
                                 <li>
                                     <a href="https://www.ars.usda.gov/about-ars/" class="no-ext-icon">About ARS</a>
                                 </li>
-                                @*<li>
-                                        <a href="@Url.Action("AccountRequest","GRINGlobal")" class="no-ext-icon">Contact Us</a>
-                                    </li>*@
-                                @*<li>
-                                        <a href="https://www.ars.usda.gov/contact-us/?modeCode=00-00-00-00" class="no-ext-icon">Contact ARS</a>
-                                    </li>*@
                             </ul>
                         </nav>
                     </div>
@@ -127,10 +119,13 @@
                                 <a href="@Url.Action("Collections","Pages")" class="usa-nav-link"><span>Collections</span></a>
                             </li>
                             <li>
-                                <a href="@Url.Action("NGRAC","Pages")" class="usa-nav-link"><span>National Genetic Resources Advisory Council (NGRAC)</span></a>
+                                <a href="@Url.Action("NGRAC","Pages")" class="usa-nav-link"><span>National Genetic Resources Advisory Council</span></a>
                             </li>
                             <li>
-                                <a href="@Url.Action("Index", "CGC")" class="usa-nav-link"><span>Crop Germplasm Committees (CGC)</span></a>
+                                <a href="@Url.Action("Index", "CGC")" class="usa-nav-link"><span>Crop Germplasm Committees</span></a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("GRINU", "Pages")" class="usa-nav-link"><span>GRIN-U</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -149,8 +144,6 @@
                     <div class="usa-grid-full">
                         <nav id="block-mainnavigation-2-menu" class="usa-footer-nav" aria-label="Main">
                             <ul class="usa-unstyled-list">
-
-
                                 <li class="usa-footer-primary-content">
                                     <a href="@Url.Action("Index","Home")" class="usa-footer-primary-link"><span>Home</span></a>
                                 </li>
@@ -158,38 +151,14 @@
                                     <a href="@Url.Action("Collections","Pages")" class="usa-footer-primary-link"><span>Collections</span></a>
                                 </li>
                                 <li class="usa-footer-primary-content">
-                                    <a href="@Url.Action("NGRAC","Pages")" class="usa-footer-primary-link"><span>National Genetic Resources Advisory Council (NGRAC)</span></a>
+                                    <a href="@Url.Action("NGRAC","Pages")" class="usa-footer-primary-link"><span>National Genetic Resources Advisory Council</span></a>
                                 </li>
                                 <li class="usa-footer-primary-content">
-                                    <a href="@Url.Action("Index", "CGC")" class="usa-footer-primary-link"><span>Crop Germplasm Committees (CGC)</span></a>
+                                    <a href="@Url.Action("Index", "CGC")" class="usa-footer-primary-link"><span>Crop Germplasm Committees</span></a>
                                 </li>
-
-
-
-                                @*<li class="usa-footer-primary-content">
-                                        <a href="index.html" class="usa-footer-primary-link"><span>Home</span></a>
-                                    </li>
-                                    <li class="usa-footer-primary-content">
-                                        <a href="data-documentation.html" class="usa-footer-primary-link"><span>Database Quick Links</span></a>
-                                    </li>
-                                    <li class="usa-footer-primary-content">
-                                        <a href="download-datasets.html" class="usa-footer-primary-link"><span>Download Data</span></a>
-                                    </li>
-                                    <li class="usa-footer-primary-content">
-                                        <a href="api-guide.html" class="usa-footer-primary-link"><span>API Guide</span></a>
-                                    </li>
-                                    <li class="usa-footer-primary-content">
-                                        <a href="help.html" class="usa-footer-primary-link"><span>Help</span></a>
-                                    </li>
-                                    <li class="usa-footer-primary-content">
-                                        <a href="faq.html" class="usa-footer-primary-link"><span>FAQ</span></a>
-                                    </li>
-                                    <li class="usa-footer-primary-content">
-                                        <a href="@Url.Action("About","Home")" class="usa-footer-primary-link"><span>DEBUG About Us</span></a>
-                                    </li>
-                                    <li class="usa-footer-primary-content">
-                                        <a href="contact.html" class="usa-footer-primary-link"><span>Contact FoodData Central</span></a>
-                                    </li>*@
+                                <li>
+                                    <a href="@Url.Action("GRINU", "Pages")" class="usa-footer-primary-link"><span>GRIN-U</span></a>
+                                </li>
                             </ul>
                         </nav>
                     </div>

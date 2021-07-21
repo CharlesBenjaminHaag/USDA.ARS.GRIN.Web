@@ -57,5 +57,10 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
             return View();
         }
 
+        public ActionResult GRINU()
+        {
+            return View();
+        }
+
     }
 }

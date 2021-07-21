@@ -398,6 +398,7 @@
     <Content Include="Views\PVP\Search.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_LeftNav.cshtml" />
+    <Content Include="Views\Pages\GRINU.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\uswds-2.10.0\images\" />
