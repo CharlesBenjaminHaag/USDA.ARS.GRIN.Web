@@ -105,28 +105,27 @@ namespace USDA.ARS.GRIN.Web.Repository
 
             try
             {
-                //var result = 
-                //    _dataContext.usp_ARS_PVPApplication_Select("");
-                //if (result != null)
-                //{
-                //    pVPApplication.ApplicationNumber = result.pvp_application_number;
-                //    pVPApplication.CultivarName = result.cultivar_name;
-                //    pVPApplication.ExperimentalName = result.experimental_name;
-                //    pVPApplication.ScientificName = result.scientific_name;
-                //    pVPApplication.CommonName = result.common_name;
-                //    pVPApplication.ApplicantName = result.applicant_name;
-                //    pVPApplication.ApplicationDate = result.application_date.GetValueOrDefault();
-                //    pVPApplication.IsCertifiedSeed = result.is_certified_seed.GetValueOrDefault();
-                //    pVPApplication.ApplicationStatus = result.application_status;
-                //    pVPApplication.ApplicationStatusDate = result.status_date.GetValueOrDefault();
-                //    pVPApplication.CertificateIssuedDate = result.certificate_issued_date.GetValueOrDefault();
-                //    pVPApplication.YearsProtected = result.years_protected.GetValueOrDefault();
-                //    if (result.expiration_date != null)
-                //    {
-                //        pVPApplication.ExpirationDate = DateTime.Parse(result.expiration_date);
-                //    }
-                //    pVPApplication.AccessionID = result.accession_id.GetValueOrDefault();
-                //}
+                var result = _dataContext.usp_ARS_PVPApplications_Search("WHERE pa.pvp_application_number = " + id.ToString()).First();
+                if (result != null)
+                {
+                    pVPApplication.ApplicationNumber = result.pvp_application_number.GetValueOrDefault();
+                    pVPApplication.CultivarName = result.cultivar_name;
+                    pVPApplication.ExperimentalName = result.experimental_name;
+                    pVPApplication.ScientificName = result.scientific_name;
+                    pVPApplication.CommonName = result.common_name;
+                    pVPApplication.ApplicantName = result.applicant_name;
+                    pVPApplication.ApplicationDate = result.application_date.GetValueOrDefault();
+                    pVPApplication.IsCertifiedSeed = result.is_certified_seed.GetValueOrDefault();
+                    pVPApplication.ApplicationStatus = result.application_status;
+                    pVPApplication.ApplicationStatusDate = result.status_date.GetValueOrDefault();
+                    pVPApplication.CertificateIssuedDate = result.certificate_issued_date.GetValueOrDefault();
+                    pVPApplication.YearsProtected = result.years_protected.GetValueOrDefault();
+                    if (result.expiration_date != null)
+                    {
+                        pVPApplication.ExpirationDate = result.expiration_date.GetValueOrDefault();
+                    }
+                    pVPApplication.AccessionID = result.accession_id.GetValueOrDefault();
+                }
             }
             catch (Exception e)
             {

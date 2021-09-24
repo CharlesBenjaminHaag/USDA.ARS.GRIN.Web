@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "PVPSearch";
+    Layout = "~/Views/Shared/_LayoutV2.cshtml";
+}
+<div class="usa-overlay"></div>
+
+<!-- HEADER IMAGE -->
+<!--<div style="padding:20px; height:100px; text-align:center; background: url(Images/sunflowers-1523812757U6y.jpg) center center / cover;">-->
+    @*<div class="DEBUG-TITLE" style="font-size:larger; font-weight:bold; margin-top:7px; color:white;  background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0; padding: 1rem 1.5rem; width:40%; text-align:center;">GRIN: Crop Germplasm Committees</div>*@
+<!--</div>-->
+
+<!-- BREADCRUMBS -->
+<div class="usda-breadcrumb-with-sidebar">
+    <div id="block-usda-breadcrumbs" class="usda-block usda-breadcrumb">
+        <nav class="usa-grid" aria-label="Breadcrumb">
+            <ol class="usda-breadcrumb-list">
+                <li class="usda-breadcrumb-item">
+                    <a href="@Url.Action("Index", "Home")" class="no-ext-icon">GRIN Home</a>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<main id="main-content" class="usa-section usa-content usa-layout-docs with-breadcrumb with-sidebar with-hero">
+    <div id="block-usda-page-title" class="usda-block usda-page-title-block usda-page-title-block-with-hero">
+        <h1 class="usda-page-title usda-page-title-with-hero"><span class="usda-page-title--main">GRIN </span><span class="usda-page-title--sub">Databases</span><span class="usda-page-title--sub">Rhizobium</span></h1>
+    </div>
+    <div class="usa-layout-docs-main_content">
+        <aside class="usa-layout-docs-sidenav">
+            @{Html.RenderAction("_LeftNav", "Home");}
+        </aside>
+        <div class="usa-layout-docs-main_content">
+
+            <div id="block-usda-content" class="usda-block block-usda-content">
+                <div class="usa-table-wrapper">
+                    <div class="usa-width-one-third">
+                        <img src="~/Images/download.png" style="margin:20px;">
+                    </div>
+                    <div class="usa-width-two-thirds">
+                        <hgroup>
+                            <h1>An Error Has Occurred</h1>
+                            <h2 style="margin:0px;">We're sorry!</h2>
+                            A system error has occurred, and an administrator has been notified. We apologize for the inconvenience.
+                        </hgroup>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

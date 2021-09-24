@@ -71,7 +71,7 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
                 }
                 else
                 {
-                    viewModel.GRINGlobalAccessionURL = "<strong>Not Available</strong>";
+                    viewModel.GRINGlobalAccessionURL = "<strong>Not Currently Available in GRIN</strong>";
                 }
             }
             catch (Exception ex)
@@ -90,7 +90,7 @@ namespace USDA.ARS.GRIN.Web.WebUI.Controllers
             {
 
                 viewModel.CropID = referenceItemId;
-                //viewModel.Applications = _repository.GetPVPApplications(referenceItemId, displayFormat);
+                viewModel.Applications = _repository.GetPVPApplications(displayFormat);
             }
             catch (Exception ex)
             {

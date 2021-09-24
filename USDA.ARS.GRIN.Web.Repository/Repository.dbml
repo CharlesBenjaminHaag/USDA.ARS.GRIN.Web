@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="gringlobal" Class="RepositoryDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=ARSMDBE33WS2;Initial Catalog=gringlobal;Integrated Security=True" SettingsObjectName="USDA.ARS.GRIN.Web.Repository.Properties.Settings" SettingsPropertyName="gringlobalConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ARSMDBE33DB1;Initial Catalog=gringlobal;Integrated Security=True" SettingsObjectName="USDA.ARS.GRIN.Web.Repository.Properties.Settings" SettingsPropertyName="gringlobalConnectionString4" Provider="System.Data.SqlClient" />
   <Function Name="dbo.LP_SEARCH_RHIZOBIUM" Method="LP_SEARCH_RHIZOBIUM">
     <Parameter Name="searchString" Type="System.String" DbType="VarChar(20)" />
     <ElementType Name="LP_SEARCH_RHIZOBIUMResult">
@@ -265,10 +265,6 @@
       <Column Name="name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.usp_ARS_PVPApplication_Select" Method="usp_ARS_PVPApplication_Select" IsComposable="true">
-    <Parameter Name="crop_description" Type="System.String" DbType="NVarChar(60)" />
-    <Return Type="object" />
-  </Function>
   <Function Name="dbo.usp_ARS_PVPApplications_Search" Method="usp_ARS_PVPApplications_Search">
     <Parameter Name="sql_where_clause" Type="System.String" DbType="NVarChar(MAX)" />
     <ElementType Name="usp_ARS_PVPApplications_SearchResult">
@@ -389,5 +385,8 @@
       <Column Name="modified_date" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
       <Column Name="modified_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.usp_ARS_PVPApplication_Select" Method="usp_ARS_PVPApplication_Select">
+    <Parameter Name="crop_description" Type="System.String" DbType="NVarChar(60)" />
   </Function>
 </Database>

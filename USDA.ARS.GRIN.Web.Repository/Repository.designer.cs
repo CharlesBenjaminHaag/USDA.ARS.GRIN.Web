@@ -33,7 +33,7 @@ namespace USDA.ARS.GRIN.Web.Repository
     #endregion
 		
 		public RepositoryDataContext() : 
-				base(global::USDA.ARS.GRIN.Web.Repository.Properties.Settings.Default.gringlobalConnectionString1, mappingSource)
+				base(global::USDA.ARS.GRIN.Web.Repository.Properties.Settings.Default.gringlobalConnectionString4, mappingSource)
 		{
 			OnCreated();
 		}
@@ -174,12 +174,6 @@ namespace USDA.ARS.GRIN.Web.Repository
 			return ((ISingleResult<usp_ARS_CropGermplasmCommitteeCropDescriptors_SelectResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_PVPApplication_Select", IsComposable=true)]
-		public object usp_ARS_PVPApplication_Select([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(60)")] string crop_description)
-		{
-			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), crop_description).ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_PVPApplications_Search")]
 		public ISingleResult<usp_ARS_PVPApplications_SearchResult> usp_ARS_PVPApplications_Search([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(MAX)")] string sql_where_clause)
 		{
@@ -245,6 +239,12 @@ namespace USDA.ARS.GRIN.Web.Repository
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), crop_germplasm_committee_document_id);
 			return ((ISingleResult<usp_ARS_CropGermplasmCommitteeDocument_SelectResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_ARS_PVPApplication_Select")]
+		public void usp_ARS_PVPApplication_Select([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(60)")] string crop_description)
+		{
+			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), crop_description);
 		}
 	}
 	
