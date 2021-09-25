@@ -49,7 +49,7 @@
                         <a href="" class="usa-current">Overview</a>
                         <ul class="usa-sidenav__sublist">
                             <li class="usa-sidenav__item">
-                                <a href="" class="usa-current">Browse Applications</a><ul class="usa-sidenav__sublist">
+                                <a href="">Browse Applications</a><ul class="usa-sidenav__sublist">
                                 </ul>
                             </li>
                             <li class="usa-sidenav__item">
@@ -115,10 +115,6 @@
     $(function () {
         $('.pvp-detail-btn').on('click', function () {
             var id = this.id;
-
-            //DEBUG
-            alert("CLICKED " + id);
-
             $('.usa-button-group__item button').addClass('usa-button--outline');
             $(this).removeClass('usa-button--outline');
             LoadData(context);
@@ -137,7 +133,10 @@
                 success:
                     function (response) {
                         $("#section-data").html(response);
-                        $('#table_id').DataTable();
+                        $('#table_id').DataTable({
+                            responsive: true,
+                            select: true
+                        });
                         $("#overlay").hide();
                     },
                 error:

@@ -317,4 +317,26 @@
     $('#hero-callout').css('max-width', '50rem');
     var maxlength = $("#hero-title").width() / 16 + 5 + "rem";
     $('#hero-callout').css('max-width', maxlength);
+
+    $(document).ready(function ($) {
+        var url = window.location.href;
+        var activePage = url;
+        $('.usa-sidenav__item a').each(function () {
+            var linkPage = this.href;
+
+            if (activePage == linkPage) {
+            $(this).closest("a").addClass("usa-current");
+            }
+        });
+    });
+
+    $(document).ready(function () {
+            $(".usa-sidenav__item a").click(function (e) {
+                e.preventDefault();
+                $(".usa-sidenav__item a").removeClass("usa-current"); //Remove any "active" class
+                $(this).addClass("usa-current"); //Add "active" class to selected tab
+                $(activeTab).show(); //Fade in the active content
+            });
+    });
+
 </script>

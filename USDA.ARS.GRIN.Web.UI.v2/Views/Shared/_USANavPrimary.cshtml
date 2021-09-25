@@ -1,98 +1,101 @@
 ﻿<ul class="usa-nav__primary usa-accordion">
-                    <li class="usa-nav__primary-item">
-                        <button class="usa-accordion__button usa-nav__link  usa-current" aria-expanded="false" aria-controls="extended-nav-section-one"><span>Collections</span></button>
-                        <ul id="extended-nav-section-one" class="usa-nav__submenu">
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_plants = Url.Action("Index", "Collections") + "#plant-germplasm";
-                                }
-                                <a href=@link_plants> Plant Germplasm</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_animals = Url.Action("Index", "Collections") + "#animal-germplasm";
-                                }
-                                <a href=@link_animals> Animal Germplasm</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_microbial = Url.Action("Index", "Collections") + "#microbial-germplasm";
-                                }
-                                <a href=@link_microbial> Microbial Germplasm</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_pvp = Url.Action("Index", "PVP") + "#pvp-applications";
-                                }
-                                <a href=@link_pvp> PVP Applications</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_rhi = Url.Action("Index", "Rhizobium") + "#rhizobium";
-                                }
-                                <a href=@link_rhi> Rhizobium</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="usa-nav__primary-item">
-                        <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-two"><span>Crop Germplasm Committees</span></button>
-                        <ul id="extended-nav-section-two" class="usa-nav__submenu">
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_cgc = Url.Action("Index", "CGC") + "#overview";
-                                }
-                                <a href=@link_cgc> Oveview</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_cgc_meetings = Url.Action("Index", "CGC") + "#meeting-dates-and-locations";
-                                }
-                                <a href=@link_cgc_meetings> Meeting Dates and Locations</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_cgc_directory = Url.Action("Index", "CGC") + "#cgc-directory";
-                                }
-                                <a href=@link_cgc_directory> CGC Directory</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_cgc_briefings = Url.Action("Index", "CGC") + "#cgc-annual-cgc-chair-briefings";
-                                }
-                                <a href=@link_cgc_directory> Annual CGC Chair Briefings</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="usa-nav__primary-item">
-                        <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-three"><span>National Genetic Resources Advisory Council (NGRAC)</span></button>
-                        <ul id="extended-nav-section-three" class="usa-nav__submenu">
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_ngrac = Url.Action("Index", "NGRAC") + "#overview";
-                                }
-                                <a href=@link_ngrac> Overview</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_ngrac_meetings = Url.Action("Index", "NGRAC") + "#meetings";
-                                }
-                                <a href=@link_ngrac_meetings> Meetings</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_ngrac_membership = Url.Action("Index", "NGRAC") + "#membership";
-                                }
-                                <a href=@link_ngrac_membership> Membership</a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                @{
-                                    var link_ngrac_farm_bill = Url.Action("Index", "NGRAC") + "#farm-bill";
-                                }
-                                <a href=@link_ngrac_farm_bill> Farm Bill</a>
-                            </li>
-                        </ul>
-                        </li>
-                        <li class="usa-nav__primary-item">
-                                <a class="usa-nav__link" href="@Url.Action("Contact","Home")"><span>Contact Us</span></a>
-                            </li>
-                        </ul>
+    <li class="usa-nav__primary-item">
+        <button class="usa-accordion__button usa-nav__link  usa-current" aria-expanded="false" aria-controls="extended-nav-section-one"><span>Collections</span></button>
+        <ul id="extended-nav-section-one" class="usa-nav__submenu">
+            <li class="usa-nav__submenu-item">
+                @{
+                    var link_plants = Url.Action("Index", "Collections") + "#plant-germplasm";
+                }
+                <a href=@link_plants> Plant Germplasm</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+                @{
+                    var link_animals = Url.Action("Index", "Collections") + "#animal-germplasm";
+                }
+                <a href=@link_animals> Animal Germplasm</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+                @{
+                    var link_microbial = Url.Action("Index", "Collections") + "#microbial-germplasm";
+                }
+                <a href=@link_microbial> Microbial Germplasm</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+                @{
+                    var link_pvp = Url.Action("Index", "PVP") + "#pvp-applications";
+                }
+                <a href=@link_pvp> PVP Applications</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+                @{
+                    var link_rhi = Url.Action("Index", "Rhizobium") + "#rhizobium";
+                }
+                <a href=@link_rhi> Rhizobium</a>
+            </li>
+        </ul>
+    </li>
+    <li class="usa-nav__primary-item">
+        <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-two"><span>Crop Germplasm Committees</span></button>
+        <ul id="extended-nav-section-two" class="usa-nav__submenu">
+            <li class="usa-nav__submenu-item">
+                @{
+                    var link_cgc = Url.Action("Index", "CGC") + "#overview";
+                }
+                <a href=@link_cgc> Oveview</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+                @{
+                    var link_cgc_meetings = Url.Action("Index", "CGC") + "#meeting-dates-and-locations";
+                }
+                <a href=@link_cgc_meetings> Meeting Dates and Locations</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+                @{
+                    var link_cgc_directory = Url.Action("Index", "CGC") + "#cgc-directory";
+                }
+                <a href=@link_cgc_directory> CGC Directory</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+                @{
+                    var link_cgc_briefings = Url.Action("Index", "CGC") + "#cgc-annual-cgc-chair-briefings";
+                }
+                <a href=@link_cgc_directory> Annual CGC Chair Briefings</a>
+            </li>
+        </ul>
+    </li>
+    <li class="usa-nav__primary-item">
+        <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-three"><span>National Genetic Resources Advisory Council (NGRAC)</span></button>
+        <ul id="extended-nav-section-three" class="usa-nav__submenu">
+            <li class="usa-nav__submenu-item">
+                @{
+                    var link_ngrac = Url.Action("Index", "NGRAC") + "#overview";
+                }
+                <a href=@link_ngrac> Overview</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+                @{
+                    var link_ngrac_meetings = Url.Action("Index", "NGRAC") + "#meetings";
+                }
+                <a href=@link_ngrac_meetings> Meetings</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+                @{
+                    var link_ngrac_membership = Url.Action("Index", "NGRAC") + "#membership";
+                }
+                <a href=@link_ngrac_membership> Membership</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+                @{
+                    var link_ngrac_farm_bill = Url.Action("Index", "NGRAC") + "#farm-bill";
+                }
+                <a href=@link_ngrac_farm_bill> Farm Bill</a>
+            </li>
+        </ul>
+    </li>
+    <li class="usa-nav__primary-item">
+        <a class="usa-nav__link" href="@Url.Action("Contact","Home")"><span>GRIN-U</span></a>
+    </li>
+    <li class="usa-nav__primary-item">
+        <a class="usa-nav__link" href="@Url.Action("Contact","Home")"><span>Contact Us</span></a>
+    </li>
+</ul>

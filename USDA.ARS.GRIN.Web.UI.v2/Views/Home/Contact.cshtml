@@ -1,17 +1,49 @@
 ﻿@{
     ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_LayoutInterior.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<div class="grid-container">
+    <div class="grid-row grid-gap">
+        <!-- SIDE NAV -->
+        <div class="usa-layout-docs__sidenav desktop:grid-col-2">
+            <nav aria-label="Secondary navigation">
+                <form class="usa-search usa-search--small" role="search">
+                    <label class="usa-sr-only" for="search-field-en-small">Search</label>
+                    <input class="usa-input" id="search-field-en-small" type="search" name="search" placeholder="Search GRIN-Global">
+                    <button class="usa-button" type="submit">
+                        <span class="usa-sr-only">Search</span>
+                    </button>
+                </form>
+                <br />
+                <ul class="usa-sidenav">
+                    <li class="usa-sidenav__item">
+                        <a href="">Home</a>
+                    </li>
+                    <li class="usa-sidenav__item">
+                        <a href="">Contact Us</a>
+                    </li>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+
+                    <li class="usa-sidenav__item">
+                        <a href="" class="usa-current">Crop Germplasm Committees</a><ul class="usa-sidenav__sublist">
+                            <li class="usa-sidenav__item">
+                                <a href="">Overview</a>
+                            </li>
+                            <li class="usa-sidenav__item">
+                                <a href="" class="usa-current">Meeting Dates and Locations</a><ul class="usa-sidenav__sublist">
+                                </ul>
+                            </li>
+                            <li class="usa-sidenav__item">
+                                <a href="">CGC Directory</a>
+                            </li>
+                            <li class="usa-sidenav__item">
+                                <a href="">Annual CGC Chair Briefings</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
