@@ -31,7 +31,7 @@
 <div id="overlay"><h2>Loading .. Please wait</h2></div>
 <div class="grid-container">
     <div class="grid-row grid-gap">
-        <div class="usa-layout-docs__sidenav desktop:grid-col-2">
+        @*<div class="usa-layout-docs__sidenav desktop:grid-col-2">
             <nav aria-label="Secondary navigation">
                 <form class="usa-search usa-search--small" role="search">
                     <label class="usa-sr-only" for="search-field-en-small">Search</label>
@@ -62,8 +62,8 @@
                     </li>
                 </ul>
             </nav>
-        </div>
-        <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
+        </div>*@
+        <main class="usa-layout-docs__main desktop:grid-col-12 usa-prose usa-layout-docs" id="main-content">
             <p class="usa-intro">
                 GRIN both provides data, and compiles references to databases hosted by collaborating projects.
             </p>
@@ -78,29 +78,99 @@
                     <p class="usa-alert__text">This data was last updated on <strong>12/20/2020</strong>. Source data can be found at <a class="usa-link" href="javascript:void(0);">The PVP Office</a>.</p>
                 </div>
             </div>
-            <ul class="usa-button-group usa-button-group--segmented" style="padding-left:0px;">
-                <li class="usa-button-group__item">
-                    <button id="btn-expired" title="expired" class="usa-button">Expired This Week</button>
-                </li>
-                <li class="usa-button-group__item">
-                    <button id="btn-expiring" title="expiring" class="usa-button usa-button--outline">Expiring in 6 Months</button>
-                </li>
-                <li class="usa-button-group__item">
-                    <button id="btn-submitted" title="submitted" class="usa-button usa-button--outline">Submitted This Week</button>
-                </li>
-            </ul>
-            <div id="section-data">
+            <div class="grid-container margin-5">
+                <div class="grid-row grid-gap">
+                    <div id="section-filter-by-status" class="grid-col-3">
+                        
+                        <!--<div class="usa-checkbox">
+                            <input class="usa-checkbox__input usa-checkbox__input--tile"
+                                   id="check-historical-truth-2"
+                                   type="checkbox"
+                                   name="historical-figures-2"
+                                   value="sojourner-truth"
+                                   checked />
+                            <label class="usa-checkbox__label" for="check-historical-truth-2">
+                                Application Pending-->
+                                @*<span class="usa-checkbox__label-description">
+                                    This is optional text that can be used to describe the label in more
+                                    detail.
+                                </span>*@
+                            <!--</label>
+                        </div>-->
+                        
+                        
+                        <div class="usa-checkbox">
+                            <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
+                                   id="check-application-pending"
+                                   type="checkbox"
+                                   name="historical-figures-2"
+                                   value="frederick-douglass" />
+                            <label class="usa-checkbox__label" for="check-application-pending">Application Pending</label>
+                        </div>
+                        <div class="usa-checkbox">
+                            <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
+                                   id="check-certificate-issued"
+                                   type="checkbox"
+                                   name="historical-figures-2"
+                                   value="frederick-douglass" />
+                            <label class="usa-checkbox__label" for="check-certificate-issued">Certificate Issued</label>
+                        </div>
+                        <div class="usa-checkbox">
+                            <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
+                                   id="check-certificate-expired"
+                                   type="checkbox"
+                                   name="historical-figures-2"
+                                   value="booker-t-washington" />
+                            <label class="usa-checkbox__label" for="check-certificate-expired">Certificate Expired</label>
+                        </div>
 
+                    </div>
+                    <div id="section-filter-by-time-frame" class="grid-col-9">
+                        <ul class="usa-button-group usa-button-group--segmented" style="padding-left:0px;">
+                            <li class="usa-button-group__item">
+                                <button id="btn-expired" title="expired" class="usa-button">This Week</button>
+                            </li>
+                            <li class="usa-button-group__item">
+                                <button id="btn-submitted" title="submitted" class="usa-button usa-button--outline">This Month</button>
+                            </li>
+                            <li class="usa-button-group__item">
+                                <button id="btn-expiring" title="expiring" class="usa-button usa-button--outline">The Last 6 Months</button>
+                            </li>
+                            <li class="usa-button-group__item">
+                                <button id="btn-expiring" title="expiring" class="usa-button usa-button--outline">The Last Year</button>
+                            </li>
+                        </ul>
+                        <div id="section-data">
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
 </div>
 
-
-<script>
+<script type="text/javascript">
     $(document).ready(function () {
         LoadData("expired");
     });
+
+    /*========================================================================================
+    * STATUS SELECTORS
+    *========================================================================================
+    */
+    $(".status-selector").click(function () {
+        LoadData("test");
+    });
+
+    function GetSelectedStatuses() {
+        var valueArray = [];
+        $("#section-filter-by-status input:checked").each(function () {
+            var id = $(this).attr("id");
+            valueArray.push(id);
+        });
+        return valueArray;
+    }
 
     $(function () {
         $('.usa-button-group__item button').on('click', function () {
@@ -125,25 +195,45 @@
     {
         $("#overlay").show();
         var link = '@Url.Action("_List", "PVP")';
-        $.ajax(
-            {
-                type: 'POST',
-                url: link,
-                data: { context: context },
-                success:
-                    function (response) {
-                        $("#section-data").html(response);
-                        $('#table_id').DataTable({
-                            responsive: true,
-                            select: true
-                        });
-                        $("#overlay").hide();
-                    },
-                error:
-                    function (response) {
-                        console.log(response);
-                        $("#overlay").hide();
-                    }
-            });
+        var selectedStatusList = GetSelectedStatuses();
+        var selectedTimeFrame = context;
+
+        var formData = new FormData();
+        formData.append("StatusList", selectedStatusList);
+        formData.append("TimeFrame", context);
+
+        $.ajax({
+            url: link,
+            type: 'POST',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: formData,
+            success: function (response) {
+                $("#section-data").html(response);
+            }
+        });
+        $("#overlay").hide();
+
+        //$.ajax(
+        //    {
+        //        type: 'POST',
+        //        url: link,
+        //        data: formData,
+        //        success:
+        //            function (response) {
+        //                $("#section-data").html(response);
+        //                $('#table_id').DataTable({
+        //                    responsive: true,
+        //                    select: true
+        //                });
+        //                $("#overlay").hide();
+        //            },
+        //        error:
+        //            function (response) {
+        //                console.log(response);
+        //                $("#overlay").hide();
+        //            }
+        //    });
     }
 </script>

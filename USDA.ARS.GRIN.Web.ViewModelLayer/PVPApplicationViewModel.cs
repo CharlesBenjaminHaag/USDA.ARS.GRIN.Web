@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace USDA.ARS.GRIN.Web.UI.v2.ViewModels
+namespace USDA.ARS.GRIN.Web.ViewModelLayer
 {
     public class PVPApplicationViewModel
     {

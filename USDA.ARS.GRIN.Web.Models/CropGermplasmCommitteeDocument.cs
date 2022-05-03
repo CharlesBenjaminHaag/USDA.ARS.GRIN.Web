@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace USDA.ARS.GRIN.Web.Models
+namespace USDA.ARS.GRIN.Web.DataLayer
 {
     public class CropGermplasmCommitteeDocument: BaseModel
     {

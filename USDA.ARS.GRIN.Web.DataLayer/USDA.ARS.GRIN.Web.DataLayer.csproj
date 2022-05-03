@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FA2D3995-3A05-4709-9B32-CB2D821AD1C0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>USDA.ARS.GRIN.Web.DataLayer</RootNamespace>
+    <AssemblyName>USDA.ARS.GRIN.Web.DataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EntityClasses\BaseModel.cs" />
+    <Compile Include="EntityClasses\CropGermplasmCommittee.cs" />
+    <Compile Include="EntityClasses\Document.cs" />
+    <Compile Include="EntityClasses\CropGermplasmCommitteeSearch.cs" />
+    <Compile Include="EntityClasses\PVPApplication.cs" />
+    <Compile Include="EntityClasses\PVPApplicationSearch.cs" />
+    <Compile Include="EntityClasses\RhizobiumDescriptorSearch.cs" />
+    <Compile Include="EntityClasses\RhizobiumDescriptor.cs" />
+    <Compile Include="ManagerClasses\CropGermplasmCommitteeManager.cs" />
+    <Compile Include="ManagerClasses\PVPApplicationManager.cs" />
+    <Compile Include="ManagerClasses\RhizobiumManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\USDA.ARS.GRIN.Web\USDA.ARS.GRIN.Common.DataLayer.SqlServer\USDA.ARS.GRIN.Common.DataLayer.SqlServer.csproj">
+      <Project>{ab887e72-bd5e-47d2-b4f9-4323cb43e607}</Project>
+      <Name>USDA.ARS.GRIN.Common.DataLayer.SqlServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\USDA.ARS.GRIN.Web\USDA.ARS.GRIN.Common.DataLayer\USDA.ARS.GRIN.Common.DataLayer.csproj">
+      <Project>{4d384f7b-0650-4d28-824c-963aad902dcd}</Project>
+      <Name>USDA.ARS.GRIN.Common.DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\USDA.ARS.GRIN.Web\USDA.ARS.GRIN.Common.Library\USDA.ARS.GRIN.Common.Library.csproj">
+      <Project>{79ce8eb3-0993-4b8d-a6e4-9d89ca7fe4ee}</Project>
+      <Name>USDA.ARS.GRIN.Common.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\USDA.ARS.GRIN.Web.AppLayer\USDA.ARS.GRIN.Web.AppLayer.csproj">
+      <Project>{4a081172-bade-48a3-9919-202fe482f018}</Project>
+      <Name>USDA.ARS.GRIN.Web.AppLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

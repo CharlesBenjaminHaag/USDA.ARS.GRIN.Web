@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@ViewBag.Title - USDA ARS GRIN</title>
+    <title>@ViewBag.Title USDA ARS GRIN</title>
     @*@Styles.Render("~/Content/css")*@
     @*@Scripts.Render("~/bundles/modernizr")*@
     <script src="~/assets/uswds-2.10.0/js/uswds-init.min.js"></script>
@@ -102,12 +102,6 @@
                                 var link_cgc = Url.Action("Index", "CGC") + "#overview";
                             }
                             <a href=@link_cgc> Oveview</a>
-                        </li>
-                        <li class="usa-nav__submenu-item">
-                            @{
-                                var link_cgc_meetings = Url.Action("Index", "CGC") + "#meeting-dates-and-locations";
-                            }
-                            <a href=@link_cgc_meetings> Meeting Dates and Locations</a>
                         </li>
                         <li class="usa-nav__submenu-item">
                             @{

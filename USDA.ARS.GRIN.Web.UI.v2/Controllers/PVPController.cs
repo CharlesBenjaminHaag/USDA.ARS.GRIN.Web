@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using USDA.ARS.GRIN.Web.Service;
-using USDA.ARS.GRIN.Web.Models;
-using USDA.ARS.GRIN.Web.UI.v2.ViewModels;
+using USDA.ARS.GRIN.Web.ViewModelLayer;
 
 namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
 {
@@ -25,19 +23,18 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
             return View();
         }
 
-        public PartialViewResult _List(string context)
+        public ActionResult Search()
         {
-            PVPService pVPService = new PVPService();
-            PVPApplicationListViewModel pVPApplicationListViewModel = new PVPApplicationListViewModel();
+            return View();
+        }
 
-            try 
-            {
-                pVPApplicationListViewModel.PVPApplications = pVPService.List(context);
-            }
-            catch (Exception ex)
-            {
-            }
-            return PartialView("~/Views/PVP/_List.cshtml", pVPApplicationListViewModel);
+        public PartialViewResult _List(FormCollection formCollection)
+        {
+            PVPApplicationViewModel viewModel = new PVPApplicationViewModel();
+
+            //TODO
+
+            return PartialView("~/Views/PVP/_List.cshtml",viewModel);
         }
     }
 }

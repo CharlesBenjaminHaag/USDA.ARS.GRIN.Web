@@ -138,8 +138,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\PVPApplicationListViewModel.cs" />
-    <Compile Include="ViewModels\PVPApplicationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\images\ajax-loader.gif" />
@@ -173,7 +171,7 @@
     <Content Include="Views\Collections\Index.cshtml" />
     <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.5.1.min.map" />
-    <Content Include="Views\CGC\_CommitteeList.cshtml" />
+    <Content Include="Views\CGC\_List.cshtml" />
     <None Include="Views\Home\indexV2.cshtml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -208,6 +206,7 @@
     <Content Include="Views\Site\_Detail.cshtml" />
     <Content Include="Views\PVP\_List.cshtml" />
     <Content Include="Views\Shared\_USANavPrimary.cshtml" />
+    <Content Include="Views\PVP\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -225,13 +224,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\USDA.ARS.GRIN.Web.Models\USDA.ARS.GRIN.Web.Models.csproj">
-      <Project>{88e87de6-5143-4711-b26a-86ba98bc1fbf}</Project>
-      <Name>USDA.ARS.GRIN.Web.Models</Name>
+    <ProjectReference Include="..\..\..\..\USDA.ARS.GRIN.Web\USDA.ARS.GRIN.Common.DataLayer.SqlServer\USDA.ARS.GRIN.Common.DataLayer.SqlServer.csproj">
+      <Project>{ab887e72-bd5e-47d2-b4f9-4323cb43e607}</Project>
+      <Name>USDA.ARS.GRIN.Common.DataLayer.SqlServer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\USDA.ARS.GRIN.Web.Service\USDA.ARS.GRIN.Web.Service.csproj">
-      <Project>{a400d8e9-6d7c-48c5-9d3d-085c0517aaab}</Project>
-      <Name>USDA.ARS.GRIN.Web.Service</Name>
+    <ProjectReference Include="..\..\..\..\USDA.ARS.GRIN.Web\USDA.ARS.GRIN.Common.DataLayer\USDA.ARS.GRIN.Common.DataLayer.csproj">
+      <Project>{4d384f7b-0650-4d28-824c-963aad902dcd}</Project>
+      <Name>USDA.ARS.GRIN.Common.DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\USDA.ARS.GRIN.Web\USDA.ARS.GRIN.Common.Library\USDA.ARS.GRIN.Common.Library.csproj">
+      <Project>{79ce8eb3-0993-4b8d-a6e4-9d89ca7fe4ee}</Project>
+      <Name>USDA.ARS.GRIN.Common.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\USDA.ARS.GRIN.Web.ViewModelLayer\USDA.ARS.GRIN.Web.ViewModelLayer.csproj">
+      <Project>{c4c97dc2-0d44-47c0-9281-fd219d8b42bc}</Project>
+      <Name>USDA.ARS.GRIN.Web.ViewModelLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

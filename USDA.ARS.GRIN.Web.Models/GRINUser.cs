@@ -28,14 +28,14 @@ namespace USDA.ARS.GRIN.Web.Models
         public Site Site { get; set; }
         public List<Address> Addresses { get; set; }
         public List<Group> Groups { get; set; }
-        public List<Application> Applications { get; set; }
+       // public List<Application> Applications { get; set; }
 
         public GRINUser()
         {
             Site = new Site();
             Addresses = new List<Address>();
             Groups = new List<Group>();
-            Applications = new List<Application>();
+            //Applications = new List<Application>();
         }
     }
 }

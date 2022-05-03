@@ -415,20 +415,6 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\USDA.ARS.GRIN.Web.Models\USDA.ARS.GRIN.Web.Models.csproj">
-      <Project>{88e87de6-5143-4711-b26a-86ba98bc1fbf}</Project>
-      <Name>USDA.ARS.GRIN.Web.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\USDA.ARS.GRIN.Web.Repository\USDA.ARS.GRIN.Web.Repository.csproj">
-      <Project>{53bd4d9b-fff2-45dd-ba9b-11516bca6993}</Project>
-      <Name>USDA.ARS.GRIN.Web.Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\USDA.ARS.GRIN.Web.Service\USDA.ARS.GRIN.Web.Service.csproj">
-      <Project>{a400d8e9-6d7c-48c5-9d3d-085c0517aaab}</Project>
-      <Name>USDA.ARS.GRIN.Web.Service</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

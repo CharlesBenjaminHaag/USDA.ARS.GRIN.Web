@@ -1,4 +1,4 @@
-﻿
+﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.CropGermplasmCommitteeViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutInterior.cshtml";
@@ -64,19 +64,15 @@
                         <a href="@Url.Action("Index","Home")">Home</a>
                     </li>
                     <li class="usa-sidenav__item">
-                        <a href="@Url.Action("Index","CGC")">Crop Germplasm Committees</a><ul class="usa-sidenav__sublist">
-                            <li class="usa-sidenav__item">
-                                <a href="@Url.Action("Index","CGC")#section-overview">Overview</a>
+                        <ul class="usa-sidenav__sublist">
+                            <li class="usa-sidenav__item active">
+                                <a href="#section-overview">Overview</a>
                             </li>
                             <li class="usa-sidenav__item">
-                                <a href="@Url.Action("Index","CGC")#section-meetings" class="">Meeting Dates and Locations</a><ul class="usa-sidenav__sublist">
-                                </ul>
+                                <a href="#section-directory">CGC Directory</a>
                             </li>
                             <li class="usa-sidenav__item">
-                                <a href="@Url.Action("Index","CGC")#section-directory">CGC Directory</a>
-                            </li>
-                            <li class="usa-sidenav__item">
-                                <a href="@Url.Action("Index","CGC")#section-briefings">Annual CGC Chair Briefings</a>
+                                <a href="#section-briefings">Annual CGC Chair Briefings</a>
                             </li>
                         </ul>
                     </li>
@@ -94,84 +90,109 @@
                 Crop Germplasm Committees (CGC) serve as subject matter experts to guide curatorial staff on best practices, including the priorities and techniques for characterizing the collections. They also help review proposals that fund plant explorations and evaluation grants for scientific rigor.
             </p>
             <p>
-                There are currently 44 CGCs representing almost all major and minor crops of economic importance in the U.S. Each committee includes a chair and members from government agencies, universities, and commercial interests who volunteer their time and expertise to support the NPGS.
+                There are currently <a href="#section-directory">44 CGCs</a> representing almost all major and minor crops of economic importance in the U.S. Each committee includes a chair and members from government agencies, universities, and commercial interests who volunteer their time and expertise to support the NPGS.
             </p>
 
-            <h2>TEST Meeting Calendar</h2>
-            <div id='calendar'></div>
+            <table class="usa-table usa-table--borderless usa-table--striped">
+                <caption>
+                    Introductory Documents
+                </caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Document title</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">
+                            <a href="https://www.ars-grin.gov/npgs/cgc_reports/2019_CGC_Roles_and_Responsibilities_26_July_2019.doc">
+                                Roles and Responsibilities
+                            </a>
+                        </th>
+                        <td>
+                            Additional information about CGC organization and function.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <a href="https://www.ars-grin.gov/npgs/cgc_reports/Crop_Vulnerability_Statement_Outline.doc">
+                                Crop Vulnerability Statement Outline
+                            </a>
+                        </th>
+                        <td>
+                            A guide to the format and content of Crop Vulnerability Statements.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
+            @*<h2>TEST Meeting Calendar</h2>
+        <div id='calendar'></div>*@
 
-            <h2>Meeting Dates and Locations</h2>
+            <h2 id="section-directory">Committee Directory</h2>
+            @*@Html.Partial("_CommitteeList", "CGC")*@
 
-            <div class="grid-container">
-                <div class="grid-row">
+            @*<h3 id="section-heading-h3">Subsection heading (h3)</h3>
 
-                    <div class="tablet:grid-col-12">
-                        <ul class="usa-collection">
-                            <li class="usa-collection__item">
-                                <div class="usa-collection__calendar-date" href="https://www.performance.gov/presidents-winners-press-release/">
-                                    <time datetime="2020-09-30T12:00:00+01:00">
-                                        <span class="usa-collection__calendar-date-month">SEP</span>
-                                        <span class="usa-collection__calendar-date-day">30</span>
-                                    </time>
-                                </div>
-                                <div class="usa-collection__body">
-                                    <h3 class="usa-collection__heading">
-                                        <a class="usa-link" href="https://www.performance.gov/presidents-winners-press-release/">Gears of Government President’s Award winners</a>
-                                    </h3>
-                                    <p class="usa-collection__description">Today, the Administration announces the winners of the Gears of Government President’s Award. This program recognizes the contributions of individuals and teams across the federal workforce who make a profound difference in the lives of the American people.</p>
-                                </div>
-                            </li>
-                            <li class="usa-collection__item">
-                                <div class="usa-collection__calendar-date" href="https://www.performance.gov/sba-wosb-dashboard/">
-                                    <time datetime="2020-09-30T12:00:00+01:00">
-                                        <span class="usa-collection__calendar-date-month">SEP</span>
-                                        <span class="usa-collection__calendar-date-day">30</span>
-                                    </time>
-                                </div>
-                                <div class="usa-collection__body">
-                                    <h3 class="usa-collection__heading">
-                                        <a class="usa-link" href="https://www.performance.gov/sba-wosb-dashboard/">Women-owned small business dashboard</a>
-                                    </h3>
-                                    <p class="usa-collection__description">In honor of National Women’s Small Business Month, we’ve partnered with SBA’s Office of Government Contracting and Business Development and Office of Program Performance, Analysis, and Evaluation to highlight the Women-Owned Small Businesses (WOSBs) data dashboard!</p>
-                                </div>
-                            </li>
-                            <li class="usa-collection__item">
-                                <div class="usa-collection__calendar-date" href="https://www.performance.gov/September-2020-Updates-Show-Progress/">
-                                    <time datetime="2020-09-17T12:00:00+01:00">
-                                        <span class="usa-collection__calendar-date-month">SEP</span>
-                                        <span class="usa-collection__calendar-date-day">17</span>
-                                    </time>
-                                </div>
-                                <div class="usa-collection__body">
-                                    <h3 class="usa-collection__heading">
-                                        <a class="usa-link" href="https://www.performance.gov/September-2020-Updates-Show-Progress/">September 2020 updates show progress on cross-agency and agency priority goals</a>
-                                    </h3>
-                                    <p class="usa-collection__description">Today, we published progress updates for both Cross-Agency Priority (CAP) Goals and Agency Priority Goals (APGs) for the third quarter of FY2020. These updates highlight recent milestones and accomplishments as well as related initiatives that support progress towards a more modern and effective government.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+        <p>The particulars of your body copy will be determined by the topic of your page. Regardless of topic, it’s a good practice to follow the inverted pyramid structure when writing copy: Begin with the information that’s most important to your users and then present information of less importance.</p>
 
-                </div>
-            </div>
+        <p>Keep each section and subsection focused — a good approach is to include one theme (topic) per section.</p>
 
-            <h2>Committee Directory</h2>
-            @Html.Partial("_CommitteeList", "CGC")
+        <h4 id="section-heading-h4">Subsection heading (h4)</h4>
 
+        <p>Use the side navigation menu to help your users quickly skip to different sections of your page. The menu is best suited to displaying a hierarchy with one to three levels and, as we mentioned, to display the sub-navigation of a given page.</p>
 
+        <p>Read the full documentation on our side navigation on the component page.</p>*@
 
-            <h3 id="section-heading-h3">Subsection heading (h3)</h3>
+            <h2 id="section-briefings">Annual CGC Chair Briefings</h2>
+            <table id="data-table-documents-briefings" class="usa-table usa-table--borderless usa-table--striped">
+                <caption>
+                    CAPTION HERE
+                </caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Document title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Declaration of Independence</th>
+                        <td>
+                            Statement adopted by the Continental Congress declaring independence
+                            from the British Empire.
+                        </td>
+                        <td>1776</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Bill of Rights</th>
+                        <td>
+                            The first ten amendments of the U.S. Constitution guaranteeing rights
+                            and freedoms.
+                        </td>
+                        <td>1791</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Declaration of Sentiments</th>
+                        <td>
+                            A document written during the Seneca Falls Convention outlining the
+                            rights that American women should be entitled to as citizens.
+                        </td>
+                        <td>1848</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Emancipation Proclamation</th>
+                        <td>
+                            An executive order granting freedom to slaves in designated southern
+                            states.
+                        </td>
+                        <td>1863</td>
+                    </tr>
+                </tbody>
+            </table>
 
-            <p>The particulars of your body copy will be determined by the topic of your page. Regardless of topic, it’s a good practice to follow the inverted pyramid structure when writing copy: Begin with the information that’s most important to your users and then present information of less importance.</p>
-
-            <p>Keep each section and subsection focused — a good approach is to include one theme (topic) per section.</p>
-
-            <h4 id="section-heading-h4">Subsection heading (h4)</h4>
-
-            <p>Use the side navigation menu to help your users quickly skip to different sections of your page. The menu is best suited to displaying a hierarchy with one to three levels and, as we mentioned, to display the sub-navigation of a given page.</p>
-
-            <p>Read the full documentation on our side navigation on the component page.</p>
         </main>
     </div>
 </div>

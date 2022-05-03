@@ -1,4 +1,5 @@
-﻿<div class="usa-accordion usa-accordion--bordered" aria-multiselectable="true">
+﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.CropGermplasmCommitteeViewModel
+<div class="usa-accordion usa-accordion--bordered" aria-multiselectable="true">
 
     <!-- Use the accurate heading level to maintain the document outline -->
     <h4 class="usa-accordion__heading">
@@ -120,8 +121,8 @@
                         <th scope="row">Declaration of Independence</th>
                         <td>1776</td>
                     </tr>
-                   
-                   
+
+
                 </tbody>
             </table>
         </div>
@@ -181,10 +182,10 @@
 
 </div>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.usa-table').DataTable({
-                "searching": false
-            });
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.usa-table').DataTable({
+            "searching": false
+        });
     });
 </script>
