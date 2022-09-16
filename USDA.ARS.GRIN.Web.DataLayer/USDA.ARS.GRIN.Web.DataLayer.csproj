@@ -43,15 +43,21 @@
   <ItemGroup>
     <Compile Include="EntityClasses\BaseModel.cs" />
     <Compile Include="EntityClasses\CropGermplasmCommittee.cs" />
+    <Compile Include="EntityClasses\CropGermplasmCommitteeDocument.cs" />
+    <Compile Include="EntityClasses\CropGermplasmCommitteeDocumentSearch.cs" />
     <Compile Include="EntityClasses\Document.cs" />
     <Compile Include="EntityClasses\CropGermplasmCommitteeSearch.cs" />
     <Compile Include="EntityClasses\PVPApplication.cs" />
     <Compile Include="EntityClasses\PVPApplicationSearch.cs" />
     <Compile Include="EntityClasses\RhizobiumDescriptorSearch.cs" />
     <Compile Include="EntityClasses\RhizobiumDescriptor.cs" />
+    <Compile Include="EntityClasses\Site.cs" />
+    <Compile Include="EntityClasses\SiteSearch.cs" />
+    <Compile Include="ManagerClasses\CropGermplasmCommitteeDocumentManager.cs" />
     <Compile Include="ManagerClasses\CropGermplasmCommitteeManager.cs" />
     <Compile Include="ManagerClasses\PVPApplicationManager.cs" />
     <Compile Include="ManagerClasses\RhizobiumManager.cs" />
+    <Compile Include="ManagerClasses\SiteManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

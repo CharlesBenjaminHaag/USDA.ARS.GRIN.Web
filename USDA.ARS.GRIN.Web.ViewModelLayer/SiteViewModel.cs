@@ -9,21 +9,17 @@ using USDA.ARS.GRIN.Web.DataLayer;
 
 namespace USDA.ARS.GRIN.Web.ViewModelLayer
 {
-    public class CropGermplasmCommitteeViewModel: CropGermplasmCommitteeViewModelBase
+    public class SiteViewModel:SiteViewModelBase
     {
-        public void Search()
+        public Site Get(int entityId)
         {
-            using (CropGermplasmCommitteeManager mgr = new CropGermplasmCommitteeManager())
+            using (SiteManager mgr = new SiteManager())
             {
                 try
                 {
-                    DataCollection = new Collection<CropGermplasmCommittee>(mgr.Search(SearchEntity));
+                    Entity = mgr.Get(entityId);
                     RowsAffected = mgr.RowsAffected;
-
-                    if (RowsAffected == 1)
-                    {
-                        Entity = DataCollection[0];
-                    }
+                    return Entity;
                 }
                 catch (Exception ex)
                 {

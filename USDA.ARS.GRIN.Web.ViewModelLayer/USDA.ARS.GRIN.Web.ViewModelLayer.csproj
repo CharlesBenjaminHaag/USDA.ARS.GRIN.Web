@@ -49,6 +49,8 @@
     <Compile Include="CropGermplasmCommitteeViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PVPApplicationViewModel.cs" />
+    <Compile Include="SiteViewModelBase.cs" />
+    <Compile Include="SiteViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>

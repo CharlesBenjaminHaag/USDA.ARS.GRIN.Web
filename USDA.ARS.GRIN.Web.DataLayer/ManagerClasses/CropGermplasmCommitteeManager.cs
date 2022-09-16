@@ -32,7 +32,21 @@ namespace USDA.ARS.GRIN.Web.DataLayer
 
         public List<CropGermplasmCommittee> Search(CropGermplasmCommitteeSearch searchEntity)
         {
-            throw new NotImplementedException();
+            List<CropGermplasmCommittee> results = new List<CropGermplasmCommittee>();
+
+            SQL = " SELECT * FROM vw_GGTools_GRINGlobal_CropGermplasmCommittee";
+            SQL += " WHERE (@ID                     IS NULL     OR ID                       =       @ID)";
+            SQL += " AND (@Name                     IS NULL     OR Name                     LIKE    '%' + @Name + '%')";
+            SQL += " ORDER BY Name";
+
+            var parameters = new List<IDbDataParameter> {
+                CreateParameter("ID", searchEntity.ID > 0 ? (object)searchEntity.ID : DBNull.Value, true),
+                CreateParameter("Name", (object)searchEntity.Name ?? DBNull.Value, true),
+            };
+
+            results = GetRecords<CropGermplasmCommittee>(SQL, parameters.ToArray());
+            RowsAffected = results.Count;
+            return results;
         }
 
         public int Update(CropGermplasmCommittee entity)

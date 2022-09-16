@@ -1,0 +1,87 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Error</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/dist/css/AdminLTE.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/plugins/iCheck/square/blue.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <style>
+        .login-logo {
+            text-align: center;
+        }
+        .lockscreen-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            margin-top: 10%;
+        }
+    </style>
+
+</head>
+<body class="hold-transition lockscreen">
+    <div class="lockscreen-wrapper">
+        <div class="lockscreen-logo" style="color:red; font-weight:bold;">
+            System Error
+            @*<a href="../../index2.html"><b>Admin</b>LTE</a>*@
+            <h3><i class="fa fa-warning text-red"></i> Potential XSS Detected</h3>
+        </div>
+       
+        @*<div class="lockscreen-name" style="font-size:12pt;">Warning</div>*@
+
+        <div class="lockscreen-itemsd" style="font-size:12pt;">
+            <p>
+                For security purposes and to ensure that this service remains available to
+                all users, this government computer system employs software programs to
+                monitor network traffic to identify unauthorized attempts to upload or change
+                information, or otherwise cause damage.
+            </p>
+            <p style="font-weight:bold;">
+                Unauthorized attempts to upload information or change information on this
+                service are strictly prohibited and may be punishable under the Computer Fraud
+                and Abuse Act of 1986 and the National Information Infrastructure Protection Act.
+            </pstyle="font-weight:bold;">
+            <p>
+                Unauthorized use of this site and/or our systems, including but not limited to misuse of any information posted on the site or unauthorized entry into any of our systems is strictly prohibited. In addition, you may not either directly or through the use of any device, software, Internet site, web-based service, or other means incorporate the content on this site into, or stream or retransmit the content via any hardware or software application or make it available via frames or in-line links.
+            </p>
+                </div>
+
+        <div class="lockscreen-footer text-center">
+            Copyright © 2022 <b><a href="https://www.usda.gov" class="text-black">USDA ARS</a></b><br>
+            All rights reserved
+        </div>
+    </div>
+
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+</body></html>
+<script>
+    $("#btnLogin").click(function () {
+        var action = $(this).data("pdsa-action");
+        $("#EventAction").val(action);
+        $("#EventValue").val(
+            $(this).data("pdsa-value"));
+    });
+</script>

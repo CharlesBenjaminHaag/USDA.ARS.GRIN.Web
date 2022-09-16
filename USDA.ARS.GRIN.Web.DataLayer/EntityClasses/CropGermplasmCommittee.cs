@@ -10,5 +10,6 @@ namespace USDA.ARS.GRIN.Web.DataLayer
     {
         public string Name { get; set; }
         public string RosterURL { get; set; }
+        List<CropGermplasmCommitteeDocument> Documents { get; set; }
     }
 }

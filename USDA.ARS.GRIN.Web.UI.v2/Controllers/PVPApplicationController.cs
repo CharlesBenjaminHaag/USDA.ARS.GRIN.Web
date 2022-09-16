@@ -7,7 +7,7 @@ using USDA.ARS.GRIN.Web.ViewModelLayer;
 
 namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
 {
-    public class PVPController : Controller
+    public class PVPApplicationController : Controller
     {
         
         // GET: PVP

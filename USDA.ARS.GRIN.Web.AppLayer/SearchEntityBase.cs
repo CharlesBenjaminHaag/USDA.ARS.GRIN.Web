@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace USDA.ARS.GRIN.GGTools.AppLayer
+namespace USDA.ARS.GRIN.Web.AppLayer
 {
     public class SearchEntityBase
     {
