@@ -7,7 +7,7 @@ using USDA.ARS.GRIN.Web.ViewModelLayer;
 
 namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
 {
-    public class PVPApplicationController : Controller
+    public class PVPController : Controller
     {
         
         // GET: PVP
@@ -31,7 +31,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
         public PartialViewResult _List(FormCollection formCollection)
         {
             PVPApplicationViewModel viewModel = new PVPApplicationViewModel();
-
+           
             //TODO
 
             return PartialView("~/Views/PVP/_List.cshtml",viewModel);

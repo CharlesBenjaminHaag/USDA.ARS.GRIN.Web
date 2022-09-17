@@ -153,9 +153,9 @@
                         <li class="usa-nav__secondary-item">
                             <a href="@Url.Action("Contact", "Home")">Contact Us</a>
                         </li>
-                        @*<li class="usa-nav__secondary-item">
+                        <li class="usa-nav__secondary-item">
                             <a href="">FAQ</a>
-                        </li>*@
+                        </li>
                     </ul><form class="usa-search usa-search--small " role="search">
                         <label class="usa-sr-only" for="extended-search-field-small">Search small</label>
                         <input class="usa-input" id="extended-search-field-small" type="search" name="search">
@@ -165,8 +165,6 @@
             </div>
         </nav>
     </header>
-
-
 
     <!--<header class="usa-header usa-header--basic usa-header--megamenu" style="        background-color: #2491ff;
         color: white;">
@@ -301,6 +299,7 @@
 
             </div>
         </section>
+        
         <div class="usa-section">
             @RenderBody()
         </div>
@@ -318,26 +317,26 @@
     var maxlength = $("#hero-title").width() / 16 + 5 + "rem";
     $('#hero-callout').css('max-width', maxlength);
 
-    $(document).ready(function ($) {
-        var url = window.location.href;
-        var activePage = url;
-        $('.usa-sidenav__item a').each(function () {
-            var linkPage = this.href;
+    //$(document).ready(function ($) {
+    //    var url = window.location.href;
+    //    var activePage = url;
+    //    $('.usa-sidenav__item a').each(function () {
+    //        var linkPage = this.href;
 
 
 
-            if (activePage == linkPage) {
-            $(this).closest("a").addClass("usa-current");
-            }
-        });
-    });
+    //        if (activePage == linkPage) {
+    //        $(this).closest("a").addClass("usa-current");
+    //        }
+    //    });
+    //});
 
-    $(document).ready(function () {
-            $(".usa-sidenav__item a").click(function (e) {
-                //e.preventDefault();
+    //$(document).ready(function () {
+    //        $(".usa-sidenav__item a").click(function (e) {
+    //            //e.preventDefault();
                  
-                //$(activeTab).show(); //Fade in the active content
-            });
-    });
+    //            //$(activeTab).show(); //Fade in the active content
+    //        });
+    //});
 
 </script>

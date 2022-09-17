@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInterior.cshtml";
+}
+
+<div class="grid-container">
+    <div class="grid-row grid-gap">
+        <div class="usa-layout-docs__sidenav desktop:grid-col-2">
+            <nav aria-label="Secondary navigation,,,">
+                <ul class="usa-sidenav">
+                    <li class="usa-sidenav__item">
+                        <a href="@Url.Action("Index","Home")">Home</a>
+                    </li>
+                    <li class="usa-sidenav__item">
+                        <a href="javascript:void(0);" class="usa-current">Contact Us</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
+            <form class="usa-form usa-form--large">
+                <fieldset class="usa-fieldset">
+                    <legend class="usa-legend usa-legend--large">Contact Us</legend>
+                    <p>
+                        Required fields are marked with an asterisk (<abbr title="required"
+                                                                           class="usa-hint usa-hint--required">*</abbr>).
+                    </p>
+                    <label class="usa-label" for="mailing-address-1">
+                        Your Email Address
+                        <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
+                    </label>
+                    <input class="usa-input"
+                           id="txtEmailAddress"
+                           name="EmailAddress"
+                           required type="email" />
+                    <div class="grid-row grid-gap">
+                        <div class="mobile-lg:grid-col-12">
+                            <br />
+                            <fieldset class="usa-fieldset">
+                                @*<legend class="usa-legend">Why are you contacting us?</legend>*@
+                                <div class="usa-radio">
+                                    <input class="usa-radio__input usa-radio__input--tile"
+                                           id="rbContactTypeGeneral"
+                                           type="radio"
+                                           name="contact-type"
+                                           value="GEN"
+                                           checked="checked" />
+                                    <label class="usa-radio__label" for="rbContactTypeGeneral">I have a question about GRIN.</label>
+                                </div>
+                                <div class="usa-radio">
+                                    <input class="usa-radio__input usa-radio__input--tile"
+                                           id="rbContactTypeError"
+                                           type="radio"
+                                           name="contact-type"
+                                           value="ERR" />
+                                    <label class="usa-radio__label" for="rbContactTypeError">
+                                        I'd like to report a problem with the website.
+                                        <span class="usa-checkbox__label-description">
+                                            Please let us know if you've found information that is outdated, or
+                                            incorrect. If you experienced an error, please describe it below.
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class="usa-radio">
+                                    <input class="usa-radio__input usa-radio__input--tile"
+                                           id="rbContactTypeOther"
+                                           type="radio"
+                                           name="contact-type"
+                                           value="OTH" />
+                                    <label class="usa-radio__label" for="rbContactTypeOther">Other</label>
+                                </div>
+
+                            </fieldset>
+                            @*<div class="usa-combo-box">
+                    <select class="usa-select" id="apt-suite-other" name="apt-suite-other">
+
+                        <option value="QUE">I have a general question.</option>
+                        <option value="ERR">I'd like to report an error.</option>
+                        <option value="OTH">Other</option>
+                    </select>
+                </div>*@
+                        </div>
+                    </div>
+                    <label class="usa-label" for="zip">
+                        Please describe your question, or comment.
+                        <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
+                    </label>
+                    <textarea class="usa-textarea"
+                              id="input-type-textarea"
+                              name="input-type-textarea" required></textarea>
+                    <div class="usa-checkbox">
+                        <input class="usa-checkbox__input" id="check-historical-truth" type="checkbox" name="historical-figures" value="sojourner-truth" checked="checked">
+                        <label class="usa-checkbox__label" for="check-historical-truth">Please send me a copy of this email.</label>
+                    </div>
+                </fieldset>
+                <ul class="usa-button-group">
+                    <li class="usa-button-group__item">
+                        <a id="btnClear" href="javascript:void(0);" class="usa-button usa-button--outline">Clear Form</a>
+                    </li>
+                    <li class="usa-button-group__item">
+                        <button id="btnSubmit" type="submit" class="usa-button">Submit</button>
+                    </li>
+                </ul>
+            </form>
+        </main>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+    });
+
+    $(document).on("click", "[id*='btnSubmit']", function () {
+        var link = '@Url.Action("Submit","Contact")';
+        var emailAddress = $("#txtEmailAddress").val();
+        var radioValue = $("input[name='contact-type']:checked").val();
+        //TODO
+
+    });
+
+    $(document).on("click", "[id*='btnClear']", function () {
+        alert("DEBUG");
+    });
+</script>

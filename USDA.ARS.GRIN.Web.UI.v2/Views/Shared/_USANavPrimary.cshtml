@@ -1,6 +1,6 @@
 ﻿<ul class="usa-nav__primary usa-accordion">
     <li class="usa-nav__primary-item">
-        <button class="usa-accordion__button usa-nav__link  usa-current" aria-expanded="false" aria-controls="extended-nav-section-one"><span>Collections</span></button>
+        <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-one"><span>Collections</span></button>
         <ul id="extended-nav-section-one" class="usa-nav__submenu">
             <li class="usa-nav__submenu-item">
                 @{
@@ -43,7 +43,7 @@
                 }
                 <a href=@link_cgc> Oveview</a>
             </li>
-            
+
             <li class="usa-nav__submenu-item">
                 @{
                     var link_cgc_directory = Url.Action("Index", "CGC") + "#cgc-directory";
@@ -58,39 +58,17 @@
             </li>
         </ul>
     </li>
+
     <li class="usa-nav__primary-item">
-        <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-three"><span>National Genetic Resources Advisory Council (NGRAC)</span></button>
-        <ul id="extended-nav-section-three" class="usa-nav__submenu">
-            <li class="usa-nav__submenu-item">
-                @{
-                    var link_ngrac = Url.Action("Index", "NGRAC") + "#overview";
-                }
-                <a href=@link_ngrac> Overview</a>
-            </li>
-            <li class="usa-nav__submenu-item">
-                @{
-                    var link_ngrac_meetings = Url.Action("Index", "NGRAC") + "#meetings";
-                }
-                <a href=@link_ngrac_meetings> Meetings</a>
-            </li>
-            <li class="usa-nav__submenu-item">
-                @{
-                    var link_ngrac_membership = Url.Action("Index", "NGRAC") + "#membership";
-                }
-                <a href=@link_ngrac_membership> Membership</a>
-            </li>
-            <li class="usa-nav__submenu-item">
-                @{
-                    var link_ngrac_farm_bill = Url.Action("Index", "NGRAC") + "#farm-bill";
-                }
-                <a href=@link_ngrac_farm_bill> Farm Bill</a>
-            </li>
-        </ul>
+        @{
+            var link_ngrac = Url.Action("NGRAC", "Pages");
+        }
+        <a href=@link_ngrac>National Genetic Resources Advisory Council (NGRAC)</a>
     </li>
     <li class="usa-nav__primary-item">
-        <a class="usa-nav__link" href="@Url.Action("Contact","Home")"><span>GRIN-U</span></a>
+        <a class="usa-nav__link" href="@Url.Action("GRINU","Pages")"><span>GRIN-U</span></a>
     </li>
     <li class="usa-nav__primary-item">
-        <a class="usa-nav__link" href="@Url.Action("Contact","Home")"><span>Contact Us</span></a>
+        <a class="usa-nav__link" href="@Url.Action("Index","Contact")"><span>Contact Us</span></a>
     </li>
 </ul>
