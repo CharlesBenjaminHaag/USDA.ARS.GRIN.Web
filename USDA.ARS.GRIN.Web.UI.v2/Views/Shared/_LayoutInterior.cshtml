@@ -14,8 +14,12 @@
           crossorigin="" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
     @Scripts.Render("~/bundles/jquery")
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
-    
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" />
+    @*<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>*@
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+
     <!-- ====================================================================
     LEAFLET STYLES
     ====================================================================
@@ -102,18 +106,18 @@
         }
 
         .usa-hero__callout {
-            max-width:none;
+            max-width: none;
         }
 
         .usa-hero__heading {
-            max-width:40rem;
+            max-width: 40rem;
         }
 
         .usa-hero__heading--alt {
             max-width: 40rem;
         }
 
-       /* .usa-logo__text a {
+        /* .usa-logo__text a {
             color: white;
         }
 
@@ -317,26 +321,30 @@
     var maxlength = $("#hero-title").width() / 16 + 5 + "rem";
     $('#hero-callout').css('max-width', maxlength);
 
-    //$(document).ready(function ($) {
-    //    var url = window.location.href;
-    //    var activePage = url;
-    //    $('.usa-sidenav__item a').each(function () {
-    //        var linkPage = this.href;
-
-
-
-    //        if (activePage == linkPage) {
-    //        $(this).closest("a").addClass("usa-current");
-    //        }
-    //    });
-    //});
-
-    //$(document).ready(function () {
-    //        $(".usa-sidenav__item a").click(function (e) {
-    //            //e.preventDefault();
-                 
-    //            //$(activeTab).show(); //Fade in the active content
-    //        });
-    //});
+    /* Datatables */
+    function InitDataTable(tableName) {
+        $(document).ready(function () {
+            var table = $("#" + tableName).DataTable({
+                dom: 'Blfrtip',
+                paging: true,
+                initComplete: function () {
+                    SetControlVisibility(tableName);
+                },
+                responsive: true,
+                buttons: [
+                    'selectAll',
+                    'selectNone',
+                    'csv',
+                    'excel',
+                    'pdf'
+                ],
+                select: true,
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                columnDefs: [
+                    { targets: [0], visible: false }
+                ]
+            });
+        });
+    }
 
 </script>

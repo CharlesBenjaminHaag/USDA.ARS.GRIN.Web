@@ -1,34 +1,61 @@
-﻿@model USDA.ARS.GRIN.Web.UI.v2.ViewModels.PVPApplicationListViewModel
-<table id="table_id" class="display table-responsive">
+﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.PVPApplicationViewModel
+
+<!-- Override: digital service template forces label to right of input.  -->
+<style>
+    .dataTables_filter input {
+        float: none;
+    }
+</style>
+
+<table id="data-table_pvp_applications" class="display table-responsive">
     <thead>
         <tr>
             <th>PV Number</th>
             <th>Applicant</th>
             <th>Variety (Cultivar)</th>
-            <th>Expiration Date</th>
-            <th>Years Protected</th>
-            <th>Status</th>
             <th>Common Name</th>
-            <th>Available</th>
+            <th>Expiration Date</th>
+            <th>Status</th>
+            <th>Accession</th>
             <th></th>
-
         </tr>
     </thead>
     <tbody>
-        @foreach (var pVpApplication in Model.PVPApplications)
+        @foreach (var result in Model.DataCollection)
         {
             <tr>
-                <td>@pVpApplication.ApplicationNumber</td>
-                <td>@pVpApplication.ApplicantName</td>
-                <td>@pVpApplication.CultivarName</td>
-                <td>@pVpApplication.ExpirationDate.ToShortDateString()</td>
-                <td>@pVpApplication.YearsProtected</td>
-                <td>@pVpApplication.ApplicationStatus</td>
-                <td>@pVpApplication.CommonName</td>
-                <td>@Html.Raw(Model.GetBooleanDisplayString(pVpApplication.IsAvailableInGRIN))</td>
+                <td>@result.ApplicationNumber</td>
+                <td>@result.Applicant</td>
+                <td>@result.Variety</td>
+                <td>@result.CommonName</td>
+                <td>@result.ExpirationDate.ToShortDateString()</td>
                 <td>
-                <a href="@Url.Action("Detail","PVP", new { id = pVpApplication.ApplicationNumber })" class="usa-button usa-button--outline">Detail</a>
+                    @result.CertificateStatus
+                    <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                        <use xlink:href="https://designsystem.digital.gov/assets/img/sprite.svg#file_present"></use>
+                    </svg>
+                </td>
+                <td>
+                    <a class="usa-link usa-link--alt usa-link--external" href="https://npgsweb.ars-grin.gov/gringlobal/accessiondetail?id=@result.AccessionID">
+                        @result.AccessionName
+                    </a>
+                </td>
+                <td>
+                    <button id="@result.ApplicationNumber" class="usa-button usa-button--outline detail-expand">@result.ApplicationNumber</button>
+                    @*<a href="@Url.Action("Detail","PVP", new { id = result.ApplicationNumber })"
+                           class="usa-button usa-button--outline">
+                            Detail
+                        </a>*@
+                </td>
             </tr>
         }
     </tbody>
 </table>
+<script type="text/javascript">
+    $(document).ready(function () {
+        InitDataTable("data-table_pvp_applications");
+    });
+
+    //detail-button
+
+</script>

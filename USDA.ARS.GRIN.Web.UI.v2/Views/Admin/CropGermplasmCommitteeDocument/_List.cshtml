@@ -1,0 +1,54 @@
+﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.CropGermplasmCommitteeDocumentViewModel
+<div class="card card-default">
+    <div class="card-header">
+        <h3 class="card-title">CGC Documents (@Model.DataCollection.Count())</h3>
+        
+    </div>
+    <!-- /.box-header -->
+    <div class="card-body">
+        <table id="data-table-crop-germplasm-committee-document" class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>ID</th>
+                    <th>Committee</th>
+                    <th>Title</th>
+                    <th>URL</th>
+                    <th>Created</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var result in Model.DataCollection)
+                {
+                    <tr>
+                        <td>
+                            @result.ID
+                        </td>
+                        <td>
+                            @result.ID
+                        </td>
+                        <td>
+                            @result.CommitteeName
+                        </td>
+                        <td>@result.Title</td>
+                        <td>@result.URL</td>
+                        <td>@result.CreatedDate.ToShortDateString()</td>
+                        <td>
+                            <a href="@Url.Action("CropGermplasmCommitteeDocumentEdit", "Admin", new { entityId = result.ID })" class="btn btn-default btn-flat btn-sm pull-right row-edit">
+                                <i class="fa fa-edit"></i> Edit
+                            </a>
+                        </td>
+                    </tr>
+                }
+           </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        InitDataTable("data-table-crop-germplasm-committee-document");
+    });
+</script>
+
+

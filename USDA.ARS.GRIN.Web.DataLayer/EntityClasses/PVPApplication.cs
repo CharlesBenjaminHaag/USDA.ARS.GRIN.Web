@@ -9,7 +9,7 @@ namespace USDA.ARS.GRIN.Web.DataLayer
     public class PVPApplication: AppEntityBase
     {
         public int ApplicationNumber { get; set; }
-        public string VarietyName { get; set; }
+        public string Variety { get; set; }
         public string ExperimentalName { get; set; }
         public string ScientificName { get; set; }
         public string CommonName { get; set; }
@@ -21,10 +21,9 @@ namespace USDA.ARS.GRIN.Web.DataLayer
         public DateTime IssuedDate { get; set; }
         public int YearsProtected { get; set; }
         public DateTime ExpirationDate { get; set; }
-
         public bool IsAvailableInGRIN { get; set; }
-        
         public int AccessionID { get; set; }
+        public string AccessionName { get; set; }
 
         //public string CertificateURL
         //{

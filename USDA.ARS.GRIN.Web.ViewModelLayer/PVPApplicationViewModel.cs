@@ -13,24 +13,24 @@ namespace USDA.ARS.GRIN.Web.ViewModelLayer
     {
         public void Search()
         {
-            //using (CropGermplasmCommitteeManager mgr = new CropGermplasmCommitteeManager())
-            //{
-            //    try
-            //    {
-            //        DataCollection = new Collection<CropGermplasmCommittee>(mgr.Search(SearchEntity));
-            //        RowsAffected = mgr.RowsAffected;
+            using (PVPApplicationManager mgr = new PVPApplicationManager())
+            {
+                try
+                {
+                    DataCollection = new Collection<PVPApplication>(mgr.Search(SearchEntity));
+                    RowsAffected = mgr.RowsAffected;
 
-            //        if (RowsAffected == 1)
-            //        {
-            //            Entity = DataCollection[0];
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        PublishException(ex);
-            //        throw ex;
-            //    }
-            //}
+                    if (RowsAffected == 1)
+                    {
+                        Entity = DataCollection[0];
+                    }
+                }
+                catch (Exception ex)
+                {
+                    PublishException(ex);
+                    throw ex;
+                }
+            }
         }
     }
 }

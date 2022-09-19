@@ -1,0 +1,117 @@
+﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.CropGermplasmCommitteeDocumentViewModel
+@{
+    ViewBag.Title = Model.PageTitle;
+    Layout = "~/Views/Shared/_LayoutAdminLTE3.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "CropGermplasmCommitteeDocument", FormMethod.Post, new { id = "frmEdit", enctype = "multipart/form-data" }))
+{
+    <div class="card">
+        <div class="card-header">
+            <a href="https://npgsdev.ars-grin.gov/gringlobal/taxon/cwrcropdetail?id=@Model.Entity.ID&type=crop" target="_blank" class="btn btn-info btn-sm float-right">
+                <i class="fa fa-globe"></i>
+                View Public Website
+            </a>
+        </div>
+        <div class="card-body">
+            @Html.HiddenFor(x => x.PageTitle)
+            @Html.HiddenFor(x => x.IsReadOnly)
+            @Html.HiddenFor(x => x.EventAction)
+            @Html.HiddenFor(x => x.EventValue)
+            @Html.HiddenFor(x => x.TableName)
+            @Html.HiddenFor(x => x.TableCode)
+            @Html.HiddenFor(x => x.Entity.ID)
+            @Html.Partial("~/Views/Shared/_ValidationMessages.cshtml")
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group form-horizontal">
+                        <label>Title</label>
+                        @Html.TextBoxFor(x => x.Entity.Title, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group form-horizontal">
+                        <label>Committee</label>
+                        @Html.DropDownListFor(x => x.Entity.CropGermplasmCommitteeID, Model.CropGermplasmCommittees, "Select value", new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group form-horizontal">
+                        <label>Category</label>
+                        @Html.DropDownListFor(x => x.Entity.CategoryCode, Model.CategoryCodes, "All categories", new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group form-horizontal">
+                        <label>Select Document</label>
+                        @Html.TextBoxFor(x => x.DocumentUpload, new { @class = "form-control input-sm", @type = "file" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>URL</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(x => x.Entity.URL, new { @class = "form-control", @readonly = "readonly" })
+                            <span class="input-group-btn">
+                                <a href="@Model.Entity.URL" class="btn btn-default btn-flat">
+                                    <i class="fa fa-link"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div id="row">
+                <div class="col-md-12">
+                    <iframe src='https://view.officeapps.live.com/op/embed.aspx?src=@Model.Entity.URL' width='1366px' height='623px' frameborder='0'>This is an embedded <a target='_blank' href='http://office.com'>Microsoft Office</a> document, powered by <a target='_blank' href='http://office.com/webapps'>Office Online</a>.</iframe>
+                </div>
+            </div>*@
+        </div>
+        <div class="card-footer">
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-confirm">
+                Delete
+            </button>
+            <button type="submit" class="btn btn-primary float-right">Save</button>
+        </div>
+    </div>
+}
+<!-- BEGIN DEL CONFIRM-->
+<div class="modal fade" id="modal-delete-confirm" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-danger">
+            <div class="modal-header">
+                <h4 class="modal-title">Please Confirm</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>This will permanently delete this record from the GRIN database. Are you sure?</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-outline-light" data-dismiss="modal">Cancel</button>
+                <button id="btnDeleteConfirm" type="button" class="btn btn-outline-light" data-dismiss="modal">Yes, Please Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END DEL CONFIRM -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        Init();
+    });
+
+    function Init() {
+        var isReadOnly = $("#IsReadOnly").val();
+        if (isReadOnly == "Y") {
+            SetReadOnly();
+        }
+    }
+</script>
+
+

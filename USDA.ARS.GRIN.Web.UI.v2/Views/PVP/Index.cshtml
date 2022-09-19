@@ -1,4 +1,4 @@
-﻿
+﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.PVPApplicationViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutInterior.cshtml";
@@ -33,82 +33,32 @@
     <div class="grid-row grid-gap">
         <div class="usa-layout-docs__sidenav desktop:grid-col-2">
             <nav aria-label="Secondary navigation">
-                @*<form class="usa-search usa-search--small" role="search">
-            <label class="usa-sr-only" for="search-field-en-small">Search</label>
-            <input class="usa-input" id="search-field-en-small" type="search" name="search" placeholder="Search GRIN-Global">
-            <button class="usa-button" type="submit">
-                <span class="usa-sr-only">Search</span>
-            </button>
-        </form>*@
+                <form class="usa-search usa-search--small" role="search">
+                    <label class="usa-sr-only" for="search-field-en-small">Search</label>
+                    <input class="usa-input" id="search-field-en-small" type="search" name="search" placeholder="Search GRIN-Global">
+                    <button class="usa-button" type="submit">
+                        <span class="usa-sr-only">Search</span>
+                    </button>
+                </form>
                 @*<br />*@
-                @*<ul class="usa-sidenav">
-            <li class="usa-sidenav__item">
-                <a href="/">Home</a>
-            </li>
-            <li class="usa-sidenav__item">
-                <a href="" class="usa-current">Overview</a>
-                <ul class="usa-sidenav__sublist">
+                <ul class="usa-sidenav">
                     <li class="usa-sidenav__item">
-                        <a href="#">Browse Applications</a>
+                        <a href="/">Home</a>
                     </li>
                     <li class="usa-sidenav__item">
-                        <a href="@Url.Action("Search","PVP")">Advanced Search</a>
+                        <a href="" class="usa-current">Overview</a>
+                        <ul class="usa-sidenav__sublist">
+
+                            <li class="usa-sidenav__item">
+                                <a href="@Url.Action("Search","PVP")">Advanced Search</a>
+                            </li>
+                            @*<li class="usa-sidenav__item">
+                                    <a href="@Url.Action("Contact","Home", new { topic = "PVP" })">Report a Problem</a>
+                                </li>*@
+                        </ul>
                     </li>
-                    <li class="usa-sidenav__item">
-                        <a href="@Url.Action("Contact","Home", new { topic = "PVP" })">Report a Problem</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>*@
-
-
-
-                @*<h5>Filters</h5>
-                <div class="usa-checkbox">
-                    <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
-                           id="check-application-pending"
-                           type="checkbox"
-                           name="historical-figures-2"
-                           value="frederick-douglass" />
-                    <label class="usa-checkbox__label" for="check-application-pending">Application Pending</label>
-                </div>
-                <div class="usa-checkbox">
-                    <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
-                           id="check-certificate-issued"
-                           type="checkbox"
-                           name="historical-figures-2"
-                           value="frederick-douglass" />
-                    <label class="usa-checkbox__label" for="check-certificate-issued">Certificate Issued</label>
-                </div>
-                <div class="usa-checkbox">
-                    <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
-                           id="check-certificate-expired"
-                           type="checkbox"
-                           name="historical-figures-2"
-                           value="booker-t-washington" />
-                    <label class="usa-checkbox__label" for="check-certificate-expired">Certificate Expired</label>
-                </div>*@
-
-            </nav>
-        </div>
-        <main class="usa-layout-docs__main desktop:grid-col-12 usa-prose usa-layout-docs" id="main-content">
-            @*<p class="usa-intro">
-                GRIN both provides data, and compiles references to databases hosted by collaborating projects.
-            </p>*@
-            <h2 id="section-heading-h2">Overview</h2>
-            <p>
-                This collection is maintained in conjunction with the Agricultural Marketing Service Plant Variety Protection Office (PVPO), which provides intellectual property protection to breeders. This office publishes monthly updates to the status of PVP certificates.
-            </p>
-            @*<h2>Browse Applications</h2>*@
-            <div class="usa-alert usa-alert--info">
-                <div class="usa-alert__body">
-                    <h4 class="usa-alert__heading">Note</h4>
-                    <p class="usa-alert__text">This data was last updated on <strong>12/20/2020</strong>. Source data can be found at <a class="usa-link" href="javascript:void(0);">The PVP Office</a>.</p>
-                </div>
-            </div>
-            <div class="grid-container margin-5">
-                <div class="grid-row grid-gap">
-                    <div id="section-filter-by-status" class="grid-col-3 margin-top-8">
+                    <li style="margin-top:20px;">
+                        <h4 style="font-weight:bold;">Filter by Status</h4>
                         <div class="usa-checkbox">
                             <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
                                    id="check-application-pending"
@@ -133,10 +83,30 @@
                                    value="booker-t-washington" />
                             <label class="usa-checkbox__label" for="check-certificate-expired">Certificate Expired</label>
                         </div>
-                        
-
-                    </div>
-                    <div id="section-filter-by-time-frame" class="grid-col-9">
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <main class="usa-layout-docs__main desktop:grid-col-9 usa-prose usa-layout-docs" id="main-content">
+            @*<p class="usa-intro">
+                GRIN both provides data, and compiles references to databases hosted by collaborating projects.
+                </p>*@
+            <h2 id="section-heading-h2">Overview</h2>
+            <p>
+                This collection is maintained in conjunction with the Agricultural Marketing Service Plant Variety Protection Office (PVPO), which provides intellectual property protection to breeders. This office publishes monthly updates to the status of PVP certificates.
+            </p>
+            <h3 id="section-heading-h2">Browse PVP Applications</h3>
+            <div class="usa-alert usa-alert--info usa-alert--slim">
+                <div class="usa-alert__body">
+                    <p class="usa-alert__text">
+                        Last updated: 9/19/2022 <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                        elit, sed do eiusmod.
+                    </p>
+                </div>
+            </div>
+            <div class="grid-container margin-2">
+                <div class="grid-row grid-gap">
+                    <div id="section-filter-by-time-frame" class="grid-col-12">
                         <ul class="usa-button-group usa-button-group--segmented" style="padding-left:0px;">
                             <li class="usa-button-group__item">
                                 <button id="btn-expired" title="expired" class="usa-button">This Week</button>
@@ -151,114 +121,76 @@
                                 <button id="btn-expiring" title="expiring" class="usa-button usa-button--outline">The Last Year</button>
                             </li>
                         </ul>
-                        <div id="section-data">
-                            <table class="usa-table">
-                                
-                                <colgroup>
-                                    <col>
-                                </colgroup>
-                                <colgroup span="2"></colgroup>
-                                <colgroup span="2"></colgroup>
-                                <thead>
-                                    <tr>
-                                        <th rowspan="2">Federal Budget<br>Baseline Projections</th>
-                                        <th colspan="2" scope="colgroup" class="text-center">2017</th>
-                                        <th colspan="2" scope="colgroup" class="text-center">2018</th>
-                                        <th colspan="2" scope="colgroup" class="text-center">2019</th>
-                                        <th colspan="2" scope="colgroup" class="text-center">2020</th>
-                                        <th colspan="2" scope="colgroup" class="text-center">2021</th>
-                                        <th colspan="2" scope="colgroup" class="text-center">Hist. Avg.</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col" class="text-right">%GDP</th>
-                                        <th scope="col" class="text-right">USD*</th>
-                                        <th scope="col" class="text-right">%GDP</th>
-                                        <th scope="col" class="text-right">USD*</th>
-                                        <th scope="col" class="text-right">%GDP</th>
-                                        <th scope="col" class="text-right">USD*</th>
-                                        <th scope="col" class="text-right">%GDP</th>
-                                        <th scope="col" class="text-right">USD*</th>
-                                        <th scope="col" class="text-right">%GDP</th>
-                                        <th scope="col" class="text-right">USD*</th>
-                                        <th scope="col" class="text-right">%GDP</th>
-                                        <th scope="col" class="text-right">USD*</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Revenue</th>
-                                        <td class="font-mono-sm text-tabular text-right">17.2%</td>
-                                        <td class="font-mono-sm text-tabular text-right">3,316</td>
-                                        <td class="font-mono-sm text-tabular text-right">16.4%</td>
-                                        <td class="font-mono-sm text-tabular text-right">3,338</td>
-                                        <td class="font-mono-sm text-tabular text-right">16.3%</td>
-                                        <td class="font-mono-sm text-tabular text-right">3,490</td>
-                                        <td class="font-mono-sm text-tabular text-right">16.7%</td>
-                                        <td class="font-mono-sm text-tabular text-right">3,678</td>
-                                        <td class="font-mono-sm text-tabular text-right">16.7%</td>
-                                        <td class="font-mono-sm text-tabular text-right">3,827</td>
-                                        <td class="font-mono-sm text-tabular text-right">17.4%</td>
-                                        <td class="font-mono-sm text-tabular text-right">3,381</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Outlays</th>
-                                        <td class="font-mono-sm text-tabular text-right">20.6%</td>
-                                        <td class="font-mono-sm text-tabular text-right">3,982</td>
-                                        <td class="font-mono-sm text-tabular text-right">20.2%</td>
-                                        <td class="font-mono-sm text-tabular text-right">4,142</td>
-                                        <td class="font-mono-sm text-tabular text-right">21.0%</td>
-                                        <td class="font-mono-sm text-tabular text-right">4,470</td>
-                                        <td class="font-mono-sm text-tabular text-right">21.3%</td>
-                                        <td class="font-mono-sm text-tabular text-right">4,685</td>
-                                        <td class="font-mono-sm text-tabular text-right">21.6%</td>
-                                        <td class="font-mono-sm text-tabular text-right">4,949</td>
-                                        <td class="font-mono-sm text-tabular text-right">20.3%</td>
-                                        <td class="font-mono-sm text-tabular text-right">4,198</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Budget Deficit</th>
-                                        <td class="font-mono-sm text-tabular text-right">-3.5%</td>
-                                        <td class="font-mono-sm text-tabular text-right">-665</td>
-                                        <td class="font-mono-sm text-tabular text-right">-3.8%</td>
-                                        <td class="font-mono-sm text-tabular text-right">-804</td>
-                                        <td class="font-mono-sm text-tabular text-right">-4.6%</td>
-                                        <td class="font-mono-sm text-tabular text-right">-981</td>
-                                        <td class="font-mono-sm text-tabular text-right">-4.6%</td>
-                                        <td class="font-mono-sm text-tabular text-right">-1,008</td>
-                                        <td class="font-mono-sm text-tabular text-right">-4.9%</td>
-                                        <td class="font-mono-sm text-tabular text-right">-1,123</td>
-                                        <td class="font-mono-sm text-tabular text-right">-2.9%</td>
-                                        <td class="font-mono-sm text-tabular text-right">-483</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Debt Held by Public</th>
-                                        <td class="font-mono-sm text-tabular text-right">76.0%</td>
-                                        <td class="font-mono-sm text-tabular text-right">14,665</td>
-                                        <td class="font-mono-sm text-tabular text-right">77.4%</td>
-                                        <td class="font-mono-sm text-tabular text-right">15,688</td>
-                                        <td class="font-mono-sm text-tabular text-right">79.2%</td>
-                                        <td class="font-mono-sm text-tabular text-right">16,762</td>
-                                        <td class="font-mono-sm text-tabular text-right">80.9%</td>
-                                        <td class="font-mono-sm text-tabular text-right">17,872</td>
-                                        <td class="font-mono-sm text-tabular text-right">83.1%</td>
-                                        <td class="font-mono-sm text-tabular text-right">18,998</td>
-                                        <td class="font-mono-sm text-tabular text-right">41.7%</td>
-                                        <td class="font-mono-sm text-tabular text-right">8,065</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div id="section-pvp_applications" style="margin-top:20px;">
+                            @{ Html.RenderAction("_List", "PVP");}
                         </div>
                     </div>
-                  
                 </div>
             </div>
         </main>
     </div>
 </div>
 
+<div id="modal-pvp-detail" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <span id="site-name">TEST</span>
+                </h3>
+
+            </div>
+            <div class="modal-body">
+                <table class="usa-table usa-table--borderless">
+                    
+                    
+                    <tbody>                        <tr>
+                            <th scope="row" style="font-weight:bold;">PI Number</th>
+                            <td>
+                                12345
+                            </td>
+                            <td>1776</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Applicant</th>
+                            <td>
+                                The first ten amendments of the U.S. Constitution guaranteeing rights
+                                and freedoms.
+                            </td>
+                            <td>1791</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Declaration of Sentiments</th>
+                            <td>
+                                A document written during the Seneca Falls Convention outlining the
+                                rights that American women should be entitled to as citizens.
+                            </td>
+                            <td>1848</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Emancipation Proclamation</th>
+                            <td>
+                                An executive order granting freedom to slaves in designated southern
+                                states.
+                            </td>
+                            <td>1863</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
     $(document).ready(function () {
-        LoadData("expired");
+        /*LoadData("expired");*/
     });
 
     /*========================================================================================
@@ -342,4 +274,12 @@
         //            }
         //    });
     }
+
+    /* DETAIL */
+    $(function () {
+        $('.detail-expand').on('click', function () {
+            var id = this.id;
+            $("#modal-pvp-detail").modal("show");
+        });
+    });
 </script>

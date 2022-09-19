@@ -1,0 +1,44 @@
+﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.CropGermplasmCommitteeDocumentViewModelBase
+<div id="section-controls" class="card card-default">
+    <div class="card-header">
+        <div class="btn-group">
+            <a href="@Url.Action("AddCropGermplasmCommitteeDocument","Admin")" class="btn btn-default"><i class="fa fa-plus"></i> New</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div id="section-search-criteria" class="search-criteria">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group form-horizontal">
+                        <label>Category</label>
+                        @Html.DropDownListFor(x => x.SearchEntity.CategoryCode, Model.CategoryCodes, "All categories", new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group form-horizontal">
+                        <label>Title</label>
+                        @Html.TextBoxFor(x => x.SearchEntity.Title, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.TextBoxFor(x=>x.Entity.URL, new { @class="form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button id="btnReset" type="button" class="btn btn-danger">Reset</button>
+        <div class="btn-group float-right">
+            <button id="btnSubmitSearch" type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</div>
+
+

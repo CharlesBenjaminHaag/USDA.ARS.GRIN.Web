@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Microsoft .NET\GGTools\USDA.ARS.GRIN.GGTools\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
@@ -45,13 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthenticatedViewModelBase.cs" />
+    <Compile Include="CooperatorViewModel.cs" />
+    <Compile Include="CooperatorViewModelBase.cs" />
+    <Compile Include="CropGermplasmCommitteeDocumentViewModel.cs" />
+    <Compile Include="CropGermplasmCommitteeDocumentViewModelBase.cs" />
     <Compile Include="CropGermplasmCommitteeViewModel.cs" />
     <Compile Include="CropGermplasmCommitteeViewModelBase.cs" />
+    <Compile Include="IViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PVPApplicationViewModelBase.cs" />
     <Compile Include="PVPApplicationViewModel.cs" />
     <Compile Include="SiteViewModelBase.cs" />
     <Compile Include="SiteViewModel.cs" />
+    <Compile Include="SysUserViewModel.cs" />
+    <Compile Include="SysUserViewModelBase.cs" />
     <Compile Include="ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>

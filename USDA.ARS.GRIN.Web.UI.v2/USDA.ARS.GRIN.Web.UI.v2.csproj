@@ -127,11 +127,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AuthenticatedUserSession.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CGCController.cs" />
     <Compile Include="Controllers\CollectionsController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NGRACController.cs" />
     <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Controllers\PVPController.cs" />
@@ -183,6 +186,11 @@
     <Content Include="Views\Error\_InternalServerError.cshtml" />
     <Content Include="Views\CGC\_DocumentList.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\CropGermplasmCommitteeDocument\Edit.cshtml" />
+    <Content Include="Views\Admin\CropGermplasmCommitteeDocument\Index.cshtml" />
+    <Content Include="Views\Admin\CropGermplasmCommitteeDocument\_List.cshtml" />
+    <Content Include="Views\Admin\CropGermplasmCommitteeDocument\_Detail.cshtml" />
     <None Include="Views\Home\indexV2.cshtml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -220,6 +228,12 @@
     <Content Include="Views\PVP\Search.cshtml" />
     <Content Include="Views\Pages\NGRAC.cshtml" />
     <Content Include="Views\Pages\GRINU.cshtml" />
+    <Content Include="Views\PVP\Detail.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutInteriorAdmin.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Login\Attestation.cshtml" />
+    <Content Include="Views\Shared\_USANavAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

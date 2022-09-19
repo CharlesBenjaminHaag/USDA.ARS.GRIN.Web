@@ -1,0 +1,107 @@
+﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.SysUserViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInteriorAdmin.cshtml";
+}
+
+<style>
+    .usa-show-password {
+        -moz-osx-font-smoothing: inherit;
+        -webkit-font-smoothing: inherit;
+        color: #005ea2;
+        text-decoration: underline;
+        background-color: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        cursor: pointer;
+        font-size: .93rem;
+        line-height: 1.3;
+        float: right;
+        margin: .25rem 0 1rem;
+    }
+</style>
+
+<div class="grid-container">
+    <div class="grid-row grid-gap">
+        <div class="usa-layout-docs__sidenav desktop:grid-col-2">
+            <nav aria-label="Secondary navigation">
+                <!--<ul class="site-sidenav usa-sidenav">-->
+                    @*<li class="usa-sidenav__item">
+                        <a href="/components/">
+
+                            CGC Committees
+
+                        </a>
+                    </li>
+                    <li class="usa-sidenav__item">
+
+
+                        <a href="/components/accordion/">
+
+                            CGC Documents
+
+                        </a>
+
+
+
+                    </li>
+                    <li class="usa-sidenav__item">
+
+
+                        <a href="/components/alert/">
+
+                            Logout
+
+                        </a>
+
+
+
+                    </li>*@
+                <!--</ul>-->
+            </nav>
+        </div>
+        <main class="usa-layout-docs__main desktop:grid-col-9 usa-prose usa-layout-docs" id="main-content">
+            <form class="usa-form" action="/Login/Index" method="post">
+
+                @if (!String.IsNullOrEmpty(Model.UserMessage))
+                {
+                    @Model.UserMessage
+                }
+
+                <fieldset class="usa-fieldset">
+                    <legend class="usa-legend usa-legend--large">
+                        Log In
+                    </legend>
+
+                    <!-- VALIDATION HERE -->
+
+                    <label class="usa-label" for="email">GRIN-Global User Name</label>
+                    @Html.TextBoxFor(x => x.Entity.UserName, new { @class = "usa-input", @autocomplete = "off", @maxlength = "50" })
+                    
+                    <label class="usa-label" for="password-sign-in">Password</label>
+                    @Html.TextBoxFor(x => x.Entity.Password, new { @id= "password-sign-in", @type = "password", @class = "usa-input", @autocomplete = "off" })
+
+                    <button title="Toggle password"
+                            type="button"
+                            class="usa-show-password"
+                            aria-controls="password-sign-in"
+                            data-show-text="Show password"
+                            data-hide-text="Hide password">
+                        Show password
+                    </button>
+                    <input class="usa-button" type="submit" value="Sign in" />
+                    <p>
+                        <a href="javascript:void()" title="Forgot password">Forgot password?</a>
+                    </p>
+                </fieldset>
+            </form>
+        </main>
+    </div>
+</div>
+
+

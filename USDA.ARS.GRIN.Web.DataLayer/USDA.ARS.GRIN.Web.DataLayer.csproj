@@ -32,7 +32,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Microsoft .NET\GGTools\USDA.ARS.GRIN.GGTools\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,6 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityClasses\BaseModel.cs" />
+    <Compile Include="EntityClasses\CodeValue.cs" />
+    <Compile Include="EntityClasses\CodeValueSearch.cs" />
+    <Compile Include="EntityClasses\Cooperator.cs" />
+    <Compile Include="EntityClasses\CooperatorSearch.cs" />
     <Compile Include="EntityClasses\CropGermplasmCommittee.cs" />
     <Compile Include="EntityClasses\CropGermplasmCommitteeDocument.cs" />
     <Compile Include="EntityClasses\CropGermplasmCommitteeDocumentSearch.cs" />
@@ -53,11 +63,21 @@
     <Compile Include="EntityClasses\RhizobiumDescriptor.cs" />
     <Compile Include="EntityClasses\Site.cs" />
     <Compile Include="EntityClasses\SiteSearch.cs" />
+    <Compile Include="EntityClasses\SysApplication.cs" />
+    <Compile Include="EntityClasses\SysApplicationSearch.cs" />
+    <Compile Include="EntityClasses\SysGroup.cs" />
+    <Compile Include="EntityClasses\SysGroupUserMap.cs" />
+    <Compile Include="EntityClasses\SysGroupUserMapSearch.cs" />
+    <Compile Include="EntityClasses\SysUser.cs" />
+    <Compile Include="EntityClasses\SysUserSearch.cs" />
+    <Compile Include="ManagerClasses\CooperatorManager.cs" />
     <Compile Include="ManagerClasses\CropGermplasmCommitteeDocumentManager.cs" />
     <Compile Include="ManagerClasses\CropGermplasmCommitteeManager.cs" />
     <Compile Include="ManagerClasses\PVPApplicationManager.cs" />
     <Compile Include="ManagerClasses\RhizobiumManager.cs" />
     <Compile Include="ManagerClasses\SiteManager.cs" />
+    <Compile Include="ManagerClasses\SysApplicationManager.cs" />
+    <Compile Include="ManagerClasses\SysUserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
