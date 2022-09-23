@@ -327,9 +327,9 @@
             var table = $("#" + tableName).DataTable({
                 dom: 'Blfrtip',
                 paging: true,
-                initComplete: function () {
-                    SetControlVisibility(tableName);
-                },
+                //initComplete: function () {
+                //    SetControlVisibility(tableName);
+                //},
                 responsive: true,
                 buttons: [
                     'selectAll',
@@ -339,6 +339,7 @@
                     'pdf'
                 ],
                 select: true,
+                searching: false,
                 lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 columnDefs: [
                     { targets: [0], visible: false }

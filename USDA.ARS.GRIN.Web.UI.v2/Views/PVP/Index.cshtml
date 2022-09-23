@@ -31,88 +31,68 @@
 <div id="overlay"><h2>Loading .. Please wait</h2></div>
 <div class="grid-container">
     <div class="grid-row grid-gap">
-        <div class="usa-layout-docs__sidenav desktop:grid-col-2">
-            <nav aria-label="Secondary navigation">
-                <form class="usa-search usa-search--small" role="search">
-                    <label class="usa-sr-only" for="search-field-en-small">Search</label>
-                    <input class="usa-input" id="search-field-en-small" type="search" name="search" placeholder="Search GRIN-Global">
-                    <button class="usa-button" type="submit">
-                        <span class="usa-sr-only">Search</span>
-                    </button>
-                </form>
-                @*<br />*@
-            <ul class="usa-sidenav">
-                @Html.HiddenFor(x => x.EventValue)
-                <li class="usa-sidenav__item">
-                    <a href="/">Home</a>
-                </li>
-                <li class="usa-sidenav__item">
-                    <a href="@Url.Action("Search","PVP")">Advanced Search</a>
-                </li>
-
-                <li id="section-filter-by-status" style="margin-top:20px;">
-                    <h4 style="font-weight:bold;">Application Status</h4>
-                    <div class="usa-checkbox">
-                        <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
-                               id="check-application-pending"
-                               type="checkbox"
-                               name="historical-figures-2"
-                               value="frederick-douglass" />
-                        <label class="usa-checkbox__label" for="check-application-pending">Pending</label>
-                    </div>
-                    <div class="usa-checkbox">
-                        <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
-                               id="check-application-withdrawn"
-                               type="checkbox"
-                               name="historical-figures-2"
-                               value="frederick-douglass" />
-                        <label class="usa-checkbox__label" for="check-application-withdrawn">Withdrawn</label>
-                    </div>
-                    <h4 style="font-weight:bold; margin-top:20px;">Certificate Status</h4>
-                    <div class="usa-checkbox">
-                        <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
-                               id="check-certificate-issued"
-                               type="checkbox"
-                               name="historical-figures-2"
-                               value="frederick-douglass" />
-                        <label class="usa-checkbox__label" for="check-certificate-issued">Issued</label>
-                    </div>
-                    <div class="usa-checkbox">
-                        <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
-                               id="check-certificate-expired"
-                               type="checkbox"
-                               name="historical-figures-2"
-                               value="booker-t-washington" />
-                        <label class="usa-checkbox__label" for="check-certificate-expired">Expired</label>
-                    </div>
-                    <div class="usa-checkbox">
-                        <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
-                               id="check-certificate-abandoned"
-                               type="checkbox"
-                               name="historical-figures-2"
-                               value="booker-t-washington" />
-                        <label class="usa-checkbox__label" for="check-certificate-abandoned">Abandoned</label>
-                    </div>
-                </li>
-            </ul>
-            </nav>
-        </div>
-        <main class="usa-layout-docs__main desktop:grid-col-9 usa-prose usa-layout-docs" id="main-content">
-            @*<p class="usa-intro">
-                GRIN both provides data, and compiles references to databases hosted by collaborating projects.
-                </p>*@
-            <h2 id="section-heading-h2">Overview</h2>
+        <main class="usa-layout-docs__main desktop:grid-col-12 usa-prose usa-layout-docs" id="main-content">
+            <h2 id="section-heading-h2">PVP Applications as of 9/19/2022</h2>
             <p>
-                This collection is maintained in conjunction with the <a href="https://www.ams.usda.gov/services/plant-variety-protection">
+                This collection is maintained in conjunction with the <a class="usa-link usa-link--alt usa-link--external" href="https://www.ams.usda.gov/services/plant-variety-protection">
                     Agricultural Marketing Service Plant Variety Protection Office (PVPO)
-                </a>, which provides intellectual property protection to breeders of new varieties of sexually reproduced, tuber propagated, and asexually reproduced plant varieties.  
+                </a>, which provides intellectual property protection to breeders of new varieties of sexually reproduced, tuber propagated, and asexually reproduced plant varieties.
+                This office publishes regular updates to the status of PVP applications and certificates.
             </p>
-            <p>This office publishes monthly updates to the status of PVP certificates.</p>
-            <h3 id="section-heading-h2">Browse PVP Applications</h3>
+            <h3 id="section-heading-h3">Applications by Status</h3>
+            <p>
+                <table class="usa-table usa-table--borderless" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th scope="col">Status</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Application Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row"><strong><a href="">Application Abandoned</a></strong></th>
+                            <td>
+                                The PVP office is unable to locate the applicant.
+                            </td>
+                            <td>889</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Application Denied</th>
+                            <td>
+                                The PVP Office has determined that the application does not meet the criteria.
+                            </td>
+                            <td>1791</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Application Ineligible</th>
+                            <td>
+                                The PVP Office has determined that the application does not meet the criteria.
+                            </td>
+                            <td>1848</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Application Pending</th>
+                            <td>
+                                The PVP Office is currently reviewing the application.
+                            </td>
+                            <td>1863</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Application Withdrawn</th>
+                            <td>
+                                The applicant has informed the PVP Office that they no longer wish to pursue the application process.
+                            </td>
+                            <td>1863</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+            <h3 id="section-heading-h3">Browse Applications</h3>
             <div class="usa-alert usa-alert--info usa-alert--slim">
                 <div class="usa-alert__body">
                     <p class="usa-alert__text">
-                        All data represented here is based on an <a href="https://www.ams.usda.gov/services/plant-variety-protection/application-status">update</a> from <strong>9/19/2022</strong>.
+                        All data represented here is based on an <a class="usa-link usa-link--alt usa-link--external" href="https://www.ams.usda.gov/services/plant-variety-protection/application-status">update</a> from <strong>9/19/2022</strong>. Please <a href="@Url.Action("Index","Contact", new { context="pvp" })">contact us</a> regarding any errors or omissions.
                     </p>
                 </div>
             </div>
@@ -121,20 +101,24 @@
                     <div id="section-filter-by-time-frame" class="grid-col-12">
                         <ul class="usa-button-group usa-button-group--segmented" style="padding-left:0px;">
                             <li class="usa-button-group__item">
-                                <button id="btn-expired" title="7D" class="usa-button">Certificate Expiring in 6 Months</button>
+                                <button id="btn-expired" title="EXP6" class="usa-button">Certificate Expiring in 6 Months</button>
                             </li>
                             <li class="usa-button-group__item">
-                                <button id="btn-submitted" title="30D" class="usa-button usa-button--outline">Certificate Recently Expired</button>
+                                <button id="btn-submitted" title="REXP" class="usa-button usa-button--outline">Certificate Recently Expired</button>
                             </li>
                             <li class="usa-button-group__item">
-                                <button id="btn-expiring" title="6M" class="usa-button usa-button--outline">Application Recently Submitted</button>
+                                <button id="btn-expiring" title="RSUB" class="usa-button usa-button--outline">Application Recently Submitted</button>
                             </li>
-                            @*<li class="usa-button-group__item">
-                                <button id="btn-expiring" title="YR" class="usa-button usa-button--outline">The Last Year</button>
-                            </li>*@
+                            <li class="usa-button-group__item usa-button--accent-cool">
+
+                                <a class="usa-button usa-button--accent-cool" href="@Url.Action("Search","PVP")">Advanced Search...</a>
+
+                                @*<button id="btn-advanced-search" title="RSUB" class="usa-button usa-button--accent-cool"></button>*@
+
+                            </li>
                         </ul>
                         <div id="section-pvp-applications" style="margin-top:20px;">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -154,9 +138,8 @@
             </div>
             <div class="modal-body">
                 <table class="usa-table usa-table--borderless">
-                    
-                    
-                    <tbody>                        <tr>
+                    <tbody>                        
+                        <tr>
                             <th scope="row" style="font-weight:bold;">PI Number</th>
                             <td>
                                 12345
@@ -202,54 +185,56 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        LoadData("7D");
+        LoadData("EXP6");
+
+        $("#data-table_pvp_applications_filter").html("<label>Filter Results</label>");
+
     });
 
     /*========================================================================================
     * STATUS SELECTORS
     *========================================================================================
     */
-    $(".status-selector").click(function () {
-        LoadData("test");
-    });
+    //$(".status-selector").click(function () {
+    //    LoadData("test");
+    //});
 
-    function GetSelectedStatuses() {
-        var valueArray = [];
-        $("#section-filter-by-status input:checked").each(function () {
-            var id = $(this).attr("id");
-            valueArray.push(id);
-        });
-        return valueArray;
-    }
+    //function GetSelectedStatuses() {
+    //    var valueArray = [];
+    //    $("#section-filter-by-status input:checked").each(function () {
+    //        var id = $(this).attr("id");
+    //        valueArray.push(id);
+    //    });
+    //    return valueArray;
+    //}
 
     $(function () {
         $('.usa-button-group__item button').on('click', function () {
             var context = $(this).attr("title");
-
             $('.usa-button-group__item button').addClass('usa-button--outline');
             $(this).removeClass('usa-button--outline');
             LoadData(context);
         });
     });
 
-    $(function () {
-        $('.pvp-detail-btn').on('click', function () {
-            var id = this.id;
-            $('.usa-button-group__item button').addClass('usa-button--outline');
-            $(this).removeClass('usa-button--outline');
-            LoadData(context);
-        });
-    });
+    //$(function () {
+    //    $('.pvp-detail-btn').on('click', function () {
+    //        var id = this.id;
+    //        $('.usa-button-group__item button').addClass('usa-button--outline');
+    //        $(this).removeClass('usa-button--outline');
+    //        LoadData(context);
+    //    });
+    //});
 
     function LoadData(context)
     {
         $("#overlay").show();
         var link = '@Url.Action("_List", "PVP")';
-        var selectedStatusList = GetSelectedStatuses();
+        /*var selectedStatusList = GetSelectedStatuses();*/
         var selectedTimeFrame = context;
         var formData = new FormData();
 
-        formData.append("StatusList", selectedStatusList);
+        /*formData.append("StatusList", selectedStatusList);*/
         formData.append("TimeFrame", context);
 
         $.ajax({

@@ -36,7 +36,9 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
 
         public ActionResult Search()
         {
-            return View();
+            TempData["PAGE_CONTEXT"] = "PVP Application Status Database";
+            PVPApplicationViewModel viewModel = new PVPApplicationViewModel();
+            return View(viewModel);
         }
 
         public PartialViewResult _List(FormCollection formCollection)

@@ -14,10 +14,11 @@
             <th>Applicant</th>
             <th>Variety (Cultivar)</th>
             <th>Common Name</th>
+            <th>Experimental Name</th>
             <th>Expiration Date</th>
             <th>Status</th>
             <th>Accession</th>
-            <th></th>
+            @*<th></th>*@
         </tr>
     </thead>
     <tbody>
@@ -28,25 +29,23 @@
                 <td>@result.Applicant</td>
                 <td>@result.Variety</td>
                 <td>@result.CommonName</td>
+                <td>@result.ScientificName</td>
                 <td>@result.ExpirationDate.ToShortDateString()</td>
                 <td>
                     @result.CertificateStatus
-                    <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                        <use xlink:href="https://designsystem.digital.gov/assets/img/sprite.svg#file_present"></use>
-                    </svg>
                 </td>
                 <td>
                     <a class="usa-link usa-link--alt usa-link--external" href="https://npgsweb.ars-grin.gov/gringlobal/accessiondetail?id=@result.AccessionID">
                         @result.AccessionName
                     </a>
                 </td>
-                <td>
-                    <button id="@result.ApplicationNumber" class="usa-button usa-button--outline detail-expand">Detail</button>
+                <!--<td>
+                    <button id="@result.ApplicationNumber" class="usa-button usa-button--outline detail-expand">Detail</button>-->
                     @*<a href="@Url.Action("Detail","PVP", new { id = result.ApplicationNumber })"
                            class="usa-button usa-button--outline">
                             Detail
                         </a>*@
-                </td>
+                <!--</td>-->
             </tr>
         }
     </tbody>

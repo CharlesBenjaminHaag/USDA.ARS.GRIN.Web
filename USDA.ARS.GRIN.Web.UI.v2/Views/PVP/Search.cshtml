@@ -1,8 +1,164 @@
-﻿
+﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.PVPApplicationViewModel
 @{
     ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_LayoutInterior.cshtml";
 }
 
-<h2>Search</h2>
+<style>
+    #overlay {
+        height: 100%;
+        width: 100%;
+        position: fixed; /* NOTE: Had originally been "absolute;" overlay did not conceal entire page and allowed scrolling behind it. */
+        top: 0px;
+        left: 0px;
+        z-index: 99999;
+        background-color: #1b1b1b;
+        color: white;
+        filter: alpha(opacity=75);
+        -moz-opacity: 0.75;
+        opacity: 0.75;
+        display: none;
+        overflow: scroll;
+    }
 
+    #overlay h2 {
+        position: fixed;
+        margin-left: 40%;
+        top: 40%;
+    }
+
+    .usa-breadcrumb {
+        padding-bottom: 1rem;
+        padding-top: 0rem; 
+    }
+
+</style>
+<div id="overlay"><h2>Loading .. Please wait</h2></div>
+
+<div class="grid-container">
+    <nav class="usa-breadcrumb" aria-label="Breadcrumbs,,">
+        <ol class="usa-breadcrumb__list">
+            <li class="usa-breadcrumb__list-item">
+                <a href="@Url.Action("Index","Home")" class="usa-breadcrumb__link"><span>Home</span></a>
+            </li>
+            <li class="usa-breadcrumb__list-item">
+                <a href="@Url.Action("Index","PVP")" class="usa-breadcrumb__link"><span>PVP Applications</span></a>
+            </li>
+            <li class="usa-breadcrumb__list-item">
+                <span>Advanced Search</span>
+            </li>
+        </ol>
+    </nav>
+    <div class="grid-row grid-gap">
+        <main class="usa-layout-docs__main desktop:grid-col-12 usa-prose usa-layout-docs" id="main-content">
+            <h2 id="section-heading-h2">Advanced Search</h2>
+            <div class="usa-alert usa-alert--info usa-alert--slim">
+                <div class="usa-alert__body">
+                    <p class="usa-alert__text">
+                        All data represented here is based on an <a class="usa-link usa-link--alt usa-link--external" href="https://www.ams.usda.gov/services/plant-variety-protection/application-status">update</a> from <strong>9/19/2022</strong>. Please <a href="@Url.Action("Index","Contact", new { context="pvp" })">contact us</a> regarding any errors or omissions.
+                    </p>
+                </div>
+            </div>
+            <div class="grid-container margin-top-2">
+                <div class="grid-row grid-gap">
+                    <div class="mobile-lg:grid-col-2">
+                        <label>Time Frame</label>
+                        <select class="usa-select" name="options" id="options">
+                            <option value="value1">This Year</option>
+                            <option value="value2">The Last Two Years</option>
+                            <option value="value3">The Last Five Years</option>
+                        </select>
+                    </div>
+                    <div class="mobile-lg:grid-col-3">
+                        <label>Variety</label>
+                        <input type="text" class="usa-input" />
+                    </div>
+                    <div class="mobile-lg:grid-col-3">
+                        <label>Crop</label>
+                        <input type="text" class="usa-input" />
+                    </div>
+                    <div class="mobile-lg:grid-col-4">
+                        <label>Scientific Name</label>
+                        <input type="text" class="usa-input" />
+                    </div>
+                </div>
+                <div class="grid-row grid-gap">
+                    <div class="mobile-lg:grid-col-12">
+                        <div class="grid-col-12 margin-1">
+                            <button id="btnSearch" class="usa-button float-right">Search</button>
+                            <button id="btnReset" class="usa-button usa-button--secondary float-right">Reset</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <h3 class="site-preview-heading border-top-2px border-base-light"></h3>
+            <div class="grid-container">
+                <div class="grid-row grid-gap">
+                    <div class="grid-col-12">
+                        <div id="section-pvp-applications">
+                            <table id="data-table_pvp_applications" class="display table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th>PV Number</th>
+                                        <th>Applicant</th>
+                                        <th>Variety (Cultivar)</th>
+                                        <th>Common Name</th>
+                                        <th>Experimental Name</th>
+                                        <th>Expiration Date</th>
+                                        <th>Status</th>
+                                        <th>Accession</th>
+                                        @*<th></th>*@
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var result in Model.DataCollection)
+                                    {
+                                        <tr>
+                                            <td>@result.ApplicationNumber</td>
+                                            <td>@result.Applicant</td>
+                                            <td>@result.Variety</td>
+                                            <td>@result.CommonName</td>
+                                            <td>@result.ScientificName</td>
+                                            <td>@result.ExpirationDate.ToShortDateString()</td>
+                                            <td>
+                                                @result.CertificateStatus
+                                            </td>
+                                            <td>
+                                                <a class="usa-link usa-link--alt usa-link--external" href="https://npgsweb.ars-grin.gov/gringlobal/accessiondetail?id=@result.AccessionID">
+                                                    @result.AccessionName
+                                                </a>
+                                            </td>
+
+                                            <!--<td>
+                                            <button id="@result.ApplicationNumber" class="usa-button usa-button--outline detail-expand">Detail</button>-->
+                                            @*<a href="@Url.Action("Detail","PVP", new { id = result.ApplicationNumber })"
+                                            class="usa-button usa-button--outline">
+                                            Detail
+                                            </a>*@
+                                            <!--</td>-->
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        InitDataTable("data-table_pvp_applications");
+    });
+
+    /* DETAIL */
+    $(function () {
+        $('.detail-expand').on('click', function () {
+            var id = this.id;
+            $("#modal-pvp-detail").modal("show");
+        });
+    });
+
+</script>
