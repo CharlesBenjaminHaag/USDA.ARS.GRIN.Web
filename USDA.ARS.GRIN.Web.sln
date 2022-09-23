@@ -17,10 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USDA.ARS.GRIN.Web.AppLayer"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USDA.ARS.GRIN.Web.ViewModelLayer", "USDA.ARS.GRIN.Web.ViewModelLayer\USDA.ARS.GRIN.Web.ViewModelLayer.csproj", "{C4C97DC2-0D44-47C0-9281-FD219D8B42BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USDA.ARS.GRIN.Web.Repository", "..\..\..\USDA.ARS.GRIN.Web\USDA.ARS.GRIN.Web.Repository\USDA.ARS.GRIN.Web.Repository.csproj", "{53BD4D9B-FFF2-45DD-BA9B-11516BCA6993}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USDA.ARS.GRIN.Web.WebUI", "..\..\..\USDA.ARS.GRIN.Web\USDA.ARS.GRIN.Web.WebUI\USDA.ARS.GRIN.Web.WebUI.csproj", "{759BD5E0-82F3-4ABD-BB49-396EC40B9D3C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,14 +51,6 @@ Global
 		{C4C97DC2-0D44-47C0-9281-FD219D8B42BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4C97DC2-0D44-47C0-9281-FD219D8B42BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4C97DC2-0D44-47C0-9281-FD219D8B42BC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{53BD4D9B-FFF2-45DD-BA9B-11516BCA6993}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{53BD4D9B-FFF2-45DD-BA9B-11516BCA6993}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{53BD4D9B-FFF2-45DD-BA9B-11516BCA6993}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{53BD4D9B-FFF2-45DD-BA9B-11516BCA6993}.Release|Any CPU.Build.0 = Release|Any CPU
-		{759BD5E0-82F3-4ABD-BB49-396EC40B9D3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{759BD5E0-82F3-4ABD-BB49-396EC40B9D3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{759BD5E0-82F3-4ABD-BB49-396EC40B9D3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{759BD5E0-82F3-4ABD-BB49-396EC40B9D3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
