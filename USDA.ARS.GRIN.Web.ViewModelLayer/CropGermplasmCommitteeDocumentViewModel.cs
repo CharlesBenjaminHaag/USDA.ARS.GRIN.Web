@@ -15,7 +15,19 @@ namespace USDA.ARS.GRIN.Web.ViewModelLayer
         public HttpPostedFileBase DocumentUpload { get; set; }
         public void Delete()
         {
-            throw new NotImplementedException();
+            using (CropGermplasmCommitteeDocumentManager mgr = new CropGermplasmCommitteeDocumentManager())
+            {
+                try
+                {
+                    // TODO delete file if desired
+                    RowsAffected = mgr.Delete(Entity);
+                }
+                catch (Exception ex)
+                {
+                    PublishException(ex);
+                    throw ex;
+                }
+            }
         }
 
         public CropGermplasmCommitteeDocument Get(int entityId)
@@ -44,7 +56,19 @@ namespace USDA.ARS.GRIN.Web.ViewModelLayer
 
         public int Insert()
         {
-            throw new NotImplementedException();
+            using (CropGermplasmCommitteeDocumentManager mgr = new CropGermplasmCommitteeDocumentManager())
+            {
+                try
+                {
+                    RowsAffected = mgr.Insert(Entity);
+                }
+                catch (Exception ex)
+                {
+                    PublishException(ex);
+                    throw ex;
+                }
+                return RowsAffected;
+            }
         }
 
         public void Search()
@@ -84,7 +108,27 @@ namespace USDA.ARS.GRIN.Web.ViewModelLayer
                 }
                 return RowsAffected;
             }
+        }
 
+        public override bool Validate()
+        {
+            bool validated = true;
+
+            if (Entity.CropGermplasmCommitteeID == 0)
+            {
+                ValidationMessages.Add(new Common.Library.ValidationMessage { Message = "Please select a committee." });
+            }
+
+            if (String.IsNullOrEmpty(Entity.Title))
+            {
+                ValidationMessages.Add(new Common.Library.ValidationMessage { Message = "Please specify the document title." });
+            }
+
+            if (ValidationMessages.Count > 0)
+            {
+                validated = false;
+            }
+            return validated;
         }
     }
 }

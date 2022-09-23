@@ -124,11 +124,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppInfo.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="AuthenticatedUserSession.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CGCController.cs" />
     <Compile Include="Controllers\CollectionsController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -143,6 +145,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GRINGlobalAuthenticationFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +171,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="libman.json" />
+    <Content Include="nlog.config" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\FullCalendar\main.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
@@ -180,6 +184,7 @@
     <Content Include="Scripts\jquery-3.5.1.min.map" />
     <Content Include="Views\CGC\_List.cshtml" />
     <Content Include="Views\Error\Error404.cshtml" />
+    <None Include="Views\Error\Error500.cshtml" />
     <Content Include="Views\Error\InternalServerError.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\SystemError.cshtml" />
@@ -187,10 +192,10 @@
     <Content Include="Views\CGC\_DocumentList.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\CropGermplasmCommitteeDocument\Edit.cshtml" />
     <Content Include="Views\Admin\CropGermplasmCommitteeDocument\Index.cshtml" />
     <Content Include="Views\Admin\CropGermplasmCommitteeDocument\_List.cshtml" />
     <Content Include="Views\Admin\CropGermplasmCommitteeDocument\_Detail.cshtml" />
+    <Content Include="Views\Admin\CropGermplasmCommitteeDocument\Edit.cshtml" />
     <None Include="Views\Home\indexV2.cshtml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -234,9 +239,13 @@
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Views\Login\Attestation.cshtml" />
     <Content Include="Views\Shared\_USANavAdmin.cshtml" />
+    <Content Include="Views\Admin\Shared\_RevisionHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="documents\cgc\committee\" />
+    <Folder Include="documents\cgc\cvs\" />
+    <Folder Include="Logs\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

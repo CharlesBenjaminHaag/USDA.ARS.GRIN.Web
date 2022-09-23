@@ -45,6 +45,16 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
             TempData["PAGE_CONTEXT"] = "PVP Application Status Database";
             try
             {
+                if (!String.IsNullOrEmpty(formCollection["TimeFrame"]))
+                {
+                    viewModel.SearchEntity.TimeFrame = formCollection["TimeFrame"];
+                }
+
+                if (!String.IsNullOrEmpty(formCollection["StatusList"]))
+                {
+                    viewModel.SearchEntity.CertificateStatusList = formCollection["StatusList"];
+                }
+
                 viewModel.Search();
                 return PartialView("~/Views/PVP/_List.cshtml", viewModel);
             }

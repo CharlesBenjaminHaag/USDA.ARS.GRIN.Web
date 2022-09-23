@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 using USDA.ARS.GRIN.Web.DataLayer;
 using USDA.ARS.GRIN.Web.ViewModelLayer;
+using USDA.ARS.GRIN.Web.WebUI;
 using NLog;
 
 namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
 {
-    public class AdminController : Controller
+    [GrinGlobalAuthentication]
+    public class AdminController : BaseController
     {
-        // GET: Admin
+        private static readonly Logger Log = LogManager.GetCurrentClassLogger();
         public ActionResult Index()
         {
             return View();
@@ -27,20 +30,142 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
             viewModel.Search();
             return PartialView("~/Views/Admin/CropGermplasmCommitteeDocument/_List.cshtml", viewModel);
         }
+        public ActionResult CropGermplasmCommitteeDocumentAdd()
+        {
+            try
+            {
+                CropGermplasmCommitteeDocumentViewModel viewModel = new CropGermplasmCommitteeDocumentViewModel();
+                viewModel.TableName = "crop_germplasm_committee_document";
+                viewModel.PageTitle = String.Format("Add CGC Document");
+                viewModel.AuthenticatedUserCooperatorID = AuthenticatedUser.CooperatorID;
+                viewModel.AuthenticatedUser = AuthenticatedUser;
+                return View("~/Views/Admin/CropGermplasmCommitteeDocument/Edit.cshtml", viewModel);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                return RedirectToAction("InternalServerError", "Error");
+            }
+        }
+
 
         public ActionResult CropGermplasmCommitteeDocumentEdit(int entityId)
         {
             try
             {
-                //TODO
                 CropGermplasmCommitteeDocumentViewModel viewModel = new CropGermplasmCommitteeDocumentViewModel();
-                viewModel.SearchEntity.ID = entityId;
-                viewModel.Search();
+                viewModel.TableName = "crop_germplasm_committee_document";
+                viewModel.PageTitle = String.Format("Edit CGC Document [{0}]", entityId);
+                viewModel.AuthenticatedUserCooperatorID = AuthenticatedUser.CooperatorID;
+                viewModel.AuthenticatedUser = AuthenticatedUser;
+                viewModel.Get(entityId);
                 return View("~/Views/Admin/CropGermplasmCommitteeDocument/Edit.cshtml", viewModel);
             }
             catch (Exception ex)
             {
-                return null;
+                Log.Error(ex);
+                return RedirectToAction("InternalServerError", "Error");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult CropGermplasmCommitteeDocumentEdit(CropGermplasmCommitteeDocumentViewModel viewModel)
+        {
+            string uploadDir = "~/documents/cgc/";
+            string path = String.Empty;
+            CropGermplasmCommitteeDocument document = new CropGermplasmCommitteeDocument();
+
+            try
+            {
+                document.ID = viewModel.Entity.ID;
+                document.CropGermplasmCommitteeID = viewModel.Entity.CropGermplasmCommitteeID;
+                document.Title = viewModel.Entity.Title;
+                document.Year = viewModel.Entity.Year;
+                document.CategoryCode = viewModel.Entity.CategoryCode;
+                document.URL = viewModel.Entity.URL;
+
+                if (viewModel.EventAction == "DELETE")
+                {
+                    viewModel.Delete();
+                    return RedirectToAction("Index", "Admin");
+                }
+                else
+                { 
+
+                    if (viewModel.DocumentUpload != null && viewModel.DocumentUpload.ContentLength > 0)
+                    {
+                        if (document.CategoryCode == "CVS")
+                        {
+                            uploadDir = uploadDir + "cvs";
+                        }
+                        else
+                        {
+                            if (document.CategoryCode == "MIN")
+                            {
+                                uploadDir = uploadDir + "committee";
+                            }
+                        }
+
+                        var documentPath = Path.Combine(Server.MapPath(uploadDir), viewModel.DocumentUpload.FileName);
+                        var documentUrl = Path.Combine(uploadDir, viewModel.DocumentUpload.FileName);
+                        viewModel.DocumentUpload.SaveAs(documentPath);
+
+                        var urlBuilder =
+                            new System.UriBuilder(Request.Url.AbsoluteUri)
+                            {
+                                Path = Url.Content(documentUrl),
+                                Query = null,
+                            };
+
+                        Uri uri = urlBuilder.Uri;
+                        document.URL = urlBuilder.ToString();
+                    }
+
+                    viewModel.Entity = document;
+
+                    if (viewModel.Entity.ID == 0)
+                    {
+                        viewModel.Entity.CreatedByCooperatorID = AuthenticatedUser.CooperatorID;
+                        viewModel.Insert();
+                    }
+                    else
+                    {
+                        viewModel.Entity.ModifiedByCooperatorID = AuthenticatedUser.CooperatorID;
+                        viewModel.Update();
+                    }
+                    return RedirectToAction("CropGermplasmCommitteeDocumentEdit", "Admin", new { entityId = viewModel.Entity.ID });
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                return RedirectToAction("InternalServerError", "Error");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult CropGermplasmCommitteeDocumentDelete(CropGermplasmCommitteeDocumentViewModel viewModel)
+        {
+            const string DEBUG_URL = "https://www.ars-grin.gov/npgs";
+     
+            try
+            {
+                //var DEBUG = GetBaseUrl();
+                //var path = Server.MapPath(viewModel.Entity.URL.Replace(DEBUG_URL, "~/"));
+
+                //FileInfo file = new FileInfo(path);
+                //if (!file.Exists)  
+                //{
+                //    throw new Exception("File " + path + " not found.");
+                //}
+                //file.Delete();
+                viewModel.Delete();
+                return RedirectToAction("Index", "Admin");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                return RedirectToAction("InternalServerError", "Error");
             }
         }
     }

@@ -1,50 +1,63 @@
 ﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.CropGermplasmCommitteeDocumentViewModel
-<div class="card card-default">
-    <div class="card-header">
-        <h3 class="card-title">CGC Documents (@Model.DataCollection.Count())</h3>
-        
-    </div>
-    <!-- /.box-header -->
-    <div class="card-body">
-        <table id="data-table-crop-germplasm-committee-document" class="table table-striped">
-            <thead>
+<h3>Crop Germplasm Committee Documents</h3>
+<div tabindex="0">
+    <ul class="usa-button-group">
+        <li class="usa-button-group__item">
+            <a href="@Url.Action("CropGermplasmCommitteeDocumentAdd","Admin")" class="usa-button usa-button--outline usa-button--unstyled">Add a New Document</a>
+        </li>
+        @*<li class="usa-button-group__item">
+            <button type="button" class="usa-button">Continue</button>
+        </li>*@
+    </ul>
+    <br />
+    <table id="data-table-crop-germplasm-committee-document" class="table table-striped" style="width:100%;">
+        <thead>
+            <tr>
+                <th></th>
+                <th>ID</th>
+                <th>Committee</th>
+                <th>Title</th>
+                <th>Created</th>
+                <th>Last Edited</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model.DataCollection)
+            {
                 <tr>
-                    <th></th>
-                    <th>ID</th>
-                    <th>Committee</th>
-                    <th>Title</th>
-                    <th>URL</th>
-                    <th>Created</th>
-                    <th></th>
+                    <td>
+                        @result.ID
+                    </td>
+                    <td>
+                        @result.ID
+                    </td>
+                    <td>
+                        @result.CommitteeName
+                    </td>
+                    <td>
+                        <a class="usa-link" href="@result.URL" target="_blank">
+                            @result.Title
+                        </a>
+                    </td>
+                    <td>@result.CreatedDate.ToShortDateString()</td>
+                    <td>
+                        @if (result.ModifiedDate > DateTime.MinValue)
+                        {
+                            @result.ModifiedDate.ToShortDateString()
+                        }
+                    </td>
+                    <td>
+                        <a href="@Url.Action("CropGermplasmCommitteeDocumentEdit", "Admin", new { entityId = result.ID })" class="btn btn-default btn-flat btn-sm pull-right row-edit">
+                            <i class="fa fa-edit"></i> Edit
+                        </a>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var result in Model.DataCollection)
-                {
-                    <tr>
-                        <td>
-                            @result.ID
-                        </td>
-                        <td>
-                            @result.ID
-                        </td>
-                        <td>
-                            @result.CommitteeName
-                        </td>
-                        <td>@result.Title</td>
-                        <td>@result.URL</td>
-                        <td>@result.CreatedDate.ToShortDateString()</td>
-                        <td>
-                            <a href="@Url.Action("CropGermplasmCommitteeDocumentEdit", "Admin", new { entityId = result.ID })" class="btn btn-default btn-flat btn-sm pull-right row-edit">
-                                <i class="fa fa-edit"></i> Edit
-                            </a>
-                        </td>
-                    </tr>
-                }
-           </tbody>
-        </table>
-    </div>
+            }
+        </tbody>
+    </table>
 </div>
+
 <script type="text/javascript">
     $(document).ready(function () {
         InitDataTable("data-table-crop-germplasm-committee-document");

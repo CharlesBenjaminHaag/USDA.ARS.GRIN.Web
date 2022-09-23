@@ -1,0 +1,11 @@
+﻿@if (Model.Entity.ID > 0)
+{
+    <div class="usa-alert usa-alert--info usa-alert--slim">
+        <div class="usa-alert__body">
+            <p class="usa-alert__text">
+                @Html.Raw(Model.Entity.RevisionHistoryText)
+            </p>
+        </div>
+    </div>
+
+}

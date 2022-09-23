@@ -41,7 +41,7 @@
                     </a>
                 </td>
                 <td>
-                    <button id="@result.ApplicationNumber" class="usa-button usa-button--outline detail-expand">@result.ApplicationNumber</button>
+                    <button id="@result.ApplicationNumber" class="usa-button usa-button--outline detail-expand">Detail</button>
                     @*<a href="@Url.Action("Detail","PVP", new { id = result.ApplicationNumber })"
                            class="usa-button usa-button--outline">
                             Detail
@@ -56,6 +56,12 @@
         InitDataTable("data-table_pvp_applications");
     });
 
-    //detail-button
+    /* DETAIL */
+    $(function () {
+        $('.detail-expand').on('click', function () {
+            var id = this.id;
+            $("#modal-pvp-detail").modal("show");
+        });
+    });
 
 </script>

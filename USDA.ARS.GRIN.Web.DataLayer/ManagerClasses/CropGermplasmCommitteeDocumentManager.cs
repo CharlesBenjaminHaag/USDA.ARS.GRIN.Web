@@ -49,8 +49,20 @@ namespace USDA.ARS.GRIN.Web.DataLayer
         }
 
         public int Delete(CropGermplasmCommitteeDocument entity) 
-        { 
-            return 0; 
+        {
+            Reset(CommandType.StoredProcedure);
+            Validate<CropGermplasmCommitteeDocument>(entity);
+
+            SQL = "usp_GGTools_GRINGlobal_CropGermplasmCommitteeDocument_Delete";
+
+            AddParameter("@crop_germplasm_committee_document_id", entity.ID == 0 ? DBNull.Value : (object)entity.ID, true);
+            AddParameter("@out_error_number", -1, true, System.Data.DbType.Int32, System.Data.ParameterDirection.Output);
+
+            RowsAffected = ExecuteNonQuery();
+
+            int errorNumber = GetParameterValue<int>("@out_error_number", -1);
+
+            return RowsAffected;
         }
 
         public CropGermplasmCommitteeDocument Get(int entityId)
@@ -102,7 +114,7 @@ namespace USDA.ARS.GRIN.Web.DataLayer
             {
                 AddParameter("@crop_germplasm_committee_document_id", entity.ID == 0 ? DBNull.Value : (object)entity.ID, true);
             }
-            AddParameter("@crop_germplasm_committee_id", entity.CropGermplasmCommitteeID == 0 ? DBNull.Value : (object)entity.ID, true);
+            AddParameter("@crop_germplasm_committee_id", entity.CropGermplasmCommitteeID == 0 ? DBNull.Value : (object)entity.CropGermplasmCommitteeID, true);
             AddParameter("@url", (object)entity.URL ?? DBNull.Value, true);
             AddParameter("@title", (object)entity.Title ?? DBNull.Value, true);
             AddParameter("@category_code", (object)entity.CategoryCode ?? DBNull.Value, true);
@@ -121,6 +133,16 @@ namespace USDA.ARS.GRIN.Web.DataLayer
         public void BuildInsertUpdateParameters()
         {
             throw new NotImplementedException();
+        }
+        public virtual List<CodeValue> GetCodeValues(string groupName)
+        {
+            SQL = "usp_GGTools_GRINGlobal_CodeValuesByGroup_Select";
+            var parameters = new List<IDbDataParameter> {
+                CreateParameter("group_name", (object)groupName, false)
+            };
+            List<CodeValue> codeValues = GetRecords<CodeValue>(SQL, CommandType.StoredProcedure, parameters.ToArray());
+            RowsAffected = codeValues.Count;
+            return codeValues;
         }
     }
 }

@@ -1,26 +1,21 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutInteriorAdmin.cshtml";
 }
-
 <div class="grid-container">
     <div class="grid-row grid-gap">
         <div class="usa-layout-docs__sidenav desktop:grid-col-2">
             <nav aria-label="Secondary navigation">
-                
             <ul class="usa-sidenav">
                 <li class="usa-sidenav__item">
-                    <a href="/">Crop Germplasm Committees</a>
+                    <a href="@Url.Action("Index","Admin")">Crop Germplasm Committees</a>
                 </li>
                 <li class="usa-sidenav__item">
-                    <a href="/">Documents</a>
+                    <a href="@Url.Action("Index","Admin")">Documents</a>
                 </li>
                 <li class="usa-sidenav__item">
-                    <a href="/">Code Values</a>
+                    <a href="@Url.Action("Index","Admin")">Code Values</a>
                 </li>
-
-
             </ul>
             </nav>
         </div>

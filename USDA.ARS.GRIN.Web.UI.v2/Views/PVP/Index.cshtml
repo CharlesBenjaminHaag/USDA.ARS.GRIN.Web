@@ -41,50 +41,60 @@
                     </button>
                 </form>
                 @*<br />*@
-                <ul class="usa-sidenav">
-                    <li class="usa-sidenav__item">
-                        <a href="/">Home</a>
-                    </li>
-                    <li class="usa-sidenav__item">
-                        <a href="" class="usa-current">Overview</a>
-                        <ul class="usa-sidenav__sublist">
+            <ul class="usa-sidenav">
+                @Html.HiddenFor(x => x.EventValue)
+                <li class="usa-sidenav__item">
+                    <a href="/">Home</a>
+                </li>
+                <li class="usa-sidenav__item">
+                    <a href="@Url.Action("Search","PVP")">Advanced Search</a>
+                </li>
 
-                            <li class="usa-sidenav__item">
-                                <a href="@Url.Action("Search","PVP")">Advanced Search</a>
-                            </li>
-                            @*<li class="usa-sidenav__item">
-                                    <a href="@Url.Action("Contact","Home", new { topic = "PVP" })">Report a Problem</a>
-                                </li>*@
-                        </ul>
-                    </li>
-                    <li style="margin-top:20px;">
-                        <h4 style="font-weight:bold;">Filter by Status</h4>
-                        <div class="usa-checkbox">
-                            <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
-                                   id="check-application-pending"
-                                   type="checkbox"
-                                   name="historical-figures-2"
-                                   value="frederick-douglass" />
-                            <label class="usa-checkbox__label" for="check-application-pending">Application Pending</label>
-                        </div>
-                        <div class="usa-checkbox">
-                            <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
-                                   id="check-certificate-issued"
-                                   type="checkbox"
-                                   name="historical-figures-2"
-                                   value="frederick-douglass" />
-                            <label class="usa-checkbox__label" for="check-certificate-issued">Certificate Issued</label>
-                        </div>
-                        <div class="usa-checkbox">
-                            <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
-                                   id="check-certificate-expired"
-                                   type="checkbox"
-                                   name="historical-figures-2"
-                                   value="booker-t-washington" />
-                            <label class="usa-checkbox__label" for="check-certificate-expired">Certificate Expired</label>
-                        </div>
-                    </li>
-                </ul>
+                <li id="section-filter-by-status" style="margin-top:20px;">
+                    <h4 style="font-weight:bold;">Application Status</h4>
+                    <div class="usa-checkbox">
+                        <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
+                               id="check-application-pending"
+                               type="checkbox"
+                               name="historical-figures-2"
+                               value="frederick-douglass" />
+                        <label class="usa-checkbox__label" for="check-application-pending">Pending</label>
+                    </div>
+                    <div class="usa-checkbox">
+                        <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
+                               id="check-application-withdrawn"
+                               type="checkbox"
+                               name="historical-figures-2"
+                               value="frederick-douglass" />
+                        <label class="usa-checkbox__label" for="check-application-withdrawn">Withdrawn</label>
+                    </div>
+                    <h4 style="font-weight:bold; margin-top:20px;">Certificate Status</h4>
+                    <div class="usa-checkbox">
+                        <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
+                               id="check-certificate-issued"
+                               type="checkbox"
+                               name="historical-figures-2"
+                               value="frederick-douglass" />
+                        <label class="usa-checkbox__label" for="check-certificate-issued">Issued</label>
+                    </div>
+                    <div class="usa-checkbox">
+                        <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
+                               id="check-certificate-expired"
+                               type="checkbox"
+                               name="historical-figures-2"
+                               value="booker-t-washington" />
+                        <label class="usa-checkbox__label" for="check-certificate-expired">Expired</label>
+                    </div>
+                    <div class="usa-checkbox">
+                        <input class="usa-checkbox__input usa-checkbox__input--tile status-selector"
+                               id="check-certificate-abandoned"
+                               type="checkbox"
+                               name="historical-figures-2"
+                               value="booker-t-washington" />
+                        <label class="usa-checkbox__label" for="check-certificate-abandoned">Abandoned</label>
+                    </div>
+                </li>
+            </ul>
             </nav>
         </div>
         <main class="usa-layout-docs__main desktop:grid-col-9 usa-prose usa-layout-docs" id="main-content">
@@ -93,14 +103,16 @@
                 </p>*@
             <h2 id="section-heading-h2">Overview</h2>
             <p>
-                This collection is maintained in conjunction with the Agricultural Marketing Service Plant Variety Protection Office (PVPO), which provides intellectual property protection to breeders. This office publishes monthly updates to the status of PVP certificates.
+                This collection is maintained in conjunction with the <a href="https://www.ams.usda.gov/services/plant-variety-protection">
+                    Agricultural Marketing Service Plant Variety Protection Office (PVPO)
+                </a>, which provides intellectual property protection to breeders of new varieties of sexually reproduced, tuber propagated, and asexually reproduced plant varieties.  
             </p>
+            <p>This office publishes monthly updates to the status of PVP certificates.</p>
             <h3 id="section-heading-h2">Browse PVP Applications</h3>
             <div class="usa-alert usa-alert--info usa-alert--slim">
                 <div class="usa-alert__body">
                     <p class="usa-alert__text">
-                        Last updated: 9/19/2022 <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-                        elit, sed do eiusmod.
+                        All data represented here is based on an <a href="https://www.ams.usda.gov/services/plant-variety-protection/application-status">update</a> from <strong>9/19/2022</strong>.
                     </p>
                 </div>
             </div>
@@ -109,20 +121,20 @@
                     <div id="section-filter-by-time-frame" class="grid-col-12">
                         <ul class="usa-button-group usa-button-group--segmented" style="padding-left:0px;">
                             <li class="usa-button-group__item">
-                                <button id="btn-expired" title="expired" class="usa-button">This Week</button>
+                                <button id="btn-expired" title="7D" class="usa-button">Certificate Expiring in 6 Months</button>
                             </li>
                             <li class="usa-button-group__item">
-                                <button id="btn-submitted" title="submitted" class="usa-button usa-button--outline">This Month</button>
+                                <button id="btn-submitted" title="30D" class="usa-button usa-button--outline">Certificate Recently Expired</button>
                             </li>
                             <li class="usa-button-group__item">
-                                <button id="btn-expiring" title="expiring" class="usa-button usa-button--outline">The Last 6 Months</button>
+                                <button id="btn-expiring" title="6M" class="usa-button usa-button--outline">Application Recently Submitted</button>
                             </li>
-                            <li class="usa-button-group__item">
-                                <button id="btn-expiring" title="expiring" class="usa-button usa-button--outline">The Last Year</button>
-                            </li>
+                            @*<li class="usa-button-group__item">
+                                <button id="btn-expiring" title="YR" class="usa-button usa-button--outline">The Last Year</button>
+                            </li>*@
                         </ul>
-                        <div id="section-pvp_applications" style="margin-top:20px;">
-                            @{ Html.RenderAction("_List", "PVP");}
+                        <div id="section-pvp-applications" style="margin-top:20px;">
+                            
                         </div>
                     </div>
                 </div>
@@ -190,7 +202,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        /*LoadData("expired");*/
+        LoadData("7D");
     });
 
     /*========================================================================================
@@ -235,8 +247,8 @@
         var link = '@Url.Action("_List", "PVP")';
         var selectedStatusList = GetSelectedStatuses();
         var selectedTimeFrame = context;
-
         var formData = new FormData();
+
         formData.append("StatusList", selectedStatusList);
         formData.append("TimeFrame", context);
 
@@ -248,38 +260,9 @@
             processData: false,
             data: formData,
             success: function (response) {
-                $("#section-data").html(response);
+                $("#section-pvp-applications").html(response);
             }
         });
         $("#overlay").hide();
-
-        //$.ajax(
-        //    {
-        //        type: 'POST',
-        //        url: link,
-        //        data: formData,
-        //        success:
-        //            function (response) {
-        //                $("#section-data").html(response);
-        //                $('#table_id').DataTable({
-        //                    responsive: true,
-        //                    select: true
-        //                });
-        //                $("#overlay").hide();
-        //            },
-        //        error:
-        //            function (response) {
-        //                console.log(response);
-        //                $("#overlay").hide();
-        //            }
-        //    });
     }
-
-    /* DETAIL */
-    $(function () {
-        $('.detail-expand').on('click', function () {
-            var id = this.id;
-            $("#modal-pvp-detail").modal("show");
-        });
-    });
 </script>

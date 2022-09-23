@@ -132,6 +132,9 @@
         .usa-nav__primary button, .usa-nav__primary button:hover {
             color: white;
         }*/
+        .dataTables_filter input {
+            float: none;
+        }
     </style>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
             integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
@@ -148,34 +151,109 @@
             </div>
             <button class="usa-menu-btn">Menu</button>
         </div>
-
-
         <nav aria-label="Primary navigation" class="usa-nav" style="background-color:#ebebeb;">
             <div class="usa-nav__inner">
                 <button class="usa-nav__close"><img src="/assets/img/usa-icons/close.svg" role="img" alt="close"></button>
                 @Html.Partial("~/Views/Shared/_USANavAdmin.cshtml")
             <div class="usa-nav__secondary">
-                <a class="usa-button usa-button--outline usa-button--inverse" href="/download/" onclick="ga('send', 'event', 'Downloaded code and design files', 'Clicked Download code and design files from inside site');">
-                    Kinard, Gary <span class="version desktop:display-none desktop-lg:display-inline">v3.1.0</span>
-                </a>
+                @if (USDA.ARS.GRIN.Web.WebUI.AppInfo.AuthenticatedUser.IsAuthenticated)
+                {
+                    <button id="" type="button" class="usa-button usa-button--outline usa-button--inverse" data-toggle="modal" data-target="#modal-sys-user-info">
+                        @USDA.ARS.GRIN.Web.WebUI.AppInfo.AuthenticatedUser.FullName
+                    </button>
+
+                    <a class="usa-button usa-button--secondary" href="@Url.Action("Logout", "Login")">
+                        Logout
+                    </a>
+                }
                 <form class="usa-search usa-search--small " role="search">
                 </form>
             </div>
             </div>
         </nav>
     </header>
+    <div class="usa-section">
+        @RenderBody()
+    </div>
+    <div id="modal-sys-user-info" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="usa-title">User Information</h4>
+                </div>
+                <div class="grid-container">
+                    @if (USDA.ARS.GRIN.Web.WebUI.AppInfo.AuthenticatedUser.IsAuthenticated)
+                    {
 
-        
-        <div class="usa-section">
-            @RenderBody()
+
+                        <div>
+                            <table class="usa-table usa-table--borderless">
+
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Document title</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th data-label="Document title" scope="row">
+                                            Declaration of Independence
+                                        </th>
+                                        <td data-label="Description">
+                                            Statement adopted by the Continental Congress declaring independence
+                                            from the British Empire.
+                                        </td>
+                                        <td data-label="Year">1776</td>
+                                    </tr>
+                                    <tr>
+                                        <th data-label="Document title" scope="row">Bill of Rights</th>
+                                        <td data-label="Description">
+                                            The first ten amendments of the U.S. Constitution guaranteeing rights
+                                            and freedoms.
+                                        </td>
+                                        <td data-label="Year">1791</td>
+                                    </tr>
+                                    <tr>
+                                        <th data-label="Document title" scope="row">
+                                            Declaration of Sentiments
+                                        </th>
+                                        <td data-label="Description">
+                                            A document written during the Seneca Falls Convention outlining the
+                                            rights that American women should be entitled to as citizens.
+                                        </td>
+                                        <td data-label="Year">1848</td>
+                                    </tr>
+                                    <tr>
+                                        <th data-label="Document title" scope="row">
+                                            Emancipation Proclamation
+                                        </th>
+                                        <td data-label="Description">
+                                            An executive order granting freedom to slaves in designated southern
+                                            states.
+                                        </td>
+                                        <td data-label="Year">1863</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="usa-button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        @*@Html.Partial("~/Views/Shared/_USAFooter.cshtml")*@
-        @Html.Partial("~/Views/Shared/_USAIdentifier.cshtml")
+    </div>
 
-        @Scripts.Render("~/bundles/bootstrap")
-        <script src="~/assets/uswds-2.10.0/js/uswds.min.js"></script>
-
-    </body>
+    @*@Html.Partial("~/Views/Shared/_USAFooter.cshtml")*@
+    @Html.Partial("~/Views/Shared/_USAIdentifier.cshtml")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/assets/uswds-2.10.0/js/uswds.min.js"></script>
+</body>
 </html>
 
 <script>

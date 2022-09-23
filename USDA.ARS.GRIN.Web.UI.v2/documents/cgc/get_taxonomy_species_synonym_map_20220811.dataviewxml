@@ -1,0 +1,351 @@
+<SecureDataDataSet>
+  <sys_dataview>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <is_enabled>Y</is_enabled>
+    <is_readonly>N</is_readonly>
+    <category_code>Client</category_code>
+    <database_area_code>Taxonomy</database_area_code>
+    <database_area_code_sort_order>0</database_area_code_sort_order>
+    <is_transform>N</is_transform>
+    <created_date>2022-08-11T19:46:02-04:00</created_date>
+    <modified_date>2022-08-11T19:51:01-04:00</modified_date>
+  </sys_dataview>
+  <sys_dataview_lang>
+    <sys_lang_id>1</sys_lang_id>
+    <title>Get Taxonomy Species Synonym Map</title>
+    <description>Get Taxonomy Species Synonym Map</description>
+    <iso_639_3_tag>ENG</iso_639_3_tag>
+    <ietf_tag>en-US</ietf_tag>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+  </sys_dataview_lang>
+  <sys_dataview_lang>
+    <sys_lang_id>9</sys_lang_id>
+    <title>Get Taxonomy Species Synonym Map</title>
+    <description>Get Taxonomy Species Synonym Map</description>
+    <iso_639_3_tag>ENG</iso_639_3_tag>
+    <ietf_tag>x-en-CODE</ietf_tag>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+  </sys_dataview_lang>
+  <sys_dataview_sql>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <database_engine_tag>mysql</database_engine_tag>
+    <sql_statement>SELECT
+  tssm.taxonomy_species_synonym_map_id,
+  tssm.taxona_taxonomy_species_id,
+  tsa.name_authority AS authoritya,
+  tssm.synonym_code,
+  tssm.taxonb_taxonomy_species_id,
+  tsb.name_authority AS authorityb,
+  tssm.note,
+  tssm.created_date,
+  tssm.created_by,
+  tssm.modified_date,
+  tssm.modified_by,
+  tssm.owned_date,
+  tssm.owned_by
+FROM
+    taxonomy_species_synonym_map tssm
+    LEFT JOIN taxonomy_species tsa ON  tssm.taxona_taxonomy_species_id = tsa.taxonomy_species_id 
+    LEFT JOIN taxonomy_species tsb ON  tssm.taxonb_taxonomy_species_id = tsb.taxonomy_species_id 
+    INNER JOIN (
+        SELECT taxonomy_species_synonym_map_id FROM taxonomy_species_synonym_map
+            WHERE taxonomy_species_synonym_map_id IN (:taxonomyspeciessynonymmapid)
+
+        UNION SELECT taxonomy_species_synonym_map_id FROM taxonomy_species_synonym_map
+            WHERE taxona_taxonomy_species_id in (:taxonomyspeciesid)
+
+        UNION SELECT taxonomy_species_synonym_map_id FROM taxonomy_species_synonym_map
+            WHERE taxonb_taxonomy_species_id in (:taxonomyspeciesid)
+
+     ) list on list.taxonomy_species_synonym_map_id = tssm.taxonomy_species_synonym_map_id 
+</sql_statement>
+  </sys_dataview_sql>
+  <sys_dataview_sql>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <database_engine_tag>oracle</database_engine_tag>
+    <sql_statement>SELECT
+  tssm.taxonomy_species_synonym_map_id,
+  tssm.taxona_taxonomy_species_id,
+  tsa.name_authority AS authoritya,
+  tssm.synonym_code,
+  tssm.taxonb_taxonomy_species_id,
+  tsb.name_authority AS authorityb,
+  dbms_lob.substr(tssm.note,32767,1) as note,
+  tssm.created_date,
+  tssm.created_by,
+  tssm.modified_date,
+  tssm.modified_by,
+  tssm.owned_date,
+  tssm.owned_by
+FROM
+    taxonomy_species_synonym_map tssm
+    LEFT JOIN taxonomy_species tsa ON  tssm.taxona_taxonomy_species_id = tsa.taxonomy_species_id 
+    LEFT JOIN taxonomy_species tsb ON  tssm.taxonb_taxonomy_species_id = tsb.taxonomy_species_id 
+    INNER JOIN (
+        SELECT taxonomy_species_synonym_map_id FROM taxonomy_species_synonym_map
+            WHERE taxonomy_species_synonym_map_id IN (:taxonomyspeciessynonymmapid)
+
+        UNION SELECT taxonomy_species_synonym_map_id FROM taxonomy_species_synonym_map
+            WHERE taxona_taxonomy_species_id in (:taxonomyspeciesid)
+
+        UNION SELECT taxonomy_species_synonym_map_id FROM taxonomy_species_synonym_map
+            WHERE taxonb_taxonomy_species_id in (:taxonomyspeciesid)
+
+     ) list on list.taxonomy_species_synonym_map_id = tssm.taxonomy_species_synonym_map_id 
+</sql_statement>
+  </sys_dataview_sql>
+  <sys_dataview_sql>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <database_engine_tag>postgresql</database_engine_tag>
+    <sql_statement>SELECT
+  tssm.taxonomy_species_synonym_map_id,
+  tssm.taxona_taxonomy_species_id,
+  tsa.name_authority AS authoritya,
+  tssm.synonym_code,
+  tssm.taxonb_taxonomy_species_id,
+  tsb.name_authority AS authorityb,
+  tssm.note,
+  tssm.created_date,
+  tssm.created_by,
+  tssm.modified_date,
+  tssm.modified_by,
+  tssm.owned_date,
+  tssm.owned_by
+FROM
+    taxonomy_species_synonym_map tssm
+    LEFT JOIN taxonomy_species tsa ON  tssm.taxona_taxonomy_species_id = tsa.taxonomy_species_id 
+    LEFT JOIN taxonomy_species tsb ON  tssm.taxonb_taxonomy_species_id = tsb.taxonomy_species_id 
+    INNER JOIN (
+        SELECT taxonomy_species_synonym_map_id FROM taxonomy_species_synonym_map
+            WHERE taxonomy_species_synonym_map_id IN (:taxonomyspeciessynonymmapid)
+
+        UNION SELECT taxonomy_species_synonym_map_id FROM taxonomy_species_synonym_map
+            WHERE taxona_taxonomy_species_id in (:taxonomyspeciesid)
+
+        UNION SELECT taxonomy_species_synonym_map_id FROM taxonomy_species_synonym_map
+            WHERE taxonb_taxonomy_species_id in (:taxonomyspeciesid)
+
+     ) list on list.taxonomy_species_synonym_map_id = tssm.taxonomy_species_synonym_map_id 
+</sql_statement>
+  </sys_dataview_sql>
+  <sys_dataview_sql>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <database_engine_tag>sqlserver</database_engine_tag>
+    <sql_statement>SELECT
+  tssm.taxonomy_species_synonym_map_id,
+  tssm.taxona_taxonomy_species_id,
+  tsa.name_authority AS authoritya,
+  tssm.synonym_code,
+  tssm.taxonb_taxonomy_species_id,
+  tsb.name_authority AS authorityb,
+  tssm.note,
+  tssm.created_date,
+  tssm.created_by,
+  tssm.modified_date,
+  tssm.modified_by,
+  tssm.owned_date,
+  tssm.owned_by
+FROM
+    taxonomy_species_synonym_map tssm
+    LEFT JOIN taxonomy_species tsa ON  tssm.taxona_taxonomy_species_id = tsa.taxonomy_species_id 
+    LEFT JOIN taxonomy_species tsb ON  tssm.taxonb_taxonomy_species_id = tsb.taxonomy_species_id 
+    INNER JOIN (
+        SELECT taxonomy_species_synonym_map_id FROM taxonomy_species_synonym_map
+            WHERE taxonomy_species_synonym_map_id IN (:taxonomyspeciessynonymmapid)
+
+        UNION SELECT taxonomy_species_synonym_map_id FROM taxonomy_species_synonym_map
+            WHERE taxona_taxonomy_species_id in (:taxonomyspeciesid)
+
+        UNION SELECT taxonomy_species_synonym_map_id FROM taxonomy_species_synonym_map
+            WHERE taxonb_taxonomy_species_id in (:taxonomyspeciesid)
+
+     ) list on list.taxonomy_species_synonym_map_id = tssm.taxonomy_species_synonym_map_id 
+</sql_statement>
+  </sys_dataview_sql>
+  <sys_dataview_param>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <param_name>:taxonomyspeciessynonymmapid</param_name>
+    <param_type>INTEGERCOLLECTION</param_type>
+    <sort_order>0</sort_order>
+  </sys_dataview_param>
+  <sys_dataview_param>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <param_name>:taxonomyspeciesid</param_name>
+    <param_type>INTEGERCOLLECTION</param_type>
+    <sort_order>1</sort_order>
+  </sys_dataview_param>
+  <sys_dataview_field>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <field_name>taxonomy_species_synonym_map_id</field_name>
+    <table_name>taxonomy_species_synonym_map</table_name>
+    <table_field_name>taxonomy_species_synonym_map_id</table_field_name>
+    <is_readonly>Y</is_readonly>
+    <is_primary_key>Y</is_primary_key>
+    <is_transform>N</is_transform>
+    <sort_order>0</sort_order>
+    <table_alias_name>tssm</table_alias_name>
+    <is_visible>Y</is_visible>
+    <configuration_options>join_children=tssm.taxonb_taxonomy_species_id;</configuration_options>
+  </sys_dataview_field>
+  <sys_dataview_field>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <field_name>taxona_taxonomy_species_id</field_name>
+    <table_name>taxonomy_species_synonym_map</table_name>
+    <table_field_name>taxona_taxonomy_species_id</table_field_name>
+    <is_readonly>N</is_readonly>
+    <is_primary_key>N</is_primary_key>
+    <is_transform>N</is_transform>
+    <sort_order>1</sort_order>
+    <foreign_key_dataview_name>taxonomy_species_lookup</foreign_key_dataview_name>
+    <table_alias_name>tssm</table_alias_name>
+    <is_visible>Y</is_visible>
+    <configuration_options>join_children=tssm.taxonb_taxonomy_species_id;</configuration_options>
+  </sys_dataview_field>
+  <sys_dataview_field>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <field_name>authoritya</field_name>
+    <table_name>taxonomy_species</table_name>
+    <table_field_name>name_authority</table_field_name>
+    <is_readonly>N</is_readonly>
+    <is_primary_key>N</is_primary_key>
+    <is_transform>N</is_transform>
+    <sort_order>2</sort_order>
+    <table_alias_name>tsa</table_alias_name>
+    <is_visible>Y</is_visible>
+    <configuration_options>join_children=tssm.taxona_taxonomy_species_id;</configuration_options>
+  </sys_dataview_field>
+  <sys_dataview_field>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <field_name>synonym_code</field_name>
+    <table_name>taxonomy_species_synonym_map</table_name>
+    <table_field_name>synonym_code</table_field_name>
+    <is_readonly>N</is_readonly>
+    <is_primary_key>N</is_primary_key>
+    <is_transform>N</is_transform>
+    <sort_order>3</sort_order>
+    <table_alias_name>tssm</table_alias_name>
+    <is_visible>Y</is_visible>
+    <configuration_options>join_children=tssm.taxonb_taxonomy_species_id;</configuration_options>
+  </sys_dataview_field>
+  <sys_dataview_field>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <field_name>taxonb_taxonomy_species_id</field_name>
+    <table_name>taxonomy_species_synonym_map</table_name>
+    <table_field_name>taxonb_taxonomy_species_id</table_field_name>
+    <is_readonly>N</is_readonly>
+    <is_primary_key>N</is_primary_key>
+    <is_transform>N</is_transform>
+    <sort_order>4</sort_order>
+    <foreign_key_dataview_name>taxonomy_species_lookup</foreign_key_dataview_name>
+    <table_alias_name>tssm</table_alias_name>
+    <is_visible>Y</is_visible>
+    <configuration_options>join_children=tssm.taxonb_taxonomy_species_id;</configuration_options>
+  </sys_dataview_field>
+  <sys_dataview_field>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <field_name>authorityb</field_name>
+    <table_name>taxonomy_species</table_name>
+    <table_field_name>name_authority</table_field_name>
+    <is_readonly>N</is_readonly>
+    <is_primary_key>N</is_primary_key>
+    <is_transform>N</is_transform>
+    <sort_order>5</sort_order>
+    <table_alias_name>tsb</table_alias_name>
+    <is_visible>Y</is_visible>
+    <configuration_options>join_children=tssm.taxonb_taxonomy_species_id;</configuration_options>
+  </sys_dataview_field>
+  <sys_dataview_field>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <field_name>note</field_name>
+    <table_name>taxonomy_species_synonym_map</table_name>
+    <table_field_name>note</table_field_name>
+    <is_readonly>N</is_readonly>
+    <is_primary_key>N</is_primary_key>
+    <is_transform>N</is_transform>
+    <sort_order>6</sort_order>
+    <table_alias_name>tssm</table_alias_name>
+    <is_visible>Y</is_visible>
+    <configuration_options>join_children=tssm.taxonb_taxonomy_species_id;</configuration_options>
+  </sys_dataview_field>
+  <sys_dataview_field>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <field_name>created_date</field_name>
+    <table_name>taxonomy_species_synonym_map</table_name>
+    <table_field_name>created_date</table_field_name>
+    <is_readonly>Y</is_readonly>
+    <is_primary_key>N</is_primary_key>
+    <is_transform>N</is_transform>
+    <sort_order>7</sort_order>
+    <table_alias_name>tssm</table_alias_name>
+    <is_visible>Y</is_visible>
+    <configuration_options>join_children=tssm.taxonb_taxonomy_species_id;</configuration_options>
+  </sys_dataview_field>
+  <sys_dataview_field>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <field_name>created_by</field_name>
+    <table_name>taxonomy_species_synonym_map</table_name>
+    <table_field_name>created_by</table_field_name>
+    <is_readonly>Y</is_readonly>
+    <is_primary_key>N</is_primary_key>
+    <is_transform>N</is_transform>
+    <sort_order>8</sort_order>
+    <foreign_key_dataview_name>cooperator_lookup</foreign_key_dataview_name>
+    <table_alias_name>tssm</table_alias_name>
+    <is_visible>Y</is_visible>
+    <configuration_options>join_children=tssm.taxonb_taxonomy_species_id;</configuration_options>
+  </sys_dataview_field>
+  <sys_dataview_field>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <field_name>modified_date</field_name>
+    <table_name>taxonomy_species_synonym_map</table_name>
+    <table_field_name>modified_date</table_field_name>
+    <is_readonly>Y</is_readonly>
+    <is_primary_key>N</is_primary_key>
+    <is_transform>N</is_transform>
+    <sort_order>9</sort_order>
+    <table_alias_name>tssm</table_alias_name>
+    <is_visible>Y</is_visible>
+    <configuration_options>join_children=tssm.taxonb_taxonomy_species_id;</configuration_options>
+  </sys_dataview_field>
+  <sys_dataview_field>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <field_name>modified_by</field_name>
+    <table_name>taxonomy_species_synonym_map</table_name>
+    <table_field_name>modified_by</table_field_name>
+    <is_readonly>Y</is_readonly>
+    <is_primary_key>N</is_primary_key>
+    <is_transform>N</is_transform>
+    <sort_order>10</sort_order>
+    <foreign_key_dataview_name>cooperator_lookup</foreign_key_dataview_name>
+    <table_alias_name>tssm</table_alias_name>
+    <is_visible>Y</is_visible>
+    <configuration_options>join_children=tssm.taxonb_taxonomy_species_id;</configuration_options>
+  </sys_dataview_field>
+  <sys_dataview_field>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <field_name>owned_date</field_name>
+    <table_name>taxonomy_species_synonym_map</table_name>
+    <table_field_name>owned_date</table_field_name>
+    <is_readonly>Y</is_readonly>
+    <is_primary_key>N</is_primary_key>
+    <is_transform>N</is_transform>
+    <sort_order>11</sort_order>
+    <table_alias_name>tssm</table_alias_name>
+    <is_visible>Y</is_visible>
+    <configuration_options>join_children=tssm.taxonb_taxonomy_species_id;</configuration_options>
+  </sys_dataview_field>
+  <sys_dataview_field>
+    <dataview_name>get_taxonomy_species_synonym_map</dataview_name>
+    <field_name>owned_by</field_name>
+    <table_name>taxonomy_species_synonym_map</table_name>
+    <table_field_name>owned_by</table_field_name>
+    <is_readonly>Y</is_readonly>
+    <is_primary_key>N</is_primary_key>
+    <is_transform>N</is_transform>
+    <sort_order>12</sort_order>
+    <foreign_key_dataview_name>cooperator_lookup</foreign_key_dataview_name>
+    <table_alias_name>tssm</table_alias_name>
+    <is_visible>Y</is_visible>
+    <configuration_options>join_children=tssm.taxonb_taxonomy_species_id;</configuration_options>
+  </sys_dataview_field>
+</SecureDataDataSet>

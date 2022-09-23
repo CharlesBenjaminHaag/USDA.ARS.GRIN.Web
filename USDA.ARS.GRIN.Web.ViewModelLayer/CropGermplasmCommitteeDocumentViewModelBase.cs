@@ -16,7 +16,7 @@ namespace USDA.ARS.GRIN.Web.ViewModelLayer
         {
             using (CropGermplasmCommitteeDocumentManager mgr = new CropGermplasmCommitteeDocumentManager())
             {
-                //CategoryCodes = new SelectList(mgr.GetCodeValues("CGC_DOCUMENT_CATEGORY"), "Value", "Title");
+                CategoryCodes = new SelectList(mgr.GetCodeValues("CGC_DOCUMENT_CATEGORY"), "Value", "Title");
                 CropGermplasmCommittees = new SelectList(mgr.GetCropGermplasmCommittees(),"ID","Name");
             }
         }

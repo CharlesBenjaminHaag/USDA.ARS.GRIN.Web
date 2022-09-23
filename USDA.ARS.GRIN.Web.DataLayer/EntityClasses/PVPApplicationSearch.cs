@@ -17,6 +17,7 @@ namespace USDA.ARS.GRIN.Web.DataLayer
         public DateTime ApplicationDate { get; set; }
         public bool IsCertifiedSeed { get; set; }
         public string CertificateStatus { get; set; }
+        public string CertificateStatusList { get; set; }
         public DateTime StatusDate { get; set; }
         public DateTime IssuedDate { get; set; }
         public int YearsProtected { get; set; }
