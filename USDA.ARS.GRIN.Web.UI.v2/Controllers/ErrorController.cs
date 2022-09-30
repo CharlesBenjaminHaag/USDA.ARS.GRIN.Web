@@ -24,6 +24,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
         [HttpGet]
         public ActionResult InternalServerError()
         {
+            TempData["PAGE_CONTEXT"] = "Error";
             return View("~/Views/Error/Error500.cshtml");
         }
     }

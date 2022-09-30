@@ -18,6 +18,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
             TempData["PAGE_CONTEXT"] = "PVP Application Status Database";
             try
             {
+                viewModel.GetTotals();
                 return View(viewModel);
             }
             catch (Exception ex)
@@ -34,11 +35,33 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Search()
+        public ActionResult Search(string status = "")
         {
             TempData["PAGE_CONTEXT"] = "PVP Application Status Database";
             PVPApplicationViewModel viewModel = new PVPApplicationViewModel();
+
+            if (!String.IsNullOrEmpty(status))
+            {
+                viewModel.SearchEntity.CertificateStatus = status;
+                viewModel.SearchEntity.StatusDateRange = "1Y";
+                viewModel.Search();
+            }
             return View(viewModel);
+        }
+        [HttpPost]
+        public ActionResult Search(PVPApplicationViewModel viewModel)
+        {
+            try
+            {
+                viewModel.Search();
+                ModelState.Clear();
+                return View(viewModel);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                return RedirectToAction("InternalServerError", "Error");
+            }
         }
 
         public PartialViewResult _List(FormCollection formCollection)
@@ -59,6 +82,21 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
 
                 viewModel.Search();
                 return PartialView("~/Views/PVP/_List.cshtml", viewModel);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                return PartialView("~/Views/Error/_InternalServerError.cshtml");
+            }
+        }
+
+        public PartialViewResult _ListTotals()
+        {
+            PVPApplicationViewModel viewModel = new PVPApplicationViewModel();
+            try
+            {
+                viewModel.GetTotals();
+                return PartialView("~/Views/PVP/_ListByStatus.cshtml", viewModel);
             }
             catch (Exception ex)
             {

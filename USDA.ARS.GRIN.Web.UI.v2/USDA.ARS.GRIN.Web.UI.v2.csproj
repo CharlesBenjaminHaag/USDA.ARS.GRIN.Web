@@ -149,6 +149,29 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\img\hero-topic-plants_0.jpg" />
+    <Content Include="assets\img\icon-dot-gov.svg" />
+    <Content Include="assets\img\icon-https.svg" />
+    <Content Include="assets\img\usa-icons-bg\add--white.svg" />
+    <Content Include="assets\img\usa-icons-bg\arrow_back--white.svg" />
+    <Content Include="assets\img\usa-icons-bg\calendar_today--white.svg" />
+    <Content Include="assets\img\usa-icons-bg\check--blue-60v.svg" />
+    <Content Include="assets\img\usa-icons-bg\check_circle--white.svg" />
+    <Content Include="assets\img\usa-icons-bg\close--white.svg" />
+    <Content Include="assets\img\usa-icons-bg\error--white.svg" />
+    <Content Include="assets\img\usa-icons-bg\expand_less--white.svg" />
+    <Content Include="assets\img\usa-icons-bg\expand_more--blue-warm-70v.svg" />
+    <Content Include="assets\img\usa-icons-bg\expand_more--white.svg" />
+    <Content Include="assets\img\usa-icons-bg\info--white.svg" />
+    <Content Include="assets\img\usa-icons-bg\launch--white.svg" />
+    <Content Include="assets\img\usa-icons-bg\navigate_before--white.svg" />
+    <Content Include="assets\img\usa-icons-bg\navigate_far_before--white.svg" />
+    <Content Include="assets\img\usa-icons-bg\navigate_far_next--white.svg" />
+    <Content Include="assets\img\usa-icons-bg\navigate_next--white.svg" />
+    <Content Include="assets\img\usa-icons-bg\remove--white.svg" />
+    <Content Include="assets\img\usa-icons-bg\search--white.svg" />
+    <Content Include="assets\img\usa-icons-bg\warning--white.svg" />
+    <Content Include="assets\img\usa-icons\add.svg" />
     <Content Include="assets\img\usa-icons\angle-arrow-down-gray-90.svg" />
     <Content Include="assets\img\usa-icons\angle-arrow-down-hover.svg" />
     <Content Include="assets\img\usa-icons\angle-arrow-down-primary-hover.svg" />
@@ -225,6 +248,7 @@
     <Content Include="assets\img\usa-icons\plus.svg" />
     <Content Include="assets\img\usa-icons\pvp.png" />
     <Content Include="assets\img\usa-icons\pvp2.png" />
+    <Content Include="assets\img\usa-icons\remove.svg" />
     <Content Include="assets\img\usa-icons\rhizobium.jpg" />
     <Content Include="assets\img\usa-icons\search-alt.svg" />
     <Content Include="assets\img\usa-icons\search-primary.svg" />
@@ -233,8 +257,13 @@
     <Content Include="assets\img\usa-icons\USDA-Logo.png" />
     <Content Include="assets\img\usa-icons\us_flag_small.png" />
     <Content Include="assets\img\usa-icons\Wiersma_John_Thumbnail.jfif" />
+    <Content Include="assets\img\us_flag_small.png" />
     <Content Include="assets\uswds-2.10.0\css\uswds.min.css" />
     <Content Include="assets\uswds-2.10.0\js\uswds-init.min.js" />
+    <Content Include="assets\uswds-2.10.0\js\uswds.min.js" />
+    <Content Include="assets\uswds\dist\css\uswds.min.css" />
+    <Content Include="assets\uswds\dist\js\uswds-init.min.js" />
+    <Content Include="assets\uswds\dist\js\uswds.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -298,7 +327,7 @@
     <Content Include="Views\PVP\Index.cshtml" />
     <Content Include="Views\Rhizobium\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutInterior.cshtml" />
-    <Content Include="Views\Shared\_USABanner.cshtml" />
+    <Content Include="Views\Shared\Partials\_USABanner.cshtml" />
     <Content Include="Views\Shared\_USAFooter.cshtml" />
     <Content Include="Views\Shared\_USAIdentifier.cshtml" />
     <Content Include="Views\Site\_Detail.cshtml" />
@@ -314,9 +343,21 @@
     <Content Include="Views\Login\Attestation.cshtml" />
     <Content Include="Views\Shared\_USANavAdmin.cshtml" />
     <Content Include="Views\Admin\Shared\_RevisionHistory.cshtml" />
+    <Content Include="Views\PVP\_ListByStatus.cshtml" />
+    <Content Include="Views\PVP\_Detail.cshtml" />
+    <Content Include="Views\Home\USWDS.cshtml" />
+    <Content Include="Views\Shared\_LayoutUSWDS.cshtml" />
+    <Content Include="Views\Shared\_LayoutUSWDSInterior.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="assets\images\" />
+    <Folder Include="assets\uswds\dist\fonts\" />
+    <Folder Include="assets\uswds\dist\img\usa-icons-bg\" />
+    <Folder Include="assets\uswds\dist\img\usa-icons\" />
+    <Folder Include="assets\uswds\dist\img\uswds-icons\" />
+    <Folder Include="assets\uswds\packages\" />
+    <Folder Include="assets\uswds\src\" />
     <Folder Include="documents\cgc\committee\" />
     <Folder Include="documents\cgc\cvs\" />
     <Folder Include="Logs\" />

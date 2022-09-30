@@ -30,7 +30,12 @@
                 <td>@result.Variety</td>
                 <td>@result.CommonName</td>
                 <td>@result.ScientificName</td>
-                <td>@result.ExpirationDate.ToShortDateString()</td>
+                <td>
+                    @if (result.ExpirationDate > DateTime.MinValue)
+                    {
+                        @result.ExpirationDate.ToShortDateString()
+                    }
+                </td>
                 <td>
                     @result.CertificateStatus
                 </td>

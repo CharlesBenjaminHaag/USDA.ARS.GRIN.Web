@@ -70,6 +70,17 @@
             margin-bottom: 0;
             margin-top: 0;
         }
+        .usa-accordion__button[aria-expanded=false] {
+            background-image: url(/assets/img/usa-icons/add.svg),linear-gradient(transparent,transparent);
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+        } 
+        .usa-accordion__button[aria-expanded=false] {
+            background-image: url(/assets/img/usa-icons/add.svg),linear-gradient(transparent,transparent);
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+        }
+    
     </style>
 
     <!--====================================================================
@@ -83,7 +94,6 @@
             line-height: 1.2;
             font-weight: 700;
         }*/
-
         .usa-nav-container {
             margin-left: auto;
             margin-right: auto;
@@ -116,19 +126,15 @@
         .usa-hero__heading--alt {
             max-width: 40rem;
         }
-
         /* .usa-logo__text a {
             color: white;
         }
-
         .usa-nav__primary .usa-nav__primary-item a {
             color: white;
         }
-
             .usa-nav__primary .usa-nav__primary-item a:hover {
                 color: white;
             }
-
         .usa-nav__primary button, .usa-nav__primary button:hover {
             color: white;
         }*/
@@ -285,7 +291,7 @@
 
         <section class="usa-hero" aria-label="Introduction" style="background-image:url('../assets/images/hero-topic-plants_0.jpg'); border:none;">
             <div class="grid-container">
-                <div id="hero-callout" class="usa-hero__callout" >
+                <div id="hero-callout" class="usa-hero__callout">
                     @*<div class="usa-hero__callout" style="background-color: rgba(0,0,0,.8); width:fit-content;">*@
                     <h1 class="usa-hero__heading">
                         <span id="hero-page-heading" class="usa-hero__heading--alt"><span id="hero-title">@TempData["PAGE_CONTEXT"]</span></span>
@@ -303,7 +309,7 @@
 
             </div>
         </section>
-        
+
         <div class="usa-section">
             @RenderBody()
         </div>
@@ -320,7 +326,6 @@
     $('#hero-callout').css('max-width', '50rem');
     var maxlength = $("#hero-title").width() / 16 + 5 + "rem";
     $('#hero-callout').css('max-width', maxlength);
-
     /* Datatables */
     function InitDataTable(tableName) {
         $(document).ready(function () {
@@ -347,5 +352,4 @@
             });
         });
     }
-
 </script>

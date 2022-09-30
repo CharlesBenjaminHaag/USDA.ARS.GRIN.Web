@@ -1,0 +1,25 @@
+﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.PVPApplicationViewModel
+<h3 id="section-heading-h3">Applications by Status (@DateTime.Now.Year)</h3>
+<p>
+    <table class="usa-table usa-table--borderless" style="width:100%;">
+        <thead>
+            <tr>
+                <th scope="col">Status</th>
+                <th scope="col">Description</th>
+                <th scope="col">Application Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model.DataCollectionTotals)
+            { 
+            <tr>
+                <th scope="row"><strong><a href="@Url.Action("Search","PVP", new { status = result.CodeTitle })">@result.CodeTitle</a></strong></th>
+                <td>
+                    @result.CodeDescription
+                </td>
+                <td>@result.Value</td>
+            </tr>       
+            }
+        </tbody>
+    </table>
+</p>

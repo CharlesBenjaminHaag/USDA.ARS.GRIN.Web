@@ -31,63 +31,55 @@
 <div id="overlay"><h2>Loading .. Please wait</h2></div>
 <div class="grid-container">
     <div class="grid-row grid-gap">
-        <main class="usa-layout-docs__main desktop:grid-col-12 usa-prose usa-layout-docs" id="main-content">
-            <h2 id="section-heading-h2">PVP Applications as of 9/19/2022</h2>
-            <p>
-                This collection is maintained in conjunction with the <a class="usa-link usa-link--alt usa-link--external" href="https://www.ams.usda.gov/services/plant-variety-protection">
-                    Agricultural Marketing Service Plant Variety Protection Office (PVPO)
-                </a>, which provides intellectual property protection to breeders of new varieties of sexually reproduced, tuber propagated, and asexually reproduced plant varieties.
-                This office publishes regular updates to the status of PVP applications and certificates.
+        <div class="usa-layout-docs__sidenav desktop:grid-col-2">
+            <nav aria-label="Secondary navigation">
+                <form class="usa-search usa-search--small" role="search">
+                    <label class="usa-sr-only" for="search-field-en-small">Search</label>
+                    <input class="usa-input" id="search-field-en-small" type="search" name="search" placeholder="Search GRIN-Global">
+                    <button class="usa-button" type="submit">
+                        <span class="usa-sr-only">Search</span>
+                    </button>
+                </form>
+                <br />
+                <ul class="usa-sidenav">
+                    <li class="usa-sidenav__item">
+                        <a href="@Url.Action("Index", "Home")">Home</a>
+                    </li>
+                    <li class="usa-sidenav__item">
+                        <ul class="usa-sidenav__sublist">
+                            <li class="usa-sidenav__item active">
+                                <a href="#section-overview">Overview</a>
+                            </li>
+                            <li class="usa-sidenav__item">
+                                <a href="#section-directory">Applications by Status</a>
+                            </li>
+                            <li class="usa-sidenav__item">
+                                <a href="#section-briefings">Browse Applications</a>
+                            </li>
+                            <li class="usa-sidenav__item">
+                                <a href="@Url.Action("Search","PVP")">Advanced Search</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
+            <p class="usa-intro">
+                The Plant Variety Protection Office (PVPO) publishes the status of Plant Variety Protection Applications 
+                on a monthly basis.
             </p>
-            <h3 id="section-heading-h3">Applications by Status</h3>
             <p>
-                <table class="usa-table usa-table--borderless" style="width:100%;">
-                    <thead>
-                        <tr>
-                            <th scope="col">Status</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Application Count</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row"><strong><a href="">Application Abandoned</a></strong></th>
-                            <td>
-                                The PVP office is unable to locate the applicant.
-                            </td>
-                            <td>889</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Application Denied</th>
-                            <td>
-                                The PVP Office has determined that the application does not meet the criteria.
-                            </td>
-                            <td>1791</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Application Ineligible</th>
-                            <td>
-                                The PVP Office has determined that the application does not meet the criteria.
-                            </td>
-                            <td>1848</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Application Pending</th>
-                            <td>
-                                The PVP Office is currently reviewing the application.
-                            </td>
-                            <td>1863</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Application Withdrawn</th>
-                            <td>
-                                The applicant has informed the PVP Office that they no longer wish to pursue the application process.
-                            </td>
-                            <td>1863</td>
-                        </tr>
-                    </tbody>
-                </table>
+                The PVPO also provides intellectual property protection to breeders of new
+                varieties of sexually reproduced, tuber propagated, and asexually reproduced plant varieties.
+                In accordance with the <a class="usa-link usa-link--alt usa-link--external" href="https://uscode.house.gov/browse/prelim@title7/chapter57/subchapter1&edition=prelim">
+                    Plant Variety Protection Act (PVPA)
+                </a>, it examines new varieties, and grants <a class="usa-link usa-link--alt usa-link--external" href="https://www.ams.usda.gov/services/plant-variety-protection/issued-certificates">certificates</a> that protect
+                varieties for 20 years (25 years for woody vines and trees).
             </p>
+
+            @Html.Partial("~/Views/PVP/_ListByStatus.cshtml")
+
             <h3 id="section-heading-h3">Browse Applications</h3>
             <div class="usa-alert usa-alert--info usa-alert--slim">
                 <div class="usa-alert__body">
@@ -109,13 +101,6 @@
                             <li class="usa-button-group__item">
                                 <button id="btn-expiring" title="RSUB" class="usa-button usa-button--outline">Application Recently Submitted</button>
                             </li>
-                            <li class="usa-button-group__item usa-button--accent-cool">
-
-                                <a class="usa-button usa-button--accent-cool" href="@Url.Action("Search","PVP")">Advanced Search...</a>
-
-                                @*<button id="btn-advanced-search" title="RSUB" class="usa-button usa-button--accent-cool"></button>*@
-
-                            </li>
                         </ul>
                         <div id="section-pvp-applications" style="margin-top:20px;">
 
@@ -126,7 +111,6 @@
         </main>
     </div>
 </div>
-
 <div id="modal-pvp-detail" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -134,7 +118,6 @@
                 <h3 class="modal-title">
                     <span id="site-name">TEST</span>
                 </h3>
-
             </div>
             <div class="modal-body">
                 <table class="usa-table usa-table--borderless">

@@ -1,0 +1,66 @@
+﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.PVPApplicationViewModelBase
+<div class="usa-accordion">
+    <h4 class="usa-accordion__heading">
+        <button type="button"
+                class="usa-accordion__button"
+                aria-expanded="true"
+                aria-controls="a1">
+            First Amendment
+        </button>
+    </h4>
+    <div id="a1" class="usa-accordion__content usa-prose">
+        <p>
+            Congress shall make no law respecting an establishment of religion, or
+            prohibiting the free exercise thereof; or abridging the freedom of speech,
+            or of the press; or the right of the people peaceably to assemble, and to
+            petition the Government for a redress of grievances.
+        </p>
+    </div>
+</div>
+    @using (Html.BeginForm("Search", "PVP", FormMethod.Post, new { id = "frmMain" }))
+    {
+        <div id="section-search-criteria" class="grid-container margin-top-2">
+            <div class="grid-row grid-gap">
+                <div class="mobile-lg:grid-col-2">
+                    <label>Time Frame</label>
+                    @Html.DropDownListFor(x => x.SearchEntity.StatusDateRange, Model.StatusDateRanges, new { @class = "usa-select" })
+                </div>
+                <div class="mobile-lg:grid-col-2">
+                    <label>Status</label>
+                    @Html.DropDownListFor(x => x.SearchEntity.CertificateStatus, Model.CertificateStatuses, "All Statuses", new { @class = "usa-select" })
+                </div>
+                <div class="mobile-lg:grid-col-4">
+                    <label>Variety</label>
+                    @Html.TextBoxFor(x => x.SearchEntity.Variety, new { @class = "usa-input" })
+                </div>
+                <div class="mobile-lg:grid-col-4">
+                    <label>Crop Common Name</label>
+                    @Html.TextBoxFor(x => x.SearchEntity.CommonName, new { @class = "usa-input" })
+                </div>
+            </div>
+            <br />
+            <div class="grid-row grid-gap">
+                <div class="mobile-lg:grid-col-4">
+                    <label>Scientific Name</label>
+                    @Html.TextBoxFor(x => x.SearchEntity.ScientificName, new { @class = "usa-input" })
+                </div>
+                <div class="mobile-lg:grid-col-4">
+                    <label>Experimental Name</label>
+                    @Html.TextBoxFor(x => x.SearchEntity.ExperimentalName, new { @class = "usa-input" })
+                </div>
+                <div class="mobile-lg:grid-col-4">
+                    <label>Applicant</label>
+                    @Html.TextBoxFor(x => x.SearchEntity.Applicant, new { @class = "usa-input" })
+                </div>
+            </div>
+            <div class="grid-row grid-gap">
+                <div class="mobile-lg:grid-col-12">
+                    <div class="grid-col-12 margin-1">
+                        <button id="btnSearch" type="submit" class="usa-button float-right">Search</button>
+                        <button id="btnReset" type="button" class="usa-button usa-button--secondary float-right">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }

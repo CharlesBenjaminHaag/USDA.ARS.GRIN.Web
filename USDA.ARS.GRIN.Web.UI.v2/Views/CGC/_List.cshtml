@@ -1,16 +1,5 @@
 ﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.CropGermplasmCommitteeViewModel
-<section aria-label="Search component">
-    <form class="usa-search" role="search">
-        <label class="usa-sr-only" for="search-field">Search</label>
-        <input class="usa-input" id="search-field" type="search" name="search" />
-        <button id="btnSearch" class="usa-button" type="submit">
-            <span class="usa-search__submit-text">Search </span><img src="https://designsystem.digital.gov/assets/img/usa-icons-bg/search--white.svg"
-                                                                     class="usa-search__submit-icon"
-                                                                     alt="Search" />
-        </button>
-    </form>
-</section>
-<br />
+
 <div class="usa-accordion">
     @foreach (var result in Model.DataCollection)
     {
@@ -111,11 +100,11 @@
     </div>*@
 </div>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('.usa-table').DataTable({
-            "searching": false
-        });
-    });
+    //$(document).ready(function () {
+    //    $('.usa-table').DataTable({
+    //        "searching": false
+    //    });
+    //});
 
     $(document).on("click", "[id='btnSearch']", function () {
         event.preventDefault();

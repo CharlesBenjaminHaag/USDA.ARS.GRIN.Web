@@ -10,7 +10,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
     {
         public ActionResult Index()
         {
-            return View("");
+            return View("~/Views/Home/USWDS.cshtml");
         }
 
         public ActionResult About()

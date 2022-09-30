@@ -25,6 +25,14 @@ namespace USDA.ARS.GRIN.Web.DataLayer
             throw new NotImplementedException();
         }
 
+        public List<CodeValue> GetTotals()
+        {
+            List<CodeValue> codeValues = new List<CodeValue>();
+            SQL = "SELECT * FROM vw_GGTools_GRINGlobal_PVPApplicationTotals";
+            codeValues = GetRecords<CodeValue>(SQL, CommandType.Text);
+            return codeValues;
+        }
+
         public int Insert(PVPApplication entity)
         {
             throw new NotImplementedException();
@@ -46,17 +54,43 @@ namespace USDA.ARS.GRIN.Web.DataLayer
                 case "RSUB":
                     viewName = "vw_GGTools_GRINGlobal_PVPApplicationRecentlySubmitted";
                     break;
+                default:
+                    viewName = "vw_GGTools_GRINGlobal_PVPApplication";
+                    break;
             }
 
             SQL = " SELECT * FROM " + viewName;
             SQL += " WHERE  (@ApplicationNumber     IS NULL     OR ApplicationNumber    =       @ApplicationNumber)";
+            SQL += " AND    (@CertificateStatus     IS NULL     OR CertificateStatus    =       @CertificateStatus)";
             SQL += " AND    (@Variety               IS NULL     OR Variety              LIKE    '%' + @Variety + '%')";
+            SQL += " AND    (@CommonName            IS NULL     OR CommonName           LIKE    '%' + @CommonName + '%')";
+            SQL += " AND    (@ScientificName        IS NULL     OR ScientificName       LIKE    '%' + @ScientificName + '%')";
+            SQL += " AND    (@ExperimentalName      IS NULL     OR ExperimentalName     LIKE    '%' + @ExperimentalName + '%')";
             SQL += " AND    (@Applicant             IS NULL     OR Applicant            LIKE    '%' + @Applicant + '%')";
+            
+          
+            switch (searchEntity.StatusDateRange)
+            {
+                case "01Y":
+                    SQL += " AND DATEDIFF(year, GETDATE(), StatusDate) BETWEEN 0 AND 1";
+                    break;
+                case "05Y":
+                    SQL += " AND DATEDIFF(year, GETDATE(), StatusDate) BETWEEN 0 AND 5";
+                    break;
+                case "10Y":
+                    SQL += " AND DATEDIFF(year, GETDATE(), StatusDate) BETWEEN 0 AND 10";
+                    break;
+            }
+
             SQL += " ORDER BY StatusDate DESC";
 
             var parameters = new List<IDbDataParameter> {
                 CreateParameter("ApplicationNumber", searchEntity.ID > 0 ? (object)searchEntity.ApplicationNumber : DBNull.Value, true),
+                CreateParameter("CertificateStatus", (object)searchEntity.CertificateStatus ?? DBNull.Value, true),
                 CreateParameter("Variety", (object)searchEntity.Variety ?? DBNull.Value, true),
+                CreateParameter("CommonName", (object)searchEntity.CommonName ?? DBNull.Value, true),
+                CreateParameter("ScientificName", (object)searchEntity.ScientificName ?? DBNull.Value, true),
+                CreateParameter("ExperimentalName", (object)searchEntity.ExperimentalName ?? DBNull.Value, true),
                 CreateParameter("Applicant", (object)searchEntity.Applicant ?? DBNull.Value, true),
             };
 
@@ -68,6 +102,15 @@ namespace USDA.ARS.GRIN.Web.DataLayer
         public int Update(PVPApplication entity)
         {
             throw new NotImplementedException();
+        }
+        public virtual List<CodeValue> GetCodeValues(string groupName)
+        {
+            SQL = "usp_GGTools_GRINGlobal_CodeValuesByGroup_Select";
+            var parameters = new List<IDbDataParameter> {
+                CreateParameter("group_name", (object)groupName, false)
+            };
+            List<CodeValue> codeValues = GetRecords<CodeValue>(SQL, CommandType.StoredProcedure, parameters.ToArray());
+            return codeValues;
         }
     }
 }

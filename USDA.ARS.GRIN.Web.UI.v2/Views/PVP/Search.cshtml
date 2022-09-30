@@ -52,46 +52,14 @@
     <div class="grid-row grid-gap">
         <main class="usa-layout-docs__main desktop:grid-col-12 usa-prose usa-layout-docs" id="main-content">
             <h2 id="section-heading-h2">Advanced Search</h2>
-            <div class="usa-alert usa-alert--info usa-alert--slim">
+            @*<div class="usa-alert usa-alert--info usa-alert--slim">
                 <div class="usa-alert__body">
                     <p class="usa-alert__text">
                         All data represented here is based on an <a class="usa-link usa-link--alt usa-link--external" href="https://www.ams.usda.gov/services/plant-variety-protection/application-status">update</a> from <strong>9/19/2022</strong>. Please <a href="@Url.Action("Index","Contact", new { context="pvp" })">contact us</a> regarding any errors or omissions.
                     </p>
                 </div>
-            </div>
-            <div class="grid-container margin-top-2">
-                <div class="grid-row grid-gap">
-                    <div class="mobile-lg:grid-col-2">
-                        <label>Time Frame</label>
-                        <select class="usa-select" name="options" id="options">
-                            <option value="value1">This Year</option>
-                            <option value="value2">The Last Two Years</option>
-                            <option value="value3">The Last Five Years</option>
-                        </select>
-                    </div>
-                    <div class="mobile-lg:grid-col-3">
-                        <label>Variety</label>
-                        <input type="text" class="usa-input" />
-                    </div>
-                    <div class="mobile-lg:grid-col-3">
-                        <label>Crop</label>
-                        <input type="text" class="usa-input" />
-                    </div>
-                    <div class="mobile-lg:grid-col-4">
-                        <label>Scientific Name</label>
-                        <input type="text" class="usa-input" />
-                    </div>
-                </div>
-                <div class="grid-row grid-gap">
-                    <div class="mobile-lg:grid-col-12">
-                        <div class="grid-col-12 margin-1">
-                            <button id="btnSearch" class="usa-button float-right">Search</button>
-                            <button id="btnReset" class="usa-button usa-button--secondary float-right">Reset</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            </div>*@
+            @Html.Partial("~/Views/PVP/_Detail.cshtml")
             <h3 class="site-preview-heading border-top-2px border-base-light"></h3>
             <div class="grid-container">
                 <div class="grid-row grid-gap">
@@ -131,11 +99,11 @@
                                             </td>
 
                                             <!--<td>
-                                            <button id="@result.ApplicationNumber" class="usa-button usa-button--outline detail-expand">Detail</button>-->
+                                    <button id="@result.ApplicationNumber" class="usa-button usa-button--outline detail-expand">Detail</button>-->
                                             @*<a href="@Url.Action("Detail","PVP", new { id = result.ApplicationNumber })"
-                                            class="usa-button usa-button--outline">
-                                            Detail
-                                            </a>*@
+                                        class="usa-button usa-button--outline">
+                                        Detail
+                                        </a>*@
                                             <!--</td>-->
                                         </tr>
                                     }

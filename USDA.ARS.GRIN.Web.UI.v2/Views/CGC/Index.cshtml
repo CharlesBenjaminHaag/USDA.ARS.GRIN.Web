@@ -1,12 +1,12 @@
 ﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.CropGermplasmCommitteeViewModel
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutInterior.cshtml";
+    Layout = "~/Views/Shared/_LayoutUSWDSInterior.cshtml";
 }
 <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css' rel='stylesheet' />
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js'></script>
 
-<style>
+@*<style>
     .usa-collection {
         margin: 1em;
     }
@@ -45,9 +45,115 @@
         margin: 40px auto;
         padding: 0 10px;
     }
-</style>
+</style>*@
 
-<div class="grid-container">
+<div class="usa-section">
+    <div class="grid-container">
+        <div class="grid-row grid-gap">
+            <div class="usa-layout-docs__sidenav desktop:grid-col-2">
+            <nav aria-label="Secondary navigation">
+                <ul class="usa-sidenav">
+                    <li class="usa-sidenav__item"><a href="">Home</a></li>
+                    <li class="usa-sidenav__item">
+                        <a href="" class="usa-current">CGC</a>
+                        <ul class="usa-sidenav__sublist">
+                            <li class="usa-sidenav__item"><a href="">Overview</a></li>
+                            <li class="usa-sidenav__item"><a href="">Committees</a></li>
+                            <li class="usa-sidenav__item"><a href="">Chair Briefings</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="usa-sidenav__item"><a href="">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+
+     
+            <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
+                <h1>Crop Germplasm Committees (CGC)</h1>
+                <p class="usa-intro">
+                    The Crop Germplasm Committees are comprised of a cross section of NPGS users who provide technical support to NPGS genebanks
+                    and collections.
+                </p>
+                <h2 id="section-heading-h2">Overview</h2>
+                <p>
+                    Crop Germplasm Committees (CGC) serve as subject matter experts to guide curatorial staff on best practices, including the priorities and techniques for characterizing the collections. They also help review proposals that fund plant explorations and evaluation grants for scientific rigor.
+                </p>
+                <p>
+                    There are currently <a href="#section-directory">44 CGCs</a> representing almost all major and minor crops of economic importance in the U.S. Each committee includes a chair and members from government agencies, universities, and commercial interests who volunteer their time and expertise to support the NPGS.
+                </p>
+                <h3 id="section-heading-h3">Documents</h3>
+                <table class="usa-table usa-table--borderless usa-table--striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Document title</th>
+                            <th scope="col">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                <a href="https://www.ars-grin.gov/npgs/cgc_reports/2019_CGC_Roles_and_Responsibilities_26_July_2019.doc">
+                                    Roles and Responsibilities
+                                </a>
+                            </th>
+                            <td>
+                                Additional information about CGC organization and function.
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <a href="https://www.ars-grin.gov/npgs/cgc_reports/Crop_Vulnerability_Statement_Outline.doc">
+                                    Crop Vulnerability Statement Outline
+                                </a>
+                            </th>
+                            <td>
+                                A guide to the format and content of Crop Vulnerability Statements.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 id="section-heading-h3">Committees</h3>
+                @{ Html.RenderAction("_List", "CGC"); }
+
+
+
+
+
+
+
+
+
+
+                <h3 id="section-heading-h3">Subsection heading (h3)</h3>
+                <p>
+                    The particulars of your body copy will be determined by the topic of
+                    your page. Regardless of topic, it’s a good practice to follow the
+                    inverted pyramid structure when writing copy: Begin with the
+                    information that’s most important to your users and then present
+                    information of less importance.
+                </p>
+                <p>
+                    Keep each section and subsection focused — a good approach is to
+                    include one theme (topic) per section.
+                </p>
+                <h4 id="section-heading-h4">Subsection heading (h4)</h4>
+                <p>
+                    Use the side navigation menu to help your users quickly skip to
+                    different sections of your page. The menu is best suited to
+                    displaying a hierarchy with one to three levels and, as we
+                    mentioned, to display the sub-navigation of a given page.
+                </p>
+                <p>
+                    Read the full documentation on our side navigation on the component
+                    page.
+                </p>
+            </main>
+        </div>
+    </div>
+</div>
+
+<!--<div class="grid-container">
     <div class="grid-row grid-gap">
         <div class="usa-layout-docs__sidenav desktop:grid-col-2">
             <nav aria-label="Secondary navigation">
@@ -79,9 +185,9 @@
                 </ul>
             </nav>
         </div>
-        <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
+        <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">-->
             @*<h1>Crop Germplasm Committees</h1>*@
-            <p class="usa-intro">
+            <!--<p class="usa-intro">
                 The Crop Germplasm Committees (CGC) are comprised of a cross section of NPGS users who provide technical support to NPGS genebanks
                 and collections.
             </p>
@@ -180,45 +286,32 @@
 
         </main>
     </div>
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var calendarEl = document.getElementById('calendar');
-
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            displayEventTime: false,
-            initialDate: '2021-09-25',
-            headerToolbar: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'dayGridMonth,listYear'
-            },
-            //events: {
-            //    url: 'ics/feed.ics',
-            //    format: 'ics',
-            //    failure: function () {
-            //        document.getElementById('script-warning').style.display = 'block';
-            //    }
-            //},
-            events: 
-                { // this object will be "parsed" into an Event Object
-                    title: 'TEST MEETING', // a property!
-                    start: '2021-09-25', // a property!
-                    end: '2021-09-25' // a property! ** see important note below about 'end' **
-                },
-            loading: function (bool) {
-                document.getElementById('loading').style.display =
-                    bool ? 'block' : 'none';
-            }
-        });
-
-        calendar.render();
-
-        calendar.addEvent({
-            title: 'TEST',
-            start: '2021-09-25',
-            allDay: true
-        });
-
-    });</script>
+</div>-->
+<script type="text/javascript">
+    //InitDataTable("tblDemo");
+    //function InitDataTable(tableName) {
+    //    $(document).ready(function () {
+    //        var table = $("#" + tableName).DataTable({
+    //            dom: 'Blfrtip',
+    //            paging: true,
+    //            //initComplete: function () {
+    //            //    SetControlVisibility(tableName);
+    //            //},
+    //            responsive: true,
+    //            buttons: [
+    //                'selectAll',
+    //                'selectNone',
+    //                'csv',
+    //                'excel',
+    //                'pdf'
+    //            ],
+    //            select: true,
+    //            searching: false,
+    //            lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+    //            columnDefs: [
+    //                { targets: [0], visible: false }
+    //            ]
+    //        });
+    //    });
+    //}
+</script>

@@ -11,6 +11,15 @@ namespace USDA.ARS.GRIN.Web.ViewModelLayer
 {
     public class PVPApplicationViewModel: PVPApplicationViewModelBase
     {
+        public void GetTotals()
+        {
+            using (PVPApplicationManager mgr = new PVPApplicationManager())
+            {
+                DataCollectionTotals = new Collection<CodeValue>(mgr.GetTotals());
+                RowsAffected = mgr.RowsAffected;
+            }
+        }
+        
         public void Search()
         {
             using (PVPApplicationManager mgr = new PVPApplicationManager())
