@@ -1,44 +1,37 @@
 ﻿@{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutInterior.cshtml";
+    Layout = "~/Views/Shared/_LayoutUSWDSInterior.cshtml";
 }
 
-<div class="grid-container">
-    <div class="grid-row grid-gap">
-        <div class="usa-layout-docs__sidenav desktop:grid-col-2">
-            <nav aria-label="Secondary navigation,,,">
-                <ul class="usa-sidenav">
-                    <li class="usa-sidenav__item">
-                        <a href="@Url.Action("Index","Home")">Home</a>
-                    </li>
-                    <li class="usa-sidenav__item">
-                        <a href="javascript:void(0);" class="usa-current">GRIN-U</a>
-                    </li>
-                </ul>
-            </nav>
+<div class="usa-section">
+    <div class="grid-container">
+        <div class="grid-row grid-gap">
+            <div class="usa-layout-docs__sidenav desktop:grid-col-2">
+                <nav aria-label="Secondary navigation">
+                    <ul class="usa-sidenav">
+                        <li class="usa-sidenav__item"><a href="@Url.Action("Index","Home")">Home</a></li>
+                        <li class="usa-sidenav__item">
+                            <a href="" class="usa-current">GRIN-U</a>
+                        </li>
+                        <li class="usa-sidenav__item"><a href="@Url.Action("Index","Contact")">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
+                <p class="usa-intro">
+                    GRIN-U is a collaborative project to provide open access to educational and training content on plant genetic resources (PGR) conservation and use.
+                </p>
+                <p>
+                    The project is funded by a grant from the <a class="usa-link usa-link--alt usa-link--external" href="https://www.nifa.usda.gov/">
+                        USDA National Institute of Food
+                        and Agriculture (NIFA)
+                    </a>, and includes investigators from ARS, Colorado State University, Iowa State University,
+                    and a private contractor.
+                </p>
+                <p>
+                    As part of the GRIN family of products, GRIN-U contains visual (videos, virtual tours, podcasts) and printed (e-books, infographics, manuals) materials on a variety of topics related to PGR management and plant genebank operations.
+                </p>
+            </main>
         </div>
-        <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
-            <p class="usa-intro">
-                GRIN-U is a collaborative project to provide open access to educational and training content on plant genetic resources (PGR) conservation and use.
-            </p>
-            <p>
-                The project is funded by a grant from the <a class="usa-link usa-link--alt usa-link--external" href="https://www.nifa.usda.gov/">USDA National Institute of Food 
-                and Agriculture (NIFA)</a>, and includes investigators from ARS, Colorado State University, Iowa State University, 
-                and a private contractor.
-                As part of the GRIN family of products, GRIN-U contains visual (videos, virtual tours, podcasts) and printed (e-books, infographics, manuals) materials on a variety of topics related to PGR management and plant genebank operations.
-            </p>
-            <ul class="usa-collection__meta" aria-label="Topics" style="margin-left:0px; padding-left:0px;">
-                <li class="usa-collection__meta-item usa-tag">
-                    <a href="https://www.nifa.usda.gov/">
-                        NIFA
-                    </a>
-                </li>
-                <li class="usa-collection__meta-item usa-tag">
-                    <a href="https://grin-u.org/documents/">Documents</a>
-                </li>
-            </ul>
-        </main>
     </div>
 </div>
-
-

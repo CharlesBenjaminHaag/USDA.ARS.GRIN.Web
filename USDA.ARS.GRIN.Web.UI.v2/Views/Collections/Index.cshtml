@@ -1,10 +1,162 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutInterior.cshtml";
+    Layout = "~/Views/Shared/_LayoutUSWDSInterior.cshtml";
 }
 
-<div class="grid-container">
+<div class="usa-section">
+    <div class="grid-container">
+        <div class="grid-row grid-gap">
+            <div class="usa-layout-docs__sidenav desktop:grid-col-2">
+                <nav aria-label="Secondary navigation">
+                    <ul class="usa-sidenav">
+                        <li class="usa-sidenav__item"><a href="">Home</a></li>
+                        <li class="usa-sidenav__item">
+                            <a href="" class="usa-current">Collections</a>
+                            <ul class="usa-sidenav__sublist">
+                                <li class="usa-sidenav__item"><a href="#section-overview">Plant Germplasm</a></li>
+                                <li class="usa-sidenav__item"><a href="#section-directory">Animal Germplasm</a></li>
+                                <li class="usa-sidenav__item"><a href="#section-briefings">Microbial Germplasm</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="usa-sidenav__item"><a href="@Url.Action("Index","Contact")">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
+                <p class="usa-intro">
+                    GRIN both provides data, and compiles references to databases hosted by collaborating projects.
+                </p>
+                <h2 id="section-heading-h2p">Plant Germplasm</h2>
+                <p>
+                    The National Plant Germplasm System (NGPS) is a collaborative effort to safeguard the
+                    genetic diversity of agriculturally important plants. The mission of the NPGS is
+                    to support agricultural production by acquiring, conserving, evaluating, documenting,
+                    and distributing crop germplasm.
+                </p>
+                <ul class="usa-collection__meta" aria-label="Topics">
+                    <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                        <a href="https://npgsweb.ars-grin.gov/gringlobal/search">
+                            Search NPGS GRIN-Global
+                        </a>
+                    </li>
+                    <li class="usa-collection__meta-item usa-tag usa-tag--new">
+                        <a href="https://www.ars.usda.gov/northeast-area/beltsville-md-barc/beltsville-agricultural-research-center/national-germplasm-resources-laboratory/docs/plant-inventory-books/">Plant Inventory Books</a>
+                    </li>
+                    <li class="usa-collection__meta-item usa-tag usa-tag--new"><a style="color:white;" href="@Url.Action("Index","CGC")">Crop Germplasm Committees</a></li>
+                    <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://www.ars-grin.gov/Pages/Repositories">Repositories</a></li>
+                    <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://npgsweb.ars-grin.gov/gringlobal/query/summary">Diversity of Species in NPGS</a></li>
+                    <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://npgsweb.ars-grin.gov/gringlobal/query/accessionsbysite">Summary by Genebank</a></li>
+                    <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://ia800305.us.archive.org/31/items/CAT31108469/CAT31108469.pdf">Seeds For Our Future (PDF)</a></li>
+                    <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://www.youtube.com/watch?v=uHOclGNELuw">Video About the NPGS (6 Minutes)</a></li>
+                </ul>
+
+                <p>
+                    @*<div class="margin-y-3">
+                <a href="#example-modal-2" class="usa-button" aria-controls="example-modal-2" data-open-modal="" role="button" id="modal-511429">Open large modal</a>
+                <div data-placeholder-for="example-modal-2" aria-hidden="true" data-original-class="usa-modal usa-modal--lg" data-original-id="example-modal-2" data-original-aria-labelledby="modal-2-heading" data-original-aria-describedby="modal-2-description" style="display: none;"></div>
+            </div>*@
+
+                    <!-- Site detail modal -->
+                    <div class="margin-y-3">
+                        <div class="usa-modal usa-modal--lg"
+                             id="example-modal-2"
+                             aria-labelledby="modal-2-heading"
+                             aria-describedby="modal-2-description">
+                            <div class="usa-modal__content">
+                                <div class="usa-modal__main">
+                                    <h2 class="usa-modal__heading" id="modal-2-heading">
+                                        Are you sure you want to continue?
+                                    </h2>
+                                    <div class="usa-prose">
+                                        <p id="modal-2-description">
+                                            You have unsaved changes that will be lost.
+                                        </p>
+                                    </div>
+                                    <div class="usa-modal__footer">
+                                        <ul class="usa-button-group">
+                                            <li class="usa-button-group__item">
+                                                <button type="button" class="usa-button" data-close-modal>
+                                                    Continue without saving
+                                                </button>
+                                            </li>
+                                            <li class="usa-button-group__item">
+                                                <button type="button"
+                                                        class="usa-button usa-button--unstyled padding-105 text-center"
+                                                        data-close-modal>
+                                                    Go back
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <button type="button"
+                                        class="usa-button usa-modal__close"
+                                        aria-label="Close this window"
+                                        data-close-modal>
+                                    <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                                        <use xlink:href="/assets/img/sprite.svg#close"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 id="section-heading-h3">Repository Map (U.S. and Territories)</h3>
+                    <section id="section-repository-map">
+                        <div class="grid-container">
+                            <div class="grid-row">
+                                <div class="tablet:grid-col-12">
+                                    <div class="usa-alert usa-alert--info usa-alert--no-icon" style="width:800px;">
+                                        <div class="usa-alert__body">
+                                            <p class="usa-alert__text">
+                                                Click on a marker to display the corresponding germplasm collection site's pertinent information.
+                                                @*<a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                        elit, sed do eiusmod.*@
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <br />
+                                </div>
+                            </div>
+                            <div class="grid-row">
+                                <div class="tablet:grid-col-12">
+                                    <div id="mapid" style="width:800px; height:700px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </p>
+                <h2 id="section-heading-h2a">Animal Germplasm</h2>
+                <p>
+                    Animal genetic resources underpin the livestock sector’s production and profitability. As a result livestock industries contribute billions of dollars to national economies. Our mission is to acquire, evaluate and preserve these strategic resources so that industry and the research community can have access to a broad array of genetic variability for national security, the introduction of genetic variation, corrective mating, and various research initiatives.
+                </p>
+                <ul class="usa-collection__meta" aria-label="Topics">
+                    <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://nrrc.ars.usda.gov/A-GRIN/database_collaboration_page_dev">Animal Genetic Resources</a></li>
+                    <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="Search the Animal Germplasm Database">Animal Germplasm Database</a></li>
+                </ul>
+
+                <h2 id="section-heading-h2m">Microbial Germplasm</h2>
+                <p>
+                    The goal of this program is to ensure that the genetic diversity of agriculturally important microorganisms is maintained to enhance and increase agricultural efficiency and profitability.The program will collect, authenticate and characterizepotentially useful microbial germplasm; preserve microbial genetic diversity; and facilitate distribution and utilization of microbial germplasm for research and industry.
+                    <ul class="usa-collection__meta" aria-label="Topics">
+                        <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://www.ars.usda.gov/northeast-area/ithaca-ny/robert-w-holley-center-for-agriculture-health/emerging-pests-and-pathogens-research/docs/mycology/">ARSEF</a></li>
+                        <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://www.ars-grin.gov/Rhizobium">Rhizobium</a></li>
+                        <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://nt.ars-grin.gov/fungaldatabases/specimens/specimens.cfm">U.S. National Fungus Collection</a></li>
+                    </ul>
+                </p>
+                <a style="color:Background;" id="btnOpenSiteDetailModal" href="#example-modal-2"
+                   aria-controls="example-modal-2"
+                   data-open-modal>
+                    Open large modal
+                </a>
+            </main>
+        </div>
+    </div>
+</div>
+
+<!--<div class="grid-container">
     <div class="grid-row grid-gap">
         <div class="usa-layout-docs__sidenav desktop:grid-col-2">
             <nav aria-label="Secondary navigation">
@@ -54,7 +206,9 @@
 
         <main class="usa-layout-docs__main desktop:grid-col-9 usa-prose usa-layout-docs" id="main-content">
             <h1>Collections</h1>
-            <p class="usa-intro measure-none">GRIN both provides data, and compiles references to databases hosted by collaborating projects.</p>
+            <p class="usa-intro measure-none">
+    
+    </p>
 
             <h2 id="section-genetic-resource_collections">Genetic Resource Collections</h2>
 
@@ -143,7 +297,7 @@
                                                 September 30, 2020
                                             </time>
                                         </li>
-                                    </ul>
+                                    </ul>-->
 
                                     @*<ul class="usa-collection__meta" aria-label="Topics">
                                     <li class="usa-collection__meta-item usa-tag usa-tag--new">
@@ -156,7 +310,7 @@
                                         OMB
                                     </li>
                                 </ul>*@
-                                </div>
+                                <!--</div>
                             </li>
 
                         </ul>
@@ -186,8 +340,8 @@
                                         </li>
                                     </ul>
 
-                                    <!-- TODO: MOVE PDF EMBED CODE -->
-                                    @*<embed src="https://apps.ams.usda.gov/CMS//AdobeImages/201500355.pdf" type="application/pdf" width="100%" height="600px" />
+                                    <!-- TODO: MOVE PDF EMBED CODE -->-->
+                                    <!--@*<embed src="https://apps.ams.usda.gov/CMS//AdobeImages/201500355.pdf" type="application/pdf" width="100%" height="600px" />
                                                                     <embed src="https://drive.google.com/viewerng/
                                 viewer?embedded=true&url=https://apps.ams.usda.gov/CMS//AdobeImages/201500355.pdf" width="500" height="375">
 
@@ -213,11 +367,9 @@
             </section>
         </main>
     </div>
-</div>
+</div>-->
 
-<div id="section-modal">
 
-</div>
 
 
 <script type="text/javascript" src="https://leafletjs.com/examples/choropleth/us-states.js"></script>
@@ -239,21 +391,23 @@
         var link = '@Url.Action("_Detail", "Site", new { siteId = "SITE_ID" })';
         link = link.replace("SITE_ID", selectedSiteId);
 
-        $.ajax(
-            {
-                type: 'POST',
-                url: link,
-                data: { siteId : this.options.myCustomId },
-                success:
-                    function (response) {
-                        $("#section-modal").html(response);
-                        $('#myModal').modal('show');
-                    },
-                error:
-                    function (response) {
-                        console.log(response);
-                    }
-            });
+        //DEBUG
+        
+        $("#btnOpenSiteDetailModal")[0].click();
+        //$.ajax(
+        //    {
+        //        type: 'POST',
+        //        url: link,
+        //        data: { siteId : this.options.myCustomId },
+        //        success:
+        //            function (response) {
+        //                $("#section-map-site-detail-container").html(response);
+        //            },
+        //        error:
+        //            function (response) {
+        //                console.log(response);
+        //            }
+        //    });
     }
 
     //TODO: PDF EMBED
@@ -272,9 +426,6 @@
     else if (navigator.userAgent.search("Opera") >= 0) {
         //code goes here
     }
-
-
-
 
     var siteId = "";
 
@@ -348,7 +499,6 @@
     marker.on('click', onMarkerClick);
     marker.addTo(map);
 
-
     //8	
     //9	33.968078033711286, -117.33456035792699
     //16	42.008928272568696, -93.66361315989242
@@ -359,8 +509,6 @@
     //40	34.47581490375999, -91.41872793277506
     //24	40.10145444323368, -88.22267277499076
     //26	46.73192943628397, -117.15788711531751
-
-
 
     var geojson;
 

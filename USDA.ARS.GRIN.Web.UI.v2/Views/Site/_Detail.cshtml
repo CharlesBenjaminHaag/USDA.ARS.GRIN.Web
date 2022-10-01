@@ -1,56 +1,106 @@
 ﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.SiteViewModel
-<div id="myModal" class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">
-                    <span id="site-name">@Model.Entity.LongName</span>
-                </h3>
 
-            </div>
-            <div class="modal-body">
+<div id="section-map-site-detail">
+    <table class="usa-table usa-table--borderless" style="width:900px;">
+        <caption>
+            @Model.Entity.LongName
+        </caption>
+        <thead>
+            <tr>
+                <th scope="col">Document title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Declaration of Independence</th>
+                <td>
+                    Statement adopted by the Continental Congress declaring independence
+                    from the British Empire.
+                </td>
+                <td>1776</td>
+            </tr>
+            <tr>
+                <th scope="row">Bill of Rights</th>
+                <td>
+                    The first ten amendments of the U.S. Constitution guaranteeing rights
+                    and freedoms.
+                </td>
+                <td>1791</td>
+            </tr>
+            <tr>
+                <th scope="row">Declaration of Sentiments</th>
+                <td>
+                    A document written during the Seneca Falls Convention outlining the
+                    rights that American women should be entitled to as citizens.
+                </td>
+                <td>1848</td>
+            </tr>
+            <tr>
+                <th scope="row">Emancipation Proclamation</th>
+                <td>
+                    An executive order granting freedom to slaves in designated southern
+                    states.
+                </td>
+                <td>1863</td>
+            </tr>
+        </tbody>
+    </table>   
+</div>
+    <!--<div id="myModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">
+                        <span id="site-name">@Model.Entity.LongName</span>
+                    </h3>
 
-                @*<div class="usa-collection__body">
-                        <ul class="usa-collection__meta" aria-label="More information">
-                            <li class="usa-collection__meta-item">
-                                <time datetime="2020-09-17T12:00:00+01:00">
-                                    September 17, 2020
-                                </time>
-                            </li>
-                        </ul>
+                </div>
+                <div class="modal-body">
+                    <p>-->
+    @*<div class="usa-collection__body">
+            <ul class="usa-collection__meta" aria-label="More information">
+                <li class="usa-collection__meta-item">
+                    <time datetime="2020-09-17T12:00:00+01:00">
+                        September 17, 2020
+                    </time>
+                </li>
+            </ul>
 
 
-                    </div>*@
+        </div>*@
 
-                @Model.Entity.LongName<br />
-                @Model.Entity.PrimaryAddress1<br />
-                @Model.Entity.PrimaryAddress2<br />
-                @Model.Entity.PrimaryCity, STATE POSTAL_CODE
-                <br /><br />
-                <label>Crops Maintained at Site</label>
-                <ul class="usa-collection__meta" aria-label="Topics">
-                    <li class="usa-collection__meta-item usa-tag usa-tag--big">
-                        BUTTFRUIT
-                    </li>
-                    <li class="usa-collection__meta-item usa-tag">
-                        CAP goal
-                    </li>
-                    <li class="usa-collection__meta-item usa-tag">
-                        APG
-                    </li>
-                    <li class="usa-collection__meta-item usa-tag">
-                        PMA
-                    </li>
-                    <li class="usa-collection__meta-item usa-tag">
-                        Success story
-                    </li>
-                </ul>
+    <!--@Model.Entity.LongName<br />
+                        @Model.Entity.PrimaryAddress1<br />
+                        @Model.Entity.PrimaryAddress2<br />
+                        @Model.Entity.PrimaryCity, STATE POSTAL_CODE
+                    </p>
+                        <br /><br />
+                    <label>Crops Maintained at Site</label>
+                    <ul class="usa-collection__meta" aria-label="Topics">
+                        <li class="usa-collection__meta-item usa-tag usa-tag--big">
+                            BUTTFRUIT
+                        </li>
+                        <li class="usa-collection__meta-item usa-tag">
+                            CAP goal
+                        </li>
+                        <li class="usa-collection__meta-item usa-tag">
+                            APG
+                        </li>
+                        <li class="usa-collection__meta-item usa-tag">
+                            PMA
+                        </li>
+                        <li class="usa-collection__meta-item usa-tag">
+                            Success story
+                        </li>
+                    </ul>
 
-            </div>
+                </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </div>-->

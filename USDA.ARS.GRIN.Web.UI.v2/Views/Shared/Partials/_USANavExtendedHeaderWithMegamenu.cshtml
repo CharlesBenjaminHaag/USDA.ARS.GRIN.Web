@@ -1,0 +1,105 @@
+﻿<header class="usa-header usa-header--extended">
+    <div class="usa-navbar">
+        <div class="usa-logo" id="-logo">
+            <em class="usa-logo__text"><a href="/" title="Home">USDA ARS-GRIN</a></em>
+        </div>
+        <button type="button" class="usa-menu-btn">Menu</button>
+    </div>
+    <nav aria-label="Primary navigation" class="usa-nav">
+        <div class="usa-nav__inner">
+            <button type="button" class="usa-nav__close">
+                <img src="/assets/img/usa-icons/close.svg" role="img" alt="Close" />
+            </button>
+            <ul class="usa-nav__primary usa-accordion">
+                <li class="usa-nav__primary-item">
+                    <button type="button"
+                            class="usa-accordion__button usa-nav__link"
+                            aria-expanded="false"
+                            aria-controls="extended-mega-nav-section-one">
+                        <span>Collections</span>
+                    </button>
+                    <ul id="extended-mega-nav-section-one" class="usa-nav__submenu">
+                        <li class="usa-nav__submenu-item">
+                            @{
+                                var link_plants = Url.Action("Index", "Collections") + "#plant-germplasm";
+                            }
+                            <a href="@link_plants"><span>Plant Germplasm</span></a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                            @{
+                                var link_animal = Url.Action("Index", "Collections") + "#animal-germplasm";
+                            }
+                            <a href="@link_animal"><span>Animal Germplasm</span></a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                            @{
+                                var link_microbial = Url.Action("Index", "Collections") + "#microbial-germplasm";
+                            }
+                            <a href="@link_microbial"><span>Microbial Germplasm</span></a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                            <a href="@Url.Action("Index","PVP")"><span>PVP Applications</span></a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                            <a href="@Url.Action("Index","Rhizobium")"><span>Rhiozobium</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="usa-nav__primary-item">
+                    <button type="button"
+                            class="usa-accordion__button usa-nav__link"
+                            aria-expanded="false"
+                            aria-controls="extended-mega-nav-section-three">
+                        <span>Crop Germplasm Committees</span>
+                    </button>
+                    <ul id="extended-mega-nav-section-three" class="usa-nav__submenu">
+                        <li class="usa-nav__submenu-item">
+                            @{
+                                var link_cgc = Url.Action("Index", "CGC") + "#overview";
+                            }
+                            <a href="@link_cgc"><span>Overview</span></a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                            @{
+                                var link_cgc_directory = Url.Action("Index", "CGC") + "#cgc-directory";
+                            }
+                            <a href="@link_cgc_directory"><span>Committees</span></a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                            @{
+                                var link_cgc_briefings = Url.Action("Index", "CGC") + "#cgc-annual-cgc-chair-briefings";
+                            }
+                            <a href="@link_cgc_briefings"><span>Annual CGC Chair Briefings</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="usa-nav__primary-item">
+                    <a href="@Url.Action("NGRAC","Pages")" class="usa-nav-link"><span>National Genetic Resources Advisory Council</span></a>
+                </li>
+                <li class="usa-nav__primary-item">
+                    <a href="@Url.Action("GRINU","Pages")" class="usa-nav-link"><span>GRIN-U</span></a>
+                </li>
+                <li class="usa-nav__primary-item">
+                    <a href="@Url.Action("Index","Contact")" class="usa-nav-link"><span>Contact Us</span></a>
+                </li>
+            </ul>
+            <div class="usa-nav__secondary usa-header--extended">
+                <ul class="usa-nav__secondary-links"></ul>
+                <section aria-label="Search component">
+                    <form class="usa-search usa-search--small" role="search">
+                        <label class="usa-sr-only" for="search-field">Search</label>
+                        <input class="usa-input"
+                               id="search-field"
+                               type="search"
+                               name="search" />
+                        <button class="usa-button" type="submit">
+                            <img src="/assets/img/usa-icons-bg/search--white.svg"
+                                 class="usa-search__submit-icon"
+                                 alt="Search" />
+                        </button>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </nav>
+</header>

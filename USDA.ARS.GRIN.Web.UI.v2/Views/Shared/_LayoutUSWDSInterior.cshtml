@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - USDA ARS GRIN</title>
     <script src="~/assets/uswds/dist/js/uswds-init.min.js"></script>
-    <link rel="stylesheet" href="~/assets/uswds/dist/css/uswds.min.css" />
+    <link rel="stylesheet" href="~/assets/uswds/dist/css/uswds.css" />
     <title>View</title>
     @Scripts.Render("~/bundles/jquery")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+    @*@Styles.Render("~/Content/css")*@
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+            integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s="
+            crossorigin=""></script>
+
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
     <!-- MAY NEED FOR PVP/QUERY PAGES-->
@@ -25,21 +34,58 @@
     <style type="text/css">
         .usa-nav {
             border-bottom: solid 1px #dfdfdf;
-            background-color: #ebebeb;
         }
         .usa-prose > p {
             max-width:100ex;
         }
-        .usa-accordion__button[aria-expanded=false] {
+
+        /*  Needed to ensure that only the accordion within the body of the page implements the plus/minus
+            controls; without qualifying by id, causes the main header "here's how you know" link to
+            superimpose the plus/minus over the text.
+        */
+        #section-committees .usa-accordion__button[aria-expanded=false] {
             background-image: url(/assets/img/usa-icons/add.svg),linear-gradient(transparent,transparent);
             background-repeat: no-repeat;
             background-size: 1.5rem;
         }
 
-        .usa-accordion__button[aria-expanded=true] {
+        #section-committees .usa-accordion__button[aria-expanded=true] {
             background-image: url(/assets/img/usa-icons/remove.svg),linear-gradient(transparent,transparent);
             background-repeat: no-repeat;
             background-size: 1.5rem;
+        }
+
+        #section-pvp-search-criteria .usa-accordion__button[aria-expanded=false] {
+            background-image: url(/assets/img/usa-icons/add.svg),linear-gradient(transparent,transparent);
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+        }
+
+        #section-pvp-search-criteria .usa-accordion__button[aria-expanded=true] {
+            background-image: url(/assets/img/usa-icons/remove.svg),linear-gradient(transparent,transparent);
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+        }
+
+
+        .usa-alert--info:before {
+            background: url("@Url.Content("https://designsystem.digital.gov/assets/img/usa-icons/info.svg")") no-repeat center/contain;
+            display: inline-block;
+            height: 2rem;
+            width: 2rem;
+            content: "";
+            display: block;
+            height: 3.5rem;
+            left: 0.9166666667rem;
+            position: absolute;
+            top: 0;
+        }
+        .usa-tag--new a {
+            color:white;
+        }
+        /* Needed to ensure that DataTables search box label appears on the left of the search box. */
+        .dataTables_filter input {
+            float: none;
         }
     </style>
 
@@ -98,281 +144,13 @@
 </head>
 <body>
     <script src="~/assets/uswds/dist/js/uswds.min.js"></script>
-    <section class="usa-banner" aria-label="Official government website">
-        <div class="usa-accordion">
-            <header class="usa-banner__header">
-                <div class="usa-banner__inner">
-                    <div class="grid-col-auto">
-                        <img class="usa-banner__header-flag"
-                             src="~/assets/img/us_flag_small.png"
-                             alt="U.S. flag" />
-                    </div>
-                    <div class="grid-col-fill tablet:grid-col-auto">
-                        <p class="usa-banner__header-text">
-                            An official website of the United States government
-                        </p>
-                        <p class="usa-banner__header-action" aria-hidden="true">
-                            Here’s how you know
-                        </p>
-                    </div>
-                    <button type="button"
-                            class="usa-accordion__button usa-banner__button"
-                            aria-expanded="false"
-                            aria-controls="gov-banner-default">
-                        <span class="usa-banner__button-text">Here’s how you know</span>
-                    </button>
-                </div>
-            </header>
-            <div class="usa-banner__content usa-accordion__content"
-                 id="gov-banner-default">
-                <div class="grid-row grid-gap-lg">
-                    <div class="usa-banner__guidance tablet:grid-col-6">
-                        <img class="usa-banner__icon usa-media-block__img"
-                             src="~/assets/img/icon-dot-gov.svg"
-                             role="img"
-                             alt=""
-                             aria-hidden="true" />
-                        <div class="usa-media-block__body">
-                            <p>
-                                <strong>Official websites use .gov</strong><br />A
-                                <strong>.gov</strong> website belongs to an official government
-                                organization in the United States.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="usa-banner__guidance tablet:grid-col-6">
-                        <img class="usa-banner__icon usa-media-block__img"
-                             src="~/assets/icon-https.svg"
-                             role="img"
-                             alt=""
-                             aria-hidden="true" />
-                        <div class="usa-media-block__body">
-                            <p>
-                                <strong>Secure .gov websites use HTTPS</strong><br />A
-                                <strong>lock</strong> (
-                                <span class="icon-lock">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                         width="52"
-                                         height="64"
-                                         viewBox="0 0 52 64"
-                                         class="usa-banner__lock-image"
-                                         role="img"
-                                         aria-labelledby="banner-lock-title banner-lock-description"
-                                         focusable="false">
-                                        <title id="banner-lock-title">Lock</title>
-                                        <desc id="banner-lock-description">A locked padlock</desc>
-                                        <path fill="#000000"
-                                              fill-rule="evenodd"
-                                              d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
-                                    </svg>
-                                </span>) or <strong>https://</strong> means you’ve safely connected to
-                                the .gov website. Share sensitive information only on official,
-                                secure websites.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @Html.Partial("~/Views/Shared/Partials/_USABanner.cshtml")
     <div class="usa-overlay"></div>
+    @Html.Partial("~/Views/Shared/Partials/_USANavExtendedHeaderWithMegamenu.cshtml")
 
-    <!-- EXTENDED HEADER WITH MEGAMENU -->
-    <header class="usa-header usa-header--extended">
-        <div class="usa-navbar">
-            <div class="usa-logo" id="-logo">
-                <em class="usa-logo__text"><a href="/" title="Home">ARS-GRIN</a></em>
-            </div>
-            <button type="button" class="usa-menu-btn">Menu</button>
-        </div>
-        <nav aria-label="Primary navigation" class="usa-nav">
-            <div class="usa-nav__inner">
-                <button type="button" class="usa-nav__close">
-                    <img src="/assets/img/usa-icons/close.svg" role="img" alt="Close" />
-                </button>
-                <ul class="usa-nav__primary usa-accordion">
-                    <li class="usa-nav__primary-item">
-                        <button type="button"
-                                class="usa-accordion__button usa-nav__link"
-                                aria-expanded="false"
-                                aria-controls="extended-mega-nav-section-one">
-                            <span>Collections</span>
-                        </button>
-                        <ul id="extended-mega-nav-section-one" class="usa-nav__submenu">
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href="">
-                                    <span>
-                                        &lt;A very long navigation link that goes onto two
-                                        lines&gt;
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="usa-nav__primary-item">
-                        <button type="button"
-                                class="usa-accordion__button usa-nav__link"
-                                aria-expanded="false"
-                                aria-controls="extended-mega-nav-section-two">
-                            <span>National Genetic Resources Advisory Council</span>
-                        </button>
-                        <ul id="extended-mega-nav-section-two" class="usa-nav__submenu">
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href="">
-                                    <span>
-                                        &lt;A very long navigation link that goes onto two
-                                        lines&gt;
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="usa-nav__primary-item">
-                        <button type="button"
-                                class="usa-accordion__button usa-nav__link"
-                                aria-expanded="false"
-                                aria-controls="extended-mega-nav-section-three">
-                            <span>Crop Germplasm Committees</span>
-                        </button>
-                        <ul id="extended-mega-nav-section-three" class="usa-nav__submenu">
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href="">
-                                    <span>
-                                        &lt;A very long navigation link that goes onto two
-                                        lines&gt;
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                            <li class="usa-nav__submenu-item">
-                                <a href=""><span>&lt;Navigation link&gt;</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="usa-nav__primary-item">
-                        <a href="" class="usa-nav-link"><span>GRIN-U</span></a>
-                    </li>
-                    <li class="usa-nav__primary-item">
-                        <a href="" class="usa-nav-link"><span>Contact Us</span></a>
-                    </li>
-                </ul>
-                <div class="usa-nav__secondary usa-header--extended">
-                    <ul class="usa-nav__secondary-links"></ul>
-                    <section aria-label="Search component">
-                        <form class="usa-search usa-search--small" role="search">
-                            <label class="usa-sr-only" for="search-field">Search</label>
-                            <input class="usa-input"
-                                   id="search-field"
-                                   type="search"
-                                   name="search" />
-                            <button class="usa-button" type="submit">
-                                <img src="/assets/img/usa-icons-bg/search--white.svg"
-                                     class="usa-search__submit-icon"
-                                     alt="Search" />
-                            </button>
-                        </form>
-                    </section>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <!-- TODO Interior hero version-->
     <section class="usa-hero" aria-label="Introduction" style="background-image:url('../../assets/img/hero-topic-plants_0.jpg');">
-        <div class="grid-container">
+        <div class="grid-container" style="max-width:94rem;">
             <div id="hero-callout" class="usa-hero__callout">
                 <h1 class="usa-hero__heading">
                     <span class="usa-hero__heading--alt">
@@ -383,12 +161,40 @@
         </div>
     </section>
     @RenderBody()
-
+    @Html.Partial("~/Views/Shared/Partials/_USAFooter.cshtml")
 </body>
 </html>
+@Scripts.Render("~/bundles/bootstrap")
 <script type="text/javascript">
     /* Set width of dark blue callout block based on the actual length of the title. */
     $('#hero-callout').css('max-width', '50rem');
     var maxlength = $("#hero-title").width() / 16 + 5 + "rem";
     $('#hero-callout').css('max-width', maxlength);
+
+    /* Datatables */
+    function InitDataTable(tableName) {
+        $(document).ready(function () {
+            var table = $("#" + tableName).DataTable({
+                dom: 'Blfrtip',
+                paging: true,
+                initComplete: function () {
+                    SetControlVisibility(tableName);
+                },
+                responsive: true,
+                buttons: [
+                    'selectAll',
+                    'selectNone',
+                    'csv',
+                    'excel',
+                    'pdf'
+                ],
+                select: true,
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                columnDefs: [
+                    { targets: [0], visible: false }
+                ]
+            });
+        });
+    }
+
 </script>

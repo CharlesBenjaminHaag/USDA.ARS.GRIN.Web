@@ -51,30 +51,29 @@
     <div class="grid-container">
         <div class="grid-row grid-gap">
             <div class="usa-layout-docs__sidenav desktop:grid-col-2">
-            <nav aria-label="Secondary navigation">
-                <ul class="usa-sidenav">
-                    <li class="usa-sidenav__item"><a href="">Home</a></li>
-                    <li class="usa-sidenav__item">
-                        <a href="" class="usa-current">CGC</a>
-                        <ul class="usa-sidenav__sublist">
-                            <li class="usa-sidenav__item"><a href="">Overview</a></li>
-                            <li class="usa-sidenav__item"><a href="">Committees</a></li>
-                            <li class="usa-sidenav__item"><a href="">Chair Briefings</a></li>
+                <nav aria-label="Secondary navigation">
+                    <ul class="usa-sidenav">
+                        <li class="usa-sidenav__item"><a href="">Home</a></li>
+                        <li class="usa-sidenav__item">
+                            <a href="" class="usa-current">CGC</a>
+                            <ul class="usa-sidenav__sublist">
+                                <li class="usa-sidenav__item"><a href="#section-overview">Overview</a></li>
+                                <li class="usa-sidenav__item"><a href="#section-directory">Committees</a></li>
+                                <li class="usa-sidenav__item"><a href="#section-briefings">Chair Briefings</a></li>
 
-                        </ul>
-                    </li>
-                    <li class="usa-sidenav__item"><a href="">Contact Us</a></li>
-                </ul>
-            </nav>
-        </div>
-
-     
+                            </ul>
+                        </li>
+                        <li class="usa-sidenav__item"><a href="@Url.Action("Index","Contact")">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
             <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
                 <h1>Crop Germplasm Committees (CGC)</h1>
                 <p class="usa-intro">
                     The Crop Germplasm Committees are comprised of a cross section of NPGS users who provide technical support to NPGS genebanks
                     and collections.
                 </p>
+                <a id="section-overview"></a>
                 <h2 id="section-heading-h2">Overview</h2>
                 <p>
                     Crop Germplasm Committees (CGC) serve as subject matter experts to guide curatorial staff on best practices, including the priorities and techniques for characterizing the collections. They also help review proposals that fund plant explorations and evaluation grants for scientific rigor.
@@ -113,41 +112,175 @@
                         </tr>
                     </tbody>
                 </table>
-                <h3 id="section-heading-h3">Committees</h3>
+                <a id="section-directory"></a>
+                <h3 id="section-heading-h3TEST">Committees</h3>
                 @{ Html.RenderAction("_List", "CGC"); }
-
-
-
-
-
-
-
-
-
-
-                <h3 id="section-heading-h3">Subsection heading (h3)</h3>
-                <p>
-                    The particulars of your body copy will be determined by the topic of
-                    your page. Regardless of topic, it’s a good practice to follow the
-                    inverted pyramid structure when writing copy: Begin with the
-                    information that’s most important to your users and then present
-                    information of less importance.
-                </p>
-                <p>
-                    Keep each section and subsection focused — a good approach is to
-                    include one theme (topic) per section.
-                </p>
-                <h4 id="section-heading-h4">Subsection heading (h4)</h4>
-                <p>
-                    Use the side navigation menu to help your users quickly skip to
-                    different sections of your page. The menu is best suited to
-                    displaying a hierarchy with one to three levels and, as we
-                    mentioned, to display the sub-navigation of a given page.
-                </p>
-                <p>
-                    Read the full documentation on our side navigation on the component
-                    page.
-                </p>
+                <h3 id="section-heading-h3TEST2">Annual CGC Chair Briefings</h3>
+                <a id="section-briefings"></a>
+                <table class="usa-table usa-table--borderless usa-table--striped" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th scope="col">Document title</th>
+                            <th scope="col">Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                <a class="usa-link" href="https://www.ars-grin.gov/npgs/cgc/briefings/2022%20CGC%20Chairs%20meeting%20presentations.pdf">
+                                    2022 Crop Germplasm Committee Chairs Virtual Meeting, March 3, 2022
+                                </a>
+                            </th>
+                            <td>
+                                2022
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <a href="https://www.ars-grin.gov/npgs/cgc_reports/2021%20CGC%20Chairs%20meeting%20presentations.pdf">
+                                    The National Plant Germplasm
+                                    System: 2021 Status, Prospects,
+                                    and Challenges
+                                </a>
+                            </th>
+                            <td>
+                                2021
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <a href="https://www.ars-grin.gov/npgs/cgc_reports/2021%20CGC%20Chairs%20meeting%20presentations.pdf">
+                                    The National Plant Germplasm
+                                    System: 2021 Status, Prospects,
+                                    and Challenges
+                                </a>
+                            </th>
+                            <td>
+                                2021
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <a href="https://www.ars-grin.gov/npgs/cgc_reports/2021%20CGC%20Chairs%20meeting%20presentations.pdf">
+                                    The National Plant Germplasm
+                                    System: 2021 Status, Prospects,
+                                    and Challenges
+                                </a>
+                            </th>
+                            <td>
+                                2021
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <a href="https://www.ars-grin.gov/npgs/cgc_reports/2021%20CGC%20Chairs%20meeting%20presentations.pdf">
+                                    The National Plant Germplasm
+                                    System: 2021 Status, Prospects,
+                                    and Challenges
+                                </a>
+                            </th>
+                            <td>
+                                2021
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <a href="https://www.ars-grin.gov/npgs/cgc_reports/2021%20CGC%20Chairs%20meeting%20presentations.pdf">
+                                    The National Plant Germplasm
+                                    System: 2021 Status, Prospects,
+                                    and Challenges
+                                </a>
+                            </th>
+                            <td>
+                                2021
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <a href="https://www.ars-grin.gov/npgs/cgc_reports/2021%20CGC%20Chairs%20meeting%20presentations.pdf">
+                                    The National Plant Germplasm
+                                    System: 2021 Status, Prospects,
+                                    and Challenges
+                                </a>
+                            </th>
+                            <td>
+                                2021
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <a href="https://www.ars-grin.gov/npgs/cgc_reports/2021%20CGC%20Chairs%20meeting%20presentations.pdf">
+                                    The National Plant Germplasm
+                                    System: 2021 Status, Prospects,
+                                    and Challenges
+                                </a>
+                            </th>
+                            <td>
+                                2021
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <a href="https://www.ars-grin.gov/npgs/cgc_reports/2021%20CGC%20Chairs%20meeting%20presentations.pdf">
+                                    The National Plant Germplasm
+                                    System: 2021 Status, Prospects,
+                                    and Challenges
+                                </a>
+                            </th>
+                            <td>
+                                2021
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <a href="https://www.ars-grin.gov/npgs/cgc_reports/2021%20CGC%20Chairs%20meeting%20presentations.pdf">
+                                    The National Plant Germplasm
+                                    System: 2021 Status, Prospects,
+                                    and Challenges
+                                </a>
+                            </th>
+                            <td>
+                                2021
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <a href="https://www.ars-grin.gov/npgs/cgc_reports/2021%20CGC%20Chairs%20meeting%20presentations.pdf">
+                                    The National Plant Germplasm
+                                    System: 2021 Status, Prospects,
+                                    and Challenges
+                                </a>
+                            </th>
+                            <td>
+                                2021
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <a href="https://www.ars-grin.gov/npgs/cgc_reports/2021%20CGC%20Chairs%20meeting%20presentations.pdf">
+                                    The National Plant Germplasm
+                                    System: 2021 Status, Prospects,
+                                    and Challenges
+                                </a>
+                            </th>
+                            <td>
+                                2021
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <a href="https://www.ars-grin.gov/npgs/cgc_reports/2021%20CGC%20Chairs%20meeting%20presentations.pdf">
+                                    The National Plant Germplasm
+                                    System: 2021 Status, Prospects,
+                                    and Challenges
+                                </a>
+                            </th>
+                            <td>
+                                2021
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </main>
         </div>
     </div>

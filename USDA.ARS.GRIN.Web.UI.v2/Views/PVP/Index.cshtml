@@ -1,7 +1,7 @@
 ﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.PVPApplicationViewModel
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutInterior.cshtml";
+    Layout = "~/Views/Shared/_LayoutUSWDSInterior.cshtml";
 }
 
 <style>
@@ -29,144 +29,99 @@
 </style>
 
 <div id="overlay"><h2>Loading .. Please wait</h2></div>
-<div class="grid-container">
-    <div class="grid-row grid-gap">
-        <div class="usa-layout-docs__sidenav desktop:grid-col-2">
-            <nav aria-label="Secondary navigation">
-                <form class="usa-search usa-search--small" role="search">
-                    <label class="usa-sr-only" for="search-field-en-small">Search</label>
-                    <input class="usa-input" id="search-field-en-small" type="search" name="search" placeholder="Search GRIN-Global">
-                    <button class="usa-button" type="submit">
-                        <span class="usa-sr-only">Search</span>
-                    </button>
-                </form>
-                <br />
-                <ul class="usa-sidenav">
-                    <li class="usa-sidenav__item">
-                        <a href="@Url.Action("Index", "Home")">Home</a>
-                    </li>
-                    <li class="usa-sidenav__item">
-                        <ul class="usa-sidenav__sublist">
-                            <li class="usa-sidenav__item active">
-                                <a href="#section-overview">Overview</a>
-                            </li>
-                            <li class="usa-sidenav__item">
-                                <a href="#section-directory">Applications by Status</a>
-                            </li>
-                            <li class="usa-sidenav__item">
-                                <a href="#section-briefings">Browse Applications</a>
-                            </li>
-                            <li class="usa-sidenav__item">
-                                <a href="@Url.Action("Search","PVP")">Advanced Search</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
-            <p class="usa-intro">
-                The Plant Variety Protection Office (PVPO) publishes the status of Plant Variety Protection Applications 
-                on a monthly basis.
-            </p>
-            <p>
-                The PVPO also provides intellectual property protection to breeders of new
-                varieties of sexually reproduced, tuber propagated, and asexually reproduced plant varieties.
-                In accordance with the <a class="usa-link usa-link--alt usa-link--external" href="https://uscode.house.gov/browse/prelim@title7/chapter57/subchapter1&edition=prelim">
-                    Plant Variety Protection Act (PVPA)
-                </a>, it examines new varieties, and grants <a class="usa-link usa-link--alt usa-link--external" href="https://www.ams.usda.gov/services/plant-variety-protection/issued-certificates">certificates</a> that protect
-                varieties for 20 years (25 years for woody vines and trees).
-            </p>
 
-            @Html.Partial("~/Views/PVP/_ListByStatus.cshtml")
+<div class="usa-section">
+    <div class="grid-container" style="max-width:94rem;">
+        <div class="grid-row grid-gap">
+            <div class="usa-layout-docs__sidenav desktop:grid-col-2">
+                <nav aria-label="Secondary navigation,,,">
+                    <ul class="usa-sidenav">
+                        <li class="usa-sidenav__item">
+                            <a href="@Url.Action("Index","Home")">Home</a>
+                        </li>
+                        <li class="usa-sidenav__item">
+                            <a href="javascript:void(0);" class="usa-current">Contact Us</a>
+                        </li>
+                    </ul>
+                </nav>
 
-            <h3 id="section-heading-h3">Browse Applications</h3>
-            <div class="usa-alert usa-alert--info usa-alert--slim">
-                <div class="usa-alert__body">
-                    <p class="usa-alert__text">
-                        All data represented here is based on an <a class="usa-link usa-link--alt usa-link--external" href="https://www.ams.usda.gov/services/plant-variety-protection/application-status">update</a> from <strong>9/19/2022</strong>. Please <a href="@Url.Action("Index","Contact", new { context="pvp" })">contact us</a> regarding any errors or omissions.
-                    </p>
-                </div>
+                <nav aria-label="Secondary navigation">
+
+                    <br />
+                    <ul class="usa-sidenav">
+                        <li class="usa-sidenav__item">
+                            <a href="@Url.Action("Index", "Home")">PVP Applications</a>
+                        </li>
+                        <li class="usa-current">
+
+                        </li>
+                        <li class="usa-sidenav__item">
+                            <ul class="usa-sidenav__sublist">
+                                <li class="usa-sidenav__item active">
+                                    <a href="#section-overview">Overview</a>
+                                </li>
+                                <li class="usa-sidenav__item">
+                                    <a href="#section-directory">Applications by Status</a>
+                                </li>
+                                <li class="usa-sidenav__item">
+                                    <a href="#section-briefings">Browse Applications</a>
+                                </li>
+                                <li class="usa-sidenav__item">
+                                    <a href="@Url.Action("Search","PVP")">Advanced Search</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <div class="grid-container margin-2">
-                <div class="grid-row grid-gap">
-                    <div id="section-filter-by-time-frame" class="grid-col-12">
-                        <ul class="usa-button-group usa-button-group--segmented" style="padding-left:0px;">
-                            <li class="usa-button-group__item">
-                                <button id="btn-expired" title="EXP6" class="usa-button">Certificate Expiring in 6 Months</button>
-                            </li>
-                            <li class="usa-button-group__item">
-                                <button id="btn-submitted" title="REXP" class="usa-button usa-button--outline">Certificate Recently Expired</button>
-                            </li>
-                            <li class="usa-button-group__item">
-                                <button id="btn-expiring" title="RSUB" class="usa-button usa-button--outline">Application Recently Submitted</button>
-                            </li>
-                        </ul>
-                        <div id="section-pvp-applications" style="margin-top:20px;">
+            <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
+                <p class="usa-intro">
+                    The Plant Variety Protection Office (PVPO) publishes the status of Plant Variety Protection Applications
+                    on a monthly basis.
+                </p>
+                <p style="max-width:94rem;">
+                    The PVPO also provides intellectual property protection to breeders of new
+                    varieties of sexually reproduced, tuber propagated, and asexually reproduced plant varieties.
+                    In accordance with the <a class="usa-link usa-link--alt usa-link--external" href="https://uscode.house.gov/browse/prelim@title7/chapter57/subchapter1&edition=prelim">
+                        Plant Variety Protection Act (PVPA)
+                    </a>, it examines new varieties, and grants <a class="usa-link usa-link--alt usa-link--external" href="https://www.ams.usda.gov/services/plant-variety-protection/issued-certificates">certificates</a> that protect
+                    varieties for 20 years (25 years for woody vines and trees).
+                </p>
 
-                        </div>
+                @Html.Partial("~/Views/PVP/_ListByStatus.cshtml")
+
+                <h3 id="section-heading-h3">Browse Applications</h3>
+                <div class="usa-alert usa-alert--info usa-alert--slim">
+                    <div class="usa-alert__body">
+                        <p class="usa-alert__text">
+                            All data represented here is based on an <a class="usa-link" href="https://www.ams.usda.gov/services/plant-variety-protection/application-status">update</a> from <strong>9/19/2022</strong>. Please <a href="@Url.Action("Index","Contact", new { context="pvp" })">contact us</a> regarding any errors or omissions.
+                        </p>
                     </div>
                 </div>
-            </div>
-        </main>
-    </div>
-</div>
-<div id="modal-pvp-detail" class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">
-                    <span id="site-name">TEST</span>
-                </h3>
-            </div>
-            <div class="modal-body">
-                <table class="usa-table usa-table--borderless">
-                    <tbody>                        
-                        <tr>
-                            <th scope="row" style="font-weight:bold;">PI Number</th>
-                            <td>
-                                12345
-                            </td>
-                            <td>1776</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Applicant</th>
-                            <td>
-                                The first ten amendments of the U.S. Constitution guaranteeing rights
-                                and freedoms.
-                            </td>
-                            <td>1791</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Declaration of Sentiments</th>
-                            <td>
-                                A document written during the Seneca Falls Convention outlining the
-                                rights that American women should be entitled to as citizens.
-                            </td>
-                            <td>1848</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Emancipation Proclamation</th>
-                            <td>
-                                An executive order granting freedom to slaves in designated southern
-                                states.
-                            </td>
-                            <td>1863</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <br />
+                <div class="grid-container">
+                    <ul class="usa-button-group usa-button-group--segmented" style="padding-left:0px;">
+                        <li class="usa-button-group__item">
+                            <button id="btn-expired" title="EXP6" class="usa-button">Certificate Expiring in 6 Months</button>
+                        </li>
+                        <li class="usa-button-group__item">
+                            <button id="btn-submitted" title="REXP" class="usa-button usa-button--outline">Certificate Recently Expired</button>
+                        </li>
+                        <li class="usa-button-group__item">
+                            <button id="btn-expiring" title="RSUB" class="usa-button usa-button--outline">Application Recently Submitted</button>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div id="section-pvp-applications" style="margin-top:20px;">
 
-
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div>
+                </div>
+            </main>
         </div>
     </div>
-</div>
 
-<script type="text/javascript">
+</div>
+    <script type="text/javascript">
     $(document).ready(function () {
         LoadData("EXP6");
 
@@ -233,4 +188,4 @@
         });
         $("#overlay").hide();
     }
-</script>
+    </script>

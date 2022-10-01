@@ -1,50 +1,58 @@
 ﻿@{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutInterior.cshtml";
+    Layout = "~/Views/Shared/_LayoutUSWDSInterior.cshtml";
 }
 
-<div class="grid-container">
-    <div class="grid-row grid-gap">
-        <div class="usa-layout-docs__sidenav desktop:grid-col-2">
-            <nav aria-label="Secondary navigation,,,">
-                <ul class="usa-sidenav">
-                    <li class="usa-sidenav__item">
-                        <a href="@Url.Action("Index","Home")">Home</a>
+<div class="usa-section">
+    <div class="grid-container">
+        <div class="grid-row grid-gap">
+            <div class="usa-layout-docs__sidenav desktop:grid-col-2">
+                <nav aria-label="Secondary navigation">
+                    <ul class="usa-sidenav">
+                        <li class="usa-sidenav__item"><a href="">Home</a></li>
+                        @*<li class="usa-sidenav__item">
+                            <a href="" class="usa-current">CGC</a>
+                            <ul class="usa-sidenav__sublist">
+                                <li class="usa-sidenav__item"><a href="#section-overview">Overview</a></li>
+                                <li class="usa-sidenav__item"><a href="#section-directory">Committees</a></li>
+                                <li class="usa-sidenav__item"><a href="#section-briefings">Chair Briefings</a></li>
+
+                            </ul>
+                        </li>*@
+                        <li class="usa-sidenav__item"><a href="@Url.Action("Index","Contact")">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
+                @*<h1>National Genetic Resources Advisory Council (NGRAC)</h1>*@
+                <p class="usa-intro">
+                    The NGRAC advises and makes recommendations to the Secretary and Director of the NGRP through the NAREEE Advisory Board.
+                </p>
+                <p>
+                    The <a class="usa-link" href="https://www.webharvest.gov/peth04/20041014211750/http://www.ars-grin.gov/" target="_blank" rel="noopener noreferrer" >National Genetic Resources Program (NGRP)</a>
+                    acquires, characterizes, conserves, documents, and distributes to scientists germplasm of all life forms important for food and
+                    agricultural production. The Germplasm Resources Information Network (GRIN) documents these animal, microbial, and plant
+                    collections through informational pages, searchable databases, and links to USDA-ARS projects that curate the collections.
+                    GRIN is operated by the <a class="usa-link" href="https://www.ars.usda.gov/northeast-area/beltsville-md-barc/beltsville-agricultural-research-center/national-germplasm-resources-laboratory/" target="_blank" rel="noopener noreferrer">National Germplasm Resources Laboratory (NGRL)</a> in Beltsville, MD.
+                </p>
+                <ul class="usa-collection__meta" aria-label="Topics" style="margin-left:0px; padding-left:0px;">
+                    <li class="usa-collection__meta-item usa-tag">
+                        <a href="https://nareeeab.ree.usda.gov/committees/national-genetic-resources-advisory-council">
+                            NGRAC Overview
+                        </a>
                     </li>
-                    <li class="usa-sidenav__item">
-                        <a href="javascript:void(0);" class="usa-current">NGRAC</a>
+                    <li class="usa-collection__meta-item usa-tag">
+                        <a href="https://nareeeab.ree.usda.gov/">NAREE Board</a>
+                    </li>
+                    <li class="usa-collection__meta-item usa-tag">
+                        <a href="https://www.webharvest.gov/peth04/20041014211750/http://www.ars-grin.gov/">NGRP</a>
+                    </li>
+                    <li class="usa-collection__meta-item usa-tag">
+                        <a href="https://www.ars.usda.gov/northeast-area/beltsville-md-barc/beltsville-agricultural-research-center/national-germplasm-resources-laboratory/">NGRL</a>
                     </li>
                 </ul>
-            </nav>
+            </main>
         </div>
-        <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
-            <p class="usa-intro">
-                The NGRAC advises and makes recommendations to the Secretary and Director of the NGRP through the NAREEE Advisory Board.
-            </p>
-            <p>
-                The <a class="usa-link usa-link--alt usa-link--external" href="https://www.webharvest.gov/peth04/20041014211750/http://www.ars-grin.gov/">National Genetic Resources Program (NGRP)</a> 
-                acquires, characterizes, conserves, documents, and distributes to scientists germplasm of all life forms important for food and 
-                agricultural production. The Germplasm Resources Information Network (GRIN) documents these animal, microbial, and plant 
-                collections through informational pages, searchable databases, and links to USDA-ARS projects that curate the collections. 
-                GRIN is operated by the <a class="usa-link usa-link--alt usa-link--external" href="https://www.ars.usda.gov/northeast-area/beltsville-md-barc/beltsville-agricultural-research-center/national-germplasm-resources-laboratory/">National Germplasm Resources Laboratory (NGRL)</a> in Beltsville, MD.</p>
-            <ul class="usa-collection__meta" aria-label="Topics" style="margin-left:0px; padding-left:0px;">
-                <li class="usa-collection__meta-item usa-tag">
-                    <a href="https://nareeeab.ree.usda.gov/committees/national-genetic-resources-advisory-council">
-                        NGRAC Overview
-                    </a>
-                </li>
-                <li class="usa-collection__meta-item usa-tag">
-                    <a href="https://nareeeab.ree.usda.gov/">NAREE Board</a>
-                </li>
-                <li class="usa-collection__meta-item usa-tag">
-                    <a href="https://www.webharvest.gov/peth04/20041014211750/http://www.ars-grin.gov/">NGRP</a>
-                </li>
-                <li class="usa-collection__meta-item usa-tag">
-                    <a href="https://www.ars.usda.gov/northeast-area/beltsville-md-barc/beltsville-agricultural-research-center/national-germplasm-resources-laboratory/">NGRL</a>
-                </li>
-            </ul>
-        </main>
     </div>
 </div>
-
 
