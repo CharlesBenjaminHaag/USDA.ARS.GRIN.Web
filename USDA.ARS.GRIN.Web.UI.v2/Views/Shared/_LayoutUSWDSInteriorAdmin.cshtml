@@ -43,17 +43,30 @@
             controls; without qualifying by id, causes the main header "here's how you know" link to
             superimpose the plus/minus over the text.
         */
-        #main-content .usa-accordion__button[aria-expanded=false] {
+        #section-committees .usa-accordion__button[aria-expanded=false] {
             background-image: url(/assets/img/usa-icons/add.svg),linear-gradient(transparent,transparent);
             background-repeat: no-repeat;
             background-size: 1.5rem;
         }
 
-        #main-content .usa-accordion__button[aria-expanded=true] {
+        #section-committees .usa-accordion__button[aria-expanded=true] {
             background-image: url(/assets/img/usa-icons/remove.svg),linear-gradient(transparent,transparent);
             background-repeat: no-repeat;
             background-size: 1.5rem;
         }
+
+        #section-pvp-search-criteria .usa-accordion__button[aria-expanded=false] {
+            background-image: url(/assets/img/usa-icons/add.svg),linear-gradient(transparent,transparent);
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+        }
+
+        #section-pvp-search-criteria .usa-accordion__button[aria-expanded=true] {
+            background-image: url(/assets/img/usa-icons/remove.svg),linear-gradient(transparent,transparent);
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+        }
+
 
         .usa-alert--info:before {
             background: url("@Url.Content("https://designsystem.digital.gov/assets/img/usa-icons/info.svg")") no-repeat center/contain;
@@ -73,6 +86,19 @@
         /* Needed to ensure that DataTables search box label appears on the left of the search box. */
         .dataTables_filter input {
             float: none;
+        }
+        .site-sidenav.usa-sidenav {
+            font-family: Public Sans Web,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+            font-size: .94rem;
+            line-height: 1.4;
+            background-color: #fff;
+            border: 2px solid rgba(0,0,0,.1);
+            border-radius: .25rem;
+            padding: 0;
+        }
+        .usa-section {
+            padding-bottom: 4rem;
+            padding-top: 2rem; 
         }
     </style>
 
@@ -133,20 +159,11 @@
     <script src="~/assets/uswds/dist/js/uswds.min.js"></script>
     @Html.Partial("~/Views/Shared/Partials/_USABanner.cshtml")
     <div class="usa-overlay"></div>
-    @Html.Partial("~/Views/Shared/Partials/_USANavExtendedHeaderWithMegamenu.cshtml")
+    @Html.Partial("~/Views/Shared/Partials/_USANavAdmin.cshtml")
 
-    <!-- TODO Interior hero version-->
-    <section class="usa-hero" aria-label="Introduction" style="background-image:url('../../assets/img/hero-topic-plants_0.jpg');">
-        <div class="grid-container" style="max-width:94rem;">
-            <div id="hero-callout" class="usa-hero__callout">
-                <h1 class="usa-hero__heading">
-                    <span class="usa-hero__heading--alt">
-                        <span id="hero-title">@TempData["PAGE_CONTEXT"]</span>
-                    </span>
-                </h1>
-            </div>
-        </div>
-    </section>
+    <!--<section class="usa-hero" aria-label="Introduction" style="height:100px; background-color:gray;">-->
+        <!-- TODO -->
+    <!--</section>-->
     @RenderBody()
     @Html.Partial("~/Views/Shared/Partials/_USAFooter.cshtml")
 </body>
@@ -164,7 +181,9 @@
             var table = $("#" + tableName).DataTable({
                 dom: 'Blfrtip',
                 paging: true,
-                
+                initComplete: function () {
+                    SetControlVisibility(tableName);
+                },
                 responsive: true,
                 buttons: [
                     'selectAll',

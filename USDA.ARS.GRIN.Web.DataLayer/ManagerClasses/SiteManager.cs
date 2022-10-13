@@ -20,7 +20,20 @@ namespace USDA.ARS.GRIN.Web.DataLayer
                 CreateParameter("site_id", (object)entityId, false)
             };
             site = GetRecord<Site>(SQL, CommandType.StoredProcedure, parameters.ToArray());
+            site.Crops = GetCrops(entityId);
             return site;
+        }
+
+        public List<CodeValue> GetCrops(int entityId)
+        {
+            SQL = "usp_GGTools_GRINGlobal_SiteCrops_Select";
+            List<CodeValue> codeValues = new List<CodeValue>();
+
+            var parameters = new List<IDbDataParameter> {
+                CreateParameter("site_id", (object)entityId, false)
+            };
+            codeValues = GetRecords<CodeValue>(SQL, CommandType.StoredProcedure, parameters.ToArray());
+            return codeValues;
         }
 
         public List<Site> Search(SiteSearch searchEntity)

@@ -1,8 +1,10 @@
 ﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.CropGermplasmCommitteeDocumentViewModel
 @{
     ViewBag.Title = Model.PageTitle;
-    Layout = "~/Views/Shared/_LayoutAdminLTE3.cshtml";
+    Layout = "~/Views/Shared/_LayoutUSWDSInteriorAdmin.cshtml";
 }
+
+
 
 @using (Html.BeginForm("Search", "CropGermplasmCommitteeDocument", FormMethod.Post, new { id = "frmSearch" }))
 {

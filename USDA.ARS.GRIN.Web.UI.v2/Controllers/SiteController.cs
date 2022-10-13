@@ -18,23 +18,44 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
             return View();
         }
 
-        public PartialViewResult _Detail(int siteId)
+        //[HttpPost]
+        //public JsonResult _Detail(FormCollection formCollection)
+        //{
+        //    SiteViewModel viewModel = new SiteViewModel();
+
+        //    try
+        //    {
+        //        if (!String.IsNullOrEmpty(formCollection["SiteID"]))
+        //        {
+        //            viewModel.Get(Int32.Parse(formCollection["SiteID"]));
+        //        }
+        //        return Json(new { site = viewModel.Entity }, JsonRequestBehavior.AllowGet);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Log.Error(ex);
+        //        return Json(new { success = false }, JsonRequestBehavior.AllowGet);
+        //    }
+        //}
+
+        [HttpPost]
+        public PartialViewResult _Detail(FormCollection formCollection)
         {
+            SiteViewModel viewModel = new SiteViewModel();
+
             try
             {
-                SiteViewModel viewModel = new SiteViewModel();
-                viewModel.Get(siteId);
-                return PartialView(viewModel);
+                if (!String.IsNullOrEmpty(formCollection["SiteID"]))
+                {
+                    viewModel.Get(Int32.Parse(formCollection["SiteID"]));
+                }
+                return PartialView("~/Views/Site/_Detail.cshtml", viewModel);
             }
             catch (Exception ex)
             {
                 Log.Error(ex);
-                return PartialView("~/Views/Error/_InternalServerError.cshtml");
+                return PartialView("~/Views/Site/_Detail.cshtml");
             }
-
-
-            //TODO Get site data
-            return PartialView("~/Views/Site/_Detail.cshtml");
         }
     }
 }

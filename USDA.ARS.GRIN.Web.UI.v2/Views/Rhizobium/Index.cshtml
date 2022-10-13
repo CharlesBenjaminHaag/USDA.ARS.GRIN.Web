@@ -3,37 +3,128 @@
     Layout = "~/Views/Shared/_LayoutUSWDSInterior.cshtml";
 }
 
-<div class="grid-container">
-    <div class="grid-row grid-gap">
-        <div class="usa-layout-docs__sidenav desktop:grid-col-2">
-            <nav aria-label="Secondary navigation">
-                <form class="usa-search usa-search--small" role="search">
-                    <label class="usa-sr-only" for="search-field-en-small">Search</label>
-                    <input class="usa-input" id="search-field-en-small" type="search" name="search" placeholder="Search GRIN-Global">
-                    <button class="usa-button" type="submit">
-                        <span class="usa-sr-only">Search</span>
-                    </button>
-                </form>
+<style type="text/css">
+    .group {
+        background-color:blue;
+    }
+
+    .usa-list ul > li {
+        max-width: 94rem;
+    }
+</style>
+
+<div class="usa-section">
+    <div class="grid-container" style="max-width:94rem;">
+        <div class="grid-row grid-gap">
+            <div class="usa-layout-docs__sidenav desktop:grid-col-2">
+                <nav aria-label="Secondary navigation">
+                    <ul class="usa-sidenav">
+                        <li class="usa-sidenav__item">
+                            <a href="@Url.Action("Index","Home")">Home</a>
+                        </li>
+                        <li class="usa-sidenav__item">
+                            <a href="@Url.Action("Index", "Home")" class="usa-current">Rhizobium</a>
+                        </li>
+                        <li class="usa-current">
+                        </li>
+                        <li class="usa-sidenav__item">
+                            <a href="javascript:void(0);">Contact Us</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
+                <p class="usa-intro">
+                    The mission of the USDA Rhizobium program is to support the application of low-input sustainable agriculture.
+                </p>
+                <p style="max-width:94rem;">
+                    To this end, the USDA:
+                    <ul class="usa-list" style="max-width:94rem;">
+                        <li style="max-width:94rem;">
+                            Provides technical information about rhizobia, their preservation,
+                            and relevant cultural and symbiotic characteristics.
+                        </li>
+                        <li style="max-width:94rem;">
+                            Acquires and preserves the nitrogen-fixing bacterial symbionts of leguminous plants
+                            to attain the widest possible genetic diversity.
+                        </li>
+                        <li style="max-width:94rem;">
+                            Maintains the quality of new and existing germplasm by evaluation of
+                            microbiological purity and by examination of nodulation of the original trap host plant.
+                        </li>
+                        <li style="max-width:94rem;">
+                            Distributes cultures to the public and private sectors, at no charge.
+                        </li>
+                        <li style="max-width:94rem;">
+                            Develops or adapts molecular biology techniques to determine the genetic diversity of
+                            rhizobia, investigate interactions with their host plants, and identify novel characteristics.
+                        </li>
+                        <li style="max-width:94rem;">
+                            Acquires, maintains, evaluates the quality of, and distributes type strains for all the different taxa
+                            of nitrogen-fixing legume symbionts.
+                        </li>
+                        <li style="max-width:94rem;">
+                            Participates in the UNESCO program.
+                        </li>
+                    </ul>
+                </p>
+                <h3 id="section-heading-h3">Browse Rhizobium Data</h3>
+                <div class="usa-alert usa-alert--info usa-alert--slim">
+                    <div class="usa-alert__body">
+                        <p class="usa-alert__text">
+                            All data shown here is current as of <strong>1/10/20</strong>. Please contact <a href="mailto:patrick.elia@usda.gov">Patrick Elia</a> with any questions about the data displayed below. 
+                        </p>
+                    </div>
+                </div>
                 <br />
-                <ul class="usa-sidenav">
-                    <li class="usa-sidenav__item">
-                        <a href="/">Home</a>
-                    </li>
-                    <li class="usa-sidenav__item">
-                        <a href="" class="usa-current">Overview</a>
-                        <ul class="usa-sidenav__sublist">
-                            <li class="usa-sidenav__item">
-                                <a href="" class="usa-current">Browse</a><ul class="usa-sidenav__sublist">
-                                </ul>
-                            </li>
-                            <li class="usa-sidenav__item">
-                                <a href="@Url.Action("Contact","Home", new { topic = "PVP" })">Report a Problem</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+                @Html.Partial("~/Views/Rhizobium/_List.cshtml")
+            </main>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (!$.fn.dataTable.isDataTable('#data_table_rhizobium_descriptors')) {
+            InitDataTable("data_table_rhizobium_descriptors");
+        }
+    });
 
+    // DATA TABLE GROUPING 
+    //$(document).ready(function () {
+    //    var groupColumn = 6;
+    //    var table = $('#data_table_rhizobium_descriptors').DataTable({
+    //        columnDefs: [{ visible: false, targets: groupColumn }],
+    //        order: [[groupColumn, 'asc']],
+    //        displayLength: 25,
+    //        drawCallback: function (settings) {
+    //            var api = this.api();
+    //            var rows = api.rows({ page: 'current' }).nodes();
+    //            var last = null;
+
+    //            api
+    //                .column(groupColumn, { page: 'current' })
+    //                .data()
+    //                .each(function (group, i) {
+    //                    if (last !== group) {
+    //                        $(rows)
+    //                            .eq(i)
+    //                            .before('<tr class="group" style="background-color:yellow;"><td style="background-color:yellow;" colspan="5">' + group + '</td></tr>');
+
+    //                        last = group;
+    //                    }
+    //                });
+    //        },
+    //    });
+
+    //    // Order by the grouping
+    //    $('#data_table_rhizobium_descriptors tbody').on('click', 'tr.group', function () {
+    //        var currentOrder = table.order()[0];
+    //        if (currentOrder[0] === groupColumn && currentOrder[1] === 'asc') {
+    //            table.order([groupColumn, 'desc']).draw();
+    //        } else {
+    //            table.order([groupColumn, 'asc']).draw();
+    //        }
+    //    });
+    //});
+    
+</script>

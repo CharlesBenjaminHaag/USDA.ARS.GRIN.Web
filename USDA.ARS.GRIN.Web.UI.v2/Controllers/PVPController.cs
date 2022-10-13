@@ -39,7 +39,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
         {
             TempData["PAGE_CONTEXT"] = "PVP Application Status Database";
             PVPApplicationViewModel viewModel = new PVPApplicationViewModel();
-
+          
             if (!String.IsNullOrEmpty(status))
             {
                 viewModel.SearchEntity.CertificateStatus = status;
@@ -53,6 +53,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
         {
             try
             {
+                TempData["PAGE_CONTEXT"] = "PVP Application Status Database";
                 viewModel.Search();
                 ModelState.Clear();
                 return View(viewModel);

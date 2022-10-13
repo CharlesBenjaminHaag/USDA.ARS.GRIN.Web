@@ -1,0 +1,41 @@
+﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.RhizobiumViewModel
+
+<!-- Override: digital service template forces label to right of input.  -->
+<style>
+    .dataTables_filter input {
+        float: none;
+    }
+</style>
+<table id="data_table_rhizobium_descriptors" class="display" style="width:100%;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Syn1</th>
+            <th>Syn2</th>
+            <th>Syn3</th>
+            <th>Syn4</th>
+            <th>Host Plant</th>
+            <th>Common Name</th>
+            <th>Source</th>
+            <th>Geo Source</th>
+            <th>Sero Group</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var result in Model.DataCollection)
+        {
+        <tr>
+            <td>@result.RhyID</td>
+            <td>@result.Synonym1</td>
+            <td>@result.Synonym2</td>
+            <td>@result.Synonym3</td>
+            <td>@result.Synonym4</td>
+            <td>@result.HostPlant</td>
+            <td>@result.CommonName</td>
+            <td>@result.Source</td>
+            <td>@result.GeoSource</td>
+            <td>@result.SeroGroup</td>
+        </tr>
+        }
+    </tbody>
+</table>

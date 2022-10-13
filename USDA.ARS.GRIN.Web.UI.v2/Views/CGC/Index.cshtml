@@ -57,10 +57,9 @@
                         <li class="usa-sidenav__item">
                             <a href="" class="usa-current">CGC</a>
                             <ul class="usa-sidenav__sublist">
-                                <li class="usa-sidenav__item"><a href="#section-overview">Overview</a></li>
-                                <li class="usa-sidenav__item"><a href="#section-directory">Committees</a></li>
-                                <li class="usa-sidenav__item"><a href="#section-briefings">Chair Briefings</a></li>
-
+                                <li class="usa-sidenav__item"><a href="#overview">Overview</a></li>
+                                <li class="usa-sidenav__item"><a href="#committees">Committees</a></li>
+                                <li class="usa-sidenav__item"><a href="#briefings">Chair Briefings</a></li>
                             </ul>
                         </li>
                         <li class="usa-sidenav__item"><a href="@Url.Action("Index","Contact")">Contact Us</a></li>
@@ -73,7 +72,7 @@
                     The Crop Germplasm Committees are comprised of a cross section of NPGS users who provide technical support to NPGS genebanks
                     and collections.
                 </p>
-                <a id="section-overview"></a>
+                <a id="overview"></a>
                 <h2 id="section-heading-h2">Overview</h2>
                 <p>
                     Crop Germplasm Committees (CGC) serve as subject matter experts to guide curatorial staff on best practices, including the priorities and techniques for characterizing the collections. They also help review proposals that fund plant explorations and evaluation grants for scientific rigor.
@@ -112,11 +111,11 @@
                         </tr>
                     </tbody>
                 </table>
-                <a id="section-directory"></a>
+                <a id="committees"></a>
                 <h3 id="section-heading-h3TEST">Committees</h3>
                 @{ Html.RenderAction("_List", "CGC"); }
                 <h3 id="section-heading-h3TEST2">Annual CGC Chair Briefings</h3>
-                <a id="section-briefings"></a>
+                <a id="briefings"></a>
                 <table class="usa-table usa-table--borderless usa-table--striped" style="width:100%;">
                     <thead>
                         <tr>

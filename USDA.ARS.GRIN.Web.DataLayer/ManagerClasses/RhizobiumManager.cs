@@ -32,7 +32,19 @@ namespace USDA.ARS.GRIN.Web.DataLayer
 
         public List<RhizobiumDescriptor> Search(RhizobiumDescriptorSearch searchEntity)
         {
-            throw new NotImplementedException();
+            string viewName = String.Empty;
+            List<RhizobiumDescriptor> results = new List<RhizobiumDescriptor>();
+
+            SQL = " SELECT * FROM vw_GGTools_GRINGlobal_RhizobiumDescriptors";
+            SQL += " ORDER BY CommonName";
+
+            var parameters = new List<IDbDataParameter> {
+                //CreateParameter("HostPlant", (object)searchEntity.  ?? DBNull.Value, true),
+            };
+
+            results = GetRecords<RhizobiumDescriptor>(SQL, parameters.ToArray());
+            RowsAffected = results.Count;
+            return results;
         }
 
         public int Update(RhizobiumDescriptor entity)

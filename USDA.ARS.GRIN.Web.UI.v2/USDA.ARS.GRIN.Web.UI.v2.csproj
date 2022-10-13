@@ -158,6 +158,7 @@
     <Content Include="assets\img\icon-https.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="assets\img\sprite.svg" />
     <Content Include="assets\img\usa-icons-bg\add--white.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1194,6 +1195,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\uswds-2.10.0\css\uswds.min.css" />
+    <Content Include="assets\uswds-2.10.0\img\animals.jpg" />
+    <Content Include="assets\uswds-2.10.0\img\collections.jpg" />
+    <Content Include="assets\uswds-2.10.0\img\microbial.jpg" />
+    <Content Include="assets\uswds-2.10.0\img\plants.jpg" />
+    <Content Include="assets\uswds-2.10.0\img\pvp.png" />
+    <Content Include="assets\uswds-2.10.0\img\pvp2.png" />
+    <Content Include="assets\uswds-2.10.0\img\rhizobium.jpg" />
     <Content Include="assets\uswds-2.10.0\js\uswds-init.min.js" />
     <Content Include="assets\uswds-2.10.0\js\uswds.min.js" />
     <Content Include="assets\uswds\dist\css\uswds.css" />
@@ -1298,6 +1306,9 @@
     <Content Include="Views\Shared\_LayoutUSWDSInterior.cshtml" />
     <Content Include="Views\Shared\Partials\_USAHero.cshtml" />
     <Content Include="Views\Shared\Partials\_USANavExtendedHeaderWithMegamenu.cshtml" />
+    <Content Include="Views\Shared\_LayoutUSWDSInteriorAdmin.cshtml" />
+    <Content Include="Views\Rhizobium\_List.cshtml" />
+    <Content Include="Views\Shared\Partials\_USANavAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

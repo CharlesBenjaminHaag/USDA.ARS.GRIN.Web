@@ -14,10 +14,10 @@
                         <li class="usa-sidenav__item">
                             <a href="" class="usa-current">Collections</a>
                             <ul class="usa-sidenav__sublist">
-                                <li class="usa-sidenav__item"><a href="#section-overview">Plant Germplasm</a></li>
-                                <li class="usa-sidenav__item"><a href="#section-directory">Animal Germplasm</a></li>
-                                <li class="usa-sidenav__item"><a href="#section-briefings">Microbial Germplasm</a></li>
-
+                                <li class="usa-sidenav__item"><a href="#plant-germplasm">Plant Germplasm</a></li>
+                                <li class="usa-sidenav__item"><a href="#animal-germplasm">Animal Germplasm</a></li>
+                                <li class="usa-sidenav__item"><a href="#microbial-germplasm">Microbial Germplasm</a></li>
+                                <li class="usa-sidenav__item"><a href="#grin-collections">GRIN Collections</a></li>
                             </ul>
                         </li>
                         <li class="usa-sidenav__item"><a href="@Url.Action("Index","Contact")">Contact Us</a></li>
@@ -28,6 +28,8 @@
                 <p class="usa-intro">
                     GRIN both provides data, and compiles references to databases hosted by collaborating projects.
                 </p>
+
+                <a id="plant-germplasm"></a>
                 <h2 id="section-heading-h2p">Plant Germplasm</h2>
                 <p>
                     The National Plant Germplasm System (NGPS) is a collaborative effort to safeguard the
@@ -51,52 +53,23 @@
                     <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://ia800305.us.archive.org/31/items/CAT31108469/CAT31108469.pdf">Seeds For Our Future (PDF)</a></li>
                     <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://www.youtube.com/watch?v=uHOclGNELuw">Video About the NPGS (6 Minutes)</a></li>
                 </ul>
-
                 <p>
-                    @*<div class="margin-y-3">
-                <a href="#example-modal-2" class="usa-button" aria-controls="example-modal-2" data-open-modal="" role="button" id="modal-511429">Open large modal</a>
-                <div data-placeholder-for="example-modal-2" aria-hidden="true" data-original-class="usa-modal usa-modal--lg" data-original-id="example-modal-2" data-original-aria-labelledby="modal-2-heading" data-original-aria-describedby="modal-2-description" style="display: none;"></div>
-            </div>*@
-
                     <!-- Site detail modal -->
                     <div class="margin-y-3">
-                        <div class="usa-modal usa-modal--lg"
+                        <div class="usa-modal usa-modal--sm"
                              id="example-modal-2"
                              aria-labelledby="modal-2-heading"
                              aria-describedby="modal-2-description">
                             <div class="usa-modal__content">
-                                <div class="usa-modal__main">
-                                    <h2 class="usa-modal__heading" id="modal-2-heading">
-                                        Are you sure you want to continue?
-                                    </h2>
-                                    <div class="usa-prose">
-                                        <p id="modal-2-description">
-                                            You have unsaved changes that will be lost.
-                                        </p>
-                                    </div>
-                                    <div class="usa-modal__footer">
-                                        <ul class="usa-button-group">
-                                            <li class="usa-button-group__item">
-                                                <button type="button" class="usa-button" data-close-modal>
-                                                    Continue without saving
-                                                </button>
-                                            </li>
-                                            <li class="usa-button-group__item">
-                                                <button type="button"
-                                                        class="usa-button usa-button--unstyled padding-105 text-center"
-                                                        data-close-modal>
-                                                    Go back
-                                                </button>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                <div id="section-modal-site-detail" class="usa-modal__main">
+                                    <h4>Loading...</h4>
                                 </div>
                                 <button type="button"
                                         class="usa-button usa-modal__close"
                                         aria-label="Close this window"
                                         data-close-modal>
                                     <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                                        <use xlink:href="/assets/img/sprite.svg#close"></use>
+                                        <use xlink:href="~/assets/img/sprite.svg#close"></use>
                                     </svg>
                                 </button>
                             </div>
@@ -104,11 +77,16 @@
                     </div>
 
                     <h3 id="section-heading-h3">Repository Map (U.S. and Territories)</h3>
+                    <a style="color: Background; cursor:none; outline:none;" id="btnOpenSiteDetailModal" href="#example-modal-2"
+                       aria-controls="example-modal-2"
+                       data-open-modal>
+                        Open large modal
+                    </a>
                     <section id="section-repository-map">
                         <div class="grid-container">
                             <div class="grid-row">
                                 <div class="tablet:grid-col-12">
-                                    <div class="usa-alert usa-alert--info usa-alert--no-icon" style="width:800px;">
+                                    <div class="usa-alert usa-alert--info usa-alert--no-icon" style="width:850px;">
                                         <div class="usa-alert__body">
                                             <p class="usa-alert__text">
                                                 Click on a marker to display the corresponding germplasm collection site's pertinent information.
@@ -122,12 +100,14 @@
                             </div>
                             <div class="grid-row">
                                 <div class="tablet:grid-col-12">
-                                    <div id="mapid" style="width:800px; height:700px;"></div>
+                                    <div id="mapid" style="width:850px; height:850px;"></div>
                                 </div>
                             </div>
                         </div>
                     </section>
                 </p>
+
+                <a id="animal-germplasm"></a>
                 <h2 id="section-heading-h2a">Animal Germplasm</h2>
                 <p>
                     Animal genetic resources underpin the livestock sector’s production and profitability. As a result livestock industries contribute billions of dollars to national economies. Our mission is to acquire, evaluate and preserve these strategic resources so that industry and the research community can have access to a broad array of genetic variability for national security, the introduction of genetic variation, corrective mating, and various research initiatives.
@@ -137,240 +117,32 @@
                     <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="Search the Animal Germplasm Database">Animal Germplasm Database</a></li>
                 </ul>
 
+                <a id="microbial-germplasm"></a>
                 <h2 id="section-heading-h2m">Microbial Germplasm</h2>
                 <p>
                     The goal of this program is to ensure that the genetic diversity of agriculturally important microorganisms is maintained to enhance and increase agricultural efficiency and profitability.The program will collect, authenticate and characterizepotentially useful microbial germplasm; preserve microbial genetic diversity; and facilitate distribution and utilization of microbial germplasm for research and industry.
                     <ul class="usa-collection__meta" aria-label="Topics">
                         <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://www.ars.usda.gov/northeast-area/ithaca-ny/robert-w-holley-center-for-agriculture-health/emerging-pests-and-pathogens-research/docs/mycology/">ARSEF</a></li>
-                        <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://www.ars-grin.gov/Rhizobium">Rhizobium</a></li>
                         <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://nt.ars-grin.gov/fungaldatabases/specimens/specimens.cfm">U.S. National Fungus Collection</a></li>
                     </ul>
                 </p>
-                <a style="color:Background;" id="btnOpenSiteDetailModal" href="#example-modal-2"
-                   aria-controls="example-modal-2"
-                   data-open-modal>
-                    Open large modal
-                </a>
+
+                <a id="grin-collections"></a>
+                <h2 id="section-heading-h2m">GRIN Collections</h2>
+                <p>
+                    GRIN provides access to data maintained within its database, supporting both searches and export.
+                    The Rhizobium collection of nitrogen fixing bacteria is maintained by the ARS Soybean Genomics and
+                    Improvement Laboratory in Beltsville, MD. Plant Variety Protection Certificates are issued by the
+                    Plant Variety Protection Office of the USDA Agricultural Marketing Service.
+                </p>
+                <ul class="usa-collection__meta" aria-label="Topics">
+                    <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="@Url.Action("Index","PVP")">PVP Applications</a></li>
+                    <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="@Url.Action("Index","Rhizobium")">Rhizobium</a></li>
+                </ul>
             </main>
         </div>
     </div>
 </div>
-
-<!--<div class="grid-container">
-    <div class="grid-row grid-gap">
-        <div class="usa-layout-docs__sidenav desktop:grid-col-2">
-            <nav aria-label="Secondary navigation">
-                <form class="usa-search usa-search--small" role="search">
-                    <label class="usa-sr-only" for="search-field-en-small">Search</label>
-                    <input class="usa-input" id="search-field-en-small" type="search" name="search" placeholder="Search GRIN-Global">
-                    <button class="usa-button" type="submit">
-                        <span class="usa-sr-only">Search</span>
-                    </button>
-                </form>
-                <br />
-                <ul class="usa-sidenav">
-                    <li class="usa-sidenav__item">
-                        <a href="">Home</a>
-                    </li>
-                    <li class="usa-sidenav__item">
-                        <a href="#collections" class="usa-current">@TempData["PAGE_CONTEXT"]</a><ul class="usa-sidenav__sublist">
-
-                            <li class="usa-sidenav__item">
-                                <a href="#section-genetic-resource_collections" class="usa-sidenav__item">Genetic Resource Collections</a><ul class="usa-sidenav__sublist">
-                                    <li class="usa-sidenav__item">
-                                        <a href="#plant-germplasm">Plant Germplasm</a>
-                                    </li>
-                                    <li class="usa-sidenav__item">
-                                        <a href="#animal-germplasm">Animal Germplasm</a>
-                                    </li>
-                                    <li class="usa-sidenav__item">
-                                        <a href="#microbial-germplasm">Microbial Germplasm</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="usa-sidenav__item">
-                                <a href="#grin-collections" class="usa-sidenav__item">GRIN Collections</a><ul class="usa-sidenav__sublist">
-                                    <li class="usa-sidenav__item">
-                                        <a href="#grin-collections">Rhizobium Collection</a>
-                                    </li>
-                                    <li class="usa-sidenav__item">
-                                        <a href="#grin-collections">PVP Applications</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-
-        <main class="usa-layout-docs__main desktop:grid-col-9 usa-prose usa-layout-docs" id="main-content">
-            <h1>Collections</h1>
-            <p class="usa-intro measure-none">
-    
-    </p>
-
-            <h2 id="section-genetic-resource_collections">Genetic Resource Collections</h2>
-
-            <a name="plant-germplasm"></a>
-            <h3>Plant Germplasm</h3>
-            <section id="section-genetic-resource-collections">
-                <p class="line-height-serif-4 margin-top-0 measure-none padding-bottom-05 margin-bottom-2">
-                    The National Plant Germplasm System (NGPS) is a collaborative effort to safeguard the genetic diversity of agriculturally important plants. The mission of the NPGS is to support agricultural production by acquiring, conserving, evaluating, documenting, and distributing crop germplasm.
-
-                    <ul class="usa-collection__meta" aria-label="Topics">
-                        <li class="usa-collection__meta-item usa-tag"><a href="https://npgsweb.ars-grin.gov/gringlobal/search">
-                            Search NPGS GRIN-Global</a>
-                        </li>
-                        <li class="usa-collection__meta-item usa-tag">
-                            <a href="https://www.ars.usda.gov/northeast-area/beltsville-md-barc/beltsville-agricultural-research-center/national-germplasm-resources-laboratory/docs/plant-inventory-books/">Plant Inventory Books</a></li>
-                        <li class="usa-collection__meta-item usa-tag"><a href="@Url.Action("Index","CGC")">Crop Germplasm Committees</a></li>
-                        <li class="usa-collection__meta-item usa-tag"><a href="https://www.ars-grin.gov/Pages/Repositories">Repositories</a></li>
-                        <li class="usa-collection__meta-item usa-tag"><a href="https://npgsweb.ars-grin.gov/gringlobal/query/summary">Diversity of Species in NPGS</a></li>
-                        <li class="usa-collection__meta-item usa-tag"><a href="https://npgsweb.ars-grin.gov/gringlobal/query/accessionsbysite">Summary by Genebank</a></li>
-                        <li class="usa-collection__meta-item usa-tag"><a href="https://ia800305.us.archive.org/31/items/CAT31108469/CAT31108469.pdf">Seeds For Our Future (PDF)</a></li>
-                        <li class="usa-collection__meta-item usa-tag"><a href="https://www.youtube.com/watch?v=uHOclGNELuw">Video About the NPGS (6 Minutes)</a></li>
-                    </ul>
-
-                </p>
-            </section>
-            <h4>Repository Map (U.S. and Territories)</h4>
-            <section id="section-repository-map ">
-                <section id="section-repository-map">
-                    <div class="grid-container">
-                        <div class="grid-row">
-
-                            <div class="tablet:grid-col-12">
-                                <div id="mapid" style="width:900px; height:700px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <a name="animal-germplasm"></a>
-                <h3>Animal Germplasm</h3>
-                <p class="line-height-serif-4 margin-top-0 measure-none padding-bottom-05 margin-bottom-2">
-                    Animal genetic resources underpin the livestock sector’s production and profitability. As a result livestock industries contribute billions of dollars to national economies. Our mission is to acquire, evaluate and preserve these strategic resources so that industry and the research community can have access to a broad array of genetic variability for national security, the introduction of genetic variation, corrective mating, and various research initiatives.
-                    <ul class="usa-collection__meta" aria-label="Topics">
-                        <li class="usa-collection__meta-item usa-tag"><a href="https://nrrc.ars.usda.gov/A-GRIN/database_collaboration_page_dev">Animal Genetic Resources</a></li>
-                        <li class="usa-collection__meta-item usa-tag"><a href="Search the Animal Germplasm Database">Animal Germplasm Database</a></li>
-                    </ul>
-                </p>
-
-                <a name="microbial-germplasm"></a>
-                <h3>Microbial Germplasm</h3>
-                <p>
-                    The goal of this program is to ensure that the genetic diversity of agriculturally important microorganisms is maintained to enhance and increase agricultural efficiency and profitability.The program will collect, authenticate and characterizepotentially useful microbial germplasm; preserve microbial genetic diversity; and facilitate distribution and utilization of microbial germplasm for research and industry.
-                    <ul class="usa-collection__meta" aria-label="Topics">
-                        <li class="usa-collection__meta-item usa-tag"><a href="https://www.ars.usda.gov/northeast-area/ithaca-ny/robert-w-holley-center-for-agriculture-health/emerging-pests-and-pathogens-research/docs/mycology/">USDA ARS Collection of Entomopathogenic Fungal Cultures (ARSEF)</a></li>
-                        <li class="usa-collection__meta-item usa-tag"><a href="https://www.ars-grin.gov/Rhizobium">Rhizobium</a></li>
-                        <li class="usa-collection__meta-item usa-tag"><a href="https://nt.ars-grin.gov/fungaldatabases/specimens/specimens.cfm">U.S. National Fungus Collection</a></li>
-                    </ul>
-                </p>
-            </section>
-
-            <a name="grin-collections"></a>
-            <h2>GRIN Collections</h2>
-            <p>GRIN provides access to data maintained within its database, supporting both searches and export. The Rhizobium collection of nitrogen fixing bacteria is maintained by the ARS Soybean Genomics and Improvement Laboratory in Beltsville, MD. Plant Variety Protection Certificates are issued by the Plant Variety Protection Office of the USDA Agricultural Marketing Service.</p>
-            <section>
-                <div class="grid-row">
-                    <div class="grid-col-6">
-                        <h3 class="margin-x-0 margin-y-2">PVP Application Status</h3>
-                        <ul class="usa-collection">
-                            <li class="usa-collection__item">
-                                <img class="usa-collection__img" src="~/assets/images/PVPSeal.png" alt="Alt text">
-                                <div class="usa-collection__body">
-                                    <h3 class="usa-collection__heading">
-                                        <a class="usa-link" href="@Url.Action("Index","PVP")">PVP Application Status Database</a>
-                                    </h3>
-                                    <p class="usa-collection__description">
-                                        The Plant Variety Protection Office (PVPO) provides intellectual property protection to breeders of new varieties of sexually reproduced, tuber propagated, and asexually reproduced plant varieties.
-                                    </p>
-                                    <ul class="usa-collection__meta" aria-label="More information">
-                                        <li class="usa-collection__meta-item">
-                                            <strong>Contact: </strong>
-                                            <a href="mailto:PVPOmail@usda.gov">Bernadette Johnson, AMS</a>
-                                        </li>
-                                        <li class="usa-collection__meta-item">
-                                            <strong>Last Updated: </strong>
-                                            <time datetime="2020-09-30T12:00:00+01:00">
-                                                September 30, 2020
-                                            </time>
-                                        </li>
-                                    </ul>-->
-
-                                    @*<ul class="usa-collection__meta" aria-label="Topics">
-                                    <li class="usa-collection__meta-item usa-tag usa-tag--new">
-                                        New
-                                    </li>
-                                    <li class="usa-collection__meta-item usa-tag">
-                                        PMA
-                                    </li>
-                                    <li class="usa-collection__meta-item usa-tag">
-                                        OMB
-                                    </li>
-                                </ul>*@
-                                <!--</div>
-                            </li>
-
-                        </ul>
-                    </div>
-                    <div class="grid-col-6">
-                        <h3 class="margin-x-0 margin-y-2">Rhizobium Collection</h3>
-                        <ul class="usa-collection">
-                            <li class="usa-collection__item">
-                                <img class="usa-collection__img" src="~/assets/images/rhizobium.jpg" alt="Alt text">
-                                <div class="usa-collection__body">
-                                    <h3 class="usa-collection__heading">
-                                        <a class="usa-link" href="@Url.Action("Index","Rhizobium")">Rhizobium Collection</a>
-                                    </h3>
-                                    <p class="usa-collection__description">The Collection is a service-oriented program with a major objective of distributing characterized germplasm of rhizobia to stakeholders in industry for use in inoculants and for research at State, Federal and University laboratories. </p>
-                                    <ul class="usa-collection__meta" aria-label="More information">
-                                        <li class="usa-collection__meta-item">
-                                            <strong>Contact: </strong>
-                                            <a href="mailto:patrick.elia@usda.gov">
-                                                Patrick Elia
-                                            </a>
-                                        </li>
-                                        <li class="usa-collection__meta-item">
-                                            <strong>Last Updated: </strong>
-                                            <time datetime="2020-09-30T12:00:00+01:00">
-                                                September 30, 2020
-                                            </time>
-                                        </li>
-                                    </ul>
-
-                                    <!-- TODO: MOVE PDF EMBED CODE -->-->
-                                    <!--@*<embed src="https://apps.ams.usda.gov/CMS//AdobeImages/201500355.pdf" type="application/pdf" width="100%" height="600px" />
-                                                                    <embed src="https://drive.google.com/viewerng/
-                                viewer?embedded=true&url=https://apps.ams.usda.gov/CMS//AdobeImages/201500355.pdf" width="500" height="375">
-
-                                                                    <iframe src="https://docs.google.com/viewer?url=https://apps.ams.usda.gov/CMS//AdobeImages/201500355.pdf&embedded=true" frameborder="0" height="500px" width="100%"></iframe>*@
-
-                                    @*<ul class="usa-collection__meta" aria-label="Topics">
-                                    <li class="usa-collection__meta-item usa-tag usa-tag--new">
-                                        New
-                                    </li>
-                                    <li class="usa-collection__meta-item usa-tag">
-                                        PMA
-                                    </li>
-                                    <li class="usa-collection__meta-item usa-tag">
-                                        OMB
-                                    </li>
-                                </ul>*@
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
-</div>-->
-
-
-
 
 <script type="text/javascript" src="https://leafletjs.com/examples/choropleth/us-states.js"></script>
 <script type="text/javascript">
@@ -392,22 +164,33 @@
         link = link.replace("SITE_ID", selectedSiteId);
 
         //DEBUG
-        
+        alert("SITE " + selectedSiteId);
+
+        GetSiteInfo(selectedSiteId);
         $("#btnOpenSiteDetailModal")[0].click();
-        //$.ajax(
-        //    {
-        //        type: 'POST',
-        //        url: link,
-        //        data: { siteId : this.options.myCustomId },
-        //        success:
-        //            function (response) {
-        //                $("#section-map-site-detail-container").html(response);
-        //            },
-        //        error:
-        //            function (response) {
-        //                console.log(response);
-        //            }
-        //    });
+    }
+
+    function GetSiteInfo(siteId) {
+        var link = '@Url.Action("_Detail","Site")';
+        var formData = new FormData();
+        formData.append("SiteID", siteId);
+
+        try {
+            $.ajax({
+                url: link,
+                type: 'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: formData,
+                success: function (response) {
+                    $("#section-modal-site-detail").html(response);
+                }
+            });
+        }
+        catch (ex) {
+            //ErrorHandler(ex);
+        }
     }
 
     //TODO: PDF EMBED
@@ -498,17 +281,6 @@
     var marker = L.marker([25.64388309000814, -80.2917109157293], { myCustomId: siteId });
     marker.on('click', onMarkerClick);
     marker.addTo(map);
-
-    //8	
-    //9	33.968078033711286, -117.33456035792699
-    //16	42.008928272568696, -93.66361315989242
-    //17	42.87763358522057, -77.00722278842248
-    //38	40.00198912431977, -83.02888870382807
-    //22	33.2677625332149, -84.2877572904676
-    //29	44.87961782641051, -87.33528967303394
-    //40	34.47581490375999, -91.41872793277506
-    //24	40.10145444323368, -88.22267277499076
-    //26	46.73192943628397, -117.15788711531751
 
     var geojson;
 

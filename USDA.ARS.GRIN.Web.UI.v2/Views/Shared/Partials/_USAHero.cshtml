@@ -9,9 +9,8 @@
             <p>
                 Search over <strong>500,000</strong> active accessions
             </p>
-
             <section aria-label="Default search component">
-                <form class="usa-search " role="search">
+                <form id="grinGlobalSearchForm" class="usa-search " role="search" action="@Url.Action("Search","Home")">
                     <label class="usa-sr-only" for="search-field">Search</label>
                     <input class="usa-input" id="search-field" type="search" name="search">
                     <button id="btnSearchGRINGlobal" class="usa-button" type="submit">
@@ -19,8 +18,18 @@
                     </button>
                 </form>
             </section>
-
-            @*<a class="usa-button" href="">Call to action</a>*@
         </div>
     </div>
 </section>
+<script type="text/javascript">
+    $(function () {
+        $('#btnSearchGRINGlobal').on('click', function (e) {
+            e.preventDefault();
+            var searchString = grinGlobalSearchForm.search.value;
+
+            if (searchString.length > 0) {
+                window.location.href = "https://npgsweb.ars-grin.gov/gringlobal/search?q=" + searchString;
+            }
+        });
+    });
+</script>

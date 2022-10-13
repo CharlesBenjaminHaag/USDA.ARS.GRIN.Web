@@ -6,7 +6,6 @@
         float: none;
     }
 </style>
-<h3 id="section-heading-h3">Search Results (@Model.RowsAffected)</h3>
 <table id="data-table_pvp_applications" class="display" style="width:100%;">
     <thead>
         <tr>
@@ -57,7 +56,9 @@
 </table>
 <script type="text/javascript">
     $(document).ready(function () {
-        InitDataTable("data-table_pvp_applications");
+        if (!$.fn.dataTable.isDataTable('#data-table_pvp_applications')) {
+            InitDataTable("data-table_pvp_applications");
+        }
     });
 
     /* DETAIL */

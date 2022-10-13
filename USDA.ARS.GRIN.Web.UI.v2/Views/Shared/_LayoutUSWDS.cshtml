@@ -1,107 +1,261 @@
 ﻿<!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>USDA ARS GRIN</title>
-        <script src="~/assets/uswds/dist/js/uswds-init.min.js"></script>
-        <link rel="stylesheet" href="~/assets/uswds/dist/css/uswds.css" />
-        <title>View</title>
-    </head>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USDA ARS GRIN</title>
+    <script src="~/assets/uswds/dist/js/uswds-init.min.js"></script>
+    <link rel="stylesheet" href="~/assets/uswds/dist/css/uswds.css" />
+    <title>View</title>
+    @Scripts.Render("~/bundles/jquery")
+</head>
     <body>
         <script src="~/assets/uswds/dist/js/uswds.min.js"></script>
         <a class="usa-skipnav" href="#main-content">Skip to main content</a>
         @Html.Partial("~/Views/Shared/Partials/_USABanner.cshtml")
         <div class="usa-overlay"></div>
         @Html.Partial("~/Views/Shared/Partials/_USANavExtendedHeaderWithMegamenu.cshtml")
-        <main id="main-content">
-            @Html.Partial("~/Views/Shared/Partials/_USAHero.cshtml")
-            <section class="grid-container usa-section">
-                @RenderBody()
-            </section>
-            <section class="usa-graphic-list usa-section usa-section--dark">
-                <div class="grid-container">
-                    <div class="usa-graphic-list__row grid-row grid-gap">
-                        <div class="usa-media-block tablet:grid-col">
-                            <img class="usa-media-block__img"
-                                 src="/assets/img/circle-124.png"
-                                 alt="Alt text" />
-                            <div class="usa-media-block__body">
-                                <h2 class="usa-graphic-list__heading">
-                                    Graphic headings can vary.
-                                </h2>
-                                <p>
-                                    Graphic headings can be used a few different ways, depending on
-                                    what your landing page is for. Highlight your values, specific
-                                    program areas, or results.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="usa-media-block tablet:grid-col">
-                            <img class="usa-media-block__img"
-                                 src="/assets/img/circle-124.png"
-                                 alt="Alt text" />
-                            <div class="usa-media-block__body">
-                                <h2 class="usa-graphic-list__heading">
-                                    Stick to 6 or fewer words.
-                                </h2>
-                                <p>
-                                    Keep body text to about 30 words. They can be shorter, but try
-                                    to be somewhat balanced across all four. It creates a clean
-                                    appearance with good spacing.
-                                </p>
-                            </div>
+    <main id="main-content">
+        @Html.Partial("~/Views/Shared/Partials/_USAHero.cshtml")
+        <section class="grid-container usa-section">
+            @RenderBody()
+        </section>
+
+        <section class="usa-graphic-list usa-section usa-section--dark">
+            <div class="grid-container">
+                <div class="usa-graphic-list__row grid-row grid-gap">
+                    <div class="usa-media-block tablet:grid-col">
+                        <img class="usa-media-block__img" src="~/assets/uswds-2.10.0/img/plants.jpg" alt="Alt text" style="height: 90px; width: 110px;">
+                        <div class="usa-media-block__body">
+                            <h2 class="usa-graphic-list__heading">
+                                @{
+                                    var link_plants = Url.Action("Index", "Collections") + "#plant-germplasm";
+                                }
+                                <a href="@link_plants" style="color: #02acca;">Plant Germplasm</a>
+                            </h2>
+                            <p>The National Plant Germplasm System (NGPS) is a collaborative effort to safeguard the genetic diversity of agriculturally important plants. The mission of the NPGS is to support agricultural production by acquiring, conserving, evaluating, documenting, and distributing crop germplasm.</p>
                         </div>
                     </div>
-                    <div class="usa-graphic-list__row grid-row grid-gap">
-                        <div class="usa-media-block tablet:grid-col">
-                            <img class="usa-media-block__img"
-                                 src="/assets/img/circle-124.png"
-                                 alt="Alt text" />
-                            <div class="usa-media-block__body">
-                                <h2 class="usa-graphic-list__heading">
-                                    Never highlight anything without a goal.
-                                </h2>
-                                <p>
-                                    For anything you want to highlight here, understand what your
-                                    users know now, and what activity or impression you want from
-                                    them after they see it.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="usa-media-block tablet:grid-col">
-                            <img class="usa-media-block__img"
-                                 src="/assets/img/circle-124.png"
-                                 alt="Alt text" />
-                            <div class="usa-media-block__body">
-                                <h2 class="usa-graphic-list__heading">Could also have 2 or 6.</h2>
-                                <p>
-                                    In addition to your goal, find out your users’ goals. What do
-                                    they want to know or do that supports your mission? Use these
-                                    headings to show those.
-                                </p>
-                            </div>
+                    <div class="usa-media-block tablet:grid-col">
+                        <img class="usa-media-block__img" src="~/assets/uswds-2.10.0/img/animals.jpg" alt="Alt text" style="height: 90px; width: 110px;">
+                        <div class="usa-media-block__body">
+                            <h2 class="usa-graphic-list__heading">
+                                @{
+                                    var link_animals = Url.Action("Index", "Collections") + "#animal-germplasm";
+                                }
+                                <a href="@link_animals" style="color: #02acca;">
+                                    Animal Germplasm
+                                </a>
+                            </h2>
+                            <p>
+                                Animal genetic resources underpin the livestock sector’s production and profitability. 
+                                As a result livestock industries contribute billions of dollars to national economies. 
+                                Our mission is to acquire, evaluate and preserve these strategic resources so that industry 
+                                and the research community can have access to a broad array of genetic variability for national 
+                                security, the introduction of genetic variation, corrective mating, and various research initiatives.
+                            </p>
                         </div>
                     </div>
                 </div>
-            </section>
-            <section id="test-section-id" class="usa-section">
-                <div class="grid-container">
-                    <h2 class="font-heading-xl margin-y-0">Section heading</h2>
-                    <p class="usa-intro">
-                        Everything up to this point should help people understand your agency
-                        or project: who you are, your goal or mission, and how you approach
-                        it. Use this section to encourage them to act. Describe why they
-                        should get in touch here, and use an active verb on the button below.
-                        “Get in touch,” “Learn more,” and so on.
-                    </p>
-                    <a class="usa-button usa-button--big" href="">Call to action</a>
+                <div class="usa-graphic-list__row grid-row grid-gap">
+                    <div class="usa-media-block tablet:grid-col">
+                        <img class="usa-media-block__img" src="~/assets/uswds-2.10.0/img/microbial.jpg" alt="Alt text" style="height: 90px; width: 110px;">
+                        <div class="usa-media-block__body">
+                            <h2 class="usa-graphic-list__heading">
+                                @{
+                                    var link_microbial = Url.Action("Index", "Collections") + "#microbial-germplasm";
+                                }
+                                <a href="@link_microbial" style="color: #02acca;">
+                                    Micriobial Germplasm
+                                </a>
+                            </h2>
+                            <p>
+                                The goal of this program is to ensure that the genetic diversity of agriculturally 
+                                important microorganisms is maintained to enhance and increase agricultural efficiency 
+                                and profitability.The program will collect, authenticate and characterizepotentially 
+                                useful microbial germplasm; preserve microbial genetic diversity; and facilitate 
+                                distribution and utilization of microbial germplasm for research and industry.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="usa-media-block tablet:grid-col">
+                        <img class="usa-media-block__img" src="~/assets/uswds-2.10.0/img/collections.jpg" alt="Alt text" style="height: 90px; width: 110px;">
+                        <div class="usa-media-block__body">
+                            <h2 class="usa-graphic-list__heading">
+                                @{
+                                    var link_grin = Url.Action("Index", "Collections") + "#grin-collections";
+                                }
+                                <a href="@link_grin" style="color: #02acca;">
+                                    GRIN Collections
+                                </a>
+                            </h2>
+                            <p>
+                                GRIN provides access to data maintained within its database, supporting both searches and export. 
+                                The Rhizobium collection of nitrogen fixing bacteria is maintained by the ARS Soybean Genomics 
+                                and Improvement Laboratory in Beltsville, MD. Plant Variety Protection Certificates are issued 
+                                by the Plant Variety Protection Office of the USDA Agricultural Marketing Service.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </section>
+
+
+        @*<section class="usa-graphic-list usa-section usa-section--dark">
+            <div class="grid-container">
+                <div class="usa-graphic-list__row grid-row grid-gap">
+                    <div class="usa-media-block tablet:grid-col">
+                        <img class="usa-media-block__img"
+                             src="/assets/img/circle-124.png"
+                             alt="Alt text" />
+                        <div class="usa-media-block__body">
+                            <h2 class="usa-graphic-list__heading">
+                                Graphic headings can vary.
+                            </h2>
+                            <p>
+                                Graphic headings can be used a few different ways, depending on
+                                what your landing page is for. Highlight your values, specific
+                                program areas, or results.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="usa-media-block tablet:grid-col">
+                        <img class="usa-media-block__img"
+                             src="/assets/img/circle-124.png"
+                             alt="Alt text" />
+                        <div class="usa-media-block__body">
+                            <h2 class="usa-graphic-list__heading">
+                                Stick to 6 or fewer words.
+                            </h2>
+                            <p>
+                                Keep body text to about 30 words. They can be shorter, but try
+                                to be somewhat balanced across all four. It creates a clean
+                                appearance with good spacing.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="usa-graphic-list__row grid-row grid-gap">
+                    <div class="usa-media-block tablet:grid-col">
+                        <img class="usa-media-block__img"
+                             src="/assets/img/circle-124.png"
+                             alt="Alt text" />
+                        <div class="usa-media-block__body">
+                            <h2 class="usa-graphic-list__heading">
+                                Never highlight anything without a goal.
+                            </h2>
+                            <p>
+                                For anything you want to highlight here, understand what your
+                                users know now, and what activity or impression you want from
+                                them after they see it.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="usa-media-block tablet:grid-col">
+                        <img class="usa-media-block__img"
+                             src="/assets/img/circle-124.png"
+                             alt="Alt text" />
+                        <div class="usa-media-block__body">
+                            <h2 class="usa-graphic-list__heading">Could also have 2 or 6.</h2>
+                            <p>
+                                In addition to your goal, find out your users’ goals. What do
+                                they want to know or do that supports your mission? Use these
+                                headings to show those.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>*@
+
+    <section id="test-section-id" class="usa-section">
+        <div class="grid-container">
+            <h2 class="font-heading-xl margin-top-0 tablet:margin-bottom-0">GRIN Collections</h2>
+            <div class="grid-row grid-gap">
+                <div class="tablet:grid-col-6">
+                    <ul class="usa-collection">
+                        <li class="usa-collection__item">
+                            <div class="usa-collection__body">
+                                <h3 class="usa-collection__heading">
+                                    <a class="usa-link"
+                                       href="">PVP Application Database</a>
+                                </h3>
+                                <p class="usa-collection__description">
+                                    Today, the Administration announces the winners of the Gears of
+                                    Government President’s Award. This program recognizes the contributions
+                                    of individuals and teams across the federal workforce who make a
+                                    profound difference in the lives of the American people.
+                                </p>
+                                <ul class="usa-collection__meta" aria-label="More information">
+                                    <li class="usa-collection__meta-item">
+                                        By Sondra Ainsworth and Constance Lu
+                                    </li>
+                                    <li class="usa-collection__meta-item">
+                                        <time datetime="2020-09-30T12:00:00+01:00">September 30, 2020</time>
+                                    </li>
+                                </ul>
+                                <ul class="usa-collection__meta" aria-label="Topics">
+                                    <li class="usa-collection__meta-item usa-tag usa-tag--new">New</li>
+                                    <li class="usa-collection__meta-item usa-tag">PMA</li>
+                                    <li class="usa-collection__meta-item usa-tag">OMB</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tablet:grid-col-6">
+                    @*<h3 class="site-preview-heading margin-top-0">PVP Application Database</h3>*@
+                    <ul class="usa-collection">
+                        <li class="usa-collection__item">
+                            <div class="usa-collection__body">
+                                <h3 class="usa-collection__heading">
+                                    <a class="usa-link"
+                                       href="https://trumpadministration.archives.performance.gov/presidents-winners-press-release/">Gears of Government President’s Award winners</a>
+                                </h3>
+                                <p class="usa-collection__description">
+                                    Today, the Administration announces the winners of the Gears of
+                                    Government President’s Award. This program recognizes the contributions
+                                    of individuals and teams across the federal workforce who make a
+                                    profound difference in the lives of the American people.
+                                </p>
+                                <ul class="usa-collection__meta" aria-label="More information">
+                                    <li class="usa-collection__meta-item">
+                                        By Sondra Ainsworth and Constance Lu
+                                    </li>
+                                    <li class="usa-collection__meta-item">
+                                        <time datetime="2020-09-30T12:00:00+01:00">September 30, 2020</time>
+                                    </li>
+                                </ul>
+                                <ul class="usa-collection__meta" aria-label="Topics">
+                                    <li class="usa-collection__meta-item usa-tag usa-tag--new">New</li>
+                                    <li class="usa-collection__meta-item usa-tag">PMA</li>
+                                    <li class="usa-collection__meta-item usa-tag">OMB</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    </main>
         @Html.Partial("~/Views/Shared/Partials/_USAFooter.cshtml")
     </body>
 </html>
 <script type="text/javascript">
+    //$(function () {
+    //    $('#btnSearchGRINGlobal').on('click', function () {
+    //        var searchstring = $('#search');
 
+    //        alert("DEBUG " + searchstring.val());
+
+            
+    //        if (searchString.length > 0) {
+    //            window.location.href = "https://npgsweb.ars-grin.gov/gringlobal/search?q=" + searchString;
+    //        }
+    //    });
+    //});
 </script>

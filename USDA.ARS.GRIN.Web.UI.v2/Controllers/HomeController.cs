@@ -26,5 +26,10 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
 
             return View();
         }
+
+        public void Search(FormCollection formCollection)
+        {
+            Response.Redirect("");
+        }
     }
 }
