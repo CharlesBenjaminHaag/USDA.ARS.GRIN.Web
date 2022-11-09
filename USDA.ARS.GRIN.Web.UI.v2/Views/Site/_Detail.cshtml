@@ -5,7 +5,7 @@
 <table class="usa-table usa-table--borderless">
     <tbody>
         <tr>
-            <th scope="row">Site Code</th>
+            <th scope="row">Short Name</th>
             <td>
                 @Model.Entity.ShortName
             </td>
@@ -30,7 +30,7 @@
                 <ul class="usa-collection__meta" aria-label="Topics">
                     @foreach (var result in Model.Entity.Crops)
                     {
-                        <li class="usa-collection__meta-item usa-tag usa-tag--new" style="background-color:darkgray">@result.Title</li>
+                        <li class="usa-collection__meta-item usa-tag usa-tag--new" style="background-color:darkgray">@result.CodeTitle</li>
                     }
                 </ul>
             </td>

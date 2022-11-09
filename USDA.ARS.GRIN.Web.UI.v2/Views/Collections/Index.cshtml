@@ -162,10 +162,6 @@
         var selectedSiteId = this.options.myCustomId;
         var link = '@Url.Action("_Detail", "Site", new { siteId = "SITE_ID" })';
         link = link.replace("SITE_ID", selectedSiteId);
-
-        //DEBUG
-        alert("SITE " + selectedSiteId);
-
         GetSiteInfo(selectedSiteId);
         $("#btnOpenSiteDetailModal")[0].click();
     }

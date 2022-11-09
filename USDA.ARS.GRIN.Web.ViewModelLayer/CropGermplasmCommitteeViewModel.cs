@@ -32,5 +32,9 @@ namespace USDA.ARS.GRIN.Web.ViewModelLayer
                 }
             }
         }
+        public void GetDocuments(int cropGermplasmCommitteeId)
+        { 
+        
+        }
     }
 }

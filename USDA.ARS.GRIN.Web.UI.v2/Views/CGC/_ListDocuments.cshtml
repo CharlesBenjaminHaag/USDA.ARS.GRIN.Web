@@ -1,0 +1,23 @@
+﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.CropGermplasmCommitteeDocumentViewModel
+<table class="usa-table usa-table--borderless usa-table--striped" style="width:100%;">
+    @*<caption>
+            Introductory Documents
+        </caption>*@
+    <thead>
+        <tr>
+            <th scope="col">Document title</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var result in Model.DataCollection)
+        { 
+            <tr>
+                <th scope="row">
+                    <a href="@result.URL">
+                        @result.Title
+                    </a>
+                </th>
+            </tr>        
+        }
+    </tbody>
+</table>

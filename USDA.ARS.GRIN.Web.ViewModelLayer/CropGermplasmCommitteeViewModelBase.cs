@@ -12,7 +12,7 @@ namespace USDA.ARS.GRIN.Web.ViewModelLayer
         private CropGermplasmCommittee _Entity = new CropGermplasmCommittee();
         private CropGermplasmCommitteeSearch _SearchEntity = new CropGermplasmCommitteeSearch();
         private Collection<CropGermplasmCommittee> _DataCollection = new Collection<CropGermplasmCommittee>();
-
+        private Collection<CropGermplasmCommitteeDocument> _DataCollectionDocuments = new Collection<CropGermplasmCommitteeDocument>();
         public CropGermplasmCommittee Entity
         {
             get { return _Entity; }
@@ -29,6 +29,11 @@ namespace USDA.ARS.GRIN.Web.ViewModelLayer
         {
             get { return _DataCollection; }
             set { _DataCollection = value; }
+        }
+        public Collection<CropGermplasmCommitteeDocument> DataCollectionDocuments
+        {
+            get { return _DataCollectionDocuments; }
+            set { _DataCollectionDocuments = value; }
         }
     }
 }

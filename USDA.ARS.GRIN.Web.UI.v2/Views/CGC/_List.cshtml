@@ -1,5 +1,4 @@
 ﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.CropGermplasmCommitteeViewModel
-
 <div id="section-committees" class="usa-accordion--bordered" style="margin-top:15px;">
     @foreach (var result in Model.DataCollection)
     {
@@ -15,15 +14,15 @@
             <p>
                 <a href="@result.RosterURL" class="usa-link">Committee Roster</a>
             </p>
-            @Html.Partial("_DocumentList","CGC")
-            <h4>Crop Descriptors</h4>
+            @{Html.RenderAction("_ListDocuments", "CGC", new { cropGermplasmCommitteeId = result.ID });}
+            @*<h4>Crop Descriptors</h4>
             <ul class="usa-collection__meta" aria-label="Topics">
                 <li class="usa-collection__meta-item usa-tag">Quarterly update</li>
                 <li class="usa-collection__meta-item usa-tag">CAP goal</li>
                 <li class="usa-collection__meta-item usa-tag">APG</li>
                 <li class="usa-collection__meta-item usa-tag">PMA</li>
                 <li class="usa-collection__meta-item usa-tag">Success story</li>
-            </ul>
+            </ul>*@
 
         </div>
     }

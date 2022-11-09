@@ -90,11 +90,12 @@ namespace USDA.ARS.GRIN.Web.DataLayer
         {
             // Create SQL to search for rows
             SQL = "SELECT * FROM vw_GGTools_GRINGlobal_CropGermplasmCommitteeDocument";
-            SQL += " WHERE (@CreatedByCooperatorID  IS NULL OR CreatedByCooperatorID    =       @CreatedByCooperatorID) ";
-            SQL += " AND   (@Title                  IS NULL OR Title                    LIKE    '%' + @Title + '%') ";
-            SQL += " AND   (@CategoryCode           IS NULL OR CategoryCode             =       @CategoryCode) ";
-            SQL += " AND   (@Year                   IS NULL OR DocumentYear             =       @Year) ";
-            SQL += " AND   (@ID                     IS NULL OR ID                       =       @ID)";
+            SQL += " WHERE (@CreatedByCooperatorID      IS NULL OR CreatedByCooperatorID        =       @CreatedByCooperatorID) ";
+            SQL += " AND   (@Title                      IS NULL OR Title                        LIKE    '%' + @Title + '%') ";
+            SQL += " AND   (@CategoryCode               IS NULL OR CategoryCode                 =       @CategoryCode) ";
+            SQL += " AND   (@Year                       IS NULL OR Year                         =       @Year) ";
+            SQL += " AND   (@ID                         IS NULL OR ID                           =       @ID)";
+            SQL += " AND   (@CropGermplasmCommitteeID   IS NULL OR CropGermplasmCommitteeID     =       @CropGermplasmCommitteeID)";
 
             var parameters = new List<IDbDataParameter> {
                 CreateParameter("CreatedByCooperatorID", search.CreatedByCooperatorID > 0 ? (object)search.CreatedByCooperatorID : DBNull.Value, true),
@@ -102,6 +103,7 @@ namespace USDA.ARS.GRIN.Web.DataLayer
                 CreateParameter("CategoryCode", (object)search.CategoryCode ?? DBNull.Value, true),
                 CreateParameter("Year", search.Year > 0 ? (object)search.Year : DBNull.Value, true),
                 CreateParameter("ID", search.ID > 0 ? (object)search.ID : DBNull.Value, true),
+                CreateParameter("CropGermplasmCommitteeID", search.CropGermplasmCommitteeID > 0 ? (object)search.CropGermplasmCommitteeID : DBNull.Value, true),
             };
             List<CropGermplasmCommitteeDocument> cropForCWRs = GetRecords<CropGermplasmCommitteeDocument>(SQL, parameters.ToArray());
             RowsAffected = cropForCWRs.Count;
@@ -118,7 +120,7 @@ namespace USDA.ARS.GRIN.Web.DataLayer
             AddParameter("@url", (object)entity.URL ?? DBNull.Value, true);
             AddParameter("@title", (object)entity.Title ?? DBNull.Value, true);
             AddParameter("@category_code", (object)entity.CategoryCode ?? DBNull.Value, true);
-            AddParameter("@year", entity.Year == 0 ? DBNull.Value : (object)entity.ID, true);
+            AddParameter("@year", entity.Year == 0 ? DBNull.Value : (object)entity.Year, true);
 
             if (entity.ID > 0)
             {

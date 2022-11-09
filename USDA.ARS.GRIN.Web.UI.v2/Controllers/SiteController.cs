@@ -18,26 +18,6 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public JsonResult _Detail(FormCollection formCollection)
-        //{
-        //    SiteViewModel viewModel = new SiteViewModel();
-
-        //    try
-        //    {
-        //        if (!String.IsNullOrEmpty(formCollection["SiteID"]))
-        //        {
-        //            viewModel.Get(Int32.Parse(formCollection["SiteID"]));
-        //        }
-        //        return Json(new { site = viewModel.Entity }, JsonRequestBehavior.AllowGet);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Log.Error(ex);
-        //        return Json(new { success = false }, JsonRequestBehavior.AllowGet);
-        //    }
-        //}
-
         [HttpPost]
         public PartialViewResult _Detail(FormCollection formCollection)
         {

@@ -1248,7 +1248,7 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\SystemError.cshtml" />
     <Content Include="Views\Error\_InternalServerError.cshtml" />
-    <Content Include="Views\CGC\_DocumentList.cshtml" />
+    <Content Include="Views\CGC\_ListDocuments.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\CropGermplasmCommitteeDocument\Index.cshtml" />
