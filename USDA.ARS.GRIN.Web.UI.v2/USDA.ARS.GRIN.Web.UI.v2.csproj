@@ -1243,6 +1243,8 @@
     <Content Include="Scripts\jquery-3.5.1.min.map" />
     <Content Include="Views\CGC\_List.cshtml" />
     <Content Include="Views\Error\Error404.cshtml" />
+    <Content Include="Views\Admin\CropGermplasmCommittee\Index.cshtml" />
+    <Content Include="Views\Admin\CodeValue\Index.cshtml" />
     <None Include="Views\Error\Error500.cshtml" />
     <Content Include="Views\Error\InternalServerError.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />

@@ -3,11 +3,8 @@
 <div tabindex="0">
     <ul class="usa-button-group">
         <li class="usa-button-group__item">
-            <a href="@Url.Action("CropGermplasmCommitteeDocumentAdd","Admin")" class="usa-button usa-button--outline usa-button--unstyled">Add a New Document</a>
+            <a href="@Url.Action("CropGermplasmCommitteeDocumentAdd","Admin")" class="usa-button usa-button--outline">Add a New Document</a>
         </li>
-        @*<li class="usa-button-group__item">
-            <button type="button" class="usa-button">Continue</button>
-        </li>*@
     </ul>
     <br />
     <table id="data-table-crop-germplasm-committee-document" class="table table-striped" style="width:100%;">
@@ -48,8 +45,8 @@
                         }
                     </td>
                     <td>
-                        <a href="@Url.Action("CropGermplasmCommitteeDocumentEdit", "Admin", new { entityId = result.ID })" class="btn btn-default btn-flat btn-sm pull-right row-edit">
-                            <i class="fa fa-edit"></i> Edit
+                        <a href="@Url.Action("CropGermplasmCommitteeDocumentEdit", "Admin", new { entityId = result.ID })" 
+                           class="usa-button usa-button--accent-cool">Edit
                         </a>
                     </td>
                 </tr>

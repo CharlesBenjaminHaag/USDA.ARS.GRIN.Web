@@ -552,51 +552,51 @@ dfn{
   padding-right:1.75ex;
   position:relative;
 }
-.usa-link--external::after{
-  background:url("../img/usa-icons/launch.svg") no-repeat center/contain;
-  display:inline-block;
-  height:1.75ex;
-  width:1.75ex;
-  background-position:center;
-  content:"";
-  display:inline-block;
-  height:1.75ex;
-  margin-left:2px;
-  margin-top:0.7ex;
-  position:absolute;
-}
-@supports ((-webkit-mask: url("")) or (mask: url(""))){
-  .usa-link--external::after{
-    background:none;
-    background-color:currentColor;
-    -webkit-mask:url("../img/usa-icons/launch.svg") no-repeat center/contain;
-            mask:url("../img/usa-icons/launch.svg") no-repeat center/contain;
-  }
+    .usa-link--external::after {
+        background: url("https://www.ars-grin.gov/assets/img/usa-icons/launch.svg") no-repeat center/contain;
+        display: inline-block;
+        height: 1.75ex;
+        width: 1.75ex;
+        background-position: center;
+        content: "";
+        display: inline-block;
+        height: 1.75ex;
+        margin-left: 2px;
+        margin-top: 0.7ex;
+        position: absolute;
+    }
+@supports ((-webkit-mask: url("")) or (mask: url(""))) {
+    .usa-link--external::after {
+        background: none;
+        background-color: currentColor;
+        -webkit-mask: url("https://www.ars-grin.gov/assets/img/usa-icons/launch.svg") no-repeat center/contain;
+        mask: url("https://www.ars-grin.gov/assets/img/usa-icons/launch.svg") no-repeat center/contain;
+    }
 }
 .usa-link--external.usa-link--alt{
   display:inline-block;
   padding-right:1.75ex;
   position:relative;
 }
-.usa-link--external.usa-link--alt::after{
-  background:url("../img/usa-icons-bg/launch--white.svg") no-repeat center/contain;
-  display:inline-block;
-  height:1.75ex;
-  width:1.75ex;
-  background-position:center;
-  content:"";
-  display:inline-block;
-  height:1.75ex;
-  margin-left:2px;
-  margin-top:0.7ex;
-  position:absolute;
-}
+    .usa-link--external.usa-link--alt::after {
+        background: url("https://www.ars-grin.gov/assets/img/usa-icons-bg/launch--white.svg") no-repeat center/contain;
+        display: inline-block;
+        height: 1.75ex;
+        width: 1.75ex;
+        background-position: center;
+        content: "";
+        display: inline-block;
+        height: 1.75ex;
+        margin-left: 2px;
+        margin-top: 0.7ex;
+        position: absolute;
+    }
 @supports ((-webkit-mask: url("")) or (mask: url(""))){
   .usa-link--external.usa-link--alt::after{
     background:none;
     background-color:currentColor;
-    -webkit-mask:url("../img/usa-icons/launch.svg") no-repeat center/contain;
-            mask:url("../img/usa-icons/launch.svg") no-repeat center/contain;
+    -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/launch.svg") no-repeat center/contain;
+            mask:url("https://www.ars-grin.gov/assets/img/usa-icons/launch.svg") no-repeat center/contain;
   }
 }
 
@@ -1310,7 +1310,7 @@ dfn{
   margin:0;
   padding:0;
   text-align:left;
-  background-image:url("../img/usa-icons/remove.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/usa-icons/remove.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
   background-color:#f0f0f0;
   background-position:right 1.25rem center;
@@ -1365,7 +1365,7 @@ dfn{
 }
 
 .usa-accordion__button[aria-expanded=false]{
-  background-image:url("../img/usa-icons/add.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/usa-icons/add.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
   background-size:1.5rem;
 }
@@ -1404,7 +1404,7 @@ dfn{
   color:#1b1b1b;
 }
 .usa-alert--success:before{
-  background:url("../img/usa-icons/check_circle.svg") no-repeat center/contain;
+  background:url("https://www.ars-grin.gov/assets/img/usa-icons/check_circle.svg") no-repeat center/contain;
   display:inline-block;
   height:2rem;
   width:2rem;
@@ -1419,8 +1419,8 @@ dfn{
   .usa-alert--success:before{
     background:none;
     background-color:#1b1b1b;
-    -webkit-mask:url("../img/usa-icons/check_circle.svg") no-repeat center/contain;
-            mask:url("../img/usa-icons/check_circle.svg") no-repeat center/contain;
+    -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/check_circle.svg") no-repeat center/contain;
+            mask:url("https://www.ars-grin.gov/assets/img/usa-icons/check_circle.svg") no-repeat center/contain;
   }
 }
 .usa-alert--success.usa-alert--slim:before{
@@ -1459,7 +1459,7 @@ dfn{
   color:#1b1b1b;
 }
 .usa-alert--warning:before{
-  background:url("../img/usa-icons/warning.svg") no-repeat center/contain;
+  background:url("https://www.ars-grin.gov/assets/img/usa-icons/warning.svg") no-repeat center/contain;
   display:inline-block;
   height:2rem;
   width:2rem;
@@ -1474,8 +1474,8 @@ dfn{
   .usa-alert--warning:before{
     background:none;
     background-color:#1b1b1b;
-    -webkit-mask:url("../img/usa-icons/warning.svg") no-repeat center/contain;
-            mask:url("../img/usa-icons/warning.svg") no-repeat center/contain;
+    -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/warning.svg") no-repeat center/contain;
+            mask:url("https://www.ars-grin.gov/assets/img/usa-icons/warning.svg") no-repeat center/contain;
   }
 }
 .usa-alert--warning.usa-alert--slim:before{
@@ -1514,7 +1514,7 @@ dfn{
   color:#1b1b1b;
 }
 .usa-alert--error:before{
-  background:url("../img/usa-icons/error.svg") no-repeat center/contain;
+  background:url("https://www.ars-grin.gov/assets/img/usa-icons/error.svg") no-repeat center/contain;
   display:inline-block;
   height:2rem;
   width:2rem;
@@ -1529,8 +1529,8 @@ dfn{
   .usa-alert--error:before{
     background:none;
     background-color:#1b1b1b;
-    -webkit-mask:url("../img/usa-icons/error.svg") no-repeat center/contain;
-            mask:url("../img/usa-icons/error.svg") no-repeat center/contain;
+    -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/error.svg") no-repeat center/contain;
+            mask:url("https://www.ars-grin.gov/assets/img/usa-icons/error.svg") no-repeat center/contain;
   }
 }
 .usa-alert--error.usa-alert--slim:before{
@@ -1613,7 +1613,7 @@ dfn{
   color:white;
 }
 .usa-alert--emergency:before{
-  background:url("../img/usa-icons-bg/error--white.svg") no-repeat center/contain;
+  background:url("https://www.ars-grin.gov/assets/img/usa-icons-bg/error--white.svg") no-repeat center/contain;
   display:inline-block;
   height:2rem;
   width:2rem;
@@ -1628,8 +1628,8 @@ dfn{
   .usa-alert--emergency:before{
     background:none;
     background-color:white;
-    -webkit-mask:url("../img/usa-icons/error.svg") no-repeat center/contain;
-            mask:url("../img/usa-icons/error.svg") no-repeat center/contain;
+    -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/error.svg") no-repeat center/contain;
+            mask:url("https://www.ars-grin.gov/assets/img/usa-icons/error.svg") no-repeat center/contain;
   }
 }
 .usa-alert--emergency.usa-alert--slim:before{
@@ -1861,7 +1861,7 @@ dfn{
   text-decoration:underline;
 }
 .usa-banner__header-action::after{
-  background:url("../img/usa-icons/expand_more.svg") no-repeat center/contain;
+  background:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_more.svg") no-repeat center/contain;
   display:inline-block;
   height:1rem;
   width:1rem;
@@ -1873,8 +1873,8 @@ dfn{
   .usa-banner__header-action::after{
     background:none;
     background-color:#005ea2;
-    -webkit-mask:url("../img/usa-icons/expand_more.svg") no-repeat center/contain;
-            mask:url("../img/usa-icons/expand_more.svg") no-repeat center/contain;
+    -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_more.svg") no-repeat center/contain;
+            mask:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_more.svg") no-repeat center/contain;
   }
   .usa-banner__header-action::after:hover{
     background-color:#1a4480;
@@ -2028,7 +2028,7 @@ dfn{
     position:relative;
   }
   .usa-banner__button::after{
-    background:url("../img/usa-icons/expand_more.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_more.svg") no-repeat center/contain;
     display:inline-block;
     height:1rem;
     width:1rem;
@@ -2040,8 +2040,8 @@ dfn{
     .usa-banner__button::after{
       background:none;
       background-color:#005ea2;
-      -webkit-mask:url("../img/usa-icons/expand_more.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/expand_more.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_more.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_more.svg") no-repeat center/contain;
     }
     .usa-banner__button::after:hover{
       background-color:#1a4480;
@@ -2079,7 +2079,7 @@ dfn{
 }
 @media all and (max-width: 39.99em){
   .usa-banner__button[aria-expanded=true]::after{
-    background:url("../img/usa-icons/close.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/close.svg") no-repeat center/contain;
     display:inline-block;
     height:3rem;
     width:3rem;
@@ -2091,8 +2091,8 @@ dfn{
     .usa-banner__button[aria-expanded=true]::after{
       background:none;
       background-color:#005ea2;
-      -webkit-mask:url("../img/usa-icons/close.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/close.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/close.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/close.svg") no-repeat center/contain;
     }
   }
   .usa-banner__button[aria-expanded=true]::before{
@@ -2122,7 +2122,7 @@ dfn{
     position:relative;
   }
   .usa-banner__button[aria-expanded=true]::after{
-    background:url("../img/usa-icons/expand_less.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_less.svg") no-repeat center/contain;
     display:inline-block;
     height:1rem;
     width:1rem;
@@ -2134,8 +2134,8 @@ dfn{
     .usa-banner__button[aria-expanded=true]::after{
       background:none;
       background-color:#005ea2;
-      -webkit-mask:url("../img/usa-icons/expand_less.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/expand_less.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_less.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_less.svg") no-repeat center/contain;
     }
     .usa-banner__button[aria-expanded=true]::after:hover{
       background-color:#1a4480;
@@ -2285,7 +2285,7 @@ dfn{
     color:#c9c9c9;
   }
   .usa-breadcrumb__list-item:nth-last-child(2) .usa-breadcrumb__link::before{
-    background:url("../img/usa-icons/arrow_back.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/arrow_back.svg") no-repeat center/contain;
     display:inline-block;
     height:2ex;
     width:2ex;
@@ -2297,8 +2297,8 @@ dfn{
     .usa-breadcrumb__list-item:nth-last-child(2) .usa-breadcrumb__link::before{
       background:none;
       background-color:#71767a;
-      -webkit-mask:url("../img/usa-icons/arrow_back.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/arrow_back.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/arrow_back.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/arrow_back.svg") no-repeat center/contain;
     }
   }
   .usa-breadcrumb__list-item:nth-last-child(2) .usa-breadcrumb__link:visited{
@@ -2327,7 +2327,7 @@ dfn{
     position:static;
   }
   .usa-breadcrumb__list-item:not(:last-child)::after{
-    background:url("../img/usa-icons/navigate_next.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_next.svg") no-repeat center/contain;
     display:inline-block;
     height:2ex;
     width:2ex;
@@ -2339,8 +2339,8 @@ dfn{
     .usa-breadcrumb__list-item:not(:last-child)::after{
       background:none;
       background-color:#71767a;
-      -webkit-mask:url("../img/usa-icons/navigate_next.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/navigate_next.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_next.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_next.svg") no-repeat center/contain;
     }
   }
   .usa-breadcrumb__list-item:not(:last-child)::after{
@@ -3205,7 +3205,7 @@ dfn{
   width:2rem;
 }
 .usa-checklist__item.usa-checklist__item--checked::before{
-  background-image:url("../img/usa-icons-bg/check--blue-60v.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/usa-icons-bg/check--blue-60v.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
   background-position:center;
   background-size:1.5rem;
@@ -3589,7 +3589,7 @@ dfn{
   cursor:pointer;
 }
 .usa-footer__primary-link--button::before{
-  background:url("../img/usa-icons/expand_more.svg") no-repeat center/contain;
+  background:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_more.svg") no-repeat center/contain;
   display:inline-block;
   height:1.25rem;
   width:1.25rem;
@@ -3601,8 +3601,8 @@ dfn{
   .usa-footer__primary-link--button::before{
     background:none;
     background-color:currentColor;
-    -webkit-mask:url("../img/usa-icons/expand_more.svg") no-repeat center/contain;
-            mask:url("../img/usa-icons/expand_more.svg") no-repeat center/contain;
+    -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_more.svg") no-repeat center/contain;
+            mask:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_more.svg") no-repeat center/contain;
   }
 }
 .usa-footer__primary-link--button:not([disabled]):focus{
@@ -3630,7 +3630,7 @@ dfn{
   margin-bottom:0.5rem;
 }
 .usa-footer__primary-link--button[aria-expanded=false]::before{
-  background:url("../img/usa-icons/navigate_next.svg") no-repeat center/contain;
+  background:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_next.svg") no-repeat center/contain;
   display:inline-block;
   height:1.25rem;
   width:1.25rem;
@@ -3642,8 +3642,8 @@ dfn{
   .usa-footer__primary-link--button[aria-expanded=false]::before{
     background:none;
     background-color:currentColor;
-    -webkit-mask:url("../img/usa-icons/navigate_next.svg") no-repeat center/contain;
-            mask:url("../img/usa-icons/navigate_next.svg") no-repeat center/contain;
+    -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_next.svg") no-repeat center/contain;
+            mask:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_next.svg") no-repeat center/contain;
   }
 }
 .usa-footer__primary-link--button[aria-expanded=false] + .usa-list--unstyled{
@@ -4582,7 +4582,7 @@ html.usa-js-loading .usa-nav__submenu.usa-megamenu{
   font-family:Source Sans Pro Web, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
   font-size:1.06rem;
   line-height:1.5;
-  background-image:url("../img/hero.jpg");
+  background-image:url("https://www.ars-grin.gov/assets/img/hero.jpg");
   background-position:center;
   background-size:cover;
   color:white;
@@ -7467,7 +7467,7 @@ html.usa-js-loading .usa-nav__submenu.usa-megamenu{
   background-image:none;
 }
 .usa-nav__primary button[aria-expanded=false] span::after{
-  background:url("../img/usa-icons/add.svg") no-repeat center/contain;
+  background:url("https://www.ars-grin.gov/assets/img/usa-icons/add.svg") no-repeat center/contain;
   display:inline-block;
   height:1.25rem;
   width:1.25rem;
@@ -7479,8 +7479,8 @@ html.usa-js-loading .usa-nav__submenu.usa-megamenu{
   .usa-nav__primary button[aria-expanded=false] span::after{
     background:none;
     background-color:ButtonText;
-    -webkit-mask:url("../img/usa-icons/add.svg") no-repeat center/contain;
-            mask:url("../img/usa-icons/add.svg") no-repeat center/contain;
+    -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/add.svg") no-repeat center/contain;
+            mask:url("https://www.ars-grin.gov/assets/img/usa-icons/add.svg") no-repeat center/contain;
   }
 }
 .usa-nav__primary button[aria-expanded=false] span::after{
@@ -7492,7 +7492,7 @@ html.usa-js-loading .usa-nav__submenu.usa-megamenu{
 }
 @media all and (min-width: 64em){
   .usa-nav__primary button[aria-expanded=false] span::after{
-    background:url("../img/usa-icons/expand_more.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_more.svg") no-repeat center/contain;
     display:inline-block;
     height:1rem;
     width:1rem;
@@ -7504,8 +7504,8 @@ html.usa-js-loading .usa-nav__submenu.usa-megamenu{
     .usa-nav__primary button[aria-expanded=false] span::after{
       background:none;
       background-color:ButtonText;
-      -webkit-mask:url("../img/usa-icons/expand_more.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/expand_more.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_more.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_more.svg") no-repeat center/contain;
     }
   }
   .usa-nav__primary button[aria-expanded=false] span::after{
@@ -7526,7 +7526,7 @@ html.usa-js-loading .usa-nav__submenu.usa-megamenu{
   background-image:none;
 }
 .usa-nav__primary button[aria-expanded=true] span::after{
-  background:url("../img/usa-icons/remove.svg") no-repeat center/contain;
+  background:url("https://www.ars-grin.gov/assets/img/usa-icons/remove.svg") no-repeat center/contain;
   display:inline-block;
   height:1.25rem;
   width:1.25rem;
@@ -7538,8 +7538,8 @@ html.usa-js-loading .usa-nav__submenu.usa-megamenu{
   .usa-nav__primary button[aria-expanded=true] span::after{
     background:none;
     background-color:ButtonText;
-    -webkit-mask:url("../img/usa-icons/remove.svg") no-repeat center/contain;
-            mask:url("../img/usa-icons/remove.svg") no-repeat center/contain;
+    -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/remove.svg") no-repeat center/contain;
+            mask:url("https://www.ars-grin.gov/assets/img/usa-icons/remove.svg") no-repeat center/contain;
   }
 }
 .usa-nav__primary button[aria-expanded=true] span::after{
@@ -7560,7 +7560,7 @@ html.usa-js-loading .usa-nav__submenu.usa-megamenu{
 }
 @media all and (min-width: 64em) and (min-width: 64em){
   .usa-nav__primary button[aria-expanded=true] span::after{
-    background:url("../img/usa-icons/expand_less.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_less.svg") no-repeat center/contain;
     display:inline-block;
     height:1rem;
     width:1rem;
@@ -7572,8 +7572,8 @@ html.usa-js-loading .usa-nav__submenu.usa-megamenu{
     .usa-nav__primary button[aria-expanded=true] span::after{
       background:none;
       background-color:ButtonText;
-      -webkit-mask:url("../img/usa-icons/expand_less.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/expand_less.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_less.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_less.svg") no-repeat center/contain;
     }
   }
   .usa-nav__primary button[aria-expanded=true] span::after{
@@ -7803,7 +7803,7 @@ html.usa-js-loading .usa-nav__submenu.usa-megamenu{
 }
 @media (forced-colors: active){
   .usa-nav__close::before{
-    background:url("../img/usa-icons/close.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/close.svg") no-repeat center/contain;
     display:inline-block;
     height:1.25rem;
     width:1.25rem;
@@ -7815,8 +7815,8 @@ html.usa-js-loading .usa-nav__submenu.usa-megamenu{
     .usa-nav__close::before{
       background:none;
       background-color:ButtonText;
-      -webkit-mask:url("../img/usa-icons/close.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/close.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/close.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/close.svg") no-repeat center/contain;
     }
   }
   .usa-nav__close::before{
@@ -8135,7 +8135,7 @@ html.usa-js-loading .usa-nav__submenu.usa-megamenu{
     border:2px solid transparent;
   }
   .usa-search [type=submit]::before{
-    background:url("../img/usa-icons/search.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/search.svg") no-repeat center/contain;
     display:inline-block;
     height:1.5rem;
     width:1.5rem;
@@ -8147,8 +8147,8 @@ html.usa-js-loading .usa-nav__submenu.usa-megamenu{
     .usa-search [type=submit]::before{
       background:none;
       background-color:ButtonText;
-      -webkit-mask:url("../img/usa-icons/search.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/search.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/search.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/search.svg") no-repeat center/contain;
     }
   }
 }
@@ -8425,7 +8425,7 @@ input[type=search]{
   color:#1b1b1b;
 }
 .usa-site-alert--info .usa-alert:before{
-  background:url("../img/usa-icons/info.svg") no-repeat center/contain;
+  background:url("https://www.ars-grin.gov/assets/img/usa-icons/info.svg") no-repeat center/contain;
   display:inline-block;
   height:2rem;
   width:2rem;
@@ -8440,8 +8440,8 @@ input[type=search]{
   .usa-site-alert--info .usa-alert:before{
     background:none;
     background-color:#1b1b1b;
-    -webkit-mask:url("../img/usa-icons/info.svg") no-repeat center/contain;
-            mask:url("../img/usa-icons/info.svg") no-repeat center/contain;
+    -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/info.svg") no-repeat center/contain;
+            mask:url("https://www.ars-grin.gov/assets/img/usa-icons/info.svg") no-repeat center/contain;
   }
 }
 .usa-site-alert--info .usa-alert.usa-alert--slim:before{
@@ -8499,7 +8499,7 @@ input[type=search]{
   color:white;
 }
 .usa-site-alert--emergency .usa-alert:before{
-  background:url("../img/usa-icons-bg/error--white.svg") no-repeat center/contain;
+  background:url("https://www.ars-grin.gov/assets/img/usa-icons-bg/error--white.svg") no-repeat center/contain;
   display:inline-block;
   height:2rem;
   width:2rem;
@@ -8514,8 +8514,8 @@ input[type=search]{
   .usa-site-alert--emergency .usa-alert:before{
     background:none;
     background-color:white;
-    -webkit-mask:url("../img/usa-icons/error.svg") no-repeat center/contain;
-            mask:url("../img/usa-icons/error.svg") no-repeat center/contain;
+    -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/error.svg") no-repeat center/contain;
+            mask:url("https://www.ars-grin.gov/assets/img/usa-icons/error.svg") no-repeat center/contain;
   }
 }
 .usa-site-alert--emergency .usa-alert.usa-alert--slim:before{
@@ -9733,12 +9733,12 @@ input[type=search]{
 }
 
 .usa-checkbox__input:checked + [class*=__label]::before, .usa-checkbox__input:checked:disabled + [class*=__label]::before, .usa-checkbox__input:checked[aria-disabled=true] + [class*=__label]::before{
-  background-image:url("../img/correct8.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/correct8.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
 }
 @media (forced-colors: active){
   .usa-checkbox__input:checked + [class*=__label]::before, .usa-checkbox__input:checked:disabled + [class*=__label]::before, .usa-checkbox__input:checked[aria-disabled=true] + [class*=__label]::before{
-    background-image:url("../img/correct8-alt.svg"), linear-gradient(transparent, transparent);
+    background-image:url("https://www.ars-grin.gov/assets/img/correct8-alt.svg"), linear-gradient(transparent, transparent);
     background-repeat:no-repeat;
   }
 }
@@ -9820,7 +9820,7 @@ input[type=search]{
   margin-top:0.5rem;
 }
 .usa-select{
-  background-image:url("../img/usa-icons/unfold_more.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/usa-icons/unfold_more.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
   -webkit-appearance:none;
      -moz-appearance:none;
@@ -9871,7 +9871,7 @@ input[type=search]{
 }
 @media (forced-colors: active){
   .usa-combo-box--pristine .usa-combo-box__clear-input{
-    background:url("../img/usa-icons/close.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/close.svg") no-repeat center/contain;
     display:inline-block;
     height:1rem;
     width:1rem;
@@ -9883,8 +9883,8 @@ input[type=search]{
     .usa-combo-box--pristine .usa-combo-box__clear-input{
       background:none;
       background-color:ButtonText;
-      -webkit-mask:url("../img/usa-icons/close.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/close.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/close.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/close.svg") no-repeat center/contain;
     }
   }
 }
@@ -9923,21 +9923,21 @@ button.usa-combo-box__clear-input:focus{
 }
 
 .usa-combo-box__clear-input{
-  background-image:url("../img/usa-icons/close.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/usa-icons/close.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
   display:none;
   right:calc(2.5em + 3px);
 }
 
 .usa-combo-box__toggle-list{
-  background-image:url("../img/usa-icons/expand_more.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_more.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
   background-size:auto 2rem;
   right:1px;
 }
 @media (forced-colors: active){
   .usa-combo-box__toggle-list{
-    background:url("../img/usa-icons/expand_more.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_more.svg") no-repeat center/contain;
     display:inline-block;
     height:1rem;
     width:1rem;
@@ -9948,8 +9948,8 @@ button.usa-combo-box__clear-input:focus{
     .usa-combo-box__toggle-list{
       background:none;
       background-color:ButtonText;
-      -webkit-mask:url("../img/usa-icons/expand_more.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/expand_more.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_more.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/expand_more.svg") no-repeat center/contain;
     }
   }
 }
@@ -10144,7 +10144,7 @@ button.usa-combo-box__clear-input:focus{
 }
 
 .usa-date-picker__button{
-  background-image:url("../img/usa-icons/calendar_today.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/usa-icons/calendar_today.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
   align-self:stretch;
   background-color:transparent;
@@ -10155,7 +10155,7 @@ button.usa-combo-box__clear-input:focus{
 }
 @media (forced-colors: active){
   .usa-date-picker__button{
-    background:url("../img/usa-icons/calendar_today.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/calendar_today.svg") no-repeat center/contain;
     display:inline-block;
     height:2.5rem;
     width:3rem;
@@ -10167,8 +10167,8 @@ button.usa-combo-box__clear-input:focus{
     .usa-date-picker__button{
       background:none;
       background-color:ButtonText;
-      -webkit-mask:url("../img/usa-icons/calendar_today.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/calendar_today.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/calendar_today.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/calendar_today.svg") no-repeat center/contain;
     }
   }
   .usa-date-picker__button:not([disabled]):hover{
@@ -10241,12 +10241,12 @@ button.usa-combo-box__clear-input:focus{
 }
 
 .usa-date-picker__calendar__previous-year:not([disabled]){
-  background-image:url("../img/usa-icons/navigate_far_before.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_far_before.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
 }
 @media (forced-colors: active){
   .usa-date-picker__calendar__previous-year:not([disabled]){
-    background:url("../img/usa-icons/navigate_far_before.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_far_before.svg") no-repeat center/contain;
     display:inline-block;
     height:2.5rem;
     width:3rem;
@@ -10256,19 +10256,19 @@ button.usa-combo-box__clear-input:focus{
     .usa-date-picker__calendar__previous-year:not([disabled]){
       background:none;
       background-color:ButtonText;
-      -webkit-mask:url("../img/usa-icons/navigate_far_before.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/navigate_far_before.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_far_before.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_far_before.svg") no-repeat center/contain;
     }
   }
 }
 
 .usa-date-picker__calendar__previous-month:not([disabled]){
-  background-image:url("../img/usa-icons/navigate_before.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_before.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
 }
 @media (forced-colors: active){
   .usa-date-picker__calendar__previous-month:not([disabled]){
-    background:url("../img/usa-icons/navigate_before.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_before.svg") no-repeat center/contain;
     display:inline-block;
     height:2.5rem;
     width:3rem;
@@ -10278,19 +10278,19 @@ button.usa-combo-box__clear-input:focus{
     .usa-date-picker__calendar__previous-month:not([disabled]){
       background:none;
       background-color:ButtonText;
-      -webkit-mask:url("../img/usa-icons/navigate_before.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/navigate_before.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_before.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_before.svg") no-repeat center/contain;
     }
   }
 }
 
 .usa-date-picker__calendar__next-year:not([disabled]){
-  background-image:url("../img/usa-icons/navigate_far_next.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_far_next.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
 }
 @media (forced-colors: active){
   .usa-date-picker__calendar__next-year:not([disabled]){
-    background:url("../img/usa-icons/navigate_far_next.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_far_next.svg") no-repeat center/contain;
     display:inline-block;
     height:2.5rem;
     width:3rem;
@@ -10300,19 +10300,19 @@ button.usa-combo-box__clear-input:focus{
     .usa-date-picker__calendar__next-year:not([disabled]){
       background:none;
       background-color:ButtonText;
-      -webkit-mask:url("../img/usa-icons/navigate_far_next.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/navigate_far_next.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_far_next.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_far_next.svg") no-repeat center/contain;
     }
   }
 }
 
 .usa-date-picker__calendar__next-month:not([disabled]){
-  background-image:url("../img/usa-icons/navigate_next.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_next.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
 }
 @media (forced-colors: active){
   .usa-date-picker__calendar__next-month:not([disabled]){
-    background:url("../img/usa-icons/navigate_next.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_next.svg") no-repeat center/contain;
     display:inline-block;
     height:2.5rem;
     width:3rem;
@@ -10322,8 +10322,8 @@ button.usa-combo-box__clear-input:focus{
     .usa-date-picker__calendar__next-month:not([disabled]){
       background:none;
       background-color:ButtonText;
-      -webkit-mask:url("../img/usa-icons/navigate_next.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/navigate_next.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_next.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_next.svg") no-repeat center/contain;
     }
   }
 }
@@ -10513,7 +10513,7 @@ button.usa-combo-box__clear-input:focus{
 }
 
 .usa-date-picker__calendar__previous-year-chunk:not([disabled]){
-  background-image:url("../img/usa-icons/navigate_before.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_before.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
 }
 @media (forced-colors: active){
@@ -10521,7 +10521,7 @@ button.usa-combo-box__clear-input:focus{
     background-image:none;
   }
   .usa-date-picker__calendar__previous-year-chunk:not([disabled])::after{
-    background:url("../img/usa-icons/navigate_before.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_before.svg") no-repeat center/contain;
     display:inline-block;
     height:2.5rem;
     width:3rem;
@@ -10533,8 +10533,8 @@ button.usa-combo-box__clear-input:focus{
     .usa-date-picker__calendar__previous-year-chunk:not([disabled])::after{
       background:none;
       background-color:ButtonText;
-      -webkit-mask:url("../img/usa-icons/navigate_before.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/navigate_before.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_before.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_before.svg") no-repeat center/contain;
     }
   }
   .usa-date-picker__calendar__previous-year-chunk:not([disabled]):hover{
@@ -10544,7 +10544,7 @@ button.usa-combo-box__clear-input:focus{
 }
 
 .usa-date-picker__calendar__next-year-chunk:not([disabled]){
-  background-image:url("../img/usa-icons/navigate_next.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_next.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
 }
 @media (forced-colors: active){
@@ -10552,7 +10552,7 @@ button.usa-combo-box__clear-input:focus{
     background-image:none;
   }
   .usa-date-picker__calendar__next-year-chunk:not([disabled])::after{
-    background:url("../img/usa-icons/navigate_next.svg") no-repeat center/contain;
+    background:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_next.svg") no-repeat center/contain;
     display:inline-block;
     height:2.5rem;
     width:3rem;
@@ -10564,8 +10564,8 @@ button.usa-combo-box__clear-input:focus{
     .usa-date-picker__calendar__next-year-chunk:not([disabled])::after{
       background:none;
       background-color:ButtonText;
-      -webkit-mask:url("../img/usa-icons/navigate_next.svg") no-repeat center/contain;
-              mask:url("../img/usa-icons/navigate_next.svg") no-repeat center/contain;
+      -webkit-mask:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_next.svg") no-repeat center/contain;
+              mask:url("https://www.ars-grin.gov/assets/img/usa-icons/navigate_next.svg") no-repeat center/contain;
     }
   }
   .usa-date-picker__calendar__next-year-chunk:not([disabled]):hover{
@@ -10763,7 +10763,7 @@ button.usa-combo-box__clear-input:focus{
 }
 
 .usa-file-input__preview-image.is-loading{
-  background-image:url("../img/loader.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/loader.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
   background-position:center center;
   background-repeat:no-repeat;
@@ -10781,27 +10781,27 @@ button.usa-combo-box__clear-input:focus{
 }
 
 .usa-file-input__preview-image--pdf{
-  background-image:url("../img/file-pdf.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/file-pdf.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
 }
 
 .usa-file-input__preview-image--generic{
-  background-image:url("../img/file.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/file.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
 }
 
 .usa-file-input__preview-image--word{
-  background-image:url("../img/file-word.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/file-word.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
 }
 
 .usa-file-input__preview-image--excel{
-  background-image:url("../img/file-excel.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/file-excel.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
 }
 
 .usa-file-input__preview-image--video{
-  background-image:url("../img/file-video.svg"), linear-gradient(transparent, transparent);
+  background-image:url("https://www.ars-grin.gov/assets/img/file-video.svg"), linear-gradient(transparent, transparent);
   background-repeat:no-repeat;
 }
 

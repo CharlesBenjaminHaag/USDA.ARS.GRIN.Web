@@ -7,6 +7,42 @@
     .usa-form {
         max-width: 50rem;
     }
+
+    .usa-form-group--error .usa-file-input__target {
+        border-color: #b50909;
+        border-width: 2px;
+    }
+    .usa-file-input {
+        display: block;
+        max-width: 30rem;
+        width: 100%;
+    }
+    .usa-file-input__target {
+        border: 1px dashed #adadad;
+        display: block;
+        font-size: .93rem;
+        margin-top: .5rem;
+        position: relative;
+        text-align: center;
+        width: 100%;
+    }
+    .usa-file-input__instructions {
+        display: inline-block;
+        padding: 2rem 1rem;
+        pointer-events: none;
+        position: relative;
+        z-index: 3;
+    }
+    .usa-file-input__box {
+        background: #fff;
+        height: 100%;
+        left: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 2;
+    }
 </style>
 
 <div class="usa-section">
@@ -40,39 +76,58 @@
                     @Html.HiddenFor(x => x.Entity.ID)
                     @Html.HiddenFor(x => x.AuthenticatedUserCooperatorID)
                     @Html.HiddenFor(x => x.ItemIDList)
-                    <fieldset class="usa-fieldset">
-                        <label class="usa-label" for="mailing-address-1">
-                            Title
-                            <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
-                        </label>
-                        @Html.TextBoxFor(x => x.Entity.Title, new { @class = "usa-input" })
-                        <div class="grid-row grid-gap">
-                            <div class="mobile-lg:grid-col-12">
-                                <label class="usa-label" for="apt-suite-other">Committee</label>
-                                @Html.DropDownListFor(x => x.Entity.CropGermplasmCommitteeID, Model.CropGermplasmCommittees, "Select value", new { @class = "usa-select" })
+            <fieldset class="usa-fieldset">
+                <label class="usa-label" for="mailing-address-1">
+                    Title
+                    <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
+                </label>
+                @Html.TextBoxFor(x => x.Entity.Title, new { @class = "usa-input" })
+                <div class="grid-row grid-gap">
+                    <div class="mobile-lg:grid-col-12">
+                        <label class="usa-label" for="apt-suite-other">Committee</label>
+                        @Html.DropDownListFor(x => x.Entity.CropGermplasmCommitteeID, Model.CropGermplasmCommittees, "Select value", new { @class = "usa-select" })
+                    </div>
+                </div>
+                <label class="usa-label" for="city">
+                    Category
+                    <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
+                </label>
+                @Html.DropDownListFor(x => x.Entity.CategoryCode, Model.CategoryCodes, "All categories", new { @class = "usa-select" })
+                <label class="usa-label" for="mailing-address-1">
+                    Year
+                    <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
+                </label>
+                @Html.TextBoxFor(x => x.Entity.Year, new { @class = "usa-input" })
+                
+                @*@Html.TextBoxFor(x => x.Entity.URL, new { @class = "usa-input", @readonly = "readonly", @style = "background-color:#ebebeb;" })*@
+                <br />
+                <ul class="usa-card-group">
+                    <li class="usa-card tablet:grid-col-12">
+                        <div class="usa-card__container">
+                            <div class="usa-card__header">
+                                <h2 class="usa-card__heading">Document</h2>
+                            </div>
+                            <div class="usa-card__body">
+                                <div class="usa-form-group">
+                                    <label class="usa-label" for="file-input-single">Select the file to upload</label>
+                                    @Html.TextBoxFor(x => x.DocumentUpload, new { @class = "usa-file-input", @type = "file" })
+                                </div>
+                                
+                                    <label class="usa-label" for="zip">
+                                        Current File URL
+                                        <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
+                                    </label>
+                                    <a href="@Model.Entity.URL">@Model.Entity.URL</a>
+                                
+                            </div>
+                            <div class="usa-card__footer">
+                                <a href="https://npgsdev.ars-grin.gov/ars-grin/CGC#committees" class="usa-button usa-button--outline" style="color: #005ea2; " >View ARS-GRIN Site</a>
                             </div>
                         </div>
-                        <label class="usa-label" for="city">
-                            Category
-                            <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
-                        </label>
-                        @Html.DropDownListFor(x => x.Entity.CategoryCode, Model.CategoryCodes, "All categories", new { @class = "usa-select" })
-                        <label class="usa-label" for="mailing-address-1">
-                            Year
-                            <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
-                        </label>
-                        @Html.TextBoxFor(x => x.Entity.Year, new { @class = "usa-input" })
-                        <label class="usa-label" for="zip">
-                            Current File URL
-                            <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
-                        </label>
-                        @Html.TextBoxFor(x => x.Entity.URL, new { @class = "usa-input", @readonly = "readonly", @style = "background-color:#ebebeb;" })
-                        <div class="usa-form-group">
-                            <label class="usa-label" for="file-input-single">Select the file to upload</label>
-                            @Html.TextBoxFor(x => x.DocumentUpload, new { @class = "usa-file-input", @type = "file" })
-                        </div>
-                    </fieldset>
-                    <input class="usa-button float-right" type="submit" value="Save" />
+                    </li>
+                </ul>
+            </fieldset>
+                    <input class="usa-button usa-button--accent-cool float-right" type="submit" value="Save" />
                     <input id="btnDelete" class="usa-button usa-button--secondary" type="button" value="Delete" />
                 }
             </main>

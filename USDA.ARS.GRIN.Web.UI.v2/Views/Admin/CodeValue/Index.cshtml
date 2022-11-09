@@ -1,0 +1,155 @@
+﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.CropGermplasmCommitteeDocumentViewModel
+@{
+    ViewBag.Title = Model.PageTitle;
+    Layout = "~/Views/Shared/_LayoutUSWDSInteriorAdmin.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Search", "CropGermplasmCommitteeDocument", FormMethod.Post, new { id = "frmSearch" }))
+{
+    @Html.HiddenFor(x => x.EventAction)
+    @Html.HiddenFor(x => x.TableName)
+    @Html.HiddenFor(x => x.TableCode)
+    @Html.HiddenFor(x => x.PageTitle)
+    @Html.HiddenFor(x => x.AuthenticatedUserCooperatorID)
+    @Html.HiddenFor(x => x.ItemIDList)
+
+    <div class="card-default">
+        <div class="box-body" style="border:none;">
+            @Html.Partial("~/Views/Admin/CropGermplasmCommitteeDocument/_Detail.cshtml")
+            <div class="box-footer no-padding">
+            </div>
+        </div>
+    </div>
+    <div id="section-search-results" class="data-list">
+        @Html.Partial("~/Views/Admin/CropGermplasmCommitteeDocument/_List.cshtml")
+    </div>
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        Init();
+        InitDataTable("data-table-cooperators");
+    });
+
+    function Init() {
+        
+    }
+
+    $(document).on("click", "[id='btnSubmitSearch']", function () {
+        event.preventDefault();
+        if ($("#section-search-criteria").is(":visible")) {
+            $("#EventAction").val("SHOW-SEARCH");
+        }
+        $("#frmSearch").submit();
+    });
+
+    $(document).on("click", "[id='btnReset']", function () {
+        Reset();
+    });
+
+    /*
+     * ===============================================================================
+     * FOLDER MODAL
+     * ===============================================================================
+     */
+    $("#btnOpenFolderModal").click(function () {
+        var selectedItemIdList = GetSelectedEntityIDs("data-table-cooperators");
+        $("#lblFolderEditModalTitle").html("Add " + selectedItemIdList.length + " Selected Record(s) To Folder");
+        $("#modal-folder-edit").modal("show");
+    });
+
+    $("#btnSaveFolder").click(function () {
+        SaveFolder(0);
+    });
+
+    function SaveFolder(folderId) {
+        var link = '@Url.Action("Add", "Folder")';
+        var tableName = $("#TableName").val();
+        var folderName = $("#txtFolderTitle").val();
+        var folderCategory = $("#ddlFolderCategories").val();
+        var folderNewCategory = $("#txtFolderNewCategory").val();
+        var folderDescription = $("#txtFolderDescription").val();
+
+        if ($('#cbxIsFavorite').prop('checked') == true) {
+            isFavorite = true;
+        }
+
+        var selectedItemIdList = GetSelectedEntityIDs("data-table-cooperators");
+
+        alert("DEBUG " + selectedItemIdList);
+
+        var formData = new FormData();
+
+        if (typeof selectedItemIdList != 'undefined') {
+            formData.append("IDList", selectedItemIdList);
+        }
+
+        if ($('#cbxIsFavorite').prop('checked') == true) {
+            formData.append("IsFavorite", true);
+        }
+
+        if ($('#cbxIsShared').prop('checked') == true) {
+            formData.append("IsShared", true);
+        }
+
+        formData.append("FolderID", folderId);
+        formData.append("TableName", tableName);
+        formData.append("FolderName", folderName);
+        formData.append("FolderType", tableName);
+        formData.append("Category", folderCategory);
+        formData.append("NewCategory", folderNewCategory);
+        formData.append("Description", folderDescription);
+
+        $.ajax({
+            url: link,
+            type: 'POST',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: formData,
+            success: function (result) {
+                //window.location.href = originalLink;
+            },
+            error: function () {
+                alert("Error in ApplyCitation()");
+            }
+        });
+        $("#modal-folder-edit").modal("hide");
+    }
+
+    /*
+     * ===============================================================================
+     * FOLDERS
+     * ===============================================================================
+     */
+    function LoadFolders(createdByCooperatorId)  {
+        var link = '@Url.Action("_Lookup", "Folder")';
+        var formData = new FormData();
+        formData.append("CreatedByCooperatorID", createdByCooperatorId);
+
+        $.ajax({
+            url: link,
+            type: 'POST',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: formData,
+            success: function (response) {
+                $("#section-lookup-select-folders").html(response);
+                InitDataTable();
+            }
+        });
+    }
+
+    function GetSelectedEntityIDs(tableName) {
+        var table = $('#' + tableName).DataTable();
+        var ids = $.map(table.rows('.selected').data(), function (item) {
+            return item[0]
+        });
+        console.log(ids)
+        return ids;
+    }
+</script>
