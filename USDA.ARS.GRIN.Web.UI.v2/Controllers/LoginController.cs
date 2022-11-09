@@ -24,28 +24,36 @@ namespace USDA.ARS.GRIN.GGTools.WebUI.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateInput(true)]
-        public ActionResult Index(SysUserViewModel vm)
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(SysUserViewModel viewModel)
         {
+            bool isAuthenticated = false;
             try
             {
-                vm.Authenticate();
+                if (!viewModel.IsAlphaNumeric(viewModel.Entity.UserName))
+                {
+                    ModelState.Clear();
+                    viewModel.UserMessage = String.Format("User name invalid.");
+                    return View(viewModel);
+                }
+                isAuthenticated = viewModel.Authenticate();
                 ModelState.Clear();
             }
             catch (Exception ex)
             {
-                vm.UserMessage = ex.Message;
-                return View(vm);
+                viewModel.UserMessage = ex.Message;
+                return View(viewModel);
             }
 
-            if (vm.Entity.IsAuthenticated)
+            if (viewModel.Entity.IsAuthenticated)
             {
-                AuthenticatedUserSession authenticatedUserSession = new AuthenticatedUserSession(vm.Entity);
+                AuthenticatedUserSession authenticatedUserSession = new AuthenticatedUserSession(viewModel.Entity);
                 Session["AUTHENTICATED_USER_SESSION"] = authenticatedUserSession;
                 return View("~/Views/Login/Attestation.cshtml");
             }
             else
             {
-                return View(vm);
+                return View(viewModel);
             }
         }
 

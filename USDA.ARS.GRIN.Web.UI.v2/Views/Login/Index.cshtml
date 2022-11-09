@@ -24,6 +24,9 @@
         float: right;
         margin: .25rem 0 1rem;
     }
+    /*.usa-form {
+        max-width:22rem;
+    }*/
 </style>
 
 <div class="usa-section">
@@ -31,76 +34,50 @@
         <div class="grid-row grid-gap">
             <div class="usa-layout-docs__sidenav desktop:grid-col-2">
                 <nav aria-label="Secondary navigation">
-                    <!--<ul class="site-sidenav usa-sidenav">-->
-                    @*<li class="usa-sidenav__item">
-                            <a href="/components/">
-
-                                CGC Committees
-
-                            </a>
-                        </li>
-                        <li class="usa-sidenav__item">
-
-
-                            <a href="/components/accordion/">
-
-                                CGC Documents
-
-                            </a>
-
-
-
-                        </li>
-                        <li class="usa-sidenav__item">
-
-
-                            <a href="/components/alert/">
-
-                                Logout
-
-                            </a>
-
-
-
-                        </li>*@
-                    <!--</ul>-->
                 </nav>
             </div>
             <main class="usa-layout-docs__main desktop:grid-col-9 usa-prose usa-layout-docs" id="main-content">
-                <form class="usa-form" action="/Login/Index" method="post">
+                @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @class = "usa-form" }))
+                {
+                    @Html.AntiForgeryToken()
+                <fieldset class="usa-fieldset">
+                    <legend class="usa-legend usa-legend--large">
+                        Log In
+                    </legend>
 
                     @if (!String.IsNullOrEmpty(Model.UserMessage))
                     {
-                        @Model.UserMessage
+                    <div class="usa-alert usa-alert--error" role="alert">
+                        <div class="usa-alert__body">
+                            <h4 class="usa-alert__heading">Login error</h4>
+                            <p class="usa-alert__text">
+                                @Model.UserMessage
+                            </p>
+                        </div>
+                    </div>
                     }
 
-                    <fieldset class="usa-fieldset">
-                        <legend class="usa-legend usa-legend--large">
-                            Log In
-                        </legend>
+                    <label class="usa-label" for="email">GRIN-Global User Name</label>
+                    @Html.TextBoxFor(x => x.Entity.UserName, new { @class = "usa-input", @autocomplete = "off", @maxlength = "50" })
 
-                        <!-- VALIDATION HERE -->
+                    <label class="usa-label" for="password-sign-in">Password</label>
+                    @Html.TextBoxFor(x => x.Entity.Password, new { @id = "password-sign-in", @type = "password", @class = "usa-input", @autocomplete = "off" })
 
-                        <label class="usa-label" for="email">GRIN-Global User Name</label>
-                        @Html.TextBoxFor(x => x.Entity.UserName, new { @class = "usa-input", @autocomplete = "off", @maxlength = "50" })
-
-                        <label class="usa-label" for="password-sign-in">Password</label>
-                        @Html.TextBoxFor(x => x.Entity.Password, new { @id = "password-sign-in", @type = "password", @class = "usa-input", @autocomplete = "off" })
-
-                        <button title="Toggle password"
-                                type="button"
-                                class="usa-show-password"
-                                aria-controls="password-sign-in"
-                                data-show-text="Show password"
-                                data-hide-text="Hide password">
-                            Show password
-                        </button>
-                        <input class="usa-button" type="submit" value="Sign in" />
-                        <p>
-                            <a href="javascript:void()" title="Forgot password">Forgot password?</a>
-                        </p>
-                    </fieldset>
-                </form>
+                    @*<button title="Toggle password"
+                type="button"
+                class="usa-show-password"
+                aria-controls="password-sign-in"
+                data-show-text="Show password"
+                data-hide-text="Hide password">
+            Show password
+        </button>*@
+                    <br />
+                    <input class="usa-button" type="submit" value="Sign in" />
+                    <p>
+                        <a href="javascript:void()" title="Forgot password">Forgot password?</a>
+                    </p>
+                </fieldset>
+                }
             </main>
         </div>
     </div>
