@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.IO;
+using System.Configuration;
 using USDA.ARS.GRIN.Web.DataLayer;
 using USDA.ARS.GRIN.Web.ViewModelLayer;
 using USDA.ARS.GRIN.Web.WebUI;
@@ -71,12 +72,16 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
         [HttpPost]
         public ActionResult CropGermplasmCommitteeDocumentEdit(CropGermplasmCommitteeDocumentViewModel viewModel)
         {
-            string uploadDir = "~/documents/cgc/";
+            string documentUploadPath = String.Empty;
+            string documentUploadPathCommittee = String.Empty;
+            string documentUploadPathCVS = String.Empty;
             string path = String.Empty;
             CropGermplasmCommitteeDocument document = new CropGermplasmCommitteeDocument();
 
             try
             {
+                documentUploadPathCommittee = ConfigurationManager.AppSettings["DocumentUploadPathCommittee"];
+                documentUploadPathCVS = ConfigurationManager.AppSettings["DocumentUploadPathCommitteeCVS"];
                 document.ID = viewModel.Entity.ID;
                 document.CropGermplasmCommitteeID = viewModel.Entity.CropGermplasmCommitteeID;
                 document.Title = viewModel.Entity.Title;
@@ -96,18 +101,18 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
                     {
                         if (document.CategoryCode == "CVS")
                         {
-                            uploadDir = uploadDir + "cvs";
+                            documentUploadPath = documentUploadPathCVS;
                         }
                         else
                         {
                             if (document.CategoryCode == "MIN")
                             {
-                                uploadDir = uploadDir + "committee";
+                                documentUploadPath = documentUploadPathCommittee;
                             }
                         }
 
-                        var documentPath = Path.Combine(Server.MapPath(uploadDir), viewModel.DocumentUpload.FileName);
-                        var documentUrl = Path.Combine(uploadDir, viewModel.DocumentUpload.FileName);
+                        var documentPath = Path.Combine(Server.MapPath(documentUploadPath), viewModel.DocumentUpload.FileName);
+                        var documentUrl = Path.Combine(documentUploadPath, viewModel.DocumentUpload.FileName);
                         viewModel.DocumentUpload.SaveAs(documentPath);
 
                         var urlBuilder =

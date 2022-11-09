@@ -21,11 +21,43 @@
         overflow: scroll;
     }
 
-        #overlay h2 {
-            position: fixed;
-            margin-left: 40%;
-            top: 40%;
-        }
+    #overlay h2 {
+        position: fixed;
+        margin-left: 40%;
+        top: 40%;
+    }
+
+    #section-pvp-data-filters .usa-accordion__button {
+        -moz-osx-font-smoothing: inherit;
+        -webkit-font-smoothing: inherit;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+        text-align: left;
+        background-image: url(https://designsystem.digital.gov/assets/img/icons/remove.svg),linear-gradient(transparent,transparent);
+        background-repeat: no-repeat;
+        background-color: #f0f0f0;
+        background-position: right 1.25rem center;
+        background-size: 1.5rem;
+        color: #1b1b1b;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: 700;
+        margin: 0;
+        padding: 1rem 3.5rem 1rem 1.25rem;
+        text-decoration: none;
+        width: 100%;
+        background-image: url(https://designsystem.digital.gov/assets/img/icons/remove-white.svg),linear-gradient(transparent,transparent);
+        background-repeat: no-repeat;
+        background-color: #0050d8;
+        color: #fff;
+    }
+    #section-pvp-data-filters .usa-accordion__button:hover {
+        background-color: #0050d8;
+        color: white;
+        border-color: #0050d8;
+    }
 </style>
 
 <div id="overlay"><h2>Loading .. Please wait</h2></div>
@@ -77,9 +109,9 @@
                     In accordance with the <a class="usa-link" href="https://uscode.house.gov/browse/prelim@title7/chapter57/subchapter1&edition=prelim">Plant Variety Protection Act (PVPA)</a>, it examines new varieties, and grants <a class="usa-link" href="https://www.ams.usda.gov/services/plant-variety-protection/issued-certificates">certificates</a> that protect
                     varieties for 20 years (25 years for woody vines and trees).
                 </p>
-
-                @Html.Partial("~/Views/PVP/_ListByStatus.cshtml")
-
+                <div id="section-pvp-data">
+                    @Html.Partial("~/Views/PVP/_ListByStatus.cshtml")
+                </div>
                 <h3 id="section-heading-h3">Browse Applications</h3>
                 <div class="usa-alert usa-alert--info usa-alert--slim">
                     <div class="usa-alert__body">
@@ -88,7 +120,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="usa-accordion">
+                <br />
+                <div id="section-pvp-data-filters" class="usa-accordion">
                     <h4 class="usa-accordion__heading">
                         <button id="btnExpiring6Months" 
                                 type="button" 

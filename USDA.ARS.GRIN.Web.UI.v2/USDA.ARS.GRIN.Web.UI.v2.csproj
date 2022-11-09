@@ -1245,6 +1245,7 @@
     <Content Include="Views\Error\Error404.cshtml" />
     <Content Include="Views\Admin\CropGermplasmCommittee\Index.cshtml" />
     <Content Include="Views\Admin\CodeValue\Index.cshtml" />
+    <Content Include="Views\Contact\Confirm.cshtml" />
     <None Include="Views\Error\Error500.cshtml" />
     <Content Include="Views\Error\InternalServerError.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
