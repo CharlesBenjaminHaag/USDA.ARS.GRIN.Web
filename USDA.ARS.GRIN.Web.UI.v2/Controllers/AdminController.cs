@@ -96,7 +96,6 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
                 }
                 else
                 { 
-
                     if (viewModel.DocumentUpload != null && viewModel.DocumentUpload.ContentLength > 0)
                     {
                         if (document.CategoryCode == "CVS")
@@ -109,6 +108,11 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
                             {
                                 documentUploadPath = documentUploadPathCommittee;
                             }
+                        }
+
+                        if (String.IsNullOrEmpty(documentUploadPath))
+                        {
+                            throw new Exception("Document upload path is null. Verify that all settings are correct in web.config.");
                         }
 
                         var documentPath = Path.Combine(Server.MapPath(documentUploadPath), viewModel.DocumentUpload.FileName);
