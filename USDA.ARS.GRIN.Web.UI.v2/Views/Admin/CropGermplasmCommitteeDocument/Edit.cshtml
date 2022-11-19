@@ -51,15 +51,15 @@
             <div class="usa-layout-docs__sidenav desktop:grid-col-2">
                 <nav aria-label="Secondary navigation">
                     <ul class="usa-sidenav">
-                        <li class="usa-sidenav__item">
+                        @*<li class="usa-sidenav__item">
                             <a href="@Url.Action("Index","Admin")">Crop Germplasm Committees</a>
-                        </li>
+                        </li>*@
                         <li class="usa-sidenav__item">
                             <a href="@Url.Action("Index","Admin")">Documents</a>
                         </li>
-                        <li class="usa-sidenav__item">
+                        @*<li class="usa-sidenav__item">
                             <a href="@Url.Action("Index","Admin")">Code Values</a>
-                        </li>
+                        </li>*@
                     </ul>
                 </nav>
             </div>
@@ -76,58 +76,58 @@
                     @Html.HiddenFor(x => x.Entity.ID)
                     @Html.HiddenFor(x => x.AuthenticatedUserCooperatorID)
                     @Html.HiddenFor(x => x.ItemIDList)
-            <fieldset class="usa-fieldset">
-                <label class="usa-label" for="mailing-address-1">
-                    Title
-                    <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
-                </label>
-                @Html.TextBoxFor(x => x.Entity.Title, new { @class = "usa-input" })
-                <div class="grid-row grid-gap">
-                    <div class="mobile-lg:grid-col-12">
-                        <label class="usa-label" for="apt-suite-other">Committee</label>
-                        @Html.DropDownListFor(x => x.Entity.CropGermplasmCommitteeID, Model.CropGermplasmCommittees, "Select value", new { @class = "usa-select" })
-                    </div>
-                </div>
-                <label class="usa-label" for="city">
-                    Category
-                    <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
-                </label>
-                @Html.DropDownListFor(x => x.Entity.CategoryCode, Model.CategoryCodes, "All categories", new { @class = "usa-select" })
-                <label class="usa-label" for="mailing-address-1">
-                    Year
-                    <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
-                </label>
-                @Html.TextBoxFor(x => x.Entity.Year, new { @class = "usa-input" })
-                
-                @*@Html.TextBoxFor(x => x.Entity.URL, new { @class = "usa-input", @readonly = "readonly", @style = "background-color:#ebebeb;" })*@
-                <br />
-                <ul class="usa-card-group">
-                    <li class="usa-card tablet:grid-col-12">
-                        <div class="usa-card__container">
-                            <div class="usa-card__header">
-                                <h2 class="usa-card__heading">Document</h2>
-                            </div>
-                            <div class="usa-card__body">
-                                <div class="usa-form-group">
-                                    <label class="usa-label" for="file-input-single">Select the file to upload</label>
-                                    @Html.TextBoxFor(x => x.DocumentUpload, new { @class = "usa-file-input", @type = "file" })
-                                </div>
-                                
-                                    <label class="usa-label" for="zip">
-                                        Current File URL
-                                        <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
-                                    </label>
-                                    <a href="@Model.Entity.URL">@Model.Entity.URL</a>
-                                
-                            </div>
-                            <div class="usa-card__footer">
-                                <a href="https://npgsdev.ars-grin.gov/ars-grin/CGC#committees" class="usa-button usa-button--outline" style="color: #005ea2; " >View ARS-GRIN Site</a>
+                    <fieldset class="usa-fieldset">
+                        <label class="usa-label" for="mailing-address-1">
+                            Title
+                            <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
+                        </label>
+                        @Html.TextBoxFor(x => x.Entity.Title, new { @class = "usa-input" })
+                        <div class="grid-row grid-gap">
+                            <div class="mobile-lg:grid-col-12">
+                                <label class="usa-label" for="apt-suite-other">Committee</label>
+                                @Html.DropDownListFor(x => x.Entity.CropGermplasmCommitteeID, Model.CropGermplasmCommittees, "Select value", new { @class = "usa-select" })
                             </div>
                         </div>
-                    </li>
-                </ul>
-            </fieldset>
-                    <input class="usa-button usa-button--accent-cool float-right" type="submit" value="Save" />
+                        <label class="usa-label" for="city">
+                            Category
+                            <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
+                        </label>
+                        @Html.DropDownListFor(x => x.Entity.CategoryCode, Model.CategoryCodes, "All categories", new { @class = "usa-select" })
+                        <label class="usa-label" for="mailing-address-1">
+                            Year
+                            <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
+                        </label>
+                        @Html.TextBoxFor(x => x.Entity.Year, new { @class = "usa-input" })
+
+                        @*@Html.TextBoxFor(x => x.Entity.URL, new { @class = "usa-input", @readonly = "readonly", @style = "background-color:#ebebeb;" })*@
+                        <br />
+                        <ul class="usa-card-group">
+                            <li class="usa-card tablet:grid-col-12">
+                                <div class="usa-card__container">
+                                    <div class="usa-card__header">
+                                        <h2 class="usa-card__heading">Document</h2>
+                                    </div>
+                                    <div class="usa-card__body">
+                                        <div class="usa-form-group">
+                                            <label class="usa-label" for="file-input-single">Select the file to upload</label>
+                                            @Html.TextBoxFor(x => x.DocumentUpload, new { @class = "usa-file-input", @type = "file" })
+                                        </div>
+
+                                        <label class="usa-label" for="zip">
+                                            Current File URL
+                                            <abbr title="required" class="usa-hint usa-hint--required">*</abbr>
+                                        </label>
+                                        <a href="@Model.Entity.URL">@Model.Entity.URL</a>
+
+                                    </div>
+                                    <div class="usa-card__footer">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </fieldset>
+                    <input class="usa-button float-right" type="submit" value="Save" />
+                    <a href="https://npgsdev.ars-grin.gov/ars-grin/CGC#committees" class="usa-button usa-button--outline float-right" style="color: #005ea2; ">View ARS-GRIN Site</a>
                     <input id="btnDelete" class="usa-button usa-button--secondary" type="button" value="Delete" />
                 }
             </main>

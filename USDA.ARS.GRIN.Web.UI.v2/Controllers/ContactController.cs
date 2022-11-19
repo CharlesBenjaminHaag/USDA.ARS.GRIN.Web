@@ -15,6 +15,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
         // GET: Contact
         public ActionResult Index()
         {
+            TempData["PAGE_CONTEXT"] = "Contact Us";
             return View();
         }
         [HttpPost]
@@ -23,6 +24,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
             try
             {
                 viewModel.SendMessage();
+                TempData["PAGE_CONTEXT"] = "Contact Us";
                 return View("~/Views/Contact/Confirm.cshtml");
             }
             catch (Exception ex)
