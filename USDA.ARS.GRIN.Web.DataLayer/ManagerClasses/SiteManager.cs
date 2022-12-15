@@ -20,7 +20,7 @@ namespace USDA.ARS.GRIN.Web.DataLayer
                 CreateParameter("site_id", (object)entityId, false)
             };
             site = GetRecord<Site>(SQL, CommandType.StoredProcedure, parameters.ToArray());
-            site.Crops = GetCrops(entityId);
+            //site.Crops = GetCrops(entityId);
             return site;
         }
 

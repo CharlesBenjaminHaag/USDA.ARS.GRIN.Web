@@ -150,15 +150,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\img\hero-topic-plants_0.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\img\icon-dot-gov.svg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\img\icon-https.svg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\img\sprite.svg" />
+    <Content Include="assets\img\sprite.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="assets\img\usa-hero\Apple_AdobeStock_288841661.jpeg" />
     <Content Include="assets\img\usa-hero\Apple_AdobeStock_358576775.jpeg" />
     <Content Include="assets\img\usa-hero\Crop_Rows.6e2bcd8bf257a628b291.jpg" />
@@ -1212,7 +1214,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\img\us_flag_small.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\uswds-2.10.0\css\uswds.min.css" />
     <Content Include="assets\uswds-2.10.0\img\animals.jpg" />
@@ -1229,17 +1231,29 @@
     <Content Include="assets\uswds\dist\js\uswds-init.min.js" />
     <Content Include="assets\uswds\dist\js\uswds.min.js" />
     <Content Include="assets\uswds\packages\usa-alert\src\content\index.js" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap-theme.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\bootstrap-theme.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\bootstrap.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\bootstrap.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\FullCalendar\main.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\Site.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="libman.json" />
-    <Content Include="nlog.config" />
+    <Content Include="nlog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="assets\uswds\packages\usa-alert\src\content\usa-alert.json" />
     <Content Include="assets\uswds\packages\usa-alert\src\content\usa-alert~emergency.json" />
     <Content Include="assets\uswds\packages\usa-alert\src\content\usa-alert~error.json" />
@@ -1262,15 +1276,27 @@
     <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.5.1.min.map" />
     <Content Include="Views\CGC\_List.cshtml" />
-    <Content Include="Views\Error\Error404.cshtml" />
+    <Content Include="Views\Error\Error404.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Views\Admin\CropGermplasmCommittee\Index.cshtml" />
     <Content Include="Views\Admin\CodeValue\Index.cshtml" />
     <Content Include="Views\Contact\Confirm.cshtml" />
-    <None Include="Views\Error\Error500.cshtml" />
-    <Content Include="Views\Error\InternalServerError.cshtml" />
-    <Content Include="Views\Error\NotFound.cshtml" />
-    <Content Include="Views\Error\SystemError.cshtml" />
-    <Content Include="Views\Error\_InternalServerError.cshtml" />
+    <None Include="Views\Error\Error500.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Views\Error\InternalServerError.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Error\NotFound.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Error\SystemError.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Error\_InternalServerError.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Views\CGC\_ListDocuments.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
@@ -1351,10 +1377,18 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.min.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\bootstrap.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\bootstrap-theme.min.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\bootstrap-theme.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
