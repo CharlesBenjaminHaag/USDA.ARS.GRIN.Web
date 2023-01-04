@@ -43,7 +43,7 @@
 
 <body>
     <a class="usa-skipnav" href="#main-content">Skip to main content</a>
-    @Html.Partial("~/Views/Shared/_USABanner.cshtml")
+    @Html.Partial("~/Views/Shared/Partials/_USABanner.cshtml")
     <div class="usa-overlay"></div>
     <header class="usa-header usa-header--extended">
         <div class="usa-navbar">
@@ -364,8 +364,8 @@
     <main id="main-content">
         @RenderBody()
     </main>
-    @Html.Partial("~/Views/Shared/_USAFooter.cshtml")
-    @Html.Partial("~/Views/Shared/_USAIdentifier.cshtml")
+    @Html.Partial("~/Views/Shared/Partials/_USAFooter.cshtml")
+    @*@Html.Partial("~/Views/Shared/_USAIdentifier.cshtml")*@
     @Scripts.Render("~/bundles/jquery")
     @*@Scripts.Render("~/bundles/bootstrap")*@
     <script src="~/assets/uswds-2.10.0/js/uswds.min.js"></script>

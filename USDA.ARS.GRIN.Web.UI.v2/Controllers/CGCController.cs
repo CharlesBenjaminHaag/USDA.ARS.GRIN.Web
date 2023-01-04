@@ -43,12 +43,13 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
             }
         }
 
-        public PartialViewResult _ListDocuments(int cropGermplasmCommitteeId)
+        public PartialViewResult _ListDocuments(int cropGermplasmCommitteeId = 0, string categoryCode = "")
         {
             try
             {
                 CropGermplasmCommitteeDocumentViewModel viewModel = new CropGermplasmCommitteeDocumentViewModel();
                 viewModel.SearchEntity.CropGermplasmCommitteeID = cropGermplasmCommitteeId;
+                viewModel.SearchEntity.CategoryCode = categoryCode;
                 viewModel.Search();
                 return PartialView(viewModel);
             }

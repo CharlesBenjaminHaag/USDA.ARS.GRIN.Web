@@ -27,5 +27,12 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
             TempData["PAGE_CONTEXT"] = "Error";
             return View("~/Views/Error/Error500.cshtml");
         }
+
+        [HttpGet]
+        public ActionResult NotFound()
+        {
+            TempData["PAGE_CONTEXT"] = "Error";
+            return View("~/Views/Error/Error404.cshtml");
+        }
     }
 }

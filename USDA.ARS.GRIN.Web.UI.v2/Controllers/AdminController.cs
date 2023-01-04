@@ -75,6 +75,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
             string documentUploadPath = String.Empty;
             string documentUploadPathCommittee = String.Empty;
             string documentUploadPathCVS = String.Empty;
+            string documentUploadPathBriefings = String.Empty;
             string path = String.Empty;
             CropGermplasmCommitteeDocument document = new CropGermplasmCommitteeDocument();
 
@@ -82,6 +83,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
             {
                 documentUploadPathCommittee = ConfigurationManager.AppSettings["DocumentUploadPathCommittee"];
                 documentUploadPathCVS = ConfigurationManager.AppSettings["DocumentUploadPathCommitteeCVS"];
+                documentUploadPathBriefings = ConfigurationManager.AppSettings["DocumentUploadPathCommitteeBriefings"];
                 document.ID = viewModel.Entity.ID;
                 document.CropGermplasmCommitteeID = viewModel.Entity.CropGermplasmCommitteeID;
                 document.Title = viewModel.Entity.Title;
@@ -107,6 +109,10 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
                             if (document.CategoryCode == "MIN")
                             {
                                 documentUploadPath = documentUploadPathCommittee;
+                            }
+                            else
+                            {
+                                documentUploadPath = documentUploadPathBriefings;
                             }
                         }
 

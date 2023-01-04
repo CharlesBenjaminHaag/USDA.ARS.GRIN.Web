@@ -36,7 +36,15 @@
                     }
                 </td>
                 <td>
-                    @result.CertificateStatus
+                    @if ((result.CertificateStatus == "Certificate Expired") ||
+                            (result.CertificateStatus == "Certificate Issued"))
+                    {
+                        <a href=""> @result.CertificateStatus</a>
+                    }
+                    else
+                    {
+                        @result.CertificateStatus
+                    }
                 </td>
                 <td>
                     <a class="usa-link usa-link--alt usa-link--external" href="https://npgsweb.ars-grin.gov/gringlobal/accessiondetail?id=@result.AccessionID">
