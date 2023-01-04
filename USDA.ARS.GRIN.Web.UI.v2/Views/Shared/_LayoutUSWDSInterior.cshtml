@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="~/assets/uswds/dist/css/uswds.css" />
     <title>View</title>
     @Scripts.Render("~/bundles/jquery")
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.dataTables.min.css" />
+
     @*@Styles.Render("~/Content/css")*@
     <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -20,7 +22,9 @@
             crossorigin=""></script>
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
+
     <!-- MAY NEED FOR PVP/QUERY PAGES-->
     @*<style type="text/css">
             .grid-container {
@@ -44,13 +48,13 @@
             superimpose the plus/minus over the text.
         */
         #main-content .usa-accordion__button[aria-expanded=false] {
-            background-image: url(/ars-grin/assets/img/usa-icons/add.svg),linear-gradient(transparent,transparent);
+            background-image: url(https://www.ars-grin.gov/assets/img/usa-icons/add.svg),linear-gradient(transparent,transparent);
             background-repeat: no-repeat;
             background-size: 1.5rem;
         }
 
         #main-content .usa-accordion__button[aria-expanded=true] {
-            background-image: url(/assets/img/usa-icons/remove.svg),linear-gradient(transparent,transparent);
+            background-image: url(https://www.ars-grin.gov/assets//img/usa-icons/remove.svg),linear-gradient(transparent,transparent);
             background-repeat: no-repeat;
             background-size: 1.5rem;
         }
@@ -74,6 +78,8 @@
         .dataTables_filter input {
             float: none;
         }
+     
+
     </style>
 
     <!--====================================================================

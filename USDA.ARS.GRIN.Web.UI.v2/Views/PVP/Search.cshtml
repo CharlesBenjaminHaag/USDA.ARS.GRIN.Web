@@ -68,16 +68,23 @@
 <div id="overlay"><h2>Loading .. Please wait</h2></div>
 <div class="usa-section">
     <div class="grid-container" style="max-width:94rem;">
+        <nav class="usa-breadcrumb" aria-label="Breadcrumbs,,">
+            <ol class="usa-breadcrumb__list">
+                <li class="usa-breadcrumb__list-item">
+                    <a href="@Url.Action("Index","PVP")" class="usa-breadcrumb__link"><span>PVP Applications</span></a>
+                </li>
+            </ol>
+        </nav>
         <div class="grid-row grid-gap">
             <main class="usa-layout-docs__main desktop:grid-col-12 usa-prose usa-layout-docs" id="main-content">
                 <h2 id="section-heading-h2">Advanced Search</h2>
                 @*<div class="usa-alert usa-alert--info usa-alert--slim">
-            <div class="usa-alert__body">
-                <p class="usa-alert__text">
-                    All data represented here is based on an <a class="usa-link usa-link--alt usa-link--external" href="https://www.ams.usda.gov/services/plant-variety-protection/application-status">update</a> from <strong>9/19/2022</strong>. Please <a href="@Url.Action("Index","Contact", new { context="pvp" })">contact us</a> regarding any errors or omissions.
-                </p>
-            </div>
-        </div>*@
+                        <div class="usa-alert__body">
+                            <p class="usa-alert__text">
+                                All data represented here is based on an <a class="usa-link usa-link--alt usa-link--external" href="https://www.ams.usda.gov/services/plant-variety-protection/application-status">update</a> from <strong>9/19/2022</strong>. Please <a href="@Url.Action("Index","Contact", new { context="pvp" })">contact us</a> regarding any errors or omissions.
+                            </p>
+                        </div>
+                    </div>*@
 
                 <div id="section-pvp-search-criteria" class="usa-accordion usa-accordion--bordered">
                     <h4 class="usa-accordion__heading">
@@ -95,70 +102,70 @@
 
 
 
-                    
-                    <h3 id="section-heading-h3">Search Results (@Model.RowsAffected)</h3>
 
-                    <table id="data-table_pvp_applications" class="display table-responsive">
-                        <thead>
+                <h3 id="section-heading-h3">Search Results (@Model.RowsAffected)</h3>
+
+                <table id="data-table_pvp_applications" class="display table-responsive">
+                    <thead>
+                        <tr>
+                            <th>PV Number</th>
+                            <th>Applicant</th>
+                            <th>Variety (Cultivar)</th>
+                            <th>Common Name</th>
+                            <th>Experimental Name</th>
+                            <th>Expiration Date</th>
+                            <th>Status</th>
+                            <th>Accession</th>
+                            @*<th></th>*@
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var result in Model.DataCollection)
+                        {
                             <tr>
-                                <th>PV Number</th>
-                                <th>Applicant</th>
-                                <th>Variety (Cultivar)</th>
-                                <th>Common Name</th>
-                                <th>Experimental Name</th>
-                                <th>Expiration Date</th>
-                                <th>Status</th>
-                                <th>Accession</th>
-                                @*<th></th>*@
+                                <td>@result.ApplicationNumber</td>
+                                <td>@result.Applicant</td>
+                                <td>@result.Variety</td>
+                                <td>@result.CommonName</td>
+                                <td>@result.ScientificName</td>
+                                <td>@result.ExpirationDate.ToShortDateString()</td>
+                                <td>
+                                    @result.CertificateStatus
+                                </td>
+                                <td>
+                                    <a class="usa-link usa-link--alt usa-link--external" href="https://npgsweb.ars-grin.gov/gringlobal/accessiondetail?id=@result.AccessionID">
+
+                                        @result.AccessionName
+                                    </a>
+                                </td>
+
+                                <!--<td>
+                                <button id="@result.ApplicationNumber" class="usa-button usa-button--outline detail-expand">Detail</button>-->
+                                @*<a href="@Url.Action("Detail","PVP", new { id = result.ApplicationNumber })"
+                                class="usa-button usa-button--outline">
+                                Detail
+                                </a>*@
+                                <!--</td>-->
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var result in Model.DataCollection)
-                            {
-                                <tr>
-                                    <td>@result.ApplicationNumber</td>
-                                    <td>@result.Applicant</td>
-                                    <td>@result.Variety</td>
-                                    <td>@result.CommonName</td>
-                                    <td>@result.ScientificName</td>
-                                    <td>@result.ExpirationDate.ToShortDateString()</td>
-                                    <td>
-                                        @result.CertificateStatus
-                                    </td>
-                                    <td>
-                                        <a class="usa-link usa-link--alt usa-link--external" href="https://npgsweb.ars-grin.gov/gringlobal/accessiondetail?id=@result.AccessionID">
-
-                                            @result.AccessionName
-                                        </a>
-                                    </td>
-
-                                    <!--<td>
-                        <button id="@result.ApplicationNumber" class="usa-button usa-button--outline detail-expand">Detail</button>-->
-                                    @*<a href="@Url.Action("Detail","PVP", new { id = result.ApplicationNumber })"
-                                    class="usa-button usa-button--outline">
-                                    Detail
-                                    </a>*@
-                                    <!--</td>-->
-                                </tr>
-                                }
-                            </tbody>
-                        </table>
+                            }
+                        </tbody>
+                    </table>
 
 
 
-                        <div class="grid-container margin-top-5" style="max-width:94rem;">
-                            <div class="grid-row grid-gap">
-                                <div class="grid-col-12">
-                                    <div id="section-pvp-applications">
+                    <div class="grid-container margin-top-5" style="max-width:94rem;">
+                        <div class="grid-row grid-gap">
+                            <div class="grid-col-12">
+                                <div id="section-pvp-applications">
 
-                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </main>
+            </div>
         </div>
     </div>
-</div>
 <script type="text/javascript">
     $(document).ready(function () {
         InitDataTable("data-table_pvp_applications");
