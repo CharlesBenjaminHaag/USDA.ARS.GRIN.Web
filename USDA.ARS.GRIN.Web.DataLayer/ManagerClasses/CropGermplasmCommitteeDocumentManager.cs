@@ -15,7 +15,7 @@ namespace USDA.ARS.GRIN.Web.DataLayer
             Reset(CommandType.StoredProcedure);
             Validate<CropGermplasmCommitteeDocument>(entity);
 
-            SQL = "usp_GGTools_GRINGlobal_CropGermplasmCommitteeDocument_Insert";
+            SQL = "usp_GRINGlobal_Crop_Germplasm_Committee_Document_Insert";
 
             BuildInsertUpdateParameters(entity);
             
@@ -35,7 +35,7 @@ namespace USDA.ARS.GRIN.Web.DataLayer
             Reset(CommandType.StoredProcedure);
             Validate<CropGermplasmCommitteeDocument>(entity);
 
-            SQL = "usp_GGTools_GRINGlobal_CropGermplasmCommitteeDocument_Update";
+            SQL = "usp_GRINGlobal_Crop_Germplasm_Committee_Document_Update";
 
             BuildInsertUpdateParameters(entity);
             
@@ -53,7 +53,7 @@ namespace USDA.ARS.GRIN.Web.DataLayer
             Reset(CommandType.StoredProcedure);
             Validate<CropGermplasmCommitteeDocument>(entity);
 
-            SQL = "usp_GGTools_GRINGlobal_CropGermplasmCommitteeDocument_Delete";
+            SQL = "usp_GRINGlobal_Crop_Germplasm_Committee_Document_Delete";
 
             AddParameter("@crop_germplasm_committee_document_id", entity.ID == 0 ? DBNull.Value : (object)entity.ID, true);
             AddParameter("@out_error_number", -1, true, System.Data.DbType.Int32, System.Data.ParameterDirection.Output);

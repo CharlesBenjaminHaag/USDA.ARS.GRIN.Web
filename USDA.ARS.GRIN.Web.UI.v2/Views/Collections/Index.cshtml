@@ -147,7 +147,10 @@
 <script type="text/javascript" src="https://leafletjs.com/examples/choropleth/us-states.js"></script>
 <script type="text/javascript">
 
-    var map = L.map('mapid').setView([37.8, -96], 4);
+    //var map = L.map('mapid').setView([37.8, -96], 4);
+
+    var map = L.map('mapid').setView([40.57317281015742, -105.07967561730995], 3);
+
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
         maxZoom: 18,
@@ -170,6 +173,9 @@
         var link = '@Url.Action("_Detail","Site")';
         var formData = new FormData();
         formData.append("SiteID", siteId);
+
+        //DEBUG
+        alert("CLICKED SITE ID " + siteId);
 
         try {
             $.ajax({
@@ -208,41 +214,6 @@
 
     var siteId = "";
 
-    siteId = "1";
-    var marker = L.marker([30.619591837167704, -96.36182821750184], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "13";
-    var marker = L.marker([38.534862012868864, -121.75462764434283], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "15";
-    var marker = L.marker([39.026515487598985, -76.9234882308379], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "19";
-    var marker = L.marker([42.95707938078901, -112.82869678657434], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "31";
-    var marker = L.marker([40.10305195116381, -88.22429523081477], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "37";
-    var marker = L.marker([36.59667464938536, -119.51265894622854], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "42";
-    var marker = L.marker([40.57317281015742, -105.07967561730995], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
     siteId = "2";
     var marker = L.marker([30.522515482482035, -96.42369203284417], { myCustomId: siteId });
     marker.on('click', onMarkerClick);
@@ -277,6 +248,68 @@
     var marker = L.marker([25.64388309000814, -80.2917109157293], { myCustomId: siteId });
     marker.on('click', onMarkerClick);
     marker.addTo(map);
+
+    siteId = "9";
+    var marker = L.marker([33.967873, -117.334614], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "13";
+    var marker = L.marker([38.534862012868864, -121.75462764434283], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "15";
+    var marker = L.marker([39.026515487598985, -76.9234882308379], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "16";
+    var marker = L.marker([42.028186, -93.64162], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "19";
+    var marker = L.marker([42.95707938078901, -112.82869678657434], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "22";
+    var marker = L.marker([33.262636, -84.28085], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "26";
+    var marker = L.marker([46.731716, -117.157919], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "29";
+    var marker = L.marker([44.879492, -87.335423], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "31";
+    var marker = L.marker([40.10305195116381, -88.22429523081477], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "34";
+    var marker = L.marker([46.731716, -117.157919], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "37";
+    var marker = L.marker([36.59667464938536, -119.51265894622854], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "40";
+    var marker = L.marker([34.475486, -91.418618], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+   
 
     var geojson;
 
