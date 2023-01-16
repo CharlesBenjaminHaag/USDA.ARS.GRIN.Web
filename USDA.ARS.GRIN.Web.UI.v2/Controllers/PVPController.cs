@@ -43,7 +43,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
             if (!String.IsNullOrEmpty(status))
             {
                 viewModel.SearchEntity.CertificateStatus = status;
-                viewModel.SearchEntity.StatusDateRange = "1Y";
+                viewModel.SearchEntity.StatusDateRange = "01Y";
                 viewModel.Search();
             }
             return View(viewModel);

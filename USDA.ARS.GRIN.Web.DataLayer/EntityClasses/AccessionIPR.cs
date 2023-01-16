@@ -6,7 +6,7 @@ using USDA.ARS.GRIN.Web.AppLayer;
 
 namespace USDA.ARS.GRIN.Web.DataLayer
 {
-    public class PVPApplication: AppEntityBase
+    public class AccessionIPR
     {
         public int ApplicationNumber { get; set; }
         public string Variety { get; set; }
@@ -24,23 +24,22 @@ namespace USDA.ARS.GRIN.Web.DataLayer
         public bool IsAvailableInGRIN { get; set; }
         public int AccessionID { get; set; }
         public string AccessionName { get; set; }
+        public string CertificateURL
+        {
+            get
+            {
+                string convertedPVPNumber = ApplicationNumber.ToString();
+                string certificateUrl = String.Empty;
 
-        //public string CertificateURL
-        //{
-        //    get
-        //    {
-        //        string convertedPVPNumber = ApplicationNumber.ToString();
-        //        string certificateUrl = String.Empty;
-
-        //        if (ApplicationStatus == "Certificate Expired" || ApplicationStatus == "Certificate Issued")
-        //        {
-        //            if (convertedPVPNumber.Length < 9)
-        //            {
-        //                certificateUrl = String.Format("https://apps.ams.usda.gov/CMS/AdobeImages/00{0}.pdf", convertedPVPNumber);
-        //            }
-        //        }
-        //        return certificateUrl;
-        //    }
-        //}
+                if (CertificateStatus == "Certificate Expired" || CertificateStatus == "Certificate Issued")
+                {
+                    if (convertedPVPNumber.Length < 9)
+                    {
+                        certificateUrl = String.Format("https://apps.ams.usda.gov/CMS/AdobeImages/00{0}.pdf", convertedPVPNumber);
+                    }
+                }
+                return certificateUrl;
+            }
+        }
     }
 }

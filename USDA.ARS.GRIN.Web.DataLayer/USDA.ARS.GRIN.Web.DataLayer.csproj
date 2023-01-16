@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityClasses\AccessionIPR.cs" />
     <Compile Include="EntityClasses\BaseModel.cs" />
     <Compile Include="EntityClasses\CodeValue.cs" />
     <Compile Include="EntityClasses\CodeValueSearch.cs" />

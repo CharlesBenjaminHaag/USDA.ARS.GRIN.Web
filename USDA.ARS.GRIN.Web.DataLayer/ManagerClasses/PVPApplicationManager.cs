@@ -55,7 +55,7 @@ namespace USDA.ARS.GRIN.Web.DataLayer
                     viewName = "vw_GGTools_GRINGlobal_PVPApplicationRecentlySubmitted";
                     break;
                 default:
-                    viewName = "vw_GGTools_GRINGlobal_PVPApplication";
+                    viewName = "vw_GRINGlobal_Accession_IPR";
                     break;
             }
 

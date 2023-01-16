@@ -65,8 +65,20 @@
 <div class="usa-section">
     <div class="grid-container" style="max-width:94rem;">
         <div class="grid-row grid-gap">
-            <div class="usa-layout-docs__sidenav desktop:grid-col-2">
+            <div class="usa-layout-docs__sidenav desktop:grid-col-2" style="background-color: #f1f1f1;">
                 <nav aria-label="Secondary navigation">
+
+                    <label class="usa-label" for="input-type-text">Text input label</label>
+                    <input class="usa-input" id="input-type-text" name="input-type-text" />
+
+                    <label class="usa-label" for="options">Dropdown label</label>
+                    <select class="usa-select" name="options" id="options">
+                        <option value>- Select -</option>
+                        <option value="value1">Option A</option>
+                        <option value="value2">Option B</option>
+                        <option value="value3">Option C</option>
+                    </select>
+
                     <ul class="usa-sidenav">
                         <li class="usa-sidenav__item">
                             <a href="@Url.Action("Index","Home")">Home</a>
