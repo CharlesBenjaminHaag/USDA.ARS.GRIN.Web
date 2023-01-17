@@ -10,6 +10,7 @@ namespace USDA.ARS.GRIN.Web.AppLayer
     {
         public int ID { get; set; }
         public string IDList { get; set; }
+        public string FormatCode { get; set; }
         public string TableName { get; set; }
         public int CreatedByCooperatorID { get; set; }
         public string DateRangeFilter { get; set; }

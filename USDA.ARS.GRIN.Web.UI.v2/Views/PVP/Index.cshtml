@@ -65,20 +65,8 @@
 <div class="usa-section">
     <div class="grid-container" style="max-width:94rem;">
         <div class="grid-row grid-gap">
-            <div class="usa-layout-docs__sidenav desktop:grid-col-2" style="background-color: #f1f1f1;">
+            <div class="usa-layout-docs__sidenav desktop:grid-col-2">
                 <nav aria-label="Secondary navigation">
-
-                    <label class="usa-label" for="input-type-text">Text input label</label>
-                    <input class="usa-input" id="input-type-text" name="input-type-text" />
-
-                    <label class="usa-label" for="options">Dropdown label</label>
-                    <select class="usa-select" name="options" id="options">
-                        <option value>- Select -</option>
-                        <option value="value1">Option A</option>
-                        <option value="value2">Option B</option>
-                        <option value="value3">Option C</option>
-                    </select>
-
                     <ul class="usa-sidenav">
                         <li class="usa-sidenav__item">
                             <a href="@Url.Action("Index","Home")">Home</a>
@@ -93,9 +81,9 @@
                                 <li class="usa-sidenav__item active">
                                     <a href="#section-overview">Overview</a>
                                 </li>
-                                <li class="usa-sidenav__item">
+                                @*<li class="usa-sidenav__item">
                                     <a href="#section-directory">Applications by Status</a>
-                                </li>
+                                </li>*@
                                 <li class="usa-sidenav__item">
                                     <a href="#section-briefings">Browse Applications</a>
                                 </li>
@@ -121,14 +109,14 @@
                     In accordance with the <a class="usa-link" href="https://uscode.house.gov/browse/prelim@title7/chapter57/subchapter1&edition=prelim">Plant Variety Protection Act (PVPA)</a>, it examines new varieties, and grants <a class="usa-link" href="https://www.ams.usda.gov/services/plant-variety-protection/issued-certificates">certificates</a> that protect
                     varieties for 20 years (25 years for woody vines and trees).
                 </p>
-                <div id="section-pvp-data">
+                @*<div id="section-pvp-data">
                     @Html.Partial("~/Views/PVP/_ListByStatus.cshtml")
-                </div>
+                </div>*@
                 <h3 id="section-heading-h3">Browse Applications</h3>
                 <div class="usa-alert usa-alert--info usa-alert--slim">
                     <div class="usa-alert__body">
                         <p class="usa-alert__text">
-                            All data represented here is based on an <a class="usa-link" href="https://www.ams.usda.gov/services/plant-variety-protection/application-status">update</a> from <strong>9/19/2022</strong>. Please <a href="@Url.Action("Index","Contact", new { context="pvp" })">contact us</a> regarding any errors or omissions.
+                            All data represented here is based on an <a class="usa-link" href="https://www.ams.usda.gov/services/plant-variety-protection/application-status">update</a> from <strong>1/9/2023</strong>. Please <a href="@Url.Action("Index","Contact", new { context="pvp" })">contact us</a> regarding any errors or omissions.
                         </p>
                     </div>
                 </div>
@@ -218,6 +206,7 @@
             data: formData,
             success: function (response) {
                 $("#" + sectionName).html(response);
+                /*InitDataTable("data_table_pvp_application");*/
             }
         });
         $("#overlay").hide();

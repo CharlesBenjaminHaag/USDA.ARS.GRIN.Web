@@ -22,7 +22,9 @@ namespace USDA.ARS.GRIN.Web.DataLayer
         public string PrimaryAddress1 { get; set; }
         public string PrimaryAddress2 { get; set; }
         public string PrimaryAddress3 { get; set; }
-        public string PrimaryCity { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string PostalIndex { get; set; }
         public string PrimaryPhone { get; set; }
         public string SecondaryAddress1 { get; set; }
         public string SecondaryAddress2 { get; set; }

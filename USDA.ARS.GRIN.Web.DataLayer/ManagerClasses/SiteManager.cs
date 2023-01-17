@@ -13,7 +13,7 @@ namespace USDA.ARS.GRIN.Web.DataLayer
     {
         public Site Get(int entityId)
         {
-            SQL = "usp_GGTools_GRINGlobal_Site_Select";
+            SQL = "usp_GRINGlobal_Site_Select";
             Site site = new Site();
 
             var parameters = new List<IDbDataParameter> {
@@ -40,11 +40,17 @@ namespace USDA.ARS.GRIN.Web.DataLayer
         {
             List<Site> results = new List<Site>();
 
-            SQL = " SELECT * FROM vw_GGTools_GRINGlobal_Sites";
-            SQL += " WHERE (@ID                     IS NULL     OR ID                       =       @ID)";
-            SQL += " AND (@ShortName                IS NULL     OR ShortName                LIKE    '%' + @ShortName + '%')";
-            SQL += " AND (@LongName                 IS NULL     OR LongName                 LIKE    '%' + @LongName + '%')";
-           
+            SQL = " SELECT * FROM vw_GRINGlobal_Site";
+            SQL += " WHERE ";
+            SQL += " ((@ID                  IS NULL     OR ID           =       @ID)";
+            SQL += " AND (@ShortName        IS NULL     OR ShortName    LIKE    '%' + @ShortName + '%')";
+            SQL += " AND (@LongName         IS NULL     OR LongName     LIKE    '%' + @LongName + '%'))";
+
+            if (!String.IsNullOrEmpty(searchEntity.IDList))
+            {
+                SQL += "AND ID IN (" + searchEntity.IDList + ")";
+            }
+
             var parameters = new List<IDbDataParameter> {
                 CreateParameter("ID", searchEntity.ID > 0 ? (object)searchEntity.ID : DBNull.Value, true),
                 CreateParameter("ShortName", (object)searchEntity.ShortName ?? DBNull.Value, true),

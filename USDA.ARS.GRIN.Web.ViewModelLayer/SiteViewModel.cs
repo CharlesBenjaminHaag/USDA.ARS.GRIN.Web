@@ -28,5 +28,27 @@ namespace USDA.ARS.GRIN.Web.ViewModelLayer
                 }
             }
         }
+
+        public void Search()
+        {
+            using (SiteManager mgr = new SiteManager())
+            {
+                try
+                {
+                    DataCollection = new Collection<Site>(mgr.Search(SearchEntity));
+                    RowsAffected = mgr.RowsAffected;
+
+                    if (RowsAffected == 1)
+                    {
+                        Entity = DataCollection[0];
+                    }
+                }
+                catch (Exception ex)
+                {
+                    PublishException(ex);
+                    throw ex;
+                }
+            }
+        }
     }
 }

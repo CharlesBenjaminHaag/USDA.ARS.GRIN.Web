@@ -9,7 +9,7 @@ namespace USDA.ARS.GRIN.Web.DataLayer
     public class PVPApplication: AppEntityBase
     {
         public int ApplicationNumber { get; set; }
-        public string Variety { get; set; }
+        public string VarietyName { get; set; }
         public string ExperimentalName { get; set; }
         public string ScientificName { get; set; }
         public string CommonName { get; set; }

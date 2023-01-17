@@ -37,7 +37,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
 
         public ActionResult Search(string status = "")
         {
-            TempData["PAGE_CONTEXT"] = "PVP Application Status Database";
+            TempData["PAGE_CONTEXT"] = "PVP Application Search";
             PVPApplicationViewModel viewModel = new PVPApplicationViewModel();
           
             if (!String.IsNullOrEmpty(status))
@@ -53,7 +53,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
         {
             try
             {
-                TempData["PAGE_CONTEXT"] = "PVP Application Status Database";
+                TempData["PAGE_CONTEXT"] = "PVP Application Search";
                 viewModel.Search();
                 ModelState.Clear();
                 return View(viewModel);

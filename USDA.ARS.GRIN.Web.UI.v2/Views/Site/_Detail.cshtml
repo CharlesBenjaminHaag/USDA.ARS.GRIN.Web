@@ -5,7 +5,7 @@
 <table class="usa-table usa-table--borderless">
     <tbody>
         <tr>
-            <th scope="row">Short Name</th>
+            <th scope="row">Name</th>
             <td>
                 @Model.Entity.ShortName
             </td>
@@ -16,7 +16,7 @@
                 @Model.Entity.PrimaryAddress1
                 @Model.Entity.PrimaryAddress2
                 @Model.Entity.PrimaryAddress3
-                @Model.Entity.PrimaryCity
+                @Model.Entity.City @Model.Entity.State @Model.Entity.PostalIndex
             </td>
         </tr>
         <tr>

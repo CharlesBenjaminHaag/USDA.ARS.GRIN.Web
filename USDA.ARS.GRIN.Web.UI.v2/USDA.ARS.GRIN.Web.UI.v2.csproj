@@ -1359,6 +1359,7 @@
     <Content Include="Views\Shared\_LayoutUSWDSInteriorAdmin.cshtml" />
     <Content Include="Views\Rhizobium\_List.cshtml" />
     <Content Include="Views\Shared\Partials\_USANavAdmin.cshtml" />
+    <Content Include="Views\Site\_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -40,54 +40,52 @@ namespace USDA.ARS.GRIN.Web.DataLayer
 
         public List<PVPApplication> Search(PVPApplicationSearch searchEntity)
         {
-            string viewName = String.Empty;
             List<PVPApplication> results = new List<PVPApplication>();
 
-            switch (searchEntity.TimeFrame)
-            {
-                case "EXP6":
-                    viewName = "vw_GGTools_GRINGlobal_PVPApplicationCertificateExpiringIn6Months";
-                    break;
-                case "REXP":
-                    viewName = "vw_GGTools_GRINGlobal_PVPApplicationCertificateRecentlyExpired";
-                    break;
-                case "RSUB":
-                    viewName = "vw_GGTools_GRINGlobal_PVPApplicationRecentlySubmitted";
-                    break;
-                default:
-                    viewName = "vw_GRINGlobal_Accession_IPR";
-                    break;
-            }
-
-            SQL = " SELECT * FROM " + viewName;
+            SQL = " SELECT * FROM vw_GRINGlobal_Accession_IPR ";
             SQL += " WHERE  (@ApplicationNumber     IS NULL     OR ApplicationNumber    =       @ApplicationNumber)";
             SQL += " AND    (@CertificateStatus     IS NULL     OR CertificateStatus    =       @CertificateStatus)";
-            SQL += " AND    (@Variety               IS NULL     OR Variety              LIKE    '%' + @Variety + '%')";
+            SQL += " AND    (@VarietyName           IS NULL     OR VarietyName          LIKE    '%' + @VarietyName + '%')";
             SQL += " AND    (@CommonName            IS NULL     OR CommonName           LIKE    '%' + @CommonName + '%')";
             SQL += " AND    (@ScientificName        IS NULL     OR ScientificName       LIKE    '%' + @ScientificName + '%')";
             SQL += " AND    (@ExperimentalName      IS NULL     OR ExperimentalName     LIKE    '%' + @ExperimentalName + '%')";
             SQL += " AND    (@Applicant             IS NULL     OR Applicant            LIKE    '%' + @Applicant + '%')";
-            
-          
-            switch (searchEntity.StatusDateRange)
+
+            switch (searchEntity.TimeFrame)
             {
-                case "01Y":
-                    SQL += " AND DATEDIFF(year, GETDATE(), StatusDate) BETWEEN 0 AND 1";
+                case "EXP6":
+                    SQL += " AND CertificateStatus = 'Certificate Issued'";
+                    SQL += " AND DATEDIFF(month, ExpirationDate, GETDATE()) BETWEEN 0 AND 6";
                     break;
-                case "05Y":
-                    SQL += " AND DATEDIFF(year, GETDATE(), StatusDate) BETWEEN 0 AND 5";
+                case "REXP":
+                    SQL += " AND CertificateStatus = 'Certificate Expired'";
+                    SQL += " AND DATEDIFF(month, ExpirationDate, GETDATE()) BETWEEN 0 AND 6";
                     break;
-                case "10Y":
-                    SQL += " AND DATEDIFF(year, GETDATE(), StatusDate) BETWEEN 0 AND 10";
+                case "RSUB":
+                    SQL += " AND CertificateStatus = 'Application Pending'";
+                    SQL += " AND DATEDIFF(month, StatusDate, GETDATE()) BETWEEN 0 AND 6";
                     break;
             }
+
+            //switch (searchEntity.StatusDateRange)
+            //{
+            //    case "01Y":
+            //        SQL += " AND DATEDIFF(year, GETDATE(), StatusDate) BETWEEN 0 AND 1";
+            //        break;
+            //    case "05Y":
+            //        SQL += " AND DATEDIFF(year, GETDATE(), StatusDate) BETWEEN 0 AND 5";
+            //        break;
+            //    case "10Y":
+            //        SQL += " AND DATEDIFF(year, GETDATE(), StatusDate) BETWEEN 0 AND 10";
+            //        break;
+            //}
 
             SQL += " ORDER BY StatusDate DESC";
 
             var parameters = new List<IDbDataParameter> {
                 CreateParameter("ApplicationNumber", searchEntity.ID > 0 ? (object)searchEntity.ApplicationNumber : DBNull.Value, true),
                 CreateParameter("CertificateStatus", (object)searchEntity.CertificateStatus ?? DBNull.Value, true),
-                CreateParameter("Variety", (object)searchEntity.Variety ?? DBNull.Value, true),
+                CreateParameter("VarietyName", (object)searchEntity.Variety ?? DBNull.Value, true),
                 CreateParameter("CommonName", (object)searchEntity.CommonName ?? DBNull.Value, true),
                 CreateParameter("ScientificName", (object)searchEntity.ScientificName ?? DBNull.Value, true),
                 CreateParameter("ExperimentalName", (object)searchEntity.ExperimentalName ?? DBNull.Value, true),

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutUSWDSInterior.cshtml";
 }
@@ -20,7 +19,7 @@
                                 <li class="usa-sidenav__item"><a href="#grin-collections">GRIN Collections</a></li>
                             </ul>
                         </li>
-                        <li class="usa-sidenav__item"><a href="@Url.Action("Index","Contact")">Contact Us</a></li>
+                        <li class="usa-sidenav__item"><a href="@Url.Action("Index", "Contact")">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>
@@ -46,7 +45,7 @@
                     <li class="usa-collection__meta-item usa-tag usa-tag--new">
                         <a href="https://www.ars.usda.gov/northeast-area/beltsville-md-barc/beltsville-agricultural-research-center/national-germplasm-resources-laboratory/docs/plant-inventory-books/">Plant Inventory Books</a>
                     </li>
-                    <li class="usa-collection__meta-item usa-tag usa-tag--new"><a style="color:white;" href="@Url.Action("Index","CGC")">Crop Germplasm Committees</a></li>
+                    <li class="usa-collection__meta-item usa-tag usa-tag--new"><a style="color:white;" href="@Url.Action("Index", "CGC")">Crop Germplasm Committees</a></li>
                     <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://www.ars-grin.gov/Pages/Repositories">Repositories</a></li>
                     <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://npgsweb.ars-grin.gov/gringlobal/query/summary">Diversity of Species in NPGS</a></li>
                     <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://npgsweb.ars-grin.gov/gringlobal/query/accessionsbysite">Summary by Genebank</a></li>
@@ -77,7 +76,7 @@
                     </div>
 
                     <h3 id="section-heading-h3">Repository Map (U.S. and Territories)</h3>
-                    <a style="color: Background; cursor:none; outline:none;" id="btnOpenSiteDetailModal" href="#example-modal-2"
+                    <a style="color: white; cursor:none; outline:none;" id="btnOpenSiteDetailModal" href="#example-modal-2"
                        aria-controls="example-modal-2"
                        data-open-modal>
                         Open large modal
@@ -86,12 +85,13 @@
                         <div class="grid-container">
                             <div class="grid-row">
                                 <div class="tablet:grid-col-12">
-                                    <div class="usa-alert usa-alert--info usa-alert--no-icon" style="width:850px;">
+
+
+                                    
+                                    <div class="usa-alert usa-alert--info" style="width:850px;">
                                         <div class="usa-alert__body">
                                             <p class="usa-alert__text">
-                                                Click on a marker to display the corresponding germplasm collection site's pertinent information.
-                                                @*<a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-                                        elit, sed do eiusmod.*@
+                                                Click on a marker in the map below to display the corresponding germplasm collection site's pertinent information.
                                             </p>
                                         </div>
                                     </div>
@@ -101,6 +101,16 @@
                             <div class="grid-row">
                                 <div class="tablet:grid-col-12">
                                     <div id="mapid" style="width:850px; height:850px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="section-repository-list">
+
+                        <div class="grid-container">
+                            <div class="grid-row">
+                                <div class="tablet:grid-col-12">
+                                    @{Html.RenderAction("_List", "Site", new { formatCode = "WEB" }); }
                                 </div>
                             </div>
                         </div>
@@ -170,9 +180,6 @@
         var link = '@Url.Action("_Detail","Site")';
         var formData = new FormData();
         formData.append("SiteID", siteId);
-
-        //DEBUG
-        alert("CLICKED SITE ID " + siteId);
 
         try {
             $.ajax({
@@ -306,8 +313,6 @@
     marker.on('click', onMarkerClick);
     marker.addTo(map);
 
-   
-
     var geojson;
 
     function resetHighlight(e) {
@@ -327,7 +332,7 @@
         });
     }
 
-    map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
+    //map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
 
     var legend = L.control({ position: 'bottomright' });
 
@@ -342,8 +347,11 @@
             from = grades[i];
             to = grades[i + 1];
 
+            //labels.push(
+            //    '<i style="background:' + getColor(from + 1) + '"></i> ' +
+            //    from + (to ? '&ndash;' + to : '+'));
             labels.push(
-                '<i style="background:' + getColor(from + 1) + '"></i> ' +
+                '<i style="background:#ebebeb;"></i> ' +
                 from + (to ? '&ndash;' + to : '+'));
         }
 
@@ -351,6 +359,6 @@
         return div;
     };
 
-    legend.addTo(map);
+    //legend.addTo(map);
 
 </script>
