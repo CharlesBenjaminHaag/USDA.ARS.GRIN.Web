@@ -97,6 +97,8 @@ namespace USDA.ARS.GRIN.Web.DataLayer
             SQL += " AND   (@ID                         IS NULL OR ID                           =       @ID)";
             SQL += " AND   (@CropGermplasmCommitteeID   IS NULL OR CropGermplasmCommitteeID     =       @CropGermplasmCommitteeID)";
 
+            SQL += " ORDER BY Title DESC ";
+
             var parameters = new List<IDbDataParameter> {
                 CreateParameter("CreatedByCooperatorID", search.CreatedByCooperatorID > 0 ? (object)search.CreatedByCooperatorID : DBNull.Value, true),
                 CreateParameter("Title", !String.IsNullOrEmpty(search.Title) ? (object)search.Title : DBNull.Value, true),
