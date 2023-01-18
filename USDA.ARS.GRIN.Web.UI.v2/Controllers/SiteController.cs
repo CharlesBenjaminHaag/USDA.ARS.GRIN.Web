@@ -24,7 +24,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
             {
                 SiteViewModel viewModel = new SiteViewModel();
                 viewModel.SearchEntity.FormatCode = formatCode;
-                viewModel.SearchEntity.IDList = "2,3,4,5,6,7,8,9,13,15,16,19,22,26,29,31,34,37,40";
+                viewModel.SearchEntity.IDList = "1,2,3,4,5,6,7,8,9,13,15,16,17,19,22,24,26,29,31,34,37,40";
                 viewModel.Search();
                 return PartialView(viewModel);
             }

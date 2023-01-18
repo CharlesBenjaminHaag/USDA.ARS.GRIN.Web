@@ -13,6 +13,7 @@
         <table id="data_table_site" class="usa-table usa-table--borderless usa-table--striped" style="width:100%;">
             <thead>
                 <tr>
+                    <th></th>
                     <th scope="col">Site Name</th>
                     <th>City</th>
                     <th>State</th>
@@ -24,7 +25,10 @@
                 {
                     <tr>
                         <th scope="row">
-                            <a href="">@result.LongName</a>
+                            
+                        </th>
+                        <th scope="row">
+                            <a href="https://npgsweb.ars-grin.gov/gringlobal/site?id=@result.ID" target="_blank" rel="noreferrer">@result.LongName (@result.ShortName)</a>
                         </th>
                         <th scope="row">
                             @result.City

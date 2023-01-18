@@ -85,9 +85,6 @@
                         <div class="grid-container">
                             <div class="grid-row">
                                 <div class="tablet:grid-col-12">
-
-
-                                    
                                     <div class="usa-alert usa-alert--info" style="width:850px;">
                                         <div class="usa-alert__body">
                                             <p class="usa-alert__text">
@@ -106,7 +103,6 @@
                         </div>
                     </section>
                     <section id="section-repository-list">
-
                         <div class="grid-container">
                             <div class="grid-row">
                                 <div class="tablet:grid-col-12">
@@ -218,6 +214,11 @@
 
     var siteId = "";
 
+    siteId = "1";
+    var marker = L.marker([30.619351, -96.361787], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
     siteId = "2";
     var marker = L.marker([30.522515482482035, -96.42369203284417], { myCustomId: siteId });
     marker.on('click', onMarkerClick);
@@ -273,6 +274,11 @@
     marker.on('click', onMarkerClick);
     marker.addTo(map);
 
+    siteId = "17";
+    var marker = L.marker([42.87725, -77.007079], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
     siteId = "19";
     var marker = L.marker([42.95707938078901, -112.82869678657434], { myCustomId: siteId });
     marker.on('click', onMarkerClick);
@@ -280,6 +286,11 @@
 
     siteId = "22";
     var marker = L.marker([33.262636, -84.28085], { myCustomId: siteId });
+    marker.on('click', onMarkerClick);
+    marker.addTo(map);
+
+    siteId = "24";
+    var marker = L.marker([40.101249, -88.222608], { myCustomId: siteId });
     marker.on('click', onMarkerClick);
     marker.addTo(map);
 
