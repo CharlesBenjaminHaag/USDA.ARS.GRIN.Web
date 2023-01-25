@@ -67,18 +67,18 @@ namespace USDA.ARS.GRIN.Web.DataLayer
                     break;
             }
 
-            //switch (searchEntity.StatusDateRange)
-            //{
-            //    case "01Y":
-            //        SQL += " AND DATEDIFF(year, GETDATE(), StatusDate) BETWEEN 0 AND 1";
-            //        break;
-            //    case "05Y":
-            //        SQL += " AND DATEDIFF(year, GETDATE(), StatusDate) BETWEEN 0 AND 5";
-            //        break;
-            //    case "10Y":
-            //        SQL += " AND DATEDIFF(year, GETDATE(), StatusDate) BETWEEN 0 AND 10";
-            //        break;
-            //}
+            switch (searchEntity.StatusDateRange)
+            {
+                case "01Y":
+                    SQL += " AND DATEDIFF(year, StatusDate, GETDATE()) BETWEEN 0 AND 1";
+                    break;
+                case "05Y":
+                    SQL += " AND DATEDIFF(year, StatusDate, GETDATE()) BETWEEN 0 AND 5";
+                    break;
+                case "10Y":
+                    SQL += " AND DATEDIFF(year, StatusDate, GETDATE()) BETWEEN 0 AND 10";
+                    break;
+            }
 
             SQL += " ORDER BY StatusDate DESC";
 
