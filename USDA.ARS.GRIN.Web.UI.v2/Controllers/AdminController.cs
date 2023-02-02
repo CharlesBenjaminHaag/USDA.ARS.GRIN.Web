@@ -133,7 +133,7 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
                             };
 
                         Uri uri = urlBuilder.Uri;
-                        document.URL = urlBuilder.ToString();
+                        document.URL = urlBuilder.ToString().Replace("http:","https:").Replace(":80","");
                     }
 
                     viewModel.Entity = document;

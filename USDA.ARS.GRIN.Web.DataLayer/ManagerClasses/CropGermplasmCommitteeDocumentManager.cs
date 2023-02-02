@@ -44,7 +44,10 @@ namespace USDA.ARS.GRIN.Web.DataLayer
             RowsAffected = ExecuteNonQuery();
 
             int errorNumber = GetParameterValue<int>("@out_error_number", -1);
-
+            if (errorNumber > 0)
+            {
+                throw new Exception("515");
+            }
             return RowsAffected;
         }
 
