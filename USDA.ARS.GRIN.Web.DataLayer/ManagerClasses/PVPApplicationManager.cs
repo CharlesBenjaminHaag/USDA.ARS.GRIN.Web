@@ -55,7 +55,7 @@ namespace USDA.ARS.GRIN.Web.DataLayer
             {
                 case "EXP6":
                     SQL += " AND CertificateStatus = 'Certificate Issued'";
-                    SQL += " AND DATEDIFF(month, ExpirationDate, GETDATE()) BETWEEN 0 AND 6";
+                    SQL += " AND DATEDIFF(month, GETDATE(), ExpirationDate) BETWEEN 0 AND 6";
                     break;
                 case "REXP":
                     SQL += " AND CertificateStatus = 'Certificate Expired'";

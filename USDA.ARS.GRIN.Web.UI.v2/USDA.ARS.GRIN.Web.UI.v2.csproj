@@ -158,29 +158,70 @@
     <Content Include="assets\img\icon-https.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="assets\img\PDF_32.png" />
     <Content Include="assets\img\sprite.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\img\usa-hero\Apple_AdobeStock_288841661.jpeg" />
-    <Content Include="assets\img\usa-hero\Apple_AdobeStock_358576775.jpeg" />
-    <Content Include="assets\img\usa-hero\Crop_Rows.6e2bcd8bf257a628b291.jpg" />
-    <Content Include="assets\img\usa-hero\Field-Frost-Tree_AdobeStock_215219586.jpeg" />
-    <Content Include="assets\img\usa-hero\Field-RoundBales-Sunset_AdobeStock_238038228.jpeg" />
-    <Content Include="assets\img\usa-hero\Field-WheatCut_AdobeStock_270355542.jpeg" />
-    <Content Include="assets\img\usa-hero\Flag_AdobeStock_285333652.jpeg" />
-    <Content Include="assets\img\usa-hero\GGTools Taxonomy Editor Home View_1.0.16.png" />
-    <Content Include="assets\img\usa-hero\GGTools Taxonomy Editor Species View_1.0.16.png" />
-    <Content Include="assets\img\usa-hero\Landscape-Mtn-colorfulTrees_AdobeStock_231421230.jpeg" />
-    <Content Include="assets\img\usa-hero\Landscape-river-trees_AdobeStock_230227099.jpeg" />
-    <Content Include="assets\img\usa-hero\Landscape-Trees-AdobeStock_98805030.jpeg" />
-    <Content Include="assets\img\usa-hero\Leaves-Canopy-BlueSky_AdobeStock_272151034 %281%29.jpeg" />
-    <Content Include="assets\img\usa-hero\Leaves-Canopy-BlueSky_AdobeStock_272151034.jpeg" />
-    <Content Include="assets\img\usa-hero\Leaves-Ground-Trees-sun_AdobeStock_288152388.jpeg" />
-    <Content Include="assets\img\usa-hero\Pumpkin_AdobeStock_223864369.jpeg" />
-    <Content Include="assets\img\usa-hero\Pumpkin_AdobeStock_291163143.jpeg" />
-    <Content Include="assets\img\usa-hero\Snow-Grass-Leaves_AdobeStock_4738148.jpeg" />
-    <Content Include="assets\img\usa-hero\Sunflowers.jpg" />
-    <Content Include="assets\img\usa-hero\US_Flag.jpg" />
+    <Content Include="assets\img\usa-hero\Field-Frost-Tree_AdobeStock_215219586.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\Field-WheatCut_AdobeStock_270355542.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\Flag_AdobeStock_285333652.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\GGTools Taxonomy Editor Home View_1.0.16.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\GGTools Taxonomy Editor Species View_1.0.16.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\Hero-Apple_AdobeStock_288841661.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\Hero-Apple_AdobeStock_358576775.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\Hero-Crop_Rows.6e2bcd8bf257a628b291.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\Hero-Field-RoundBales-Sunset_AdobeStock_238038228.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\Hero-Landscape-Mtn-colorfulTrees_AdobeStock_231421230.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\Hero-Leaves-Ground-Trees-sun_AdobeStock_288152388.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\Hero-Pumpkin_AdobeStock_291163143.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\Hero-Sunflowers.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\Hero-US_Flag.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\Landscape-river-trees_AdobeStock_230227099.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\Landscape-Trees-AdobeStock_98805030.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\Leaves-Canopy-BlueSky_AdobeStock_272151034 %281%29.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\Leaves-Canopy-BlueSky_AdobeStock_272151034.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\Pumpkin_AdobeStock_223864369.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\img\usa-hero\Snow-Grass-Leaves_AdobeStock_4738148.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="assets\img\usa-icons-bg\add--white.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

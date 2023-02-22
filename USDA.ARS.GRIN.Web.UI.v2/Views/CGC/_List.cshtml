@@ -1,7 +1,12 @@
 ﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.CropGermplasmCommitteeViewModel
 <div id="section-committees" class="usa-accordion--bordered" style="margin-top:15px;">
+
+    <button id="bookmarkme" type="button">bookmark me!</button>
+
     @foreach (var result in Model.DataCollection)
     {
+        <a id="@result.Name"></a>
+        
         <h4 class="usa-accordion__heading">
             <button type="button"
                     class="usa-accordion__button"
@@ -16,13 +21,13 @@
             </p>
             @{Html.RenderAction("_ListDocuments", "CGC", new { cropGermplasmCommitteeId = result.ID });}
             @*<h4>Crop Descriptors</h4>
-            <ul class="usa-collection__meta" aria-label="Topics">
-                <li class="usa-collection__meta-item usa-tag">Quarterly update</li>
-                <li class="usa-collection__meta-item usa-tag">CAP goal</li>
-                <li class="usa-collection__meta-item usa-tag">APG</li>
-                <li class="usa-collection__meta-item usa-tag">PMA</li>
-                <li class="usa-collection__meta-item usa-tag">Success story</li>
-            </ul>*@
+                <ul class="usa-collection__meta" aria-label="Topics">
+                    <li class="usa-collection__meta-item usa-tag">Quarterly update</li>
+                    <li class="usa-collection__meta-item usa-tag">CAP goal</li>
+                    <li class="usa-collection__meta-item usa-tag">APG</li>
+                    <li class="usa-collection__meta-item usa-tag">PMA</li>
+                    <li class="usa-collection__meta-item usa-tag">Success story</li>
+                </ul>*@
 
         </div>
     }
@@ -37,6 +42,21 @@
     $(document).on("click", "[id='btnSearch']", function () {
         event.preventDefault();
         alert("DEBUG SEARCH CGC");
+    });
+
+    $(function () {
+        $('#bookmarkme').click(function () {
+            if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
+                window.sidebar.addPanel(document.title, window.location.href, '');
+            } else if (window.external && ('AddFavorite' in window.external)) { // IE Favorite
+                window.external.AddFavorite(location.href, document.title);
+            } else if (window.opera && window.print) { // Opera Hotlist
+                this.title = document.title;
+                return true;
+            } else { // webkit - safari/chrome
+                alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page.');
+            }
+        });
     });
 
 </script>

@@ -21,11 +21,11 @@
         overflow: scroll;
     }
 
-    #overlay h2 {
-        position: fixed;
-        margin-left: 40%;
-        top: 40%;
-    }
+        #overlay h2 {
+            position: fixed;
+            margin-left: 40%;
+            top: 40%;
+        }
 
     #section-pvp-data-filters .usa-accordion__button {
         -moz-osx-font-smoothing: inherit;
@@ -53,11 +53,25 @@
         background-color: #0050d8;
         color: #fff;
     }
-    #section-pvp-data-filters .usa-accordion__button:hover {
-        background-color: #0050d8;
-        color: white;
-        border-color: #0050d8;
-    }
+
+        #section-pvp-data-filters .usa-accordion__button:hover {
+            background-color: #0050d8;
+            color: white;
+            border-color: #0050d8;
+        }
+
+     
+    .usa-alert--info .usa-alert__body::before {
+        background: url(/assets/img/usa-icons/info.svg) no-repeat center/contain;
+        height: 2rem;
+        width: 2rem;
+        content: "";
+        display: block;
+        height: 4;
+        left: .5rem;
+        position: absolute;
+        top: .75rem;
+ 
 </style>
 
 <div id="overlay"><h2>Loading .. Please wait</h2></div>
@@ -78,12 +92,6 @@
                         </li>
                         <li class="usa-sidenav__item">
                             <ul class="usa-sidenav__sublist">
-                                <li class="usa-sidenav__item active">
-                                    <a href="#section-overview">Overview</a>
-                                </li>
-                                @*<li class="usa-sidenav__item">
-                                    <a href="#section-directory">Applications by Status</a>
-                                </li>*@
                                 <li class="usa-sidenav__item">
                                     <a href="#section-briefings">Browse Applications</a>
                                 </li>
@@ -99,12 +107,9 @@
                 </nav>
             </div>
             <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
-                <p class="usa-intro">
-                    The Plant Variety Protection Office (PVPO) publishes the status of Plant Variety Protection Applications
-                    on a monthly basis.
-                </p>
+                <h2 id="section-heading-h3">Overview</h2>
                 <p style="max-width:94rem;">
-                    The PVPO also provides intellectual property protection to breeders of new
+                    The PVPO provides intellectual property protection to breeders of new
                     varieties of sexually reproduced, tuber propagated, and asexually reproduced plant varieties.
                     In accordance with the <a class="usa-link" href="https://uscode.house.gov/browse/prelim@title7/chapter57/subchapter1&edition=prelim">Plant Variety Protection Act (PVPA)</a>, it examines new varieties, and grants <a class="usa-link" href="https://www.ams.usda.gov/services/plant-variety-protection/issued-certificates">certificates</a> that protect
                     varieties for 20 years (25 years for woody vines and trees).
@@ -113,7 +118,7 @@
                     @Html.Partial("~/Views/PVP/_ListByStatus.cshtml")
                 </div>*@
                 <h3 id="section-heading-h3">Browse Applications</h3>
-                <div class="usa-alert usa-alert--info usa-alert--slim">
+                <div class="usa-alert usa-alert--info">
                     <div class="usa-alert__body">
                         <p class="usa-alert__text">
                             All data represented here is based on an <a class="usa-link" href="https://www.ams.usda.gov/services/plant-variety-protection/application-status">update</a> from <strong>1/9/2023</strong>. Please <a href="@Url.Action("Index","Contact", new { context="pvp" })">contact us</a> regarding any errors or omissions.

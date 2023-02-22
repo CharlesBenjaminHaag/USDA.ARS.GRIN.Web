@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USDA ARS GRIN</title>
+    <title>USDA-ARS Germplasm Resources Information Network (GRIN)</title>
     <script src="~/assets/uswds/dist/js/uswds-init.min.js"></script>
     <link rel="stylesheet" href="~/assets/uswds/dist/css/uswds.css" />
     <title>View</title>
@@ -52,7 +52,8 @@
                                 As a result livestock industries contribute billions of dollars to national economies. 
                                 Our mission is to acquire, evaluate and preserve these strategic resources so that industry 
                                 and the research community can have access to a broad array of genetic variability for national 
-                                security, the introduction of genetic variation, corrective mating, and various research initiatives.
+                                security, the introduction of genetic variation, corrective mating, and various research 
+                                initiatives.
                             </p>
                         </div>
                     </div>
@@ -72,7 +73,7 @@
                             <p>
                                 The goal of this program is to ensure that the genetic diversity of agriculturally 
                                 important microorganisms is maintained to enhance and increase agricultural efficiency 
-                                and profitability.The program will collect, authenticate and characterizepotentially 
+                                and profitability.The program will collect, authenticate and characterize potentially 
                                 useful microbial germplasm; preserve microbial genetic diversity; and facilitate 
                                 distribution and utilization of microbial germplasm for research and industry.
                             </p>
@@ -86,14 +87,18 @@
                                     var link_grin = Url.Action("Index", "Collections") + "#grin-collections";
                                 }
                                 <a href="@link_grin" style="color: #02acca;">
-                                    GRIN Collections
+                                    GRIN Datasets
                                 </a>
                             </h2>
                             <p>
                                 GRIN provides access to data maintained within its database, supporting both searches and export. 
-                                The Rhizobium collection of nitrogen fixing bacteria is maintained by the ARS Soybean Genomics 
-                                and Improvement Laboratory in Beltsville, MD. Plant Variety Protection Certificates are issued 
-                                by the Plant Variety Protection Office of the USDA Agricultural Marketing Service.
+                                The Rhizobium collection of nitrogen fixing bacteria is maintained by the 
+                                <a href="https://www.ars.usda.gov/northeast-area/beltsville-md-barc/beltsville-agricultural-research-center/soybean-genomics-improvement-laboratory/">
+                                    ARS Soybean Genomics and Improvement Laboratory
+                                </a> in Beltsville, MD. Plant Variety Protection Certificates are issued 
+                                by the <a href="https://www.ams.usda.gov/services/plant-variety-protection">
+                                    Plant Variety Protection Office of the USDA Agricultural Marketing Service.
+                                </a>
                             </p>
                         </div>
                     </div>
@@ -101,146 +106,77 @@
             </div>
         </section>
 
-
-        @*<section class="usa-graphic-list usa-section usa-section--dark">
+        <section id="test-section-id" class="usa-section">
             <div class="grid-container">
-                <div class="usa-graphic-list__row grid-row grid-gap">
-                    <div class="usa-media-block tablet:grid-col">
-                        <img class="usa-media-block__img"
-                             src="/assets/img/circle-124.png"
-                             alt="Alt text" />
-                        <div class="usa-media-block__body">
-                            <h2 class="usa-graphic-list__heading">
-                                Graphic headings can vary.
-                            </h2>
-                            <p>
-                                Graphic headings can be used a few different ways, depending on
-                                what your landing page is for. Highlight your values, specific
-                                program areas, or results.
-                            </p>
-                        </div>
+                <h2 class="font-heading-xl margin-top-0 tablet:margin-bottom-5">GRIN Datasets</h2>
+                <div class="grid-row grid-gap">
+                    <div class="tablet:grid-col-6">
+                        <h3 class="site-preview-heading margin-top-0">Plant Variety Protection</h3>
+                        <ul class="usa-collection">
+                            <li class="usa-collection__item">
+                                <div class="usa-collection__body">
+                                    <h3 class="usa-collection__heading">
+                                        <a class="usa-link"
+                                           href="@Url.Action("Index","PVP")">PVP Application Dataset</a>
+                                    </h3>
+                                    <p class="usa-collection__description">
+                                        The Plant Variety Protection Office (PVPO) publishes the status of Plant Variety Protection Applications
+                                        on a monthly basis.
+                                    </p>
+                                    <ul class="usa-collection__meta" aria-label="More information">
+                                        <li class="usa-collection__meta-item">
+                                            <strong>Contact: </strong><a href="mailto:PVPOmail@usda.gov">PVPOmail@usda.gov</a>
+                                        </li>
+                                        <li class="usa-collection__meta-item">
+                                            <strong>Last Update: </strong>January 13, 2023
+                                        </li>
+                                    </ul>
+                                    @*<ul class="usa-collection__meta" aria-label="Topics">
+                                        <li class="usa-collection__meta-item usa-tag usa-tag--new">New</li>
+                                        <li class="usa-collection__meta-item usa-tag">PMA</li>
+                                        <li class="usa-collection__meta-item usa-tag">OMB</li>
+                                    </ul>*@
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="usa-media-block tablet:grid-col">
-                        <img class="usa-media-block__img"
-                             src="/assets/img/circle-124.png"
-                             alt="Alt text" />
-                        <div class="usa-media-block__body">
-                            <h2 class="usa-graphic-list__heading">
-                                Stick to 6 or fewer words.
-                            </h2>
-                            <p>
-                                Keep body text to about 30 words. They can be shorter, but try
-                                to be somewhat balanced across all four. It creates a clean
-                                appearance with good spacing.
-                            </p>
-                        </div>
+                    <div class="tablet:grid-col-6">
+                        <h3 class="site-preview-heading margin-top-0">Rhizobium</h3>
+                        <ul class="usa-collection">
+                            <li class="usa-collection__item">
+                                <div class="usa-collection__body">
+                                    <h3 class="usa-collection__heading">
+                                        <a class="usa-link"
+                                           href="@Url.Action("Index","Rhizobium")">
+                                            Rhizobium Dataset
+                                        </a>
+                                    </h3>
+                                    <p class="usa-collection__description">
+                                        A service-oriented program with a major objective of distributing 
+                                        characterized germplasm of rhizobia to stakeholders in industry 
+                                        for use in inoculants and for research at State, Federal and 
+                                        University laboratories.
+                                    </p>
+                                    <ul class="usa-collection__meta" aria-label="More information">
+                                        <li class="usa-collection__meta-item">
+                                            <strong>Contact:</strong> <a class="usa-link" href="https://www.ars.usda.gov/people-locations/person?person-id=1574">Patrick Elia</a>
+                                        </li>
+                                        <li class="usa-collection__meta-item">
+                                            <strong>Last Update:</strong> 1/10/2020
+                                        </li>
+                                    </ul>
+                                    @*<ul class="usa-collection__meta" aria-label="Topics">
+                                        <li class="usa-collection__meta-item usa-tag usa-tag--new">New</li>
+                                        <li class="usa-collection__meta-item usa-tag">PMA</li>
+                                        <li class="usa-collection__meta-item usa-tag">OMB</li>
+                                    </ul>*@
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-                <div class="usa-graphic-list__row grid-row grid-gap">
-                    <div class="usa-media-block tablet:grid-col">
-                        <img class="usa-media-block__img"
-                             src="/assets/img/circle-124.png"
-                             alt="Alt text" />
-                        <div class="usa-media-block__body">
-                            <h2 class="usa-graphic-list__heading">
-                                Never highlight anything without a goal.
-                            </h2>
-                            <p>
-                                For anything you want to highlight here, understand what your
-                                users know now, and what activity or impression you want from
-                                them after they see it.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="usa-media-block tablet:grid-col">
-                        <img class="usa-media-block__img"
-                             src="/assets/img/circle-124.png"
-                             alt="Alt text" />
-                        <div class="usa-media-block__body">
-                            <h2 class="usa-graphic-list__heading">Could also have 2 or 6.</h2>
-                            <p>
-                                In addition to your goal, find out your users’ goals. What do
-                                they want to know or do that supports your mission? Use these
-                                headings to show those.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>*@
-
-    <section id="test-section-id" class="usa-section">
-        <div class="grid-container">
-            <h2 class="font-heading-xl margin-top-0 tablet:margin-bottom-0">GRIN Collections</h2>
-            <div class="grid-row grid-gap">
-                <div class="tablet:grid-col-6">
-                    <ul class="usa-collection">
-                        <li class="usa-collection__item">
-                            <div class="usa-collection__body">
-                                <h3 class="usa-collection__heading">
-                                    <a class="usa-link"
-                                       href="">PVP Application Database</a>
-                                </h3>
-                                <p class="usa-collection__description">
-                                    Today, the Administration announces the winners of the Gears of
-                                    Government President’s Award. This program recognizes the contributions
-                                    of individuals and teams across the federal workforce who make a
-                                    profound difference in the lives of the American people.
-                                </p>
-                                <ul class="usa-collection__meta" aria-label="More information">
-                                    <li class="usa-collection__meta-item">
-                                        By Sondra Ainsworth and Constance Lu
-                                    </li>
-                                    <li class="usa-collection__meta-item">
-                                        <time datetime="2020-09-30T12:00:00+01:00">September 30, 2020</time>
-                                    </li>
-                                </ul>
-                                <ul class="usa-collection__meta" aria-label="Topics">
-                                    <li class="usa-collection__meta-item usa-tag usa-tag--new">New</li>
-                                    <li class="usa-collection__meta-item usa-tag">PMA</li>
-                                    <li class="usa-collection__meta-item usa-tag">OMB</li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="tablet:grid-col-6">
-                    @*<h3 class="site-preview-heading margin-top-0">PVP Application Database</h3>*@
-                    <ul class="usa-collection">
-                        <li class="usa-collection__item">
-                            <div class="usa-collection__body">
-                                <h3 class="usa-collection__heading">
-                                    <a class="usa-link"
-                                       href="https://trumpadministration.archives.performance.gov/presidents-winners-press-release/">Gears of Government President’s Award winners</a>
-                                </h3>
-                                <p class="usa-collection__description">
-                                    Today, the Administration announces the winners of the Gears of
-                                    Government President’s Award. This program recognizes the contributions
-                                    of individuals and teams across the federal workforce who make a
-                                    profound difference in the lives of the American people.
-                                </p>
-                                <ul class="usa-collection__meta" aria-label="More information">
-                                    <li class="usa-collection__meta-item">
-                                        By Sondra Ainsworth and Constance Lu
-                                    </li>
-                                    <li class="usa-collection__meta-item">
-                                        <time datetime="2020-09-30T12:00:00+01:00">September 30, 2020</time>
-                                    </li>
-                                </ul>
-                                <ul class="usa-collection__meta" aria-label="Topics">
-                                    <li class="usa-collection__meta-item usa-tag usa-tag--new">New</li>
-                                    <li class="usa-collection__meta-item usa-tag">PMA</li>
-                                    <li class="usa-collection__meta-item usa-tag">OMB</li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
             </div>
-
-
-        </div>
-    </section>
+        </section>
     </main>
         @Html.Partial("~/Views/Shared/Partials/_USAFooter.cshtml")
     </body>

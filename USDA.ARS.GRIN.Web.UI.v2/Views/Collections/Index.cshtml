@@ -3,6 +3,19 @@
     Layout = "~/Views/Shared/_LayoutUSWDSInterior.cshtml";
 }
 
+<style>
+    .usa-alert--info .usa-alert__body::before {
+        background: url(/assets/img/usa-icons/info.svg) no-repeat center/contain;
+        height: 2rem;
+        width: 2rem;
+        content: "";
+        display: block;
+        height: 4;
+        left: .5rem;
+        position: absolute;
+        top: .75rem;
+</style>
+
 <div class="usa-section">
     <div class="grid-container">
         <div class="grid-row grid-gap">
@@ -46,7 +59,6 @@
                         <a href="https://www.ars.usda.gov/northeast-area/beltsville-md-barc/beltsville-agricultural-research-center/national-germplasm-resources-laboratory/docs/plant-inventory-books/">Plant Inventory Books</a>
                     </li>
                     <li class="usa-collection__meta-item usa-tag usa-tag--new"><a style="color:white;" href="@Url.Action("Index", "CGC")">Crop Germplasm Committees</a></li>
-                    <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://www.ars-grin.gov/Pages/Repositories">Repositories</a></li>
                     <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://npgsweb.ars-grin.gov/gringlobal/query/summary">Diversity of Species in NPGS</a></li>
                     <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://npgsweb.ars-grin.gov/gringlobal/query/accessionsbysite">Summary by Genebank</a></li>
                     <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://ia800305.us.archive.org/31/items/CAT31108469/CAT31108469.pdf">Seeds For Our Future (PDF)</a></li>
@@ -75,7 +87,7 @@
                         </div>
                     </div>
 
-                    <h3 id="section-heading-h3">Repository Map (U.S. and Territories)</h3>
+                    <h3 id="section-heading-h3">NPGS Genebank Locations</h3>
                     <a style="color: white; cursor:none; outline:none;" id="btnOpenSiteDetailModal" href="#example-modal-2"
                        aria-controls="example-modal-2"
                        data-open-modal>
@@ -88,7 +100,12 @@
                                     <div class="usa-alert usa-alert--info" style="width:850px;">
                                         <div class="usa-alert__body">
                                             <p class="usa-alert__text">
-                                                Click on a marker in the map below to display the corresponding germplasm collection site's pertinent information.
+                                                Click on a marker in the map below to display the corresponding
+                                                germplasm collection site's pertinent information.
+                                                <br />
+                                                <span style="font-style:italic;">
+                                                    Please note that an enlarged view is necessary to discern two locations in Texas.
+                                                </span>
                                             </p>
                                         </div>
                                     </div>
@@ -119,8 +136,8 @@
                     Animal genetic resources underpin the livestock sector’s production and profitability. As a result livestock industries contribute billions of dollars to national economies. Our mission is to acquire, evaluate and preserve these strategic resources so that industry and the research community can have access to a broad array of genetic variability for national security, the introduction of genetic variation, corrective mating, and various research initiatives.
                 </p>
                 <ul class="usa-collection__meta" aria-label="Topics">
-                    <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://nrrc.ars.usda.gov/A-GRIN/database_collaboration_page_dev">Animal Genetic Resources</a></li>
-                    <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="Search the Animal Germplasm Database">Animal Germplasm Database</a></li>
+                    <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://www.ars.usda.gov/plains-area/fort-collins-co/center-for-agricultural-resources-research/paagrpru/docs/animal/animal/">Animal Genetic Resources</a></li>
+                    <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://agrin.ars.usda.gov/main_webpage_dev/ars?language=EN&record_source=US">Animal Germplasm Database</a></li>
                 </ul>
 
                 <a id="microbial-germplasm"></a>
@@ -128,13 +145,14 @@
                 <p>
                     The goal of this program is to ensure that the genetic diversity of agriculturally important microorganisms is maintained to enhance and increase agricultural efficiency and profitability.The program will collect, authenticate and characterizepotentially useful microbial germplasm; preserve microbial genetic diversity; and facilitate distribution and utilization of microbial germplasm for research and industry.
                     <ul class="usa-collection__meta" aria-label="Topics">
-                        <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://www.ars.usda.gov/northeast-area/ithaca-ny/robert-w-holley-center-for-agriculture-health/emerging-pests-and-pathogens-research/docs/mycology/">ARSEF</a></li>
+                        <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://nrrl.ncaur.usda.gov/">ARS Culture Collection</a></li>
+                        <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://www.ars.usda.gov/northeast-area/ithaca-ny/robert-w-holley-center-for-agriculture-health/emerging-pests-and-pathogens-research/docs/mycology/">ARS Entemopathogenic Fungus Collection (ARSEF)</a></li>
                         <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://nt.ars-grin.gov/fungaldatabases/specimens/specimens.cfm">U.S. National Fungus Collection</a></li>
                     </ul>
                 </p>
 
                 <a id="grin-collections"></a>
-                <h2 id="section-heading-h2m">GRIN Collections</h2>
+                <h2 id="section-heading-h2m">GRIN Datasets</h2>
                 <p>
                     GRIN provides access to data maintained within its database, supporting both searches and export.
                     The Rhizobium collection of nitrogen fixing bacteria is maintained by the ARS Soybean Genomics and

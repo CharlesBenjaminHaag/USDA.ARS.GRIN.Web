@@ -17,6 +17,7 @@
             <th>Expiration Date</th>
             <th>Status</th>
             <th>Accession</th>
+            <th>Certificate</th>
             @*<th></th>*@
         </tr>
     </thead>
@@ -50,6 +51,14 @@
                     <a class="usa-link usa-link--alt usa-link--external" href="https://npgsweb.ars-grin.gov/gringlobal/accessiondetail?id=@result.AccessionID">
                         @result.AccessionName
                     </a>
+                </td>
+                <td>
+                    @if (!String.IsNullOrEmpty(result.CertificateURL))
+                    {
+                        <a href="@result.CertificateURL">
+                            <img src="~/assets/img/PDF_32.png" />
+                        </a>
+                    }
                 </td>
                 <!--<td>
                     <button id="@result.ApplicationNumber" class="usa-button usa-button--outline detail-expand">Detail</button>-->

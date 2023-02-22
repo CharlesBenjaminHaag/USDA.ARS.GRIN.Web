@@ -25,22 +25,23 @@ namespace USDA.ARS.GRIN.Web.DataLayer
         public int AccessionID { get; set; }
         public string AccessionName { get; set; }
 
-        //public string CertificateURL
-        //{
-        //    get
-        //    {
-        //        string convertedPVPNumber = ApplicationNumber.ToString();
-        //        string certificateUrl = String.Empty;
+        public string CertificateURL
+        {
+            get
+            {
+                string convertedPVPNumber = ApplicationNumber.ToString();
+                string certificateUrl = String.Empty;
 
-        //        if (ApplicationStatus == "Certificate Expired" || ApplicationStatus == "Certificate Issued")
-        //        {
-        //            if (convertedPVPNumber.Length < 9)
-        //            {
-        //                certificateUrl = String.Format("https://apps.ams.usda.gov/CMS/AdobeImages/00{0}.pdf", convertedPVPNumber);
-        //            }
-        //        }
-        //        return certificateUrl;
-        //    }
-        //}
+                if (CertificateStatus == "Certificate Expired" || CertificateStatus == "Certificate Issued")
+                {
+                    if (convertedPVPNumber.Length < 9)
+                    {
+                        convertedPVPNumber = "00" + convertedPVPNumber;
+                    }
+                    certificateUrl = String.Format("https://apps.ams.usda.gov/CMS/AdobeImages/{0}.pdf", convertedPVPNumber);
+                }
+                return certificateUrl;
+            }
+        }
     }
 }

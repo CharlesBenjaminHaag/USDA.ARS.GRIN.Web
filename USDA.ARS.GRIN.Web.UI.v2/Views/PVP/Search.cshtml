@@ -63,6 +63,16 @@
             color: white;
             border-color: #0050d8;
         }
+    .usa-alert--info .usa-alert__body::before {
+        background: url(/assets/img/usa-icons/info.svg) no-repeat center/contain;
+        height: 2rem;
+        width: 2rem;
+        content: "";
+        display: block;
+        height: 4;
+        left: .5rem;
+        position: absolute;
+        top: .75rem;
 </style>
 
 <div id="overlay"><h2>Loading .. Please wait</h2></div>
@@ -102,8 +112,15 @@
                 </nav>
             </div>
             <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
+                <h2 id="section-heading-h2">Advanced Search</h2>
                 <a href="@Url.Action("Index","PVP")">Return to PVP Page</a>
-                @*<h2 id="section-heading-h2">Advanced Search</h2>*@
+                <div class="usa-alert usa-alert--info">
+                    <div class="usa-alert__body">
+                        <p class="usa-alert__text">
+                            All data represented here is based on an <a class="usa-link" href="https://www.ams.usda.gov/services/plant-variety-protection/application-status">update</a> from <strong>1/9/2023</strong>. Please <a href="@Url.Action("Index","Contact", new { context="pvp" })">contact us</a> regarding any errors or omissions.
+                        </p>
+                    </div>
+                </div>
                 <h3 id="section-heading-h3">Search Results (@Model.RowsAffected)</h3>
                 <table id="data-table_pvp_applications" class="display table-responsive">
                     <thead>
@@ -115,6 +132,7 @@
                             <th>Experimental Name</th>
                             <th>Expiration Date</th>
                             <th>Status</th>
+                            <th></th>
                             <th>Accession</th>
                             @*<th></th>*@
                         </tr>
@@ -128,9 +146,31 @@
                                 <td>@result.VarietyName</td>
                                 <td>@result.CommonName</td>
                                 <td>@result.ScientificName</td>
-                                <td>@result.ExpirationDate.ToShortDateString()</td>
                                 <td>
-                                    @result.CertificateStatus
+                                    @if (result.ExpirationDate > DateTime.MinValue)
+                                    {
+                                        @result.ExpirationDate.ToShortDateString()
+                                    }
+                                </td>
+                                <td>
+                                    @if (!String.IsNullOrEmpty(result.CertificateURL))
+                                    {
+                                        <a href="@result.CertificateURL">
+                                            @result.CertificateStatus
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        @result.CertificateStatus
+                                    }
+                                </td>
+                                <td>
+                                    @if (!String.IsNullOrEmpty(result.CertificateURL))
+                                    {
+                                        <a href="@result.CertificateURL">
+                                            <img src="~/assets/img/PDF_32.png" />
+                                        </a>
+                                    }
                                 </td>
                                 <td>
                                     <a class="usa-link usa-link--alt usa-link--external" href="https://npgsweb.ars-grin.gov/gringlobal/accessiondetail?id=@result.AccessionID">
