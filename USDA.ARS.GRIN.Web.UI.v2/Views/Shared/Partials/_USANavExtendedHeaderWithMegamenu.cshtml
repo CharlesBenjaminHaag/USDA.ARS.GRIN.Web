@@ -1,8 +1,14 @@
 ﻿<header class="usa-header usa-header--extended">
     <div class="usa-navbar">
         <div class="usa-logo" id="-logo">
-            <em class="usa-logo__text"><a href="@Url.Action("Index","Home")" title="Home">USDA-ARS Germplasm Resources Information Network (GRIN)</a></em>
-        </div>
+            
+            <em class="usa-logo__text">
+                <a href="/" title="<Project title>">
+                    
+                    USDA-ARS Germplasm Resources Information Network (GRIN)
+                </a>
+            </em>
+        </div>    
         <button type="button" class="usa-menu-btn">Menu</button>
     </div>
     <nav aria-label="Primary navigation" class="usa-nav">
@@ -84,9 +90,23 @@
                 </li>
             </ul>
             <div class="usa-nav__secondary usa-header--extended">
-                <ul class="usa-nav__secondary-links"></ul>
+                <ul class="usa-nav__secondary-links">
+                    <li></li>
+                    <li>
+                        <table>
+                            <tr>
+                                <td><img src="~/assets/img/USDA-Logo.png" /></td>
+                                <td><strong>Agricultural Research Service</strong><br />Department of Agriculture</td>
+                            </tr>
+                        </table>
+
+
+                        
+                        
+                    </li>
+                </ul>
                 <section aria-label="Search component">
-                    <form class="usa-search usa-search--small" role="search">
+                    @*<form class="usa-search usa-search--small" role="search">
                         <label class="usa-sr-only" for="search-field">Search</label>
                         <input class="usa-input"
                                id="search-field"
@@ -97,7 +117,7 @@
                                  class="usa-search__submit-icon"
                                  alt="Search" />
                         </button>
-                    </form>
+                    </form>*@
                 </section>
             </div>
         </div>

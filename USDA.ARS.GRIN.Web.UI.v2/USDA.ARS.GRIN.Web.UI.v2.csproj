@@ -1254,6 +1254,7 @@
     <Content Include="assets\img\usa-icons\zoom_out_map.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="assets\img\USDA-Logo.png" />
     <Content Include="assets\img\us_flag_small.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
