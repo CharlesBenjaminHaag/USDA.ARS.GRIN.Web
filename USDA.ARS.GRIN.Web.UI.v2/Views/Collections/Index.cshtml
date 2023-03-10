@@ -14,6 +14,19 @@
         left: .5rem;
         position: absolute;
         top: .75rem;
+    }
+    .usa-alert--error .usa-alert__body::before {
+        background: url(https://designsystem.digital.gov/assets/img/usa-icons/error.svg) no-repeat center/contain;
+        height: 2rem;
+        width: 2rem;
+        content: "";
+        display: block;
+        height: 4;
+        left: .5rem;
+        position: absolute;
+        top: .75rem;
+    }
+
 </style>
 
 <div class="usa-section">
@@ -142,12 +155,25 @@
 
                 <a id="microbial-germplasm"></a>
                 <h2 id="section-heading-h2m">Microbial Germplasm</h2>
+                <div class="usa-alert usa-alert--error" role="alert">
+                    <div class="usa-alert__body">
+                        <h4 class="usa-alert__heading">March 8, 2023</h4>
+                        <p class="usa-alert__text">
+                            The US National Fungus Collections and Fungal Databases are currently offline 
+                            for updates and maintenance. We do not currently have an estimated time for the website to 
+                            return to online status. If you need assistance during this time, please contact 
+                            Dr. Lisa Castlebury at <a class="usa-link" href="mailto:lisa.castlebury@usda.gov">lisa.castlebury@usda.gov</a>. 
+                            We thank you for your patience and apologize for the inconvenience.
+                        </p>
+                    </div>
+                </div>
                 <p>
                     The goal of this program is to ensure that the genetic diversity of agriculturally important microorganisms is maintained to enhance and increase agricultural efficiency and profitability.The program will collect, authenticate and characterizepotentially useful microbial germplasm; preserve microbial genetic diversity; and facilitate distribution and utilization of microbial germplasm for research and industry.
                     <ul class="usa-collection__meta" aria-label="Topics">
                         <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://nrrl.ncaur.usda.gov/">ARS Culture Collection</a></li>
                         <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://www.ars.usda.gov/northeast-area/ithaca-ny/robert-w-holley-center-for-agriculture-health/emerging-pests-and-pathogens-research/docs/mycology/">ARS Entemopathogenic Fungus Collection (ARSEF)</a></li>
-                        <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://nt.ars-grin.gov/fungaldatabases/specimens/specimens.cfm">U.S. National Fungus Collection</a></li>
+                        @*<li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://nt.ars-grin.gov/fungaldatabases/specimens/specimens.cfm">U.S. National Fungus Collection</a></li>*@
+                    <li class="usa-collection__meta-item usa-tag ">U.S. National Fungus Collection</li>
                     </ul>
                 </p>
 
