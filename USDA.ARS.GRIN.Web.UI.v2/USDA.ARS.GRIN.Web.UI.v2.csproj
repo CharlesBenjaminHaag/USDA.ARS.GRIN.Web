@@ -1402,6 +1402,8 @@
     <Content Include="Views\Rhizobium\_List.cshtml" />
     <Content Include="Views\Shared\Partials\_USANavAdmin.cshtml" />
     <Content Include="Views\Site\_List.cshtml" />
+    <Content Include="Views\Site\_Detail_BACKUP.cshtml" />
+    <Content Include="Views\PVP\_List_BACKUP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

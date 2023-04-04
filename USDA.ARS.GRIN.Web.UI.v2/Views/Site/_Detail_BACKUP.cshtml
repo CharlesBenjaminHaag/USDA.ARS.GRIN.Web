@@ -1,0 +1,156 @@
+﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.SiteViewModel
+
+@if (Model.Entity.ID == 24 || Model.Entity.ID == 31)
+{
+    <h2>
+        Urbana, IL
+    </h2>
+    <table class="usa-table usa-table--borderless">
+        <caption>
+            This site hosts the following collections:
+        </caption>
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">
+                    <a href="https://npgsweb.ars-grin.gov/gringlobal/site?id=24">
+                        USDA, ARS Soybean Germplasm Collection
+                    </a>
+                </th>
+                <td>
+                    Rm 180 NSRC
+                    1101 West Peabody Dr.
+                    Urbana, Illinois 61801
+                    Phone: 217-265-7717
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <a href="https://npgsweb.ars-grin.gov/gringlobal/site?id=31">Maize Genetic Stock Center</a>
+                </th>
+                <td>
+                    USDA, ARS - Plant Physiology and Genetics Research Unit
+                    Maize Genetics Cooperation - Stock Center (GSZE)
+                    University of Illinois, Department of Agronomy
+                    S-123 Turner Hall, 1102 S. Goodwin Avenue
+                    Urbana, Illinois 61801-4798
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
+else
+{
+    if (Model.Entity.ID == 26 || Model.Entity.ID == 34)
+    {
+        <h2>
+            Pullman, WA
+        </h2>
+        <table class="usa-table usa-table--borderless">
+            <caption>
+                This site hosts the following collections:
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        <a href="https://npgsweb.ars-grin.gov/gringlobal/site?id=26">
+                            Western Regional PI Station
+                        </a>
+                    </th>
+                    <td>
+                        Washington State University<br />
+                        Regional Plant Introduction Station<br />
+                        59 Johnson Hall, P.O. Box 646402<br />
+                        Pullman, Washington 99164-6402<br />
+                        w6@ars-grin.gov
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <a href="https://npgsweb.ars-grin.gov/gringlobal/site?id=34">Pea Genetic Stock Collection</a>
+                    </th>
+                    <td>
+                        G.A. Marx Pea Genetic Stock Center<br />
+                        Washington State University<br />
+                        59 Johnson Hall<br />
+                        Pullman, Washington 99164-6402
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h2>
+            @Model.Entity.LongName
+        </h2>
+        <table class="usa-table usa-table--borderless">
+            <tbody>
+                <tr>
+                    <th scope="row">Name</th>
+                    <td>
+                        @Model.Entity.ShortName
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" style="vertical-align:top;">Address</th>
+                    <td>
+                        @Model.Entity.PrimaryAddress1
+                        @Model.Entity.PrimaryAddress2
+                        @Model.Entity.PrimaryAddress3
+                        @Model.Entity.City @Model.Entity.State @Model.Entity.PostalIndex
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Contact</th>
+                    <td>
+                        @Model.Entity.EmailAddress
+                    </td>
+                </tr>
+                @*<tr>
+                        <td colspan="2">
+                            <ul class="usa-collection__meta" aria-label="Topics">
+                                @foreach (var result in Model.Entity.Crops)
+                                {
+                                    <li class="usa-collection__meta-item usa-tag usa-tag--new" style="background-color:darkgray">@result.CodeTitle</li>
+                                }
+                            </ul>
+                        </td>
+                    </tr>*@
+            </tbody>
+        </table>
+    }
+}
+<div class="usa-modal__footer">
+    <ul class="usa-button-group">
+        <li class="usa-button-group__item">
+            <button type="button"
+                    class="usa-button usa-button padding-105 text-center"
+                    data-close-modal>
+                Close
+            </button>
+        </li>
+        @if (Model.Entity.ID != 24 && Model.Entity.ID != 31 && Model.Entity.ID != 26 && Model.Entity.ID != 34)
+        {
+            <li class="usa-button-group__item">
+                <button type="button"
+                        class="usa-button usa-button--outline padding-105 text-center"
+                        data-close-modal onclick="window.location.href='https://npgsweb.ars-grin.gov/gringlobal/site?id=@Model.Entity.ID';">
+                    View in GRIN-Global
+                </button>
+            </li>
+        }
+    </ul>
+</div>
+

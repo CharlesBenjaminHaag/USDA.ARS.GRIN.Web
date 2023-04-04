@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_LayoutUSWDSInterior.cshtml";
 }
 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 <style>
     #overlay {
         height: 100%;
@@ -61,7 +62,7 @@
         }
 
      
-    .usa-alert--info .usa-alert__body::before {
+    /*.usa-alert--info .usa-alert__body::before {
         background: url(/assets/img/usa-icons/info.svg) no-repeat center/contain;
         height: 2rem;
         width: 2rem;
@@ -70,14 +71,14 @@
         height: 4;
         left: .5rem;
         position: absolute;
-        top: .75rem;
+        top: .75rem;*/
  
 </style>
 
 <div id="overlay"><h2>Loading .. Please wait</h2></div>
 
 <div class="usa-section">
-    <div class="grid-container" style="max-width:94rem;">
+    <div class="grid-container" style="max-width:84rem;">
         <div class="grid-row grid-gap">
             <div class="usa-layout-docs__sidenav desktop:grid-col-2">
                 <nav aria-label="Secondary navigation">
@@ -115,8 +116,8 @@
                     varieties for 20 years (25 years for woody vines and trees).
                 </p>
                 @*<div id="section-pvp-data">
-                    @Html.Partial("~/Views/PVP/_ListByStatus.cshtml")
-                </div>*@
+            @Html.Partial("~/Views/PVP/_ListByStatus.cshtml")
+        </div>*@
                 <h3 id="section-heading-h3">Browse Applications</h3>
                 <div class="usa-alert usa-alert--info">
                     <div class="usa-alert__body">
@@ -126,10 +127,45 @@
                     </div>
                 </div>
                 <br />
-                <div id="section-pvp-data-filters" class="usa-accordion">
+
+                <table id="example" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="  dt-control"></td>
+                            <td>TEST</td>
+                            <td>IT SPEC</td>
+                            <td>OFFICE</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Salary</th>
+                        </tr>
+                    </tfoot>
+                </table>
+
+
+
+ 
+
+                @*<div id="section-pvp-data-filters" class="usa-accordion">
                     <h4 class="usa-accordion__heading">
-                        <button id="btnExpiring6Months" 
-                                type="button" 
+                        <button id="btnExpiring6Months"
+                                type="button"
                                 title="EXP6"
                                 class="usa-accordion__button"
                                 aria-expanded="true"
@@ -140,7 +176,7 @@
                     <div id="section-EXP6" class="usa-accordion__content usa-prose">
                     </div>
                     <h4 class="usa-accordion__heading">
-                        <button type="button" 
+                        <button type="button"
                                 id="btnRecentlyExpired"
                                 title="REXP"
                                 class="usa-accordion__button"
@@ -162,18 +198,79 @@
                     </h4>
                     <div id="section-RSUB" class="usa-accordion__content usa-prose">
                     </div>
-                </div>
+                </div>*@
             </main>
         </div>
     </div>
 </div>
     <script type="text/javascript">
-    $(document).ready(function () {
-        LoadData("EXP6");
-        $("#data-table_pvp_applications_filter").html("<label>Filter Results</label>");
-    });
+        /* Formatting function for row details - modify as you need */
+        function format(d) {
+            // `d` is the original data object for the row
+            return (
+                '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+                '<tr>' +
+                '<td>Full name:</td>' +
+                '<td>' +
+                d.name +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td>Extension number:</td>' +
+                '<td>' +
+                d.extn +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td>Extra info:</td>' +
+                '<td>And any further details here (images etc)...</td>' +
+                '</tr>' +
+                '</table>'
+            );
+        }
 
-    $(function () {
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+                 
+                columns: [
+                    {
+                        className: 'dt-control',
+                        orderable: false,
+                        data: null,
+                        defaultContent: '',
+                    },
+                    { data: 'name' },
+                    { data: 'position' },
+                    { data: 'office' },
+                    { data: 'salary' },
+                ],
+                order: [[1, 'asc']],
+            });
+
+            // Add event listener for opening and closing details
+            $('#example tbody').on('click', 'td.dt-control', function () {
+                var tr = $(this).closest('tr');
+                var row = table.row(tr);
+
+                if (row.child.isShown()) {
+                    // This row is already open - close it
+                    row.child.hide();
+                    tr.removeClass('shown');
+                } else {
+                    // Open this row
+                    row.child(format(row.data())).show();
+                    tr.addClass('shown');
+                }
+            });
+        });
+        
+
+    //$(document).ready(function () {
+    //    //LoadData("EXP6");
+    //    //$("#data-table_pvp_applications_filter").html("<label>Filter Results</label>");
+    //});
+
+    @*$(function () {
         $('.usa-button-group__item button').on('click', function () {
             var context = $(this).attr("title");
             $('.usa-button-group__item button').addClass('usa-button--outline');
@@ -215,5 +312,5 @@
             }
         });
         $("#overlay").hide();
-    }
+    }*@
 </script>

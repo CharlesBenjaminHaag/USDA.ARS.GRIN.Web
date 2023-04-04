@@ -3,8 +3,14 @@
     Layout = "~/Views/Shared/_LayoutUSWDSInterior.cshtml";
 }
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+        crossorigin=""></script>
 <style>
-    .usa-alert--info .usa-alert__body::before {
+    /*.usa-alert--info .usa-alert__body::before {
         background: url(/assets/img/usa-icons/info.svg) no-repeat center/contain;
         height: 2rem;
         width: 2rem;
@@ -14,7 +20,7 @@
         left: .5rem;
         position: absolute;
         top: .75rem;
-    }
+    }*/
     .usa-alert--error .usa-alert__body::before {
         background: url(https://designsystem.digital.gov/assets/img/usa-icons/error.svg) no-repeat center/contain;
         height: 2rem;
@@ -127,7 +133,7 @@
                             </div>
                             <div class="grid-row">
                                 <div class="tablet:grid-col-12">
-                                    <div id="mapid" style="width:850px; height:850px;"></div>
+                                    <div id="map" style="width:850px; height:850px;"></div>
                                 </div>
                             </div>
                         </div>
@@ -173,7 +179,7 @@
                         <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://nrrl.ncaur.usda.gov/">ARS Culture Collection</a></li>
                         <li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://www.ars.usda.gov/northeast-area/ithaca-ny/robert-w-holley-center-for-agriculture-health/emerging-pests-and-pathogens-research/docs/mycology/">ARS Entemopathogenic Fungus Collection (ARSEF)</a></li>
                         @*<li class="usa-collection__meta-item usa-tag usa-tag--new"><a href="https://nt.ars-grin.gov/fungaldatabases/specimens/specimens.cfm">U.S. National Fungus Collection</a></li>*@
-                    <li class="usa-collection__meta-item usa-tag ">U.S. National Fungus Collection</li>
+                        <li class="usa-collection__meta-item usa-tag ">U.S. National Fungus Collection</li>
                     </ul>
                 </p>
 
@@ -194,10 +200,88 @@
     </div>
 </div>
 
-<script type="text/javascript" src="https://leafletjs.com/examples/choropleth/us-states.js"></script>
+@*<script type="text/javascript" src="https://leafletjs.com/examples/choropleth/us-states.js"></script>*@
 <script type="text/javascript">
+    $(document).ready(function () {
+        var map = L.map('map').setView([37.8, -96], 4);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
 
-    var map = L.map('mapid').setView([40.57317281015742, -105.07967561730995], 3);
+        siteId = "1";
+        var marker = L.marker([30.619351, -96.361787], { myCustomId: siteId });
+        marker.addTo(map);
+        marker.bindPopup(getMarkerPopupContent(1));
+
+        siteId = "2";
+        var marker = L.marker([30.522515482482035, -96.42369203284417], { myCustomId: siteId });
+        /*marker.on('click', onMarkerClick);*/
+        marker.addTo(map);
+        marker.bindPopup(getMarkerPopupContent(2));
+
+        siteId = "3";
+        var marker = L.marker([44.552400416076324, -123.22075287304186], { myCustomId: siteId });
+        /*marker.on('click', onMarkerClick);*/
+        marker.addTo(map);
+        marker.bindPopup(getMarkerPopupContent(3));
+
+        siteId = "4";
+        var marker = L.marker([38.534862012868864, -121.75462764434283], { myCustomId: siteId });
+        /*marker.on('click', onMarkerClick);*/
+        marker.addTo(map);
+        marker.bindPopup(getMarkerPopupContent(4));
+
+        siteId = "5";
+        var marker = L.marker([42.87768028143282, -77.0072383607277], { myCustomId: siteId });
+        /*marker.on('click', onMarkerClick);*/
+        marker.addTo(map);
+        marker.bindPopup(getMarkerPopupContent(5));
+
+        function getMarkerPopupContent(siteId) {
+            var htmlString = "";
+            htmlString = htmlString + "<h3>SITE " + siteId + "</h3>";
+            return htmlString;
+        }
+
+        var onMarkerClick = function (e) {
+            @*var selectedSiteId = this.options.myCustomId;
+            var link = '@Url.Action("_Detail", "Site", new { siteId = "SITE_ID" })';
+            link = link.replace("SITE_ID", selectedSiteId);
+
+            //DEBUG
+            alert("CLICKED " + link);
+
+            GetSiteInfo(selectedSiteId);
+            $("#btnOpenSiteDetailModal")[0].click();*@
+        }
+    });
+
+    function GetSiteInfo(siteId) {
+        var link = '@Url.Action("_Detail","Site")';
+        var formData = new FormData();
+        var responseHtml = "";
+
+        formData.append("SiteID", siteId);
+        
+        return $.ajax({
+            url: link,
+            type: 'POST',
+            cache: false,
+            /*contentType: false,*/
+            processData: false,
+            data: formData,
+            success: function (response) {
+                success(response);
+            },
+            error: function (data) {
+                error(data);
+            }
+        });
+    }
+
+
+    @*var map = L.map('mapid').setView([40.57317281015742, -105.07967561730995], 3);
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
         maxZoom: 18,
@@ -412,7 +496,7 @@
 
         div.innerHTML = labels.join('<br>');
         return div;
-    };
+    };*@
 
     //legend.addTo(map);
 

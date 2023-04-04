@@ -34,18 +34,14 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
                 return PartialView("~/Views/Error/_InternalServerError.cshtml");
             }
         }
-
         [HttpPost]
-        public PartialViewResult _Detail(FormCollection formCollection)
+        public PartialViewResult _Detail(int siteId)
         {
             SiteViewModel viewModel = new SiteViewModel();
 
             try
             {
-                if (!String.IsNullOrEmpty(formCollection["SiteID"]))
-                {
-                    viewModel.Get(Int32.Parse(formCollection["SiteID"]));
-                }
+                viewModel.Get(siteId);
                 return PartialView("~/Views/Site/_Detail.cshtml", viewModel);
             }
             catch (Exception ex)

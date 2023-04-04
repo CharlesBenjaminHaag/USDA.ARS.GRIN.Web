@@ -18,7 +18,8 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
             TempData["PAGE_CONTEXT"] = "PVP Application Status Database";
             try
             {
-                viewModel.GetTotals();
+                viewModel.SearchEntity.TimeFrame = "EXP6";
+                viewModel.Search();
                 return View(viewModel);
             }
             catch (Exception ex)
