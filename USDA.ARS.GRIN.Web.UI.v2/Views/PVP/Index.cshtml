@@ -115,162 +115,193 @@
                     In accordance with the <a class="usa-link" href="https://uscode.house.gov/browse/prelim@title7/chapter57/subchapter1&edition=prelim">Plant Variety Protection Act (PVPA)</a>, it examines new varieties, and grants <a class="usa-link" href="https://www.ams.usda.gov/services/plant-variety-protection/issued-certificates">certificates</a> that protect
                     varieties for 20 years (25 years for woody vines and trees).
                 </p>
-                @*<div id="section-pvp-data">
-            @Html.Partial("~/Views/PVP/_ListByStatus.cshtml")
-        </div>*@
+                <div id="section-pvp-data">
+                    @*@Html.Partial("~/Views/PVP/_ListByStatus.cshtml")*@
+                </div>
                 <h3 id="section-heading-h3">Browse Applications</h3>
                 <div class="usa-alert usa-alert--info">
                     <div class="usa-alert__body">
                         <p class="usa-alert__text">
-                            All data represented here is based on an <a class="usa-link" href="https://www.ams.usda.gov/services/plant-variety-protection/application-status">update</a> from <strong>1/9/2023</strong>. Please <a href="@Url.Action("Index","Contact", new { context="pvp" })">contact us</a> regarding any errors or omissions.
+                            All data represented here is based on an <a class="usa-link" href="https://www.ams.usda.gov/services/plant-variety-protection/application-status">update</a> from <strong>4/11/2023</strong>. Please <a href="@Url.Action("Index","Contact", new { context="pvp" })">contact us</a> regarding any errors or omissions.
                         </p>
                     </div>
                 </div>
-                <br />
-
-                <table id="example" class="display" style="width:100%">
+                <h4>Certificate Recently Expired (@Model.DataCollection.Count)</h4>
+                <table id="data-table_pvp_applications" class="display table-responsive">
                     <thead>
                         <tr>
+                            <th>PV Number</th>
+                            <th>Applicant</th>
+                            <th>Variety (Cultivar)</th>
+                            <th>Common Name</th>
+                            <th>Experimental Name</th>
+                            <th>Expiration Date</th>
+                            <th>Accession</th>
                             <th></th>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Salary</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach (var result in Model.DataCollection)
+                        {
                         <tr>
-                            <td class="  dt-control"></td>
-                            <td>TEST</td>
-                            <td>IT SPEC</td>
-                            <td>OFFICE</td>
-                            <td>100</td>
+                            <td>@result.ApplicationNumber</td>
+                            <td>@result.Applicant</td>
+                            <td>@result.VarietyName</td>
+                            <td>@result.CommonName</td>
+                            <td>@result.ScientificName</td>
+                            <td>
+                                @if (result.ExpirationDate > DateTime.MinValue)
+                                {
+                                    @result.ExpirationDate.ToString("yyyy-MM-dd")
+                                }
+                            </td>
+                                                @*<td>
+                                @if (!String.IsNullOrEmpty(result.CertificateURL))
+                                {
+                                    <a href="@result.CertificateURL">
+                                        @result.CertificateStatus
+                                    </a>
+                                }
+                                else
+                                {
+                                    @result.CertificateStatus
+                                }
+                            </td>*@
+
+                            <td>
+                                <a class="usa-link usa-link--alt usa-link--external" href="https://npgsweb.ars-grin.gov/gringlobal/accessiondetail?id=@result.AccessionID">
+
+                                    @result.AccessionName
+                                </a>
+                            </td>
+                            <td>
+                                @if (!String.IsNullOrEmpty(result.CertificateURL))
+                                {
+                                    <a href="@result.CertificateURL">
+                                        <img src="~/assets/img/PDF_32.png" />
+                                    </a>
+                                }
+                            </td>
                         </tr>
+                        }
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Salary</th>
-                        </tr>
-                    </tfoot>
                 </table>
 
 
 
- 
 
                 @*<div id="section-pvp-data-filters" class="usa-accordion">
-                    <h4 class="usa-accordion__heading">
-                        <button id="btnExpiring6Months"
-                                type="button"
-                                title="EXP6"
-                                class="usa-accordion__button"
-                                aria-expanded="true"
-                                aria-controls="section-EXP6">
-                            Certificate Expiring in 6 Months
-                        </button>
-                    </h4>
-                    <div id="section-EXP6" class="usa-accordion__content usa-prose">
-                    </div>
-                    <h4 class="usa-accordion__heading">
-                        <button type="button"
-                                id="btnRecentlyExpired"
-                                title="REXP"
-                                class="usa-accordion__button"
-                                aria-expanded="false"
-                                aria-controls="section-REXP">
-                            Certificate Recently Expired
-                        </button>
-                    </h4>
-                    <div id="section-REXP" class="usa-accordion__content usa-prose">
-                    </div>
-                    <h4 class="usa-accordion__heading">
-                        <button type="button"
-                                title="RSUB"
-                                class="usa-accordion__button"
-                                aria-expanded="false"
-                                aria-controls="section-RSUB">
-                            Application Recently Submitted
-                        </button>
-                    </h4>
-                    <div id="section-RSUB" class="usa-accordion__content usa-prose">
-                    </div>
-                </div>*@
+            <h4 class="usa-accordion__heading">
+                <button id="btnExpiring6Months"
+                        type="button"
+                        title="EXP6"
+                        class="usa-accordion__button"
+                        aria-expanded="true"
+                        aria-controls="section-EXP6">
+                    Certificate Expiring in 6 Months
+                </button>
+            </h4>
+            <div id="section-EXP6" class="usa-accordion__content usa-prose">
+            </div>
+            <h4 class="usa-accordion__heading">
+                <button type="button"
+                        id="btnRecentlyExpired"
+                        title="REXP"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="section-REXP">
+                    Certificate Recently Expired
+                </button>
+            </h4>
+            <div id="section-REXP" class="usa-accordion__content usa-prose">
+            </div>
+            <h4 class="usa-accordion__heading">
+                <button type="button"
+                        title="RSUB"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="section-RSUB">
+                    Application Recently Submitted
+                </button>
+            </h4>
+            <div id="section-RSUB" class="usa-accordion__content usa-prose">
+            </div>
+        </div>*@
             </main>
         </div>
     </div>
 </div>
     <script type="text/javascript">
-        /* Formatting function for row details - modify as you need */
-        function format(d) {
-            // `d` is the original data object for the row
-            return (
-                '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
-                '<tr>' +
-                '<td>Full name:</td>' +
-                '<td>' +
-                d.name +
-                '</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<td>Extension number:</td>' +
-                '<td>' +
-                d.extn +
-                '</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<td>Extra info:</td>' +
-                '<td>And any further details here (images etc)...</td>' +
-                '</tr>' +
-                '</table>'
-            );
-        }
-
         $(document).ready(function () {
-            var table = $('#example').DataTable({
-                 
-                columns: [
-                    {
-                        className: 'dt-control',
-                        orderable: false,
-                        data: null,
-                        defaultContent: '',
-                    },
-                    { data: 'name' },
-                    { data: 'position' },
-                    { data: 'office' },
-                    { data: 'salary' },
-                ],
-                order: [[1, 'asc']],
-            });
-
-            // Add event listener for opening and closing details
-            $('#example tbody').on('click', 'td.dt-control', function () {
-                var tr = $(this).closest('tr');
-                var row = table.row(tr);
-
-                if (row.child.isShown()) {
-                    // This row is already open - close it
-                    row.child.hide();
-                    tr.removeClass('shown');
-                } else {
-                    // Open this row
-                    row.child(format(row.data())).show();
-                    tr.addClass('shown');
-                }
-            });
+            InitDataTable("data-table_pvp_applications");
         });
+        /* Formatting function for row details - modify as you need */
+        //function format(d) {
+        //    // `d` is the original data object for the row
+        //    return (
+        //        '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+        //        '<tr>' +
+        //        '<td>Full name:</td>' +
+        //        '<td>' +
+        //        d.name +
+        //        '</td>' +
+        //        '</tr>' +
+        //        '<tr>' +
+        //        '<td>Extension number:</td>' +
+        //        '<td>' +
+        //        d.extn +
+        //        '</td>' +
+        //        '</tr>' +
+        //        '<tr>' +
+        //        '<td>Extra info:</td>' +
+        //        '<td>And any further details here (images etc)...</td>' +
+        //        '</tr>' +
+        //        '</table>'
+        //    );
+        //}
+
+        //$(document).ready(function () {
+        //    var table = $('#example').DataTable({
+                 
+        //        columns: [
+        //            {
+        //                className: 'dt-control',
+        //                orderable: false,
+        //                data: null,
+        //                defaultContent: '',
+        //            },
+        //            { data: 'name' },
+        //            { data: 'position' },
+        //            { data: 'office' },
+        //            { data: 'salary' },
+        //        ],
+        //        order: [[1, 'asc']],
+        //    });
+
+        //    // Add event listener for opening and closing details
+        //    $('#example tbody').on('click', 'td.dt-control', function () {
+        //        var tr = $(this).closest('tr');
+        //        var row = table.row(tr);
+
+        //        if (row.child.isShown()) {
+        //            // This row is already open - close it
+        //            row.child.hide();
+        //            tr.removeClass('shown');
+        //        } else {
+        //            // Open this row
+        //            row.child(format(row.data())).show();
+        //            tr.addClass('shown');
+        //        }
+        //    });
+        //});
         
 
-    //$(document).ready(function () {
-    //    //LoadData("EXP6");
-    //    //$("#data-table_pvp_applications_filter").html("<label>Filter Results</label>");
-    //});
+    $(document).ready(function () {
+        LoadData("EXP6");
+        $("#data-table_pvp_applications_filter").html("<label>Filter Results</label>");
+    });
 
-    @*$(function () {
+    $(function () {
         $('.usa-button-group__item button').on('click', function () {
             var context = $(this).attr("title");
             $('.usa-button-group__item button').addClass('usa-button--outline');
@@ -312,5 +343,5 @@
             }
         });
         $("#overlay").hide();
-    }*@
+    }
 </script>

@@ -10,7 +10,7 @@
         integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
         crossorigin=""></script>
 <style>
-    /*.usa-alert--info .usa-alert__body::before {
+    .usa-alert--info .usa-alert__body::before {
         background: url(/assets/img/usa-icons/info.svg) no-repeat center/contain;
         height: 2rem;
         width: 2rem;
@@ -20,7 +20,7 @@
         left: .5rem;
         position: absolute;
         top: .75rem;
-    }*/
+    }
     .usa-alert--error .usa-alert__body::before {
         background: url(https://designsystem.digital.gov/assets/img/usa-icons/error.svg) no-repeat center/contain;
         height: 2rem;
@@ -203,85 +203,115 @@
 @*<script type="text/javascript" src="https://leafletjs.com/examples/choropleth/us-states.js"></script>*@
 <script type="text/javascript">
     $(document).ready(function () {
+
+        var onMarkerClick = function (e) {
+
+            //DEBUG
+            alert("CLICKED " + this.options.myCustomId);
+            GetSiteInfo(this.options.myCustomId);
+            $("#btnOpenSiteDetailModal")[0].click();
+
+            @*var selectedSiteId = this.options.myCustomId;
+            var link = '@Url.Action("_Detail", "Site", new { siteId = "SITE_ID" })';
+            link = link.replace("SITE_ID", selectedSiteId);
+
+
+
+            GetSiteInfo(selectedSiteId);
+            $("#btnOpenSiteDetailModal")[0].click();*@
+        }
+
+
         var map = L.map('map').setView([37.8, -96], 4);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
-        siteId = "1";
-        var marker = L.marker([30.619351, -96.361787], { myCustomId: siteId });
-        marker.addTo(map);
-        marker.bindPopup(getMarkerPopupContent(1));
+        //siteId = "1";
+        //var marker = L.marker([30.619351, -96.361787], { myCustomId: siteId });
+        //marker.addTo(map);
+        //marker.bindPopup(getMarkerPopupContent(1));
 
-        siteId = "2";
-        var marker = L.marker([30.522515482482035, -96.42369203284417], { myCustomId: siteId });
-        /*marker.on('click', onMarkerClick);*/
-        marker.addTo(map);
-        marker.bindPopup(getMarkerPopupContent(2));
+        //siteId = "2";
+        //var marker = L.marker([30.522515482482035, -96.42369203284417], { myCustomId: siteId });
+        ///*marker.on('click', onMarkerClick);*/
+        //marker.addTo(map);
+        //marker.bindPopup(getMarkerPopupContent(2));
 
-        siteId = "3";
-        var marker = L.marker([44.552400416076324, -123.22075287304186], { myCustomId: siteId });
-        /*marker.on('click', onMarkerClick);*/
-        marker.addTo(map);
-        marker.bindPopup(getMarkerPopupContent(3));
+        //siteId = "3";
+        //var marker = L.marker([44.552400416076324, -123.22075287304186], { myCustomId: siteId });
+        ///*marker.on('click', onMarkerClick);*/
+        //marker.addTo(map);
+        //marker.bindPopup(getMarkerPopupContent(3));
 
-        siteId = "4";
-        var marker = L.marker([38.534862012868864, -121.75462764434283], { myCustomId: siteId });
-        /*marker.on('click', onMarkerClick);*/
-        marker.addTo(map);
-        marker.bindPopup(getMarkerPopupContent(4));
+        //siteId = "4";
+        //var marker = L.marker([38.534862012868864, -121.75462764434283], { myCustomId: siteId });
+        ///*marker.on('click', onMarkerClick);*/
+        //marker.addTo(map);
+        //marker.bindPopup(getMarkerPopupContent(4));
 
         siteId = "5";
         var marker = L.marker([42.87768028143282, -77.0072383607277], { myCustomId: siteId });
-        /*marker.on('click', onMarkerClick);*/
+        marker.on('click', onMarkerClick);
         marker.addTo(map);
-        marker.bindPopup(getMarkerPopupContent(5));
 
-        function getMarkerPopupContent(siteId) {
+        @*function getMarkerPopupContent(siteId) {
             var htmlString = "";
-            htmlString = htmlString + "<h3>SITE " + siteId + "</h3>";
-            return htmlString;
-        }
-
-        var onMarkerClick = function (e) {
-            @*var selectedSiteId = this.options.myCustomId;
             var link = '@Url.Action("_Detail", "Site", new { siteId = "SITE_ID" })';
-            link = link.replace("SITE_ID", selectedSiteId);
+            link = link.replace("SITE_ID", siteId);
 
-            //DEBUG
-            alert("CLICKED " + link);
+            var formData = new FormData();
+            /*formData.append("siteId", siteId);*/
 
-            GetSiteInfo(selectedSiteId);
-            $("#btnOpenSiteDetailModal")[0].click();*@
-        }
+            return $.ajax({
+                url: link,
+                type: 'POST',
+                cache: false,
+                dataType: 'json',
+                processData: false,
+                data: formData,
+                success: function (data) {
+                    //htmlString = htmlString + "<h3> " + data.site.LongName + "</h3>";
+                    htmlString = data;
+                    return JSON.stringify(htmlString);
+                },
+                error: function (ex) {
+                    return "ERROR";
+                }
+            });
+        }*@
+
+        
     });
 
-    function GetSiteInfo(siteId) {
+    @*function GetSiteInfo(siteId) {
         var link = '@Url.Action("_Detail","Site")';
         var formData = new FormData();
         var responseHtml = "";
 
         formData.append("SiteID", siteId);
-        
+
         return $.ajax({
             url: link,
             type: 'POST',
             cache: false,
             /*contentType: false,*/
+            dataType: 'json',
             processData: false,
             data: formData,
-            success: function (response) {
-                success(response);
+            success: function (data) {
+                alert(data);
+                //success(response);
             },
             error: function (data) {
-                error(data);
+                alert("ERROR " + data);
             }
         });
-    }
+    }*@
 
 
-    @*var map = L.map('mapid').setView([40.57317281015742, -105.07967561730995], 3);
+    var map = L.map('mapid').setView([40.57317281015742, -105.07967561730995], 3);
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
         maxZoom: 18,
@@ -496,7 +526,7 @@
 
         div.innerHTML = labels.join('<br>');
         return div;
-    };*@
+    };
 
     //legend.addTo(map);
 

@@ -42,12 +42,12 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
             try
             {
                 viewModel.Get(siteId);
-                return PartialView("~/Views/Site/_Detail.cshtml", viewModel);
+                return PartialView(viewModel);
             }
             catch (Exception ex)
             {
                 Log.Error(ex);
-                return PartialView("~/Views/Site/_Detail.cshtml");
+                return PartialView("~/Views/Error/_InternalServerError.cshtml");
             }
         }
     }
