@@ -1,8 +1,57 @@
 ﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.SiteViewModel
-<h3>DEBUG</h3>
-<table>
-    <tr>
-        <td></td>
-        <td></td>
-    </tr>
+<table class="usa-table usa-table--borderless">
+    <tbody>
+        <tr>
+            <th scope="row">Name</th>
+            <td>
+                @Model.Entity.LongName (@Model.Entity.ShortName)
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" style="vertical-align:top;">Address</th>
+            <td>
+                @Model.Entity.PrimaryAddress1<br />
+                @Model.Entity.PrimaryAddress2<br />
+                @Model.Entity.PrimaryAddress3<br />
+                @Model.Entity.City, @Model.Entity.State @Model.Entity.PostalIndex
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Contact</th>
+            <td>
+                @Model.Entity.EmailAddress
+            </td>
+        </tr>
+        @*<tr>
+                <td colspan="2">
+                    <ul class="usa-collection__meta" aria-label="Topics">
+                        @foreach (var result in Model.Entity.Crops)
+                        {
+                            <li class="usa-collection__meta-item usa-tag usa-tag--new" style="background-color:darkgray">@result.CodeTitle</li>
+                        }
+                    </ul>
+                </td>
+            </tr>*@
+    </tbody>
 </table>
+<div class="usa-modal__footer">
+    <ul class="usa-button-group">
+        <li class="usa-button-group__item">
+            <button type="button"
+                    class="usa-button usa-button padding-105 text-center"
+                    data-close-modal>
+                Close
+            </button>
+        </li>
+        @if (Model.Entity.ID != 24 && Model.Entity.ID != 31 && Model.Entity.ID != 26 && Model.Entity.ID != 34)
+        {
+            <li class="usa-button-group__item">
+                <button type="button"
+                        class="usa-button usa-button--outline padding-105 text-center"
+                        data-close-modal onclick="window.location.href='https://npgsweb.ars-grin.gov/gringlobal/site?id=@Model.Entity.ID';">
+                    View in GRIN-Global
+                </button>
+            </li>
+        }
+    </ul>
+</div>

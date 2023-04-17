@@ -205,22 +205,9 @@
     $(document).ready(function () {
 
         var onMarkerClick = function (e) {
-
-            //DEBUG
-            alert("CLICKED " + this.options.myCustomId);
             GetSiteInfo(this.options.myCustomId);
             $("#btnOpenSiteDetailModal")[0].click();
-
-            @*var selectedSiteId = this.options.myCustomId;
-            var link = '@Url.Action("_Detail", "Site", new { siteId = "SITE_ID" })';
-            link = link.replace("SITE_ID", selectedSiteId);
-
-
-
-            GetSiteInfo(selectedSiteId);
-            $("#btnOpenSiteDetailModal")[0].click();*@
         }
-
 
         var map = L.map('map').setView([37.8, -96], 4);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -228,31 +215,113 @@
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
-        //siteId = "1";
-        //var marker = L.marker([30.619351, -96.361787], { myCustomId: siteId });
-        //marker.addTo(map);
-        //marker.bindPopup(getMarkerPopupContent(1));
+        siteId = "1";
+        var marker = L.marker([30.619351, -96.361787], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
 
-        //siteId = "2";
-        //var marker = L.marker([30.522515482482035, -96.42369203284417], { myCustomId: siteId });
-        ///*marker.on('click', onMarkerClick);*/
-        //marker.addTo(map);
-        //marker.bindPopup(getMarkerPopupContent(2));
+        siteId = "2";
+        var marker = L.marker([30.522515482482035, -96.42369203284417], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
 
-        //siteId = "3";
-        //var marker = L.marker([44.552400416076324, -123.22075287304186], { myCustomId: siteId });
-        ///*marker.on('click', onMarkerClick);*/
-        //marker.addTo(map);
-        //marker.bindPopup(getMarkerPopupContent(3));
+        siteId = "3";
+        var marker = L.marker([44.552400416076324, -123.22075287304186], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
 
-        //siteId = "4";
-        //var marker = L.marker([38.534862012868864, -121.75462764434283], { myCustomId: siteId });
-        ///*marker.on('click', onMarkerClick);*/
-        //marker.addTo(map);
-        //marker.bindPopup(getMarkerPopupContent(4));
+        siteId = "4";
+        var marker = L.marker([38.534862012868864, -121.75462764434283], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
 
         siteId = "5";
         var marker = L.marker([42.87768028143282, -77.0072383607277], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
+
+        siteId = "6";
+        var marker = L.marker([19.69834611262494, -155.09389535997298], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
+
+        siteId = "7";
+        var marker = L.marker([18.20681304702269, -67.13602555814018], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
+
+        siteId = "8";
+        var marker = L.marker([25.64388309000814, -80.2917109157293], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
+
+        siteId = "9";
+        var marker = L.marker([33.967873, -117.334614], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
+
+        siteId = "13";
+        var marker = L.marker([38.534862012868864, -121.75462764434283], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
+
+        siteId = "15";
+        var marker = L.marker([39.026515487598985, -76.9234882308379], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
+
+        siteId = "16";
+        var marker = L.marker([42.028186, -93.64162], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
+
+        siteId = "17";
+        var marker = L.marker([42.87725, -77.007079], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
+
+        siteId = "19";
+        var marker = L.marker([42.95707938078901, -112.82869678657434], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
+
+        siteId = "22";
+        var marker = L.marker([33.262636, -84.28085], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
+
+        siteId = "24";
+        var marker = L.marker([40.101249, -88.222608], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
+
+        siteId = "26";
+        var marker = L.marker([46.731716, -117.157919], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
+
+        siteId = "29";
+        var marker = L.marker([44.879492, -87.335423], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
+
+        siteId = "31";
+        var marker = L.marker([40.10305195116381, -88.22429523081477], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
+
+        siteId = "34";
+        var marker = L.marker([46.731716, -117.157919], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
+
+        siteId = "37";
+        var marker = L.marker([36.59667464938536, -119.51265894622854], { myCustomId: siteId });
+        marker.on('click', onMarkerClick);
+        marker.addTo(map);
+
+        siteId = "40";
+        var marker = L.marker([34.475486, -91.418618], { myCustomId: siteId });
         marker.on('click', onMarkerClick);
         marker.addTo(map);
 
@@ -285,43 +354,6 @@
         
     });
 
-    @*function GetSiteInfo(siteId) {
-        var link = '@Url.Action("_Detail","Site")';
-        var formData = new FormData();
-        var responseHtml = "";
-
-        formData.append("SiteID", siteId);
-
-        return $.ajax({
-            url: link,
-            type: 'POST',
-            cache: false,
-            /*contentType: false,*/
-            dataType: 'json',
-            processData: false,
-            data: formData,
-            success: function (data) {
-                alert(data);
-                //success(response);
-            },
-            error: function (data) {
-                alert("ERROR " + data);
-            }
-        });
-    }*@
-
-
-    var map = L.map('mapid').setView([40.57317281015742, -105.07967561730995], 3);
-
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-        maxZoom: 18,
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        id: 'mapbox/light-v9',
-        tileSize: 512,
-        zoomOffset: -1
-    }).addTo(map);
-
     var onMarkerClick = function (e) {
         var selectedSiteId = this.options.myCustomId;
         var link = '@Url.Action("_Detail", "Site", new { siteId = "SITE_ID" })';
@@ -353,181 +385,28 @@
         }
     }
 
-    //TODO: PDF EMBED
-    if (navigator.userAgent.search("MSIE") >= 0) {
-        //code goes here
-    }
-    else if (navigator.userAgent.search("Chrome") >= 0) {
-        //alert("DEBUG CHROME");
-    }
-    else if (navigator.userAgent.search("Firefox") >= 0) {
-        //code goes here
-    }
-    else if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
-        //code goes here
-    }
-    else if (navigator.userAgent.search("Opera") >= 0) {
-        //code goes here
-    }
-
     var siteId = "";
 
-    siteId = "1";
-    var marker = L.marker([30.619351, -96.361787], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
+    
 
-    siteId = "2";
-    var marker = L.marker([30.522515482482035, -96.42369203284417], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
+    
 
-    siteId = "3";
-    var marker = L.marker([44.552400416076324, -123.22075287304186], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
+    /*var geojson;*/
 
-    siteId = "4";
-    var marker = L.marker([38.534862012868864, -121.75462764434283], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
+    //function resetHighlight(e) {
+    //    geojson.resetStyle(e.target);
+    //    info.update();
+    //}
 
-    siteId = "5";
-    var marker = L.marker([42.87768028143282, -77.0072383607277], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
+    //function zoomToFeature(e) {
+    //    map.fitBounds(e.target.getBounds());
+    //}
 
-    siteId = "6";
-    var marker = L.marker([19.69834611262494, -155.09389535997298], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "7";
-    var marker = L.marker([18.20681304702269, -67.13602555814018], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "8";
-    var marker = L.marker([25.64388309000814, -80.2917109157293], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "9";
-    var marker = L.marker([33.967873, -117.334614], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "13";
-    var marker = L.marker([38.534862012868864, -121.75462764434283], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "15";
-    var marker = L.marker([39.026515487598985, -76.9234882308379], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "16";
-    var marker = L.marker([42.028186, -93.64162], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "17";
-    var marker = L.marker([42.87725, -77.007079], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "19";
-    var marker = L.marker([42.95707938078901, -112.82869678657434], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "22";
-    var marker = L.marker([33.262636, -84.28085], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "24";
-    var marker = L.marker([40.101249, -88.222608], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "26";
-    var marker = L.marker([46.731716, -117.157919], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "29";
-    var marker = L.marker([44.879492, -87.335423], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "31";
-    var marker = L.marker([40.10305195116381, -88.22429523081477], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "34";
-    var marker = L.marker([46.731716, -117.157919], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "37";
-    var marker = L.marker([36.59667464938536, -119.51265894622854], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    siteId = "40";
-    var marker = L.marker([34.475486, -91.418618], { myCustomId: siteId });
-    marker.on('click', onMarkerClick);
-    marker.addTo(map);
-
-    var geojson;
-
-    function resetHighlight(e) {
-        geojson.resetStyle(e.target);
-        info.update();
-    }
-
-    function zoomToFeature(e) {
-        map.fitBounds(e.target.getBounds());
-    }
-
-    function onEachFeature(feature, layer) {
-        layer.on({
-            mouseover: highlightFeature,
-            mouseout: resetHighlight,
-            click: zoomToFeature
-        });
-    }
-
-    //map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
-
-    var legend = L.control({ position: 'bottomright' });
-
-    legend.onAdd = function (map) {
-
-        var div = L.DomUtil.create('div', 'info legend'),
-            grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-            labels = [],
-            from, to;
-
-        for (var i = 0; i < grades.length; i++) {
-            from = grades[i];
-            to = grades[i + 1];
-
-            //labels.push(
-            //    '<i style="background:' + getColor(from + 1) + '"></i> ' +
-            //    from + (to ? '&ndash;' + to : '+'));
-            labels.push(
-                '<i style="background:#ebebeb;"></i> ' +
-                from + (to ? '&ndash;' + to : '+'));
-        }
-
-        div.innerHTML = labels.join('<br>');
-        return div;
-    };
-
-    //legend.addTo(map);
-
+    //function onEachFeature(feature, layer) {
+    //    layer.on({
+    //        mouseover: highlightFeature,
+    //        mouseout: resetHighlight,
+    //        click: zoomToFeature
+    //    });
+    //}
 </script>
