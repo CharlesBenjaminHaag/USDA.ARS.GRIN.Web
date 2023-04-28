@@ -78,6 +78,9 @@ namespace USDA.ARS.GRIN.Web.DataLayer
                 case "10Y":
                     SQL += " AND DATEDIFF(year, StatusDate, GETDATE()) BETWEEN 0 AND 10";
                     break;
+                case "20Y":
+                    SQL += " AND DATEDIFF(year, StatusDate, GETDATE()) BETWEEN 0 AND 20";
+                    break;
             }
 
             SQL += " ORDER BY StatusDate DESC";

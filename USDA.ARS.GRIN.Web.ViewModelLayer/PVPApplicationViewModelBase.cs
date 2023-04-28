@@ -49,6 +49,7 @@ namespace USDA.ARS.GRIN.Web.ViewModelLayer
             get
             {
                 List<CodeValue> codeValues = new List<CodeValue>();
+                codeValues.Add(new CodeValue { Value = "20Y", CodeTitle = "The last 20 years" });
                 codeValues.Add(new CodeValue { Value = "10Y", CodeTitle = "The last 10 years" });
                 codeValues.Add(new CodeValue { Value = "05Y", CodeTitle = "The last 5 years" });
                 codeValues.Add(new CodeValue { Value = "01Y", CodeTitle = "This Year" });

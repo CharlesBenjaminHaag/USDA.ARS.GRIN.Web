@@ -32,6 +32,8 @@ namespace USDA.ARS.GRIN.Web.DataLayer
         public string SecondaryCity { get; set; }
         public string SecondaryPhone { get; set; }
         public string EmailAddress { get; set; }
+        public string PrimaryURL { get; set; }
+        public string SecondaryURL { get; set; }
         public List<CodeValue> Crops { get; set; }
     }
 }

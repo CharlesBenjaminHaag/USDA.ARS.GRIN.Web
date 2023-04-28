@@ -92,44 +92,7 @@ else
     }
     else
     {
-        <h2>
-            @Model.Entity.LongName
-        </h2>
-        <table class="usa-table usa-table--borderless">
-            <tbody>
-                <tr>
-                    <th scope="row">Name</th>
-                    <td>
-                        @Model.Entity.ShortName
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row" style="vertical-align:top;">Address</th>
-                    <td>
-                        @Model.Entity.PrimaryAddress1
-                        @Model.Entity.PrimaryAddress2
-                        @Model.Entity.PrimaryAddress3
-                        @Model.Entity.City @Model.Entity.State @Model.Entity.PostalIndex
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">Contact</th>
-                    <td>
-                        @Model.Entity.EmailAddress
-                    </td>
-                </tr>
-                @*<tr>
-                        <td colspan="2">
-                            <ul class="usa-collection__meta" aria-label="Topics">
-                                @foreach (var result in Model.Entity.Crops)
-                                {
-                                    <li class="usa-collection__meta-item usa-tag usa-tag--new" style="background-color:darkgray">@result.CodeTitle</li>
-                                }
-                            </ul>
-                        </td>
-                    </tr>*@
-            </tbody>
-        </table>
+       
     }
 }
 <div class="usa-modal__footer">
