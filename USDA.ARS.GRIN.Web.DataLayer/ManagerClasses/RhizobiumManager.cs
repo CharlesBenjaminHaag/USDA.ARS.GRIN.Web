@@ -35,8 +35,8 @@ namespace USDA.ARS.GRIN.Web.DataLayer
             string viewName = String.Empty;
             List<RhizobiumDescriptor> results = new List<RhizobiumDescriptor>();
 
-            SQL = " SELECT * FROM vw_GGTools_GRINGlobal_RhizobiumDescriptors";
-            SQL += " ORDER BY CommonName";
+            SQL = " SELECT * FROM vw_GRINGlobal_Rhizobium";
+            SQL += " ORDER BY USDAAccessionCode";
 
             var parameters = new List<IDbDataParameter> {
                 //CreateParameter("HostPlant", (object)searchEntity.  ?? DBNull.Value, true),

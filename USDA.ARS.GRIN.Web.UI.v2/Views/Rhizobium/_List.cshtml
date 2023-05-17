@@ -9,32 +9,28 @@
 <table id="data_table_rhizobium_descriptors" class="display" style="width:100%;">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Syn1</th>
-            <th>Syn2</th>
-            <th>Syn3</th>
-            <th>Syn4</th>
-            <th>Host Plant</th>
+            <th></th>
+            <th>USDA Accession</th>
+            <th>Host Plant Name</th>
             <th>Common Name</th>
             <th>Source</th>
-            <th>Geo Source</th>
-            <th>Sero Group</th>
+            <th>Geographic Source</th>
+            <th>Taxonomy</th>
+            <th>Note</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var result in Model.DataCollection)
         {
         <tr>
-            <td>@result.RhyID</td>
-            <td>@result.Synonym1</td>
-            <td>@result.Synonym2</td>
-            <td>@result.Synonym3</td>
-            <td>@result.Synonym4</td>
-            <td>@result.HostPlant</td>
+            <td>@result.ID</td>
+            <td>@result.USDAAccessionCode</td>
+            <td>@result.HostPlantName</td>
             <td>@result.CommonName</td>
             <td>@result.Source</td>
             <td>@result.GeoSource</td>
-            <td>@result.SeroGroup</td>
+            <td>@result.GenusSPP</td>
+            <td>@result.Note</td>
         </tr>
         }
     </tbody>
