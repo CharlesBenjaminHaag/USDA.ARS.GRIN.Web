@@ -10,7 +10,7 @@
         integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
         crossorigin=""></script>
 <style>
-    .usa-alert--info .usa-alert__body::before {
+    /*.usa-alert--info .usa-alert__body::before {
         background: url(/assets/img/usa-icons/info.svg) no-repeat center/contain;
         height: 2rem;
         width: 2rem;
@@ -31,7 +31,7 @@
         left: .5rem;
         position: absolute;
         top: .75rem;
-    }
+    }*/
 
 </style>
 
@@ -116,26 +116,58 @@
                         <div class="grid-container">
                             <div class="grid-row">
                                 <div class="tablet:grid-col-12">
-                                    <div class="usa-alert usa-alert--info" style="width:850px;">
+                                    <div class="usa-alert usa-alert--info">
                                         <div class="usa-alert__body">
+                                            <h4 class="usa-alert__heading">Instructions</h4>
                                             <p class="usa-alert__text">
-                                                Click on a marker in the map below to display the corresponding
-                                                germplasm collection site's pertinent information.
-                                                <br />
-                                                <span style="font-style:italic;">
-                                                    Please note that an enlarged view is necessary to discern two locations in Texas.
-                                                </span>
+                                                <ul>
+                                                    <li>Click a marker to see details of a particular repository.</li>
+                                                    <li>To zoom in to a particular repository's location, select it in the list below.</li>
+                                                    <li>Select <strong>Default view</strong> to reset the map.</li>
+                                                </ul>
+                                                Please <a class="usa-link" href="@Url.Action("Index","Contact")">contact us</a> to report any incorrect or missing information.
                                             </p>
                                         </div>
                                     </div>
-                                    <br />
                                 </div>
                             </div>
                             <div class="grid-row">
                                 <div class="tablet:grid-col-12">
-                                    <div id="map" style="width:850px; height:850px;"></div>
+                                    <div class="usa-form">
+                                        <label class="usa-label" for="options">Select repository</label>
+                                        <select class="usa-select" name="options" id="ddlSelectSite">
+                                            <option value="RESET">- Default view -</option>
+                                            <option value="1">Cotton Collection</option>
+                                            <option value="2">Natl. Germplasm Repository - Brownwood</option>
+                                            <option value="3">Natl. Germplasm Repository - Corvallis</option>
+                                            <option value="4">Natl. Germplasm Repository - Davis</option>
+                                            <option value="5">Natl. Germplasm Repository - Geneva</option>
+                                            <option value="6">Natl. Germplasm Repository - Hilo</option>
+                                            <option value="7">Natl. Germplasm Repository - Mayaguez</option>
+                                            <option value="8">Natl. Germplasm Repository - Miami</option>
+                                            <option value="9">Natl. Germplasm Repository - Riverside</option>
+                                            <option value="12">Plant Germplasm Quarantine Program</option>
+                                            <option value="13">C.M. Rick Tomato Genetics Resource Center</option>
+                                            <option value="14">Plant Variety Protection Voucher Collection</option>
+                                            <option value="15">National Arboretum</option>
+                                            <option value="16">North Central Regional PI Station</option>
+                                            <option value="17">Northeast Regional PI Station</option>
+                                            <option value="19">National Small Grains Collection</option>
+                                            <option value="24">Soybean Collection</option>
+                                            <option value="31">Maize Genetic Stock Center</option>
+                                            <option value="38">Ornamental Plant Germplasm Center</option>
+                                        </select>
+                                        <br />
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="grid-row">
+                                <div class="tablet:grid-col-12">
+                                    <div id="map" style="width:748px; height:748px;"></div>
                                 </div>
                             </div>
+                            
                         </div>
                     </section>
                     <section id="section-repository-list">
@@ -203,11 +235,17 @@
 @*<script type="text/javascript" src="https://leafletjs.com/examples/choropleth/us-states.js"></script>*@
 <script type="text/javascript">
     $(document).ready(function () {
-
+       
         var onMarkerClick = function (e) {
             GetSiteInfo(this.options.myCustomId);
             $("#btnOpenSiteDetailModal")[0].click();
         }
+
+        var mapsPlaceholder = [];
+
+        L.Map.addInitHook(function () {
+            mapsPlaceholder.push(this); // Use whatever global scope variable you like.
+        });
 
         var map = L.map('map').setView([37.8, -96], 4);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -215,142 +253,100 @@
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
-        siteId = "1";
-        var marker = L.marker([30.619351, -96.361787], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
+        AddMarker(map, 1, 30.621265741529474, -96.36322365779577);
+        AddMarker(map, 2, 30.52256162087769, -96.42361694757689);
+        AddMarker(map, 3, 44.5523697626557, -123.22080590437089);
+        AddMarker(map, 4, 38.54534827747721, -121.76205582976104);
+        AddMarker(map, 5, 42.87586429614284, -77.0094786379856);
+        AddMarker(map, 6, 19.698305703576505, -155.09394900500138);
+        AddMarker(map, 7, 18.206762039508924, -67.13607922053356);
+        AddMarker(map, 8, 25.643766818971724, -80.29177123188563);
+        AddMarker(map, 9, 33.968086924220906, -117.33465691819603);
+        AddMarker(map, 12, 39.02566450368904, -76.9239371873639);
+        AddMarker(map, 13, 38.5438834072966, -121.75188154752786);
+        AddMarker(map, 14, 38.887209126646084, -77.04998720353761);
+        AddMarker(map, 15, 39.02569516107946, -76.9239839545552);
+        AddMarker(map, 16, 42.01176044472337, -93.66030706383614);
+        AddMarker(map, 17, 42.87767288811723, -77.00714768723786);
+        AddMarker(map, 19, 42.957059538060996, -112.82884538908021);
+        AddMarker(map, 24, 40.10142981569696, -88.2226084026721);
+        AddMarker(map, 31, 40.103010838004984, -88.2242952455872);
+        AddMarker(map, 38, 40.0020164163351, -83.02900516034644);
 
-        siteId = "2";
-        var marker = L.marker([30.522515482482035, -96.42369203284417], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
+        $('#ddlSelectSite').change(function () {
 
-        siteId = "3";
-        var marker = L.marker([44.552400416076324, -123.22075287304186], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
+            var siteId = this.value;
 
-        siteId = "4";
-        var marker = L.marker([38.534862012868864, -121.75462764434283], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
+            switch (siteId) {
+                case "1":
+                    map.flyTo([30.621265741529474, -96.36322365779577], 9);
+                    break;
+                case "2":
+                    map.flyTo([30.52256162087769, -96.42361694757689], 9);
+                    break;
+                case "3":
+                    map.flyTo([44.5523697626557, -123.22080590437089], 9);
+                    break;
+                case "4":
+                    map.flyTo([38.54534827747721, -121.76205582976104], 9);
+                    break;
+                case "5":
+                    map.flyTo([42.87586429614284, -77.0094786379856], 9);
+                    break;
+                case "6":
+                    map.flyTo([19.698305703576505, -155.09394900500138], 9);
+                    break;
+                case "7":
+                    map.flyTo([18.206762039508924, -67.13607922053356], 9);
+                    break;
+                case "8":
+                    map.flyTo([25.643766818971724, -80.29177123188563], 9);
+                    break;
+                case "9":
+                    map.flyTo([33.968086924220906, -117.33465691819603], 9);
+                    break;
+                case "12":
+                    map.flyTo([39.02566450368904, -76.9239371873639], 9);
+                    break;
+                case "13":
+                    map.flyTo([38.5438834072966, -121.75188154752786], 9);
+                    break;
+                case "14":
+                    map.flyTo([38.887209126646084, -77.04998720353761], 9);
+                    break;
+                case "15":
+                    map.flyTo([39.02569516107946, -76.9239839545552], 9);
+                    break;
+                case "16":
+                    map.flyTo([42.01176044472337, -93.66030706383614], 9);
+                    break;
+                case "17":
+                    map.flyTo([42.87767288811723, -77.00714768723786], 9);
+                    break;
+                case "19":
+                    map.flyTo([42.957059538060996, -112.82884538908021], 9);
+                    break;
+                case "24":
+                    map.flyTo([40.10142981569696, -88.2226084026721], 9);
+                    break;
+                case "31":
+                    map.flyTo([40.103010838004984, -88.2242952455872], 9);
+                    break;
+                case "38":
+                    map.flyTo([40.0020164163351, -83.02900516034644], 9);
+                    break;
+                case "RESET":
+                    map.setView([37.8, -96], 4);
+                    break;
+            }
+        });
 
-        siteId = "5";
-        var marker = L.marker([42.87768028143282, -77.0072383607277], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        siteId = "6";
-        var marker = L.marker([19.69834611262494, -155.09389535997298], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        siteId = "7";
-        var marker = L.marker([18.20681304702269, -67.13602555814018], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        siteId = "8";
-        var marker = L.marker([25.64388309000814, -80.2917109157293], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        siteId = "9";
-        var marker = L.marker([33.967873, -117.334614], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        siteId = "13";
-        var marker = L.marker([38.534862012868864, -121.75462764434283], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        siteId = "15";
-        var marker = L.marker([39.026515487598985, -76.9234882308379], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        siteId = "16";
-        var marker = L.marker([42.028186, -93.64162], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        siteId = "17";
-        var marker = L.marker([42.87725, -77.007079], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        siteId = "19";
-        var marker = L.marker([42.95707938078901, -112.82869678657434], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        siteId = "22";
-        var marker = L.marker([33.262636, -84.28085], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        siteId = "24";
-        var marker = L.marker([40.101249, -88.222608], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        siteId = "26";
-        var marker = L.marker([46.731716, -117.157919], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        siteId = "29";
-        var marker = L.marker([44.879492, -87.335423], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        siteId = "31";
-        var marker = L.marker([40.10305195116381, -88.22429523081477], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        siteId = "34";
-        var marker = L.marker([46.731716, -117.157919], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        siteId = "37";
-        var marker = L.marker([36.59667464938536, -119.51265894622854], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        siteId = "40";
-        var marker = L.marker([34.475486, -91.418618], { myCustomId: siteId });
-        marker.on('click', onMarkerClick);
-        marker.addTo(map);
-
-        @*function getMarkerPopupContent(siteId) {
-            var htmlString = "";
-            var link = '@Url.Action("_Detail", "Site", new { siteId = "SITE_ID" })';
-            link = link.replace("SITE_ID", siteId);
-
-            var formData = new FormData();
-            /*formData.append("siteId", siteId);*/
-
-            return $.ajax({
-                url: link,
-                type: 'POST',
-                cache: false,
-                dataType: 'json',
-                processData: false,
-                data: formData,
-                success: function (data) {
-                    //htmlString = htmlString + "<h3> " + data.site.LongName + "</h3>";
-                    htmlString = data;
-                    return JSON.stringify(htmlString);
-                },
-                error: function (ex) {
-                    return "ERROR";
-                }
-            });
-        }*@
-
+        function AddMarker(map, siteId, xCoord, yCoord) {
+            siteId = siteId;
+            var marker = L.marker([xCoord, yCoord], { myCustomId: siteId });
+            marker.on('click', onMarkerClick);
+            marker.addTo(map);
+        }
         
     });
 
@@ -391,22 +387,5 @@
 
     
 
-    /*var geojson;*/
-
-    //function resetHighlight(e) {
-    //    geojson.resetStyle(e.target);
-    //    info.update();
-    //}
-
-    //function zoomToFeature(e) {
-    //    map.fitBounds(e.target.getBounds());
-    //}
-
-    //function onEachFeature(feature, layer) {
-    //    layer.on({
-    //        mouseover: highlightFeature,
-    //        mouseout: resetHighlight,
-    //        click: zoomToFeature
-    //    });
-    //}
+    
 </script>

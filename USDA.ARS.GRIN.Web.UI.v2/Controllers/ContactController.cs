@@ -16,7 +16,8 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
         public ActionResult Index()
         {
             TempData["PAGE_CONTEXT"] = "Contact Us";
-            return View();
+            ContactViewModel viewModel = new ContactViewModel();
+            return View(viewModel);
         }
         [HttpPost]
         public ActionResult Send(ContactViewModel viewModel)
