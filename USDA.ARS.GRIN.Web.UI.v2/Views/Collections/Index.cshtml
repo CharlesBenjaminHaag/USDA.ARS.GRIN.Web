@@ -137,7 +137,15 @@
                                         <label class="usa-label" for="options">Select repository</label>
                                         <select class="usa-select" name="options" id="ddlSelectSite">
                                             <option value="RESET">- Default view -</option>
+                                            <option value="13">C.M. Rick Tomato Genetics Resource Center</option>
                                             <option value="1">Cotton Collection</option>
+                                            <option value="33">Desert Legume Program</option>
+                                            <option value="32">Forest Service National Seed Lab</option>
+                                            <option value="31">Maize Genetic Stock Center</option>
+                                            <option value="15">National Arboretum</option>
+                                            <option value="37">National Arid Land Plant Genetic Resources Unit</option>
+                                            <option value="42">National Laboratory for Genetic Resources Preservation</option>
+                                            <option value="19">National Small Grains Collection</option>
                                             <option value="2">Natl. Germplasm Repository - Brownwood</option>
                                             <option value="3">Natl. Germplasm Repository - Corvallis</option>
                                             <option value="4">Natl. Germplasm Repository - Davis</option>
@@ -146,16 +154,19 @@
                                             <option value="7">Natl. Germplasm Repository - Mayaguez</option>
                                             <option value="8">Natl. Germplasm Repository - Miami</option>
                                             <option value="9">Natl. Germplasm Repository - Riverside</option>
-                                            <option value="12">Plant Germplasm Quarantine Program</option>
-                                            <option value="13">C.M. Rick Tomato Genetics Resource Center</option>
-                                            <option value="14">Plant Variety Protection Voucher Collection</option>
-                                            <option value="15">National Arboretum</option>
                                             <option value="16">North Central Regional PI Station</option>
                                             <option value="17">Northeast Regional PI Station</option>
-                                            <option value="19">National Small Grains Collection</option>
-                                            <option value="24">Soybean Collection</option>
-                                            <option value="31">Maize Genetic Stock Center</option>
                                             <option value="38">Ornamental Plant Germplasm Center</option>
+                                            <option value="34">Pea Genetic Stock Collection</option>
+                                            <option value="27">Plant Exchange Office</option>
+                                            <option value="22">Plant Genetic Resources Conservation Unit, Griffin, GA</option>
+                                            <option value="12">Plant Germplasm Quarantine Program</option>
+                                            <option value="14">Plant Variety Protection Voucher Collection</option>
+                                            <option value="29">Potato Germplasm Introduction Station</option>
+                                            <option value="40">Rice Genetic Stock Center</option>
+                                            <option value="24">Soybean Collection</option>
+                                            <option value="25">US Nicotiana Germplasm Collection</option>
+                                            <option value="26">Western Regional PI Station</option>
                                         </select>
                                         <br />
                                     </div>
@@ -168,15 +179,6 @@
                                 </div>
                             </div>
                             
-                        </div>
-                    </section>
-                    <section id="section-repository-list">
-                        <div class="grid-container">
-                            <div class="grid-row">
-                                <div class="tablet:grid-col-12">
-                                    @{Html.RenderAction("_List", "Site", new { formatCode = "WEB" }); }
-                                </div>
-                            </div>
                         </div>
                     </section>
                 </p>
@@ -269,9 +271,20 @@
         AddMarker(map, 16, 42.01176044472337, -93.66030706383614);
         AddMarker(map, 17, 42.87767288811723, -77.00714768723786);
         AddMarker(map, 19, 42.957059538060996, -112.82884538908021);
+        AddMarker(map, 22, 33.2628691212209, -84.28086103170835);
         AddMarker(map, 24, 40.10142981569696, -88.2226084026721);
+        AddMarker(map, 25, 35.78697325278695, -78.67179093348761);
+        AddMarker(map, 26, 46.73216924552276, -117.15583494393647);
+        AddMarker(map, 27, 39.02569516107946, -76.9239839545552);
+        AddMarker(map, 29, 44.879791615571875, -87.33620707367454);
         AddMarker(map, 31, 40.103010838004984, -88.2242952455872);
+        AddMarker(map, 32, 32.805813328067096, -83.53950921637805);
+        AddMarker(map, 33, 32.27603111255101, -110.93999070492106);
+        AddMarker(map, 34, 46.73216924552276, -117.15583494393647);
+        AddMarker(map, 37, 36.59662729420124, -119.51275550369792);
         AddMarker(map, 38, 40.0020164163351, -83.02900516034644);
+        AddMarker(map, 40, 34.47568015208264, -91.41876870653792);
+        AddMarker(map, 42, 40.573075009768466, -105.07968634683476);
 
         $('#ddlSelectSite').change(function () {
 
@@ -279,61 +292,96 @@
 
             switch (siteId) {
                 case "1":
-                    map.flyTo([30.621265741529474, -96.36322365779577], 9);
+                    map.setView([30.621265741529474, -96.36322365779577], 15);
                     break;
                 case "2":
-                    map.flyTo([30.52256162087769, -96.42361694757689], 9);
+                    map.setView([30.52256162087769, -96.42361694757689], 15);
                     break;
                 case "3":
-                    map.flyTo([44.5523697626557, -123.22080590437089], 9);
+                    map.setView([44.5523697626557, -123.22080590437089], 9);
                     break;
                 case "4":
-                    map.flyTo([38.54534827747721, -121.76205582976104], 9);
+                    map.setView([38.54534827747721, -121.76205582976104], 9);
                     break;
                 case "5":
-                    map.flyTo([42.87586429614284, -77.0094786379856], 9);
+                    map.setView([42.87586429614284, -77.0094786379856], 9);
                     break;
                 case "6":
-                    map.flyTo([19.698305703576505, -155.09394900500138], 9);
+                    map.setView([19.698305703576505, -155.09394900500138], 9);
                     break;
                 case "7":
-                    map.flyTo([18.206762039508924, -67.13607922053356], 9);
+                    map.setView([18.206762039508924, -67.13607922053356], 9);
                     break;
                 case "8":
-                    map.flyTo([25.643766818971724, -80.29177123188563], 9);
+                    map.setView([25.643766818971724, -80.29177123188563], 9);
                     break;
                 case "9":
-                    map.flyTo([33.968086924220906, -117.33465691819603], 9);
+                    map.setView([33.968086924220906, -117.33465691819603], 9);
                     break;
                 case "12":
-                    map.flyTo([39.02566450368904, -76.9239371873639], 9);
+                    map.setView([39.02566450368904, -76.9239371873639], 20);
                     break;
                 case "13":
-                    map.flyTo([38.5438834072966, -121.75188154752786], 9);
+                    map.setView([38.5438834072966, -121.75188154752786], 18);
                     break;
                 case "14":
-                    map.flyTo([38.887209126646084, -77.04998720353761], 9);
+                    map.setView([38.887209126646084, -77.04998720353761], 18);
                     break;
                 case "15":
-                    map.flyTo([39.02569516107946, -76.9239839545552], 9);
+                    map.setView([39.02569516107946, -76.9239839545552], 25);
                     break;
                 case "16":
-                    map.flyTo([42.01176044472337, -93.66030706383614], 9);
+                    map.setView([42.01176044472337, -93.66030706383614], 9);
                     break;
                 case "17":
-                    map.flyTo([42.87767288811723, -77.00714768723786], 9);
+                    map.setView([42.87767288811723, -77.00714768723786], 9);
                     break;
                 case "19":
-                    map.flyTo([42.957059538060996, -112.82884538908021], 9);
+                    map.setView([42.957059538060996, -112.82884538908021], 9);
+                    break;
+                case "22":
+                    map.setView([33.2628691212209, -84.28086103170835], 9);
                     break;
                 case "24":
-                    map.flyTo([40.10142981569696, -88.2226084026721], 9);
+                    map.setView([40.10142981569696, -88.2226084026721], 9);
+                    break;
+
+
+                case "25":
+                    map.setView([35.78697325278695, -78.67179093348761], 9);
+                    break;
+                case "26":
+                    map.setView([46.73216924552276, -117.15583494393647], 9);
+                    break;
+                case "27":
+                    map.setView([39.02569516107946, -76.9239839545552], 9);
+                    break;
+                case "29":
+                    map.setView([44.879791615571875, -87.33620707367454], 9);
                     break;
                 case "31":
-                    map.flyTo([40.103010838004984, -88.2242952455872], 9);
+                    map.setView([40.103010838004984, -88.2242952455872], 9);
+                    break;
+                case "32":
+                    map.setView([32.805813328067096, -83.53950921637805], 15);
+                    break;
+                case "33":
+                    map.setView([32.27603111255101, -110.93999070492106], 9);
+                    break;
+                case "34":
+                    map.setView([46.73216924552276, -117.15583494393647], 9);
+                    break;
+                case "37":
+                    map.setView([36.59662729420124, -119.51275550369792], 9);
                     break;
                 case "38":
-                    map.flyTo([40.0020164163351, -83.02900516034644], 9);
+                    map.setView([40.0020164163351, -83.02900516034644], 9);
+                    break;
+                case "40":
+                    map.setView([34.47568015208264, -91.41876870653792], 9);
+                    break;
+                case "42":
+                    map.setView([40.573075009768466, -105.07968634683476], 9);
                     break;
                 case "RESET":
                     map.setView([37.8, -96], 4);
