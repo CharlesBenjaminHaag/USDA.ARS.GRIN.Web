@@ -1,7 +1,9 @@
 ﻿@model USDA.ARS.GRIN.Web.ViewModelLayer.SiteViewModel
 
 <h2 class="usa-modal__heading" id="modal-1-heading">
-    @Model.Entity.LongName
+    @Model.Entity.LongName (@Model.Entity.ShortName) 
+    <!--DEBUG-->
+    <span style="background-color:yellow;">@Model.Entity.ID</span> 
 </h2>
 
 @if ((Model.Entity.ID == 13) || (Model.Entity.ID == 25) || (Model.Entity.ID == 32) || (Model.Entity.ID == 33))
@@ -50,6 +52,14 @@
                 </a>
             </td>
         </tr>
+        <tr>
+            <th scope="row">Repository</th>
+            <td>
+                <a href="@Model.Entity.PrimaryURL" target="_blank">
+                    @Model.Entity.PrimaryURL
+                </a>
+            </td>
+        </tr>
     </tbody>
 </table>
 
@@ -62,17 +72,19 @@
                 Close
             </button>
         </li>
-        @if (Model.Entity.ID != 24 && Model.Entity.ID != 31 && Model.Entity.ID != 26 && Model.Entity.ID != 34)
-        {
-            <li class="usa-button-group__item">
-                <button type="button"
-                        class="usa-button usa-button--outline padding-105 text-center"
-                        data-close-modal onclick="window.location.href='https://npgsweb.ars-grin.gov/gringlobal/site?id=@Model.Entity.ID';">
-                    View in GRIN-Global
-                </button>
-            </li>
-        }
-        @if (!String.IsNullOrEmpty(Model.Entity.PrimaryURL))
+        <li class="usa-button-group__item">
+            @*<button type="button"
+                    class="usa-button usa-button--outline padding-105 text-center"
+                    data-close-modal onclick="window.location.href='https://npgsweb.ars-grin.gov/gringlobal/site?id=@Model.Entity.ID';">
+                View in GRIN-Global
+            </button>*@
+            <button type="button"
+                    class="usa-button usa-button--outline padding-105 text-center"
+                    data-close-modal onclick="window.open('https://npgsweb.ars-grin.gov/gringlobal/site?id=@Model.Entity.ID', '_blank' );">
+                View in GRIN-Global
+            </button>
+        </li>
+        @*@if (!String.IsNullOrEmpty(Model.Entity.PrimaryURL))
         {
             if (Model.Entity.ID != 24 && Model.Entity.ID != 31 && Model.Entity.ID != 26 && Model.Entity.ID != 34)
             {
@@ -84,6 +96,6 @@
                     </button>
                 </li>
             }
-        }
+        }*@
     </ul>
 </div>
