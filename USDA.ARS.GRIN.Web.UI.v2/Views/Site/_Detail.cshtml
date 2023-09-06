@@ -3,7 +3,7 @@
 <h2 class="usa-modal__heading" id="modal-1-heading">
     @Model.Entity.LongName (@Model.Entity.ShortName) 
     <!--DEBUG-->
-    <span style="background-color:yellow;">@Model.Entity.ID</span> 
+    @*<span style="background-color:yellow;">@Model.Entity.ID</span>*@ 
 </h2>
 
 @if ((Model.Entity.ID == 13) || (Model.Entity.ID == 25) || (Model.Entity.ID == 32) || (Model.Entity.ID == 33))
@@ -52,14 +52,18 @@
                 </a>
             </td>
         </tr>
-        <tr>
-            <th scope="row">Repository</th>
-            <td>
-                <a href="@Model.Entity.PrimaryURL" target="_blank">
-                    @Model.Entity.PrimaryURL
-                </a>
-            </td>
-        </tr>
+
+        @if (!String.IsNullOrEmpty(Model.Entity.Note))
+        {
+            <tr>
+                <th scope="row">Repository</th>
+                <td>
+                    <a href="@Model.Entity.Note" target="_blank">
+                        @Model.Entity.Note
+                    </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 
