@@ -13,6 +13,11 @@ namespace USDA.ARS.GRIN.Web.UI.v2.Controllers
         {
             return View();
         }
+        public ActionResult NPGS()
+        {
+            TempData["PAGE_CONTEXT"] = "National Plant Germplasm System (NPGS)";
+            return View();
+        }
         public ActionResult NGRAC()
         {
             TempData["PAGE_CONTEXT"] = "National Genetic Resources Advisory Council (NGRAC)";

@@ -1,0 +1,130 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUSWDSInterior.cshtml";
+}
+
+<div class="usa-section">
+    <div class="grid-container">
+        <div class="grid-row grid-gap">
+            <div class="usa-layout-docs__sidenav desktop:grid-col-2">
+                <nav aria-label="Secondary navigation">
+                    <ul class="usa-sidenav">
+                        <li class="usa-sidenav__item"><a href="">Home</a></li>
+                        @*<li class="usa-sidenav__item">
+                            <a href="" class="usa-current">CGC</a>
+                            <ul class="usa-sidenav__sublist">
+                                <li class="usa-sidenav__item"><a href="#section-overview">Overview</a></li>
+                                <li class="usa-sidenav__item"><a href="#section-directory">Committees</a></li>
+                                <li class="usa-sidenav__item"><a href="#section-briefings">Chair Briefings</a></li>
+
+                            </ul>
+                        </li>*@
+                        <li class="usa-sidenav__item"><a href="@Url.Action("Index","Contact")">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <main class="usa-layout-docs__main desktop:grid-col-10 usa-prose usa-layout-docs" id="main-content">
+                @*<h1>National Genetic Resources Advisory Council (NGRAC)</h1>*@
+                <p class="usa-intro">
+                    THE NATIONAL
+                    STRATEGIC GERMPLASM AND
+                    CULTIVAR COLLECTION
+                    ASSESSMENT AND UTILIZATION
+                    PLAN
+                </p>
+                <p>
+                    The <a class="usa-link" href="https://www.congress.gov/bill/115th-congress/house-bill/2" target="_blank"></a> 2018 Farm Bill directed the USDA to “develop and implement a national strategic
+                    germplasm and cultivar collection assessment and utilization plan that takes into consideration
+                    the resources and research necessary to address the significant backlog of characterization and
+                    maintenance of existing accessions considered to be critical to preserve the viability of, and
+                    public access to, germplasm and cultivars.” In response, a National Strategic Germplasm and
+                    Cultivar Collection Assessment and Utilization Plan (“Plan” hereafter) was developed in the
+                    form of three documents, all of which are listed below.
+                </p>
+
+                <div class="tablet:grid-col-12">
+                    <h3 class="site-preview-heading">Plan Documents</h3>
+                    <ul class="usa-collection usa-collection--condensed">
+                        <li class="usa-collection__item">
+                            <div class="usa-collection__body">
+                                <h4 class="usa-collection__heading">
+                                    <a class="usa-link"
+                                       href="https://www.ars-grin.gov/npgs/documents/2023 NPGS Plan Synopsis.pdf" target="_blank">
+                                        Synopsis of the National Strategic Germplasm
+                                        and Cultivar Collection Assessment and Utilization Plan
+                                    </a>
+                                </h4>
+                                <ul class="usa-collection__meta" aria-label="More information">
+                                    <li class="usa-collection__meta-item position-relative">
+                                        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                                            <use xlink:href="/assets/img/sprite.svg#file_present"></use>
+                                        </svg>
+                                        Summarizes strategies for how the NPGS will accomplish its mission of conserving PGR and
+                                        enabling their use while reducing and avoiding the backlogs that could prevent PGR and
+                                        associated data from being publicly available.
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="usa-collection__item">
+                            <div class="usa-collection__body">
+                                <h4 class="usa-collection__heading">
+                                    <a class="usa-link"
+                                       href="https://www.ars-grin.gov/npgs/documents/2023 NPGS Plan Technical Details.pdf" target="_blank">
+                                        Technical Details, Analyses, and Approaches
+                                    </a>
+                                </h4>
+                                <ul class="usa-collection__meta" aria-label="More information">
+                                    <li class="usa-collection__meta-item position-relative">
+                                        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                                            <use xlink:href="/assets/img/sprite.svg#file_present"></use>
+                                        </svg>
+                                        Contains technical details,
+                                        analyses, and approaches for implementing the overall Plan.
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="usa-collection__item">
+                            <div class="usa-collection__body">
+                                <h4 class="usa-collection__heading">
+                                    <a class="usa-link" href="https://www.ars-grin.gov/npgs/documents/2023 NPGS Plan Infographic.pdf" target="_blank">Infographic</a>
+                                </h4>
+                                <ul class="usa-collection__meta" aria-label="More information">
+                                    <li class="usa-collection__meta-item position-relative">
+                                        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                                            <use xlink:href="/assets/img/sprite.svg#file_present"></use>
+                                        </svg>
+                                        Diagrammatic summary of key elements of the plan and its supporting data.
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="usa-collection__item">
+                            <div class="usa-collection__body">
+                                <h4 class="usa-collection__heading">
+                                    <a class="usa-link"
+                                       href="https://www.ars-grin.gov/npgs/documents/2023 NPGS Assessment and Implementation Plan Supplemental Crop and Crop Wild Relative Collection Data.pdf" target="_blank">
+                                        Supplemental Crop and
+                                        Crop Wild Relative Collections Data
+                                    </a>
+                                </h4>
+                                <ul class="usa-collection__meta" aria-label="More information">
+                                    <li class="usa-collection__meta-item position-relative">
+                                        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                                            <use xlink:href="/assets/img/sprite.svg#file_present"></use>
+                                        </svg>
+                                        Individual crop and CWR
+                                        collection data for the metrics discussed in Components 3-12 of the companion document
+                                        <a href="">Technical Details, Analyses, and Approaches</a>.
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
